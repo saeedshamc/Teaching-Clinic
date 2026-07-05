@@ -1,0 +1,21 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "لپ تاپ لنوو",
+      "price": 25000000,
+      "quantity": 1,
+      "description": "لپ تاپ قدرتمند با پردازنده Intel Core i7، 16GB RAM و 512GB SSD. مناسب برای کارهای حرفه‌ای و بازی.",
+      "image": "https://via.placeholder.com/400x300?text=Laptop"
+    },
+    {
+      "id": 2,
+      "name": "گوشی موبایل سامسونگ",
+      "price": 15000000,
+      "quantity": 1,
+      "description": "گوشی هوشمند با دوربین 108 مگاپیکسلی، صفحه نمایش 6.7 اینچی و باتری 5000 میلی‌آمپر.",
+      "image": "https://via.placeholder.com/400x300?text=Mobile"
+    }
+  ]
+}
+

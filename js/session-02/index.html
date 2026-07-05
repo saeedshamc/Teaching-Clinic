@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 2: ساختارهای کنترل</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 2: ساختارهای کنترل</h1>
+        
+        <section class="section">
+            <h2>1. دستورات شرطی (Conditional Statements)</h2>
+            <div class="example">
+                <h3>مثال: if/else</h3>
+                <input type="number" id="age-input" placeholder="سن را وارد کنید" value="20">
+                <button onclick="checkAge()">بررسی سن</button>
+                <div id="age-output" class="output"></div>
+            </div>
+            
+            <div class="example">
+                <h3>مثال: Switch</h3>
+                <input type="number" id="day-input" placeholder="روز هفته (1-7)" value="1" min="1" max="7">
+                <button onclick="getDayName()">نمایش نام روز</button>
+                <div id="day-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>2. حلقه‌ها (Loops)</h2>
+            <div class="example">
+                <h3>مثال: for Loop</h3>
+                <button onclick="showForLoop()">نمایش حلقه for</button>
+                <div id="for-output" class="output"></div>
+            </div>
+            
+            <div class="example">
+                <h3>مثال: while Loop</h3>
+                <button onclick="showWhileLoop()">نمایش حلقه while</button>
+                <div id="while-output" class="output"></div>
+            </div>
+            
+            <div class="example">
+                <h3>مثال: for...of</h3>
+                <button onclick="showForOf()">نمایش for...of</button>
+                <div id="forof-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>3. توابع (Functions)</h2>
+            <div class="example">
+                <h3>مثال: انواع توابع</h3>
+                <button onclick="showFunctions()">نمایش انواع توابع</button>
+                <div id="functions-output" class="output"></div>
+            </div>
+            
+            <div class="example">
+                <h3>مثال: پارامترهای پیش‌فرض</h3>
+                <input type="text" id="name-input" placeholder="نام (اختیاری)">
+                <button onclick="greetUser()">سلام کردن</button>
+                <div id="greet-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>4. Scope (محدوده)</h2>
+            <div class="example">
+                <h3>مثال: انواع Scope</h3>
+                <button onclick="showScope()">نمایش Scope</button>
+                <div id="scope-output" class="output"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

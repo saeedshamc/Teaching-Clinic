@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 7: DOM Manipulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 7: DOM Manipulation</h1>
+        
+        <section class="section">
+            <h2>1. انتخاب عناصر</h2>
+            <div class="example">
+                <button onclick="showSelection()">نمایش انتخاب عناصر</button>
+                <div id="selection-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>2. تغییر محتوا</h2>
+            <div class="example">
+                <p id="change-me">این متن تغییر خواهد کرد</p>
+                <button onclick="changeContent()">تغییر محتوا</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>3. Event Handling</h2>
+            <div class="example">
+                <button id="event-btn">کلیک کنید</button>
+                <div id="event-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>4. Todo List (مثال کامل)</h2>
+            <div class="example">
+                <input type="text" id="todo-input" placeholder="کار جدید...">
+                <button onclick="addTodo()">اضافه کردن</button>
+                <ul id="todo-list"></ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

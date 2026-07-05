@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 1: مبانی JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            direction: rtl;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-right: 4px solid #2196f3;
+        }
+        button {
+            background: #2196f3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 1: مبانی JavaScript</h1>
+        
+        <div class="info">
+            <strong>📌 راهنما:</strong> برای دیدن خروجی‌ها، کنسول مرورگر را باز کنید (F12 یا راست کلیک → Inspect → Console)
+        </div>
+
+        <div>
+            <h3>1. متغیرها</h3>
+            <button onclick="showVariables()">نمایش متغیرها در کنسول</button>
+        </div>
+
+        <div>
+            <h3>2. انواع داده</h3>
+            <button onclick="showDataTypes()">نمایش انواع داده در کنسول</button>
+        </div>
+
+        <div>
+            <h3>3. عملگرها</h3>
+            <button onclick="showOperators()">نمایش عملگرها در کنسول</button>
+        </div>
+
+        <div>
+            <h3>4. Template Literals</h3>
+            <button onclick="showTemplateLiterals()">نمایش Template Literals در کنسول</button>
+        </div>
+
+        <div>
+            <h3>5. تبدیل نوع</h3>
+            <button onclick="showTypeConversion()">نمایش تبدیل نوع در کنسول</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
