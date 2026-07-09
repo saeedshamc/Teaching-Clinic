@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>جلسه ۵ — Deferred، data، this و موقعیت‌یابی</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+  body { font-family: Tahoma, sans-serif; max-width: 800px; margin: 30px auto; padding: 0 15px; background:#f5f5f7; }
+  h2 { border-bottom: 3px solid #1e88a8; padding-bottom: 6px; color:#222; }
+  section { background: #fff; padding: 18px; margin-bottom: 22px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+  button { background:#1e88a8; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; margin:4px; }
+  button:hover { background:#166b85; }
+  #outputBox, #outputBox2 { background:#111; color:#0f0; padding:10px; font-family:monospace; min-height: 30px; border-radius:6px; white-space:pre-wrap; }
+  .counter-btn { background:#555; }
+  #tooltipTarget { display:inline-block; margin-top:120px; padding:10px 20px; background:#eee; border-radius:6px; position:relative; }
+  #myTooltip { position:absolute; background:#222; color:#fff; padding:6px 10px; border-radius:5px; font-size:13px; display:none; white-space:nowrap; }
+  #scrollArea { height:220px; overflow-y:auto; border:1px solid #ddd; padding:10px; border-radius:8px; }
+  #scrollArea .filler { height:600px; background: linear-gradient(#f9f9f9,#eee); display:flex; align-items:center; justify-content:center; color:#999;}
+  #backToTop { position:fixed; bottom:20px; right:20px; display:none; }
+</style>
+</head>
+<body>
+
+<h1>جلسه ۵: Deferred، data، this و موقعیت‌یابی</h1>
+
+<section>
+  <h2>۱. Deferred دستی و زنجیره ترتیبی</h2>
+  <button id="runPipelineBtn">اجرای پایپ‌لاین ۳ مرحله‌ای</button>
+  <div id="outputBox">نتیجه اینجا نمایش داده می‌شود...</div>
+</section>
+
+<section>
+  <h2>۲. $.data() — شمارنده کلیک اختصاصی هر دکمه</h2>
+  <button class="counter-btn" data-name="دکمه A">دکمه A</button>
+  <button class="counter-btn" data-name="دکمه B">دکمه B</button>
+  <button class="counter-btn" data-name="دکمه C">دکمه C</button>
+  <div id="outputBox2">تعداد کلیک هر دکمه با $.data() جدا نگه‌داری می‌شود...</div>
+</section>
+
+<section>
+  <h2>۳. this vs Arrow Function در event handler</h2>
+  <button id="normalFnBtn">کلیک با function عادی</button>
+  <button id="arrowFnBtn">کلیک با Arrow Function</button>
+  <p id="thisLog">نتیجه بررسی this اینجا نمایش داده می‌شود...</p>
+</section>
+
+<section>
+  <h2>۴. Tooltip با offset()</h2>
+  <div id="tooltipTarget">روی من هاور کن
+    <div id="myTooltip">این یک Tooltip ساخته‌شده با offset() است</div>
+  </div>
+</section>
+
+<section>
+  <h2>۵. اسکرول، debounce و دکمه بازگشت به بالا</h2>
+  <div id="scrollArea">
+    <div class="filler">این باکس را اسکرول کنید...</div>
+    <div class="filler">قسمت دوم</div>
+  </div>
+  <p style="font-size:13px;color:#777">دکمه «بازگشت به بالا» گوشه پایین-راست صفحه، هنگام اسکرول کل صفحه (نه این باکس) ظاهر می‌شود؛ کمی به پایین صفحه اصلی اسکرول کنید.</p>
+</section>
+
+<button id="backToTop">بازگشت به بالا ⬆</button>
+
+<script>
+function debounce(fn, delay) {
+  var timer = null;
+  return function () {
+    var context = this, args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () { fn.apply(context, args); }, delay);
+  };
+}
+
+$(document).ready(function () {
+
+  function log(sel, msg) { $(sel).text(msg); console.log(msg); }
+
+  // ---------- ۱. Deferred pipeline ----------
+  function step(label, prevText, delay) {
+    var d = $.Deferred();
+    setTimeout(function () {
+      d.resolve((prevText ? prevText + ' -> ' : '') + label);
+    }, delay);
+    return d.promise();
+  }
+
+  $('#runPipelineBtn').on('click', function () {
+    log('#outputBox', 'در حال اجرای مرحله ۱...');
+    step('مرحله ۱ انجام شد', '', 500)
+      .then(function (r1) {
+        log('#outputBox', r1 + ' | در حال اجرای مرحله ۲...');
+        return step('مرحله ۲ انجام شد', r1, 500);
+      })
+      .then(function (r2) {
+        log('#outputBox', r2 + ' | در حال اجرای مرحله ۳...');
+        return step('مرحله ۳ انجام شد', r2, 500);
+      })
+      .then(function (finalResult) {
+        log('#outputBox', 'نتیجه نهایی: ' + finalResult);
+      });
+  });
+
+  // ---------- ۲. $.data() شمارنده اختصاصی ----------
+  $('.counter-btn').on('click', function () {
+    var $btn = $(this);
+    var current = $btn.data('clickCount') || 0;
+    current++;
+    $btn.data('clickCount', current);
+    log('#outputBox2', $btn.data('name') + ' تا الان ' + current + ' بار کلیک شده است.');
+  });
+
+  // ---------- ۳. this vs Arrow ----------
+  $('#normalFnBtn').on('click', function () {
+    // this اینجا خودِ دکمه است
+    log('#thisLog', 'با function عادی: this.tagName = ' + this.tagName + ' | متن دکمه: ' + $(this).text());
+  });
+  $('#arrowFnBtn').on('click', (event) => {
+    // this اینجا دیگر دکمه نیست؛ باید از event.currentTarget استفاده کنیم
+    var isButton = (this && this.tagName === 'BUTTON');
+    log('#thisLog', 'با Arrow Function: this ' + (isButton ? 'باز هم درست بود (بعید است)' : 'دیگر به دکمه اشاره نمی‌کند') +
+      ' — راه درست: event.currentTarget.tagName = ' + event.currentTarget.tagName);
+  });
+
+  // ---------- ۴. Tooltip با offset ----------
+  $('#tooltipTarget').on('mouseenter', function () {
+    var target = $(this);
+    var tooltip = $('#myTooltip');
+    var off = target.offset();
+    tooltip.css({
+      top: (off.top - target.outerHeight() - 34) + 'px',
+      left: off.left + 'px'
+    }).show();
+  }).on('mouseleave', function () {
+    $('#myTooltip').hide();
+  });
+
+  // ---------- ۵. scroll + debounce + back to top ----------
+  $(window).on('scroll', debounce(function () {
+    if ($(window).scrollTop() > 200) {
+      $('#backToTop').fadeIn(200);
+    } else {
+      $('#backToTop').fadeOut(200);
+    }
+  }, 100));
+
+  $('#backToTop').on('click', function () {
+    $('html, body').animate({ scrollTop: 0 }, 400);
+  });
+
+});
+</script>
+</body>
+</html>
