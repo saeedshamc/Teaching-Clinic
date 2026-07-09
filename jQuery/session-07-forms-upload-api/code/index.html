@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>جلسه ۷ — فرم‌های پیشرفته، آپلود و API</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+  body { font-family: Tahoma, sans-serif; max-width: 800px; margin: 30px auto; padding: 0 15px; background:#f5f5f7; }
+  h2 { border-bottom: 3px solid #2a7d4f; padding-bottom: 6px; color:#222; }
+  section { background: #fff; padding: 18px; margin-bottom: 22px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+  button { background:#2a7d4f; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; margin:4px; }
+  button:hover { background:#1f6039; }
+  input[type=text], input[type=email], input[type=password], textarea {
+    display:block; margin:8px 0; padding:8px; width: 100%; max-width:320px; border:1px solid #ccc; border-radius:5px; box-sizing:border-box;
+  }
+  .field-error { border-color:#e2554a !important; background:#fff5f4; }
+  .error-message { color:#e2554a; font-size:12px; margin:-4px 0 8px; }
+  #progressWrap { background:#eee; border-radius:6px; overflow:hidden; width:100%; max-width:320px; height:18px; margin-top:8px; display:none; }
+  #progressBar { background:#2a7d4f; height:100%; width:0%; color:#fff; font-size:11px; text-align:center; line-height:18px; transition: width .2s; }
+  #previewImg { max-width:120px; display:none; margin-top:8px; border-radius:6px; }
+  #userList li { padding:6px; border-bottom:1px solid #eee; }
+  #outputBox { background:#111; color:#0f0; padding:10px; font-family:monospace; min-height: 30px; border-radius:6px; white-space:pre-wrap; }
+</style>
+</head>
+<body>
+
+<h1>جلسه ۷: فرم‌های پیشرفته، آپلود فایل و API</h1>
+
+<section>
+  <h2>۱. اعتبارسنجی سفارشی فرم</h2>
+  <form id="validationForm" novalidate>
+    <input type="text" name="username" placeholder="نام کاربری" data-validate="required|min:3">
+    <input type="email" name="email" placeholder="ایمیل" data-validate="required|email">
+    <input type="password" name="password" placeholder="رمز عبور" data-validate="required|min:6">
+    <button type="submit">ثبت‌نام</button>
+  </form>
+  <div id="outputBox">نتیجه اعتبارسنجی اینجا نمایش داده می‌شود...</div>
+</section>
+
+<section>
+  <h2>۲. آپلود فایل شبیه‌سازی‌شده با پیش‌نمایش و Progress Bar</h2>
+  <input type="file" id="avatarInput" accept="image/*">
+  <img id="previewImg" alt="پیش‌نمایش">
+  <button id="uploadBtn">شروع آپلود (شبیه‌سازی‌شده)</button>
+  <div id="progressWrap"><div id="progressBar">0%</div></div>
+</section>
+
+<section>
+  <h2>۳. کار با API واقعی (JSONPlaceholder — نیاز به اینترنت)</h2>
+  <button id="loadUsersBtn">بارگذاری کاربران واقعی از API</button>
+  <input type="text" id="userSearch" placeholder="جستجوی نام کاربر...">
+  <ul id="userList"></ul>
+</section>
+
+<section>
+  <h2>۴. ذخیره خودکار در localStorage</h2>
+  <textarea id="draftArea" rows="4" placeholder="هرچی اینجا بنویسید خودکار ذخیره می‌شود، رفرش کنید و ببینید..."></textarea>
+  <button id="clearDraftBtn">پاک‌کردن پیش‌نویس ذخیره‌شده</button>
+</section>
+
+<script>
+$(document).ready(function () {
+
+  function log(sel, msg) { $(sel).text(msg); }
+
+  // ---------- ۱. اعتبارسنجی سفارشی ----------
+  function validateForm($form) {
+    var isValid = true;
+    $form.find('.error-message').remove();
+    $form.find('.field-error').removeClass('field-error');
+
+    $form.find('[data-validate]').each(function () {
+      var $field = $(this);
+      var rules = $field.data('validate').split('|');
+      var value = $field.val().trim();
+
+      for (var i = 0; i < rules.length; i++) {
+        var rule = rules[i];
+        var errorMsg = null;
+
+        if (rule === 'required' && value === '') {
+          errorMsg = 'این فیلد اجباری است.';
+        } else if (rule === 'email' && value !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          errorMsg = 'ایمیل معتبر نیست.';
+        } else if (rule.indexOf('min:') === 0) {
+          var minLen = parseInt(rule.split(':')[1], 10);
+          if (value.length < minLen) errorMsg = 'حداقل ' + minLen + ' کاراکتر لازم است.';
+        }
+
+        if (errorMsg) {
+          isValid = false;
+          $field.addClass('field-error');
+          $field.after('<div class="error-message">' + errorMsg + '</div>');
+          break;
+        }
+      }
+    });
+    return isValid;
+  }
+
+  $('#validationForm').on('submit', function (event) {
+    event.preventDefault();
+    if (validateForm($(this))) {
+      log('#outputBox', '✅ فرم معتبر است. (در پروژه واقعی اینجا Ajax ارسال می‌شد)');
+    } else {
+      log('#outputBox', '❌ فرم خطا دارد؛ به فیلدهای قرمزشده نگاه کنید.');
+    }
+  });
+
+  // اعتبارسنجی زنده روی blur
+  $('#validationForm').on('blur', '[data-validate]', function () {
+    validateForm($('#validationForm'));
+  });
+
+  // ---------- ۲. آپلود فایل شبیه‌سازی‌شده ----------
+  $('#avatarInput').on('change', function () {
+    var file = this.files[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      alert('فقط فایل تصویری مجاز است.');
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function (event) {
+      $('#previewImg').attr('src', event.target.result).show();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  $('#uploadBtn').on('click', function () {
+    var file = $('#avatarInput')[0].files[0];
+    if (!file) { alert('اول یک فایل انتخاب کنید.'); return; }
+
+    // در پروژه واقعی اینجا FormData + $.ajax با contentType:false, processData:false بود:
+    //
+    // var formData = new FormData();
+    // formData.append('avatar', file);
+    // $.ajax({ url:'/api/upload', method:'POST', data: formData,
+    //          contentType:false, processData:false, xhr: function(){ ... progress ... } });
+
+    $('#progressWrap').show();
+    var percent = 0;
+    var interval = setInterval(function () {
+      percent += Math.random() * 20;
+      if (percent >= 100) {
+        percent = 100;
+        clearInterval(interval);
+      }
+      $('#progressBar').css('width', percent + '%').text(Math.round(percent) + '%');
+    }, 250);
+  });
+
+  // ---------- ۳. API واقعی ----------
+  var allUsers = [];
+  $('#loadUsersBtn').on('click', function () {
+    $('#userList').html('<li>در حال بارگذاری...</li>');
+    $.getJSON('https://jsonplaceholder.typicode.com/users')
+      .done(function (users) {
+        allUsers = users;
+        renderUsers(users);
+      })
+      .fail(function () {
+        $('#userList').html('<li>خطا در اتصال به API (احتمالاً اینترنت در دسترس نیست)</li>');
+      });
+  });
+
+  function renderUsers(users) {
+    var html = '';
+    $.each(users, function (i, user) {
+      html += '<li>' + user.name + ' — ' + user.email + '</li>';
+    });
+    $('#userList').html(html || '<li>موردی یافت نشد</li>');
+  }
+
+  function debounce(fn, delay) {
+    var timer = null;
+    return function () {
+      var ctx = this, args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () { fn.apply(ctx, args); }, delay);
+    };
+  }
+
+  $('#userSearch').on('input', debounce(function () {
+    var term = $(this).val().trim().toLowerCase();
+    var filtered = allUsers.filter(function (u) {
+      return u.name.toLowerCase().indexOf(term) !== -1;
+    });
+    renderUsers(filtered);
+  }, 250));
+
+  // ---------- ۴. localStorage ----------
+  var saved = localStorage.getItem('jquery_course_draft');
+  if (saved) { $('#draftArea').val(saved); }
+
+  $('#draftArea').on('input', debounce(function () {
+    localStorage.setItem('jquery_course_draft', $(this).val());
+  }, 300));
+
+  $('#clearDraftBtn').on('click', function () {
+    localStorage.removeItem('jquery_course_draft');
+    $('#draftArea').val('');
+  });
+
+});
+</script>
+</body>
+</html>

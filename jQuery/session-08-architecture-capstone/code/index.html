@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>جلسه ۸ — پروژه نهایی: داشبورد گالری تصاویر</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+  body { font-family: Tahoma, sans-serif; max-width: 900px; margin: 30px auto; padding: 0 15px; background:#f5f5f7; }
+  h2 { border-bottom: 3px solid #4a2ce2; padding-bottom: 6px; color:#222; }
+  section { background: #fff; padding: 18px; margin-bottom: 22px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+  button { background:#4a2ce2; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; margin:4px; }
+  button:hover { background:#3820b3; }
+  input[type=text] { padding:7px; border:1px solid #ccc; border-radius:5px; }
+
+  .filters button { background:#eee; color:#333; }
+  .filters button.active { background:#4a2ce2; color:#fff; }
+
+  #galleryGrid { display:grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap:12px; margin-top:14px; }
+  .gallery-item { border-radius:10px; padding:14px 8px; color:#fff; text-align:center; cursor:grab; position:relative; min-height:90px;
+                  display:flex; flex-direction:column; justify-content:flex-end; font-size:13px; }
+  .gallery-item.dragging { opacity:.35; }
+  .gallery-item .cat-tag { position:absolute; top:6px; right:6px; background:rgba(0,0,0,.25); border-radius:4px; padding:1px 6px; font-size:10px; }
+  .gallery-item .remove-btn { position:absolute; top:6px; left:6px; background:rgba(0,0,0,.35); border:none; color:#fff;
+                               width:20px; height:20px; border-radius:50%; cursor:pointer; font-size:11px; line-height:1; padding:0; margin:0; }
+
+  #addForm input { margin-left:6px; }
+  #statsBox { font-size:13px; color:#555; margin-top:6px; }
+
+  #toastContainer { position: fixed; bottom: 20px; left: 20px; z-index: 999; display:flex; flex-direction:column; gap:8px; }
+  .toast { background:#222; color:#fff; padding:10px 16px; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,.3); font-size:14px; }
+</style>
+</head>
+<body>
+
+<h1>جلسه ۸: پروژه نهایی — داشبورد گالری تصاویر</h1>
+<p style="color:#777;font-size:14px">این پروژه ترکیب همه ۸ جلسه دوره است: Module Pattern + Event Bus، Drag&Drop، فیلتر، جستجوی زنده با debounce، فرم با اعتبارسنجی، localStorage و یک پلاگین toast.</p>
+
+<section>
+  <h2>افزودن تصویر جدید</h2>
+  <form id="addForm">
+    <input type="text" id="newTitle" placeholder="عنوان تصویر" required>
+    <select id="newCategory">
+      <option value="nature">طبیعت</option>
+      <option value="city">شهر</option>
+      <option value="people">افراد</option>
+    </select>
+    <button type="submit">افزودن به گالری</button>
+  </form>
+</section>
+
+<section>
+  <h2>جستجو و فیلتر</h2>
+  <input type="text" id="searchBox" placeholder="جستجو در عنوان‌ها...">
+  <div class="filters" style="margin-top:10px;">
+    <button class="filter-btn active" data-filter="all">همه</button>
+    <button class="filter-btn" data-filter="nature">طبیعت</button>
+    <button class="filter-btn" data-filter="city">شهر</button>
+    <button class="filter-btn" data-filter="people">افراد</button>
+  </div>
+  <div id="statsBox"></div>
+</section>
+
+<section>
+  <h2>گالری (قابل جابه‌جایی با Drag & Drop)</h2>
+  <div id="galleryGrid"></div>
+</section>
+
+<div id="toastContainer"></div>
+
+<script>
+/* ==========================================================
+   پلاگین toastNotify (از جلسه ۴)
+========================================================== */
+(function ($) {
+  'use strict';
+  $.fn.toastNotify = function (message, duration) {
+    duration = duration || 2200;
+    var $toast = $('<div class="toast"></div>').text(message);
+    $(this).append($toast);
+    setTimeout(function () {
+      $toast.fadeOut(300, function () { $(this).remove(); });
+    }, duration);
+    return this;
+  };
+})(jQuery);
+
+function debounce(fn, delay) {
+  var timer = null;
+  return function () {
+    var ctx = this, args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () { fn.apply(ctx, args); }, delay);
+  };
+}
+
+var STORAGE_KEY = 'jquery_course_gallery_v1';
+var CATEGORY_COLORS = { nature: '#2a7d4f', city: '#1e88a8', people: '#c76a1e' };
+
+/* ==========================================================
+   GalleryModule — تنها ماژولی که دیتای گالری و DOM آن را می‌سازد
+========================================================== */
+var GalleryModule = (function ($) {
+  var images = [];
+  var currentFilter = 'all';
+  var currentSearch = '';
+  var draggedId = null;
+
+  function persist() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(images));
+  }
+
+  function loadFromStorage() {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try { return JSON.parse(saved); } catch (e) { return null; }
+    }
+    return null;
+  }
+
+  function render() {
+    var $grid = $('#galleryGrid');
+    $grid.empty();
+
+    var visible = images.filter(function (img) {
+      var matchesFilter = currentFilter === 'all' || img.category === currentFilter;
+      var matchesSearch = currentSearch === '' || img.title.toLowerCase().indexOf(currentSearch) !== -1;
+      return matchesFilter && matchesSearch;
+    });
+
+    $.each(visible, function (i, img) {
+      var color = CATEGORY_COLORS[img.category] || '#888';
+      var $item = $(
+        '<div class="gallery-item" draggable="true" data-id="' + img.id + '" style="background:' + color + '">' +
+          '<span class="cat-tag">' + img.category + '</span>' +
+          '<button class="remove-btn" title="حذف">✕</button>' +
+          '<span class="title-label"></span>' +
+        '</div>'
+      );
+      $item.find('.title-label').text(img.title); // .text() برای امنیت در برابر XSS
+      $grid.append($item);
+    });
+
+    if (visible.length === 0) {
+      $grid.append('<div style="grid-column:1/-1;color:#999;text-align:center;padding:20px;">موردی یافت نشد</div>');
+    }
+
+    $(document).trigger('gallery:rendered', [images.length, visible.length]);
+  }
+
+  function bindGridEvents() {
+    // حذف تصویر (Event Delegation + closest)
+    $('#galleryGrid').on('click', '.remove-btn', function () {
+      var id = $(this).closest('.gallery-item').data('id');
+      images = images.filter(function (img) { return img.id !== id; });
+      persist();
+      render();
+      $('#toastContainer').toastNotify('🗑️ تصویر حذف شد.');
+      $(document).trigger('gallery:imageRemoved', [id]);
+    });
+
+    // Drag & Drop برای تغییر ترتیب
+    $('#galleryGrid').on('dragstart', '.gallery-item', function () {
+      draggedId = $(this).data('id');
+      $(this).addClass('dragging');
+    });
+    $('#galleryGrid').on('dragend', '.gallery-item', function () {
+      $(this).removeClass('dragging');
+    });
+    $('#galleryGrid').on('dragover', '.gallery-item', function (event) {
+      event.preventDefault();
+    });
+    $('#galleryGrid').on('drop', '.gallery-item', function (event) {
+      event.preventDefault();
+      var targetId = $(this).data('id');
+      if (targetId === draggedId) return;
+
+      var draggedIndex = images.findIndex(function (img) { return img.id === draggedId; });
+      var targetIndex = images.findIndex(function (img) { return img.id === targetId; });
+      if (draggedIndex === -1 || targetIndex === -1) return;
+
+      var moved = images.splice(draggedIndex, 1)[0];
+      images.splice(targetIndex, 0, moved);
+      persist();
+      render();
+    });
+  }
+
+  return {
+    init: function (defaultImages) {
+      var stored = loadFromStorage();
+      images = stored || defaultImages;
+      bindGridEvents();
+
+      // گوش‌دادن به رویدادهای سراسری از ماژول‌های دیگر (Event Bus)
+      $(document).on('gallery:filterChanged', function (event, filter) {
+        currentFilter = filter;
+        render();
+      });
+      $(document).on('gallery:searchChanged', function (event, term) {
+        currentSearch = term.toLowerCase();
+        render();
+      });
+
+      render();
+    },
+    addImage: function (title, category) {
+      var newImg = { id: Date.now(), title: title, category: category };
+      images.push(newImg);
+      persist();
+      render();
+      $(document).trigger('gallery:imageAdded', [newImg]);
+    }
+  };
+})(jQuery);
+
+/* ==========================================================
+   FilterModule — فقط دکمه‌های فیلتر را مدیریت می‌کند
+========================================================== */
+var FilterModule = (function ($) {
+  return {
+    init: function () {
+      $('.filter-btn').on('click', function () {
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+        var filter = $(this).data('filter');
+        $(document).trigger('gallery:filterChanged', [filter]);
+      });
+    }
+  };
+})(jQuery);
+
+/* ==========================================================
+   SearchModule — فقط جستجو را مدیریت می‌کند
+========================================================== */
+var SearchModule = (function ($) {
+  return {
+    init: function () {
+      $('#searchBox').on('input', debounce(function () {
+        $(document).trigger('gallery:searchChanged', [$(this).val().trim()]);
+      }, 250));
+    }
+  };
+})(jQuery);
+
+/* ==========================================================
+   AddFormModule — فرم افزودن تصویر (با اعتبارسنجی ساده)
+========================================================== */
+var AddFormModule = (function ($) {
+  return {
+    init: function () {
+      $('#addForm').on('submit', function (event) {
+        event.preventDefault();
+        var title = $('#newTitle').val().trim();
+        var category = $('#newCategory').val();
+        if (title === '') {
+          $('#toastContainer').toastNotify('⚠️ عنوان نمی‌تواند خالی باشد.');
+          return;
+        }
+        GalleryModule.addImage(title, category);
+        $('#toastContainer').toastNotify('✅ تصویر «' + title + '» اضافه شد.');
+        $('#newTitle').val('').focus();
+      });
+    }
+  };
+})(jQuery);
+
+/* ==========================================================
+   StatsModule — فقط با گوش‌دادن به رویدادها آمار نشان می‌دهد
+   (تمرین پیشنهادی جلسه ۸، اینجا از قبل پیاده‌سازی شده)
+========================================================== */
+var StatsModule = (function ($) {
+  return {
+    init: function () {
+      $(document).on('gallery:rendered', function (event, total, visible) {
+        $('#statsBox').text('نمایش ' + visible + ' مورد از مجموع ' + total + ' تصویر.');
+      });
+    }
+  };
+})(jQuery);
+
+/* ==========================================================
+   راه‌اندازی برنامه
+========================================================== */
+$(document).ready(function () {
+  var defaultImages = [
+    { id: 1, title: 'جنگل سبز', category: 'nature' },
+    { id: 2, title: 'برج آسمان‌خراش', category: 'city' },
+    { id: 3, title: 'خانواده در پارک', category: 'people' },
+    { id: 4, title: 'دریاچه آرام', category: 'nature' },
+    { id: 5, title: 'خیابان شب', category: 'city' }
+  ];
+
+  GalleryModule.init(defaultImages);
+  FilterModule.init();
+  SearchModule.init();
+  AddFormModule.init();
+  StatsModule.init();
+});
+</script>
+</body>
+</html>
