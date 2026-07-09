@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>جلسه ۱ — سلکتورها و پایه DOM</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+  body { font-family: Tahoma, sans-serif; max-width: 800px; margin: 30px auto; padding: 0 15px; background:#f5f5f7; }
+  h2 { border-bottom: 3px solid #4a56e2; padding-bottom: 6px; color:#222; }
+  section { background: #fff; padding: 18px; margin-bottom: 22px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+  button { background:#4a56e2; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; margin:4px; }
+  button:hover { background:#333cb5; }
+  ul#itemList li { padding:6px; }
+  li.even-row { background:#eef1ff; }
+  li.odd-row { background:#fff; }
+  .highlight { background:#ffef99 !important; }
+  table { border-collapse: collapse; width:100%; }
+  td, th { border:1px solid #ddd; padding:6px 10px; text-align:right; }
+  tr.zebra-even { background:#f0f4ff; }
+  tr.zebra-odd { background:#ffffff; }
+  #outputBox { background:#111; color:#0f0; padding:10px; font-family:monospace; min-height: 30px; border-radius:6px; }
+</style>
+</head>
+<body>
+
+<h1>جلسه ۱: سلکتورها و مانیپولیشن پایه DOM</h1>
+
+<section>
+  <h2>۱. متن، HTML، Attribute و CSS</h2>
+  <p id="demoText">این یک پاراگراف نمونه است.</p>
+  <button id="btnChangeText">تغییر متن با .text()</button>
+  <button id="btnChangeHtml">تغییر HTML با .html()</button>
+  <button id="btnChangeCss">تغییر رنگ با .css()</button>
+  <button id="btnToggleClass">toggleClass('highlight')</button>
+</section>
+
+<section>
+  <h2>۲. attr vs prop (چک‌باکس)</h2>
+  <label><input type="checkbox" id="myCheckbox"> منو مشترک کن</label>
+  <br><br>
+  <button id="btnCheckAttr">نمایش با .attr('checked')</button>
+  <button id="btnCheckProp">نمایش با .prop('checked')</button>
+  <p>نتیجه: <span id="checkResult">—</span></p>
+</section>
+
+<section>
+  <h2>۳. سلکتورهای اختصاصی jQuery</h2>
+  <ul id="itemList">
+    <li>آیتم صفر</li>
+    <li>آیتم یک</li>
+    <li>آیتم دو</li>
+    <li>آیتم سه</li>
+    <li>آیتم چهار</li>
+  </ul>
+  <button id="btnFirst">هایلایت اولین (:first)</button>
+  <button id="btnLast">هایلایت آخرین (:last)</button>
+  <button id="btnEq2">هایلایت eq(2)</button>
+  <button id="btnEven">هایلایت زوج‌ها (:even)</button>
+  <button id="btnOdd">هایلایت فردها (:odd)</button>
+  <button id="btnReset">پاک‌کردن هایلایت‌ها</button>
+</section>
+
+<section>
+  <h2>۴. متد each و شماره‌گذاری خودکار</h2>
+  <button id="btnNumberItems">شماره‌گذاری آیتم‌های بالا با each()</button>
+</section>
+
+<section>
+  <h2>۵. جدول زبرا (Zebra Table) با :odd / :even</h2>
+  <table id="dataTable">
+    <tr><th>ردیف</th><th>نام</th></tr>
+    <tr><td>۱</td><td>علی</td></tr>
+    <tr><td>۲</td><td>مریم</td></tr>
+    <tr><td>۳</td><td>رضا</td></tr>
+    <tr><td>۴</td><td>سارا</td></tr>
+    <tr><td>۵</td><td>حسین</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>۶. خروجی کنسول‌مانند</h2>
+  <div id="outputBox">منتظر کلیک شما...</div>
+</section>
+
+<script>
+$(document).ready(function () {
+
+  function log(msg) {
+    $('#outputBox').text(msg);
+    console.log(msg);
+  }
+
+  // ۱. متن/HTML/CSS
+  $('#btnChangeText').on('click', function () {
+    $('#demoText').text('متن با .text() عوض شد. برچسب‌های <b> اگر بنویسید به‌صورت متن خام نمایش داده می‌شوند.');
+  });
+  $('#btnChangeHtml').on('click', function () {
+    $('#demoText').html('این متن با <b>.html()</b> نوشته شده و <span style="color:red">تگ‌ها اجرا می‌شوند</span>.');
+  });
+  $('#btnChangeCss').on('click', function () {
+    $('#demoText').css({ color: '#4a56e2', fontWeight: 'bold' });
+  });
+  $('#btnToggleClass').on('click', function () {
+    $('#demoText').toggleClass('highlight');
+  });
+
+  // ۲. attr vs prop
+  $('#btnCheckAttr').on('click', function () {
+    var v = $('#myCheckbox').attr('checked');
+    log('نتیجه attr("checked") = ' + v + '  (این معمولاً مقدار اولیه HTML است، نه وضعیت زنده)');
+    $('#checkResult').text(String(v));
+  });
+  $('#btnCheckProp').on('click', function () {
+    var v = $('#myCheckbox').prop('checked');
+    log('نتیجه prop("checked") = ' + v + '  (این وضعیت واقعی و زنده چک‌باکس است)');
+    $('#checkResult').text(String(v));
+  });
+
+  // ۳. سلکتورهای اختصاصی
+  var $items = $('#itemList li'); // کش کردن سلکتور
+  $('#btnFirst').on('click', function () {
+    $items.removeClass('highlight');
+    $('#itemList li:first').addClass('highlight');
+  });
+  $('#btnLast').on('click', function () {
+    $items.removeClass('highlight');
+    $('#itemList li:last').addClass('highlight');
+  });
+  $('#btnEq2').on('click', function () {
+    $items.removeClass('highlight');
+    $items.eq(2).addClass('highlight'); // معادل سریع‌تر :eq(2)
+  });
+  $('#btnEven').on('click', function () {
+    $items.removeClass('highlight');
+    $('#itemList li:even').addClass('highlight');
+  });
+  $('#btnOdd').on('click', function () {
+    $items.removeClass('highlight');
+    $('#itemList li:odd').addClass('highlight');
+  });
+  $('#btnReset').on('click', function () {
+    $items.removeClass('highlight');
+  });
+
+  // ۴. each
+  $('#btnNumberItems').on('click', function () {
+    $items.each(function (index, element) {
+      // this === element === خود المان DOM خام
+      var original = $(this).text().replace(/^\[\d+\]\s*/, '');
+      $(this).text('[' + index + '] ' + original);
+    });
+    log('همه آیتم‌ها با each() شماره‌گذاری شدند.');
+  });
+
+  // ۵. زبرا تیبل
+  $('#dataTable tr:gt(0):even').addClass('zebra-even'); // gt(0) یعنی ردیف هدر را حساب نکن
+  $('#dataTable tr:gt(0):odd').addClass('zebra-odd');
+
+});
+</script>
+</body>
+</html>
