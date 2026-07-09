@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>جلسه ۶ — کامپوننت‌های UI از صفر</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+  body { font-family: Tahoma, sans-serif; max-width: 800px; margin: 30px auto; padding: 0 15px; background:#f5f5f7; }
+  h2 { border-bottom: 3px solid #c76a1e; padding-bottom: 6px; color:#222; }
+  section { background: #fff; padding: 18px; margin-bottom: 22px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+  button { background:#c76a1e; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; margin:4px; }
+  button:hover { background:#a3550f; }
+
+  /* Tabs */
+  .tabs { border:1px solid #eee; border-radius:8px; overflow:hidden; margin-bottom:14px; }
+  .tab-headers { display:flex; background:#f4f4f4; }
+  .tab-header { flex:1; background:none; color:#333; border-radius:0; margin:0; border-bottom:3px solid transparent; }
+  .tab-header.active { border-bottom:3px solid #c76a1e; color:#c76a1e; font-weight:bold; background:#fff; }
+  .tab-panel { padding:14px; }
+
+  /* Modal */
+  .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.5); display:none; align-items:center; justify-content:center; z-index:1000; }
+  .modal-box { background:#fff; padding:20px; border-radius:10px; width:300px; position:relative; }
+  .modal-close { position:absolute; top:8px; left:8px; background:#e2554a; padding:4px 10px; }
+  body.modal-open { overflow:hidden; }
+
+  /* Tooltip */
+  .custom-tooltip { position:absolute; background:#222; color:#fff; padding:5px 10px; border-radius:5px; font-size:12px; z-index:2000; white-space:nowrap; }
+  [data-tooltip] { border-bottom:1px dashed #999; cursor:help; }
+
+  /* Dropdown */
+  .dropdown { position:relative; display:inline-block; }
+  .dropdown-menu { position:absolute; top:110%; right:0; background:#fff; border:1px solid #ddd; border-radius:8px; min-width:160px; display:none; box-shadow:0 4px 10px rgba(0,0,0,.1); z-index:10; }
+  .dropdown-menu a { display:block; padding:8px 12px; color:#333; text-decoration:none; }
+  .dropdown-menu a:hover { background:#f4f4f4; }
+
+  /* Drag & Drop */
+  #sortableList { list-style:none; padding:0; }
+  #sortableList li { padding:10px; border:1px solid #ddd; border-radius:6px; margin-bottom:6px; background:#fafafa; cursor:grab; }
+  #sortableList li.dragging { opacity:.4; }
+  #dragResult { font-size:13px; color:#777; margin-top:8px; }
+</style>
+</head>
+<body>
+
+<h1>جلسه ۶: کامپوننت‌های UI از صفر</h1>
+
+<section>
+  <h2>۱. Tabs (دو نمونه مستقل روی یک صفحه)</h2>
+
+  <div class="tabs">
+    <div class="tab-headers">
+      <button class="tab-header active" data-tab="t1a">درباره</button>
+      <button class="tab-header" data-tab="t1b">ویژگی‌ها</button>
+    </div>
+    <div class="tab-panel" id="t1a">این تب اول از نمونه شماره یک است.</div>
+    <div class="tab-panel" id="t1b" style="display:none">ویژگی‌های نمونه شماره یک.</div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab-headers">
+      <button class="tab-header active" data-tab="t2a">قیمت</button>
+      <button class="tab-header" data-tab="t2b">پشتیبانی</button>
+    </div>
+    <div class="tab-panel" id="t2a">این تب اول از نمونه شماره دو است (id متفاوت، بدون تداخل).</div>
+    <div class="tab-panel" id="t2b" style="display:none">اطلاعات پشتیبانی نمونه دو.</div>
+  </div>
+</section>
+
+<section>
+  <h2>۲. Modal / Dialog</h2>
+  <button id="openModalBtn">باز کردن مودال</button>
+  <p style="font-size:13px;color:#777">با کلیک روی پس‌زمینه تیره، دکمه ✕ یا کلید Escape بسته می‌شود.</p>
+</section>
+
+<div class="modal-overlay" id="myModal">
+  <div class="modal-box">
+    <button class="modal-close">✕</button>
+    <h3>عنوان مودال</h3>
+    <p>این یک مودال ساخته‌شده کاملاً با jQuery خام است، بدون jQuery UI.</p>
+  </div>
+</div>
+
+<section>
+  <h2>۳. Tooltip سفارشی (data-tooltip)</h2>
+  <p>این یک <span data-tooltip="این توضیح Tooltip است">متن مهم</span> در وسط جمله است که با هاور توضیح نشان می‌دهد.</p>
+</section>
+
+<section>
+  <h2>۴. Dropdown با بستن با کلیک بیرون</h2>
+  <div class="dropdown">
+    <button class="dropdown-toggle">منو ▾</button>
+    <div class="dropdown-menu">
+      <a href="#">پروفایل</a>
+      <a href="#">تنظیمات</a>
+      <a href="#">خروج</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>۵. Drag & Drop (مرتب‌سازی لیست)</h2>
+  <ul id="sortableList">
+    <li draggable="true" data-id="1">آیتم شماره ۱</li>
+    <li draggable="true" data-id="2">آیتم شماره ۲</li>
+    <li draggable="true" data-id="3">آیتم شماره ۳</li>
+    <li draggable="true" data-id="4">آیتم شماره ۴</li>
+  </ul>
+  <button id="showOrderBtn">نمایش ترتیب فعلی</button>
+  <div id="dragResult">ترتیب اینجا نمایش داده می‌شود...</div>
+</section>
+
+<script>
+$(document).ready(function () {
+
+  // ---------- ۱. Tabs (چند نمونه مستقل) ----------
+  $('.tab-headers').on('click', '.tab-header', function () {
+    var $header = $(this);
+    var targetId = $header.data('tab');
+    var $tabsContainer = $header.closest('.tabs');
+
+    $tabsContainer.find('.tab-header').removeClass('active');
+    $tabsContainer.find('.tab-panel').hide();
+
+    $header.addClass('active');
+    $tabsContainer.find('#' + targetId).show();
+  });
+
+  // ---------- ۲. Modal ----------
+  function openModal($modal) {
+    $modal.css('display', 'flex');
+    $('body').addClass('modal-open');
+  }
+  function closeModal($modal) {
+    $modal.fadeOut(150);
+    $('body').removeClass('modal-open');
+  }
+
+  $('#openModalBtn').on('click', function () { openModal($('#myModal')); });
+  $('.modal-close').on('click', function () { closeModal($(this).closest('.modal-overlay')); });
+  $('.modal-overlay').on('click', function (event) {
+    if (event.target === this) { closeModal($(this)); }
+  });
+  $(document).on('keydown', function (event) {
+    if (event.key === 'Escape') { closeModal($('.modal-overlay:visible')); }
+  });
+
+  // ---------- ۳. Tooltip سفارشی ----------
+  $(document).on('mouseenter', '[data-tooltip]', function () {
+    var $el = $(this);
+    var text = $el.data('tooltip');
+    var $tip = $('<div class="custom-tooltip"></div>').text(text).appendTo('body');
+    var off = $el.offset();
+    $tip.css({
+      top: off.top - $tip.outerHeight() - 8,
+      left: off.left + ($el.outerWidth() / 2) - ($tip.outerWidth() / 2)
+    });
+  }).on('mouseleave', '[data-tooltip]', function () {
+    $('.custom-tooltip').remove();
+  });
+
+  // ---------- ۴. Dropdown ----------
+  $('.dropdown-toggle').on('click', function (event) {
+    event.stopPropagation();
+    $(this).next('.dropdown-menu').toggle();
+  });
+  $(document).on('click', function () {
+    $('.dropdown-menu').hide();
+  });
+
+  // ---------- ۵. Drag & Drop ----------
+  var draggedId = null;
+
+  $('#sortableList').on('dragstart', 'li', function (event) {
+    draggedId = $(this).data('id');
+    $(this).addClass('dragging');
+    if (event.originalEvent && event.originalEvent.dataTransfer) {
+      event.originalEvent.dataTransfer.setData('text/plain', draggedId);
+    }
+  });
+  $('#sortableList').on('dragend', 'li', function () {
+    $(this).removeClass('dragging');
+  });
+  $('#sortableList').on('dragover', 'li', function (event) {
+    event.preventDefault(); // ضروری تا drop مجاز شود
+  });
+  $('#sortableList').on('drop', 'li', function (event) {
+    event.preventDefault();
+    var targetId = $(this).data('id');
+    if (targetId === draggedId) return;
+
+    var $dragged = $('#sortableList').find('[data-id="' + draggedId + '"]');
+    var $target = $(this);
+
+    if ($dragged.index() < $target.index()) {
+      $dragged.insertAfter($target);
+    } else {
+      $dragged.insertBefore($target);
+    }
+  });
+
+  $('#showOrderBtn').on('click', function () {
+    var order = $('#sortableList li').map(function () {
+      return $(this).text();
+    }).get().join(' -> ');
+    $('#dragResult').text('ترتیب فعلی: ' + order);
+  });
+
+});
+</script>
+</body>
+</html>
