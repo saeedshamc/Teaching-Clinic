@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>جلسه ۲ — رویدادها و افکت‌ها</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+  body { font-family: Tahoma, sans-serif; max-width: 800px; margin: 30px auto; padding: 0 15px; background:#f5f5f7; }
+  h2 { border-bottom: 3px solid #e2554a; padding-bottom: 6px; color:#222; }
+  section { background: #fff; padding: 18px; margin-bottom: 22px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+  button { background:#e2554a; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; margin:4px; }
+  button:hover { background:#b53f36; }
+  #box { width:120px; height:80px; background:#4a56e2; border-radius:8px; margin-top:10px; transition: background-color .4s ease; }
+  #box.hovered { background:#e2554a; }
+  .accordion-header { background:#eee; padding:10px; cursor:pointer; border-radius:6px; margin-top:6px; font-weight:bold; }
+  .accordion-panel { display:none; padding:10px; background:#fafafa; border:1px solid #eee; }
+  #todoList li { padding:8px; border-bottom:1px solid #eee; cursor:pointer; }
+  #todoList li.done { text-decoration: line-through; color:#999; background:#f4fff4; }
+  #hoverLog, #outputBox { background:#111; color:#0f0; padding:10px; font-family:monospace; min-height: 30px; border-radius:6px; }
+</style>
+</head>
+<body>
+
+<h1>جلسه ۲: رویدادها و افکت‌ها</h1>
+
+<section>
+  <h2>۱. رویدادهای پایه و event object</h2>
+  <button id="clickBtn">مرا کلیک کن</button>
+  <div id="outputBox">در انتظار کلیک...</div>
+</section>
+
+<section>
+  <h2>۲. Event Delegation — لیست پویا (To-Do)</h2>
+  <input type="text" id="todoInput" placeholder="کار جدید...">
+  <button id="addTodoBtn">افزودن</button>
+  <ul id="todoList">
+    <li>خرید نان (کلیک کن تا انجام‌شده علامت بخورد)</li>
+    <li>پاسخ به ایمیل‌ها</li>
+  </ul>
+  <p style="font-size:13px;color:#777">رویداد کلیک روی <code>#todoList</code> (والد ثابت) وصل شده، پس آیتم‌های جدید هم کار می‌کنند.</p>
+</section>
+
+<section>
+  <h2>۳. mouseenter/leave + CSS Transition (نه animate)</h2>
+  <div id="box"></div>
+</section>
+
+<section>
+  <h2>۴. آکاردئون با slideToggle</h2>
+  <div class="accordion-header">بخش یک — درباره ما</div>
+  <div class="accordion-panel"><p>این محتوای بخش یک است.</p></div>
+  <div class="accordion-header">بخش دو — خدمات</div>
+  <div class="accordion-panel"><p>این محتوای بخش دو است.</p></div>
+  <div class="accordion-header">بخش سه — تماس</div>
+  <div class="accordion-panel"><p>این محتوای بخش سه است.</p></div>
+</section>
+
+<section>
+  <h2>۵. fadeIn/fadeOut/animate و اهمیت stop()</h2>
+  <button id="fadeToggleBtn">fadeToggle باکس زیر</button>
+  <button id="animateBtn">animate سفارشی (اندازه)</button>
+  <button id="fastClickTest">تست کلیک سریع (بدون stop توصیه نمی‌شود امتحان کنید!)</button>
+  <div id="animBox" style="width:80px;height:60px;background:#27ae60;margin-top:10px;border-radius:6px;"></div>
+</section>
+
+<script>
+$(document).ready(function () {
+
+  function log(sel, msg) { $(sel).text(msg); console.log(msg); }
+
+  // ۱. رویداد پایه + event object
+  $('#clickBtn').on('click', function (event) {
+    log('#outputBox',
+      'کلیک شد! type=' + event.type +
+      ' | pageX=' + event.pageX +
+      ' | target=' + event.target.tagName);
+  });
+
+  // ۲. Event Delegation روی لیست To-Do
+  $('#addTodoBtn').on('click', function () {
+    var val = $('#todoInput').val().trim();
+    if (val === '') return;
+    $('#todoList').append('<li>' + $('<div>').text(val).html() + '</li>'); // escape ساده برای امنیت
+    $('#todoInput').val('');
+  });
+  // این رویداد روی والد ثابت #todoList وصل شده -> آیتم‌های جدید هم پوشش داده می‌شوند
+  $('#todoList').on('click', 'li', function () {
+    $(this).toggleClass('done');
+  });
+
+  // ۳. mouseenter/leave (بدون bubbling ناخواسته) + transition CSS
+  $('#box').on('mouseenter', function () {
+    $(this).addClass('hovered');
+  }).on('mouseleave', function () {
+    $(this).removeClass('hovered');
+  });
+
+  // ۴. آکاردئون
+  $('.accordion-header').on('click', function () {
+    var $panel = $(this).next('.accordion-panel');
+    $('.accordion-panel').not($panel).slideUp(200);
+    $panel.stop(true, true).slideToggle(200);
+  });
+
+  // ۵. fade / animate / اهمیت stop
+  $('#fadeToggleBtn').on('click', function () {
+    $('#animBox').stop(true, true).fadeToggle(400);
+  });
+  $('#animateBtn').on('click', function () {
+    $('#animBox').stop(true, true).animate({
+      width: '200px',
+      height: '120px'
+    }, 500).animate({
+      width: '80px',
+      height: '60px'
+    }, 500);
+  });
+  $('#fastClickTest').on('click', function () {
+    // عمداً بدون stop -- چند بار سریع این دکمه را بزنید و صف انیمیشن را ببینید
+    $('#animBox').slideToggle(400);
+  });
+
+});
+</script>
+</body>
+</html>
