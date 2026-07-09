@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>جلسه ۳ — پیمایش DOM و Ajax</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+  body { font-family: Tahoma, sans-serif; max-width: 800px; margin: 30px auto; padding: 0 15px; background:#f5f5f7; }
+  h2 { border-bottom: 3px solid #2e9e5b; padding-bottom: 6px; color:#222; }
+  section { background: #fff; padding: 18px; margin-bottom: 22px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+  button { background:#2e9e5b; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; margin:4px; }
+  button:hover { background:#227a45; }
+  .card { border:1px solid #ddd; border-radius:8px; padding:10px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; }
+  .card .delete-btn { background:#e2554a; }
+  .card .delete-btn:hover { background:#b53f36; }
+  #postsList li { padding:8px; border-bottom:1px solid #eee; }
+  #outputBox, #ajaxLog { background:#111; color:#0f0; padding:10px; font-family:monospace; min-height: 30px; border-radius:6px; white-space:pre-wrap; }
+  input[type=text] { padding:6px; border:1px solid #ccc; border-radius:4px; }
+  .spinner { display:inline-block; }
+</style>
+</head>
+<body>
+
+<h1>جلسه ۳: پیمایش DOM و Ajax</h1>
+
+<section>
+  <h2>۱. پیمایش: closest / children / siblings</h2>
+  <div id="cardsContainer">
+    <div class="card"><span>کارت شماره ۱</span><button class="delete-btn">حذف</button></div>
+    <div class="card"><span>کارت شماره ۲</span><button class="delete-btn">حذف</button></div>
+    <div class="card"><span>کارت شماره ۳</span><button class="delete-btn">حذف</button></div>
+  </div>
+  <button id="addCardBtn">افزودن کارت جدید</button>
+  <p style="font-size:13px;color:#777">دکمه حذف با <code>closest('.card')</code> کارت والد خودش را پیدا می‌کند؛ برای کارت‌های جدید هم کار می‌کند چون از Event Delegation استفاده شده.</p>
+</section>
+
+<section>
+  <h2>۲. ساخت/درج/حذف/کلون المان</h2>
+  <button id="appendBtn">append</button>
+  <button id="prependBtn">prepend</button>
+  <button id="cloneBtn">clone(true) کارت اول</button>
+  <ul id="dynamicList"><li>آیتم اولیه</li></ul>
+</section>
+
+<section>
+  <h2>۳. فرم و serialize()</h2>
+  <form id="demoForm">
+    <input type="text" name="fullname" placeholder="نام کامل" required>
+    <input type="text" name="email" placeholder="ایمیل">
+    <button type="submit">ارسال (فقط نمایش serialize)</button>
+  </form>
+  <div id="outputBox">نتیجه serialize اینجا نمایش داده می‌شود...</div>
+</section>
+
+<section>
+  <h2>۴. Ajax شبیه‌سازی‌شده (بدون نیاز به اینترنت)</h2>
+  <p style="font-size:13px;color:#777">
+    برای اینکه این دمو بدون اتصال اینترنت هم کار کند، یک نسخه شبیه‌سازی‌شده از <code>$.ajax</code> با <code>$.Deferred()</code> ساخته‌ایم که رفتار done/fail/always واقعی را بازتولید می‌کند.
+    اگر بخواهید با API واقعی کار کنید، کافیست تابع <code>fakeAjax</code> را با <code>$.getJSON('https://jsonplaceholder.typicode.com/posts')</code> جایگزین کنید.
+  </p>
+  <button id="loadPostsBtn">بارگذاری پست‌ها (موفق)</button>
+  <button id="loadFailBtn">شبیه‌سازی خطا</button>
+  <ul id="postsList"></ul>
+  <div id="ajaxLog">لاگ Ajax اینجا نمایش داده می‌شود...</div>
+</section>
+
+<script>
+$(document).ready(function () {
+
+  function log(sel, msg) { $(sel).text(msg); console.log(msg); }
+
+  // ---------- ۱. پیمایش ----------
+  $('#cardsContainer').on('click', '.delete-btn', function () {
+    $(this).closest('.card').fadeOut(200, function () { $(this).remove(); });
+  });
+  var cardCounter = 3;
+  $('#addCardBtn').on('click', function () {
+    cardCounter++;
+    var $newCard = $(
+      '<div class="card"><span>کارت شماره ' + cardCounter + '</span>' +
+      '<button class="delete-btn">حذف</button></div>'
+    );
+    $newCard.hide();
+    $('#cardsContainer').append($newCard);
+    $newCard.fadeIn(200);
+  });
+
+  // ---------- ۲. ساخت/درج/کلون ----------
+  var itemCounter = 1;
+  $('#appendBtn').on('click', function () {
+    itemCounter++;
+    $('#dynamicList').append('<li>آیتم append شده #' + itemCounter + '</li>');
+  });
+  $('#prependBtn').on('click', function () {
+    itemCounter++;
+    $('#dynamicList').prepend('<li>آیتم prepend شده #' + itemCounter + '</li>');
+  });
+  $('#cloneBtn').on('click', function () {
+    var $firstCard = $('.card').first();
+    if ($firstCard.length) {
+      var $clone = $firstCard.clone(true); // true یعنی رویدادها هم کپی شوند
+      $clone.find('span').text($clone.find('span').text() + ' (کپی)');
+      $('#cardsContainer').append($clone);
+    }
+  });
+
+  // ---------- ۳. فرم و serialize ----------
+  $('#demoForm').on('submit', function (event) {
+    event.preventDefault(); // جلوگیری از رفرش صفحه
+    var serialized = $(this).serialize();
+    log('#outputBox', 'serialize(): ' + serialized);
+  });
+
+  // ---------- ۴. Ajax شبیه‌سازی‌شده ----------
+  function fakeAjax(shouldFail) {
+    var deferred = $.Deferred();
+    setTimeout(function () {
+      if (shouldFail) {
+        deferred.reject({ status: 500 }, 'error', 'Internal Server Error (شبیه‌سازی‌شده)');
+      } else {
+        deferred.resolve([
+          { id: 1, title: 'یادگیری jQuery' },
+          { id: 2, title: 'کار با DOM' },
+          { id: 3, title: 'Ajax و Deferred' }
+        ]);
+      }
+    }, 800); // تاخیر مصنوعی برای شبیه‌سازی شبکه
+    return deferred.promise();
+  }
+
+  $('#loadPostsBtn').on('click', function () {
+    log('#ajaxLog', 'در حال بارگذاری...');
+    $('#postsList').empty();
+    fakeAjax(false)
+      .done(function (posts) {
+        $.each(posts, function (i, post) {
+          $('#postsList').append('<li>#' + post.id + ' — ' + post.title + '</li>');
+        });
+        log('#ajaxLog', 'موفق: ' + posts.length + ' پست بارگذاری شد.');
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        log('#ajaxLog', 'خطا: ' + textStatus + ' - ' + errorThrown);
+      })
+      .always(function () {
+        console.log('درخواست (چه موفق چه ناموفق) تمام شد.');
+      });
+  });
+
+  $('#loadFailBtn').on('click', function () {
+    log('#ajaxLog', 'در حال بارگذاری...');
+    fakeAjax(true)
+      .done(function () {
+        log('#ajaxLog', 'این هرگز اجرا نمی‌شود چون شبیه‌سازی خطا فعال است.');
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        log('#ajaxLog', 'خطا دریافت شد -> status: ' + jqXHR.status + ' | ' + errorThrown);
+      });
+  });
+
+});
+</script>
+</body>
+</html>
