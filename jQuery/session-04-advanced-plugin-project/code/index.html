@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>جلسه ۴ — پلاگین، بهینه‌سازی و پروژه نهایی</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+  body { font-family: Tahoma, sans-serif; max-width: 800px; margin: 30px auto; padding: 0 15px; background:#f5f5f7; }
+  h2 { border-bottom: 3px solid #8a4ae2; padding-bottom: 6px; color:#222; }
+  section { background: #fff; padding: 18px; margin-bottom: 22px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+  button { background:#8a4ae2; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; margin:4px; }
+  button:hover { background:#6c33b8; }
+  input[type=text] { padding:7px; border:1px solid #ccc; border-radius:5px; width: 220px; }
+
+  #todoApp .filters button.active { background:#3b1a63; }
+  #todoApp ul { list-style:none; padding:0; margin-top:10px; }
+  #todoApp li { display:flex; justify-content:space-between; align-items:center;
+                padding:10px; border:1px solid #eee; border-radius:6px; margin-bottom:6px; }
+  #todoApp li.done span.label { text-decoration: line-through; color:#999; }
+  #todoApp li .delete-btn { background:#e2554a; padding:4px 10px; }
+  #todoApp li .delete-btn:hover { background:#b53f36; }
+  .highlight-demo { padding:10px; background:#eee; border-radius:6px; margin-top:8px; display:inline-block; }
+
+  #toastContainer { position: fixed; bottom: 20px; left: 20px; z-index: 999; display:flex; flex-direction:column; gap:8px; }
+  .toast { background:#222; color:#fff; padding:10px 16px; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,.3); font-size:14px; }
+</style>
+</head>
+<body>
+
+<h1>جلسه ۴: پلاگین‌نویسی، بهینه‌سازی و پروژه نهایی</h1>
+
+<section>
+  <h2>۱. یک پلاگین ساده: highlightText</h2>
+  <div class="highlight-demo" id="highlightSample">این متن را با دکمه زیر هایلایت کن</div>
+  <br>
+  <button id="highlightBtn">اجرای پلاگین highlightText</button>
+  <p id="pluginEventLog" style="font-size:13px;color:#777">رویداد سفارشی پلاگین اینجا لاگ می‌شود...</p>
+</section>
+
+<section id="todoApp">
+  <h2>۲. پروژه نهایی: To-Do List کامل</h2>
+
+  <input type="text" id="newTodoInput" placeholder="کار جدید را بنویسید...">
+  <button id="addTodoBtn">افزودن</button>
+  <br><br>
+
+  <input type="text" id="searchInput" placeholder="جستجو در لیست (با debounce)...">
+
+  <div class="filters" style="margin-top:10px;">
+    <button class="filter-btn active" data-filter="all">همه</button>
+    <button class="filter-btn" data-filter="active">انجام‌نشده‌ها</button>
+    <button class="filter-btn" data-filter="done">انجام‌شده‌ها</button>
+  </div>
+
+  <ul id="todoList"></ul>
+
+  <button id="saveServerBtn">ذخیره در سرور (Ajax شبیه‌سازی‌شده)</button>
+</section>
+
+<div id="toastContainer"></div>
+
+<script>
+/* ---------------------------------------------------------
+   بخش ۱: پلاگین ساده highlightText (الگوی رسمی jQuery Plugin)
+--------------------------------------------------------- */
+(function ($) {
+  'use strict';
+  $.fn.highlightText = function (options) {
+    var settings = $.extend({
+      color: '#ffef99',
+      duration: 700
+    }, options);
+
+    return this.each(function () {
+      var $el = $(this);
+      var original = $el.css('background-color');
+      $el.css('background-color', settings.color);
+      setTimeout(function () {
+        $el.css('background-color', original);
+        $el.trigger('highlighted'); // رویداد سفارشی
+      }, settings.duration);
+    });
+  };
+})(jQuery);
+
+/* ---------------------------------------------------------
+   بخش ۲: پلاگین toastNotify برای نمایش پیام‌های موفقیت
+--------------------------------------------------------- */
+(function ($) {
+  'use strict';
+  $.fn.toastNotify = function (message, duration) {
+    duration = duration || 2500;
+    var $toast = $('<div class="toast"></div>').text(message);
+    $(this).append($toast);
+    setTimeout(function () {
+      $toast.fadeOut(300, function () { $(this).remove(); });
+    }, duration);
+    return this;
+  };
+})(jQuery);
+
+/* ---------------------------------------------------------
+   بخش ۳: تابع debounce عمومی (Vanilla JS)
+--------------------------------------------------------- */
+function debounce(fn, delay) {
+  var timer = null;
+  return function () {
+    var context = this, args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () { fn.apply(context, args); }, delay);
+  };
+}
+
+/* ---------------------------------------------------------
+   بخش ۴: Ajax شبیه‌سازی‌شده با $.Deferred
+--------------------------------------------------------- */
+function fakeSaveToServer(todos) {
+  var deferred = $.Deferred();
+  setTimeout(function () {
+    // 90% شانس موفقیت برای نمایش واقعی‌تر مدیریت خطا
+    if (Math.random() < 0.9) {
+      deferred.resolve({ saved: todos.length });
+    } else {
+      deferred.reject({ message: 'شبیه‌سازی خطای شبکه' });
+    }
+  }, 900);
+  return deferred.promise();
+}
+
+$(document).ready(function () {
+
+  // ---------- بخش ۱: تست پلاگین highlightText ----------
+  $('#highlightBtn').on('click', function () {
+    $('#highlightSample').highlightText({ color: '#c9f7c5', duration: 700 });
+  });
+  $('#highlightSample').on('highlighted', function () {
+    $('#pluginEventLog').text('رویداد سفارشی "highlighted" شنیده شد — پلاگین کارش تمام شد.');
+  });
+
+  // ---------- بخش ۲: پروژه To-Do ----------
+  var todoIdCounter = 0;
+  var currentFilter = 'all';
+
+  function applyFilterAndSearch() {
+    var searchTerm = $('#searchInput').val().trim().toLowerCase();
+
+    $('#todoList li').each(function () {
+      var $li = $(this);
+      var text = $li.find('.label').text().toLowerCase();
+      var isDone = $li.hasClass('done');
+
+      var matchesFilter =
+        currentFilter === 'all' ||
+        (currentFilter === 'active' && !isDone) ||
+        (currentFilter === 'done' && isDone);
+
+      var matchesSearch = searchTerm === '' || text.indexOf(searchTerm) !== -1;
+
+      $li.toggle(matchesFilter && matchesSearch);
+    });
+  }
+
+  // افزودن آیتم جدید
+  $('#addTodoBtn').on('click', function () {
+    var val = $('#newTodoInput').val().trim();
+    if (val === '') return;
+    todoIdCounter++;
+
+    var $li = $(
+      '<li data-id="' + todoIdCounter + '">' +
+        '<span class="label"></span>' +
+        '<button class="delete-btn">حذف</button>' +
+      '</li>'
+    );
+    $li.find('.label').text(val); // .text() برای جلوگیری از XSS با ورودی کاربر
+
+    $li.hide();
+    $('#todoList').append($li);
+    $li.slideDown(250);
+
+    $('#newTodoInput').val('').focus();
+    applyFilterAndSearch();
+  });
+
+  // Enter هم اضافه کند
+  $('#newTodoInput').on('keypress', function (e) {
+    if (e.which === 13) { $('#addTodoBtn').trigger('click'); }
+  });
+
+  // Event Delegation: کلیک روی آیتم = انجام‌شده/نشده
+  $('#todoList').on('click', 'li', function (event) {
+    if ($(event.target).hasClass('delete-btn')) return; // کلیک روی دکمه حذف را نادیده بگیر
+    $(this).toggleClass('done');
+    applyFilterAndSearch();
+  });
+
+  // Event Delegation: حذف آیتم با closest
+  $('#todoList').on('click', '.delete-btn', function () {
+    var $li = $(this).closest('li');
+    $li.stop(true, true).fadeOut(200, function () { $(this).remove(); });
+  });
+
+  // فیلترها
+  $('.filter-btn').on('click', function () {
+    $('.filter-btn').removeClass('active');
+    $(this).addClass('active');
+    currentFilter = $(this).data('filter');
+    applyFilterAndSearch();
+  });
+
+  // جستجوی زنده با debounce
+  $('#searchInput').on('input', debounce(function () {
+    applyFilterAndSearch();
+  }, 300));
+
+  // ذخیره در سرور (Ajax شبیه‌سازی‌شده) + toastNotify
+  $('#saveServerBtn').on('click', function () {
+    var todos = $('#todoList li').map(function () {
+      return $(this).find('.label').text();
+    }).get(); // .get() تبدیل شیء jQuery به آرایه معمولی جاوااسکریپت
+
+    var $btn = $(this).prop('disabled', true).text('در حال ذخیره...');
+
+    fakeSaveToServer(todos)
+      .done(function (result) {
+        $('#toastContainer').toastNotify('✅ ' + result.saved + ' مورد با موفقیت ذخیره شد.');
+      })
+      .fail(function (err) {
+        $('#toastContainer').toastNotify('❌ خطا: ' + err.message);
+      })
+      .always(function () {
+        $btn.prop('disabled', false).text('ذخیره در سرور (Ajax شبیه‌سازی‌شده)');
+      });
+  });
+
+  // چند آیتم اولیه برای نمایش بهتر دمو
+  ['یادگیری jQuery', 'تمرین Event Delegation', 'ساخت یک پلاگین ساده'].forEach(function (t) {
+    $('#newTodoInput').val(t);
+    $('#addTodoBtn').trigger('click');
+  });
+
+});
+</script>
+</body>
+</html>
