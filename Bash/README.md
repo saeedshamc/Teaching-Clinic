@@ -1,6 +1,6 @@
 # دوره آموزشی جامع Bash Scripting
 
-یک دوره کامل ۱۲ جلسه‌ای برای یادگیری Bash Scripting از سطح مبتدی تا حرفه‌ای
+یک دوره کامل ۲۰ جلسه‌ای برای یادگیری Bash Scripting از سطح مبتدی تا حرفه‌ای
 
 ## معرفی دوره
 
@@ -34,6 +34,7 @@ chmod +x script-name.sh
 
 ## فهرست جلسات
 
+### بخش اول: مبانی (جلسات ۱-۸)
 1. **[جلسه ۱: مقدمه‌ای بر Shell و Bash](session-01-intro/)** — چیست، چرا مهم است، نصب و محیط
 2. **[جلسه ۲: دستورات پایه ترمینال و ناوبری فایل‌سیستم](session-02-basic-commands/)** — ls, cd, pwd, mkdir و غیره
 3. **[جلسه ۳: متغیرها، ورودی/خروجی، و quoting](session-03-variables-io/)** — تعریف و استفاده از متغیرها
@@ -42,18 +43,31 @@ chmod +x script-name.sh
 6. **[جلسه ۶: حلقه‌ها و کنترل جریان](session-06-loops/)** — for, while, until
 7. **[جلسه ۷: توابع و scope متغیرها](session-07-functions/)** — تعریف و استفاده از توابع
 8. **[جلسه ۸: آرایه‌ها و کار با رشته‌ها](session-08-arrays-strings/)** — array manipulation و string operations
+
+### بخش دوم: ابزارهای پیشرفته (جلسات ۹-۱۲)
 9. **[جلسه ۹: کار با فایل‌ها، ریدایرکت و pipeline](session-09-files-pipes/)** — >, >>, |, process substitution
 10. **[جلسه ۱۰: مدیریت خطا و دیباگ اسکریپت](session-10-error-handling/)** — exit codes, trap, debugging
 11. **[جلسه ۱۱: ابزارهای کاربردی خط فرمان](session-11-tools/)** — grep, sed, awk, find, xargs
-12. **[جلسه ۱۲: پروژه نهایی](session-12-final-project/)** — ساخت یک اسکریپت واقعی و کاربردی
+12. **[جلسه ۱۲: پروژه نهایی اول](session-12-final-project/)** — ساخت یک اسکریپت واقعی و کاربردی
+
+### بخش سوم: موضوعات پیشرفته (جلسات ۱۳-۲۰)
+13. **[جلسه ۱۳: عبارات منظم (Regular Expressions)](session-13-regex/)** — regex، pattern matching، و اعتبارسنجی
+14. **[جلسه ۱۴: مدیریت پروسه‌ها (Process Management)](session-14-process-management/)** — ps, kill, nohup، و مانیتورینگ
+15. **[جلسه ۱۵: مبانی شبکه (Network Basics)](session-15-network-basics/)** — ping, curl, wget، و بررسی اتصال
+16. **[جلسه ۱۶: پردازش متن پیشرفته (Advanced Text Processing)](session-16-advanced-text-processing/)** — awk پیشرفته، JSON، CSV، و لاگ‌ها
+17. **[جلسه ۱۷: مدیریت سیستم (System Administration)](session-17-system-admin/)** — کاربران، سرویس‌ها، پکیج‌ها، و cron
+18. **[جلسه ۱۸: تعامل با دیتابیس (Database Interaction)](session-18-database-interaction/)** — SQLite, MySQL, PostgreSQL
+19. **[جلسه ۱۹: Web Scraping با Bash](session-19-web-scraping/)** — curl، استخراج داده، و نکات اخلاقی
+20. **[جلسه ۲۰: پروژه پیشرفته نهایی (Advanced Final Project)](session-20-advanced-project/)** — سیستم کامل مدیریت لاگ و مانیتورینگ
 
 ## نقشه راه پیشنهادی
 
 برای بهترین نتیجه، پیشنهاد می‌شود:
 - **هفته ۱-۲**: جلسات ۱ تا ۴ (مبانی و مفاهیم پایه)
 - **هفته ۳-۴**: جلسات ۵ تا ۸ (کنترل جریان و ساختارهای داده)
-- **هفته ۵-۶**: جلسات ۹ تا ۱۱ (ابزارهای پیشرفته)
-- **هفته ۷**: جلسه ۱۲ (پروژه نهایی)
+- **هفته ۵-۶**: جلسات ۹ تا ۱۲ (ابزارهای پیشرفته و پروژه اول)
+- **هفته ۷-۸**: جلسات ۱۳ تا ۱۶ (موضوعات پیشرفته اول)
+- **هفته ۹-۱۰**: جلسات ۱۷ تا ۲۰ (موضوعات پیشرفته دوم و پروژه نهایی)
 
 هر جلسه حدود ۲-۳ ساعت زمان نیاز دارد (شامل مطالعه، اجرای مثال‌ها و حل تمرین‌ها).
 
