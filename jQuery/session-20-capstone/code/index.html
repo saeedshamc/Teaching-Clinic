@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>جلسه ۲۰ — پروژه نهایی</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Tahoma, sans-serif; max-width: 700px; margin: 40px auto; }
+    input, button { padding: 8px; margin: 8px 0; width: 100%; }
+    ul { padding-right: 20px; }
+    .done { text-decoration: line-through; color: gray; }
+  </style>
+</head>
+<body>
+  <h1>جلسه ۲۰: پروژه نهایی Todo List</h1>
+  <input id="todoInput" placeholder="کار جدید">
+  <button id="addBtn">افزودن</button>
+  <ul id="todoList"></ul>
+
+  <script>
+  var TodoApp = {
+    init: function () {
+      this.load();
+      this.bindEvents();
+    },
+    bindEvents: function () {
+      $('#addBtn').on('click', function () {
+        var text = $('#todoInput').val().trim();
+        if (text) {
+          TodoApp.addItem(text);
+          $('#todoInput').val('');
+        }
+      });
+
+      $('#todoList').on('click', 'li', function () {
+        $(this).toggleClass('done');
+        TodoApp.save();
+      });
+    },
+    addItem: function (text) {
+      $('#todoList').append('<li>' + text + '</li>');
+      this.save();
+    },
+    save: function () {
+      var items = [];
+      $('#todoList li').each(function () {
+        items.push({ text: $(this).text(), done: $(this).hasClass('done') });
+      });
+      localStorage.setItem('todoList', JSON.stringify(items));
+    },
+    load: function () {
+      var data = localStorage.getItem('todoList');
+      if (!data) return;
+      var items = JSON.parse(data);
+      $('#todoList').empty();
+      $.each(items, function (i, item) {
+        var className = item.done ? 'class="done"' : '';
+        $('#todoList').append('<li ' + className + '>' + item.text + '</li>');
+      });
+    }
+  };
+
+  $(function () {
+    TodoApp.init();
+  });
+  </script>
+</body>
+</html>
