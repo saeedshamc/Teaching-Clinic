@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>جلسه ۱۱ — Ajax و API</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Tahoma, sans-serif; max-width: 800px; margin: 40px auto; }
+    button { padding: 8px 12px; margin-top: 10px; }
+    pre { background: #f5f5f5; padding: 12px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>جلسه ۱۱: Ajax و کار با API</h1>
+  <button id="loadBtn">بارگذاری داده</button>
+  <pre id="output">در اینجا نتیجه درخواست نمایش داده می‌شود.</pre>
+
+  <script>
+  $(function () {
+    // Ajax در jQuery برای دریافت داده از سرور بدون رفرش صفحه استفاده می‌شود.
+    $('#loadBtn').on('click', function () {
+      $.ajax({
+        url: 'https://jsonplaceholder.typicode.com/posts/1',
+        method: 'GET',
+        dataType: 'json'
+      }).done(function (data) {
+        $('#output').text(JSON.stringify(data, null, 2));
+      }).fail(function () {
+        $('#output').text('درخواست با خطا روبه‌رو شد.');
+      });
+    });
+  });
+  </script>
+</body>
+</html>
