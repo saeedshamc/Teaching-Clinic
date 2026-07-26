@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>جلسه ۹ — پیمایش DOM پیشرفته</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Tahoma, sans-serif; max-width: 900px; margin: 30px auto; padding: 0 16px; }
+    .box { border: 1px solid #ccc; padding: 12px; margin-bottom: 12px; border-radius: 8px; }
+    .active { background: #fff4c2; }
+    .highlight { background: #dff7e8; }
+    button { margin: 4px; padding: 8px 12px; border: none; border-radius: 6px; cursor: pointer; background: #2f6fed; color: white; }
+    ul { padding-right: 20px; }
+  </style>
+</head>
+<body>
+  <h1>جلسه ۹: پیمایش DOM و ساخت/حذف المان‌ها</h1>
+
+  <div class="box" id="parentBox">
+    <strong>والد</strong>
+    <ul id="itemList">
+      <li class="item" id="item-1">آیتم ۱</li>
+      <li class="item active" id="item-2">آیتم ۲</li>
+      <li class="item" id="item-3">آیتم ۳</li>
+    </ul>
+  </div>
+
+  <button id="btnParent">نمایش والد مستقیم</button>
+  <button id="btnClosest">پیدا کردن نزدیک‌ترین .box</button>
+  <button id="btnAppend">افزودن آیتم جدید</button>
+  <button id="btnBefore">افزودن قبل از آیتم ۲</button>
+  <button id="btnRemove">حذف آیتم ۲</button>
+  <button id="btnDetach">detach کردن آیتم ۲</button>
+  <p id="status">در این بخش، اعمال jQuery را ببینید.</p>
+
+  <script>
+  $(function () {
+    // این بخش نشان می‌دهد که چگونه با پیمایش DOM به والد، برادر و نزدیک‌ترین عنصر دسترسی پیدا کنیم.
+    // parent + closest
+    $('#btnParent').on('click', function () {
+      $('#item-2').parent().addClass('highlight');
+      $('#status').text('والد مستقیم آیتم ۲ هایلایت شد.');
+    });
+
+    $('#btnClosest').on('click', function () {
+      $('#item-2').closest('.box').addClass('highlight');
+      $('#status').text('نزدیک‌ترین .box انتخاب شد.');
+    });
+
+    // ساخت و درج
+    $('#btnAppend').on('click', function () {
+      var $newItem = $('<li class="item"></li>').text('آیتم جدید');
+      $('#itemList').append($newItem);
+      $('#status').text('آیتم جدید اضافه شد.');
+    });
+
+    $('#btnBefore').on('click', function () {
+      $('<li class="item">قبل از آیتم ۲</li>').insertBefore('#item-2');
+      $('#status').text('یک آیتم قبل از آیتم ۲ اضافه شد.');
+    });
+
+    // حذف
+    $('#btnRemove').on('click', function () {
+      $('#item-2').remove();
+      $('#status').text('آیتم ۲ حذف شد.');
+    });
+
+    $('#btnDetach').on('click', function () {
+      var $detached = $('#item-3').detach();
+      $('#itemList').append($detached);
+      $('#status').text('آیتم ۳ detach شد و دوباره اضافه گردید.');
+    });
+  });
+  </script>
+</body>
+</html>
