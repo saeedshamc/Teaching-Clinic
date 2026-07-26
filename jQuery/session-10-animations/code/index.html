@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>جلسه ۱۰ — انیمیشن‌ها و افکت‌ها</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Tahoma, sans-serif; max-width: 800px; margin: 30px auto; }
+    .box { width: 120px; height: 120px; background: #3d7afc; margin: 12px 0; border-radius: 10px; }
+    button { padding: 8px 12px; margin: 4px; border: none; border-radius: 6px; background: #222; color: white; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>جلسه ۱۰: افکت‌ها و صف انیمیشن</h1>
+  <div id="box" class="box"></div>
+  <button id="btnFade">fadeOut / fadeIn</button>
+  <button id="btnSlide">slideToggle</button>
+  <button id="btnAnimate">animate</button>
+  <button id="btnStop">stop</button>
+
+  <script>
+  $(function () {
+    // افکت‌ها برای بهتر کردن تجربه کاربری استفاده می‌شوند. اینجا با fade/slide/animate آشنا می‌شویم.
+    $('#btnFade').on('click', function () {
+      $('#box').fadeOut(400).delay(300).fadeIn(400);
+    });
+
+    $('#btnSlide').on('click', function () {
+      $('#box').slideToggle(400);
+    });
+
+    $('#btnAnimate').on('click', function () {
+      $('#box').animate({ width: '220px', opacity: 0.5, marginLeft: '40px' }, 800);
+    });
+
+    $('#btnStop').on('click', function () {
+      $('#box').stop(true, true);
+    });
+  });
+  </script>
+</body>
+</html>
