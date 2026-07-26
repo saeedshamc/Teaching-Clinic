@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>جلسه ۱۷ — بهینه‌سازی عملکرد</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Tahoma, sans-serif; max-width: 700px; margin: 40px auto; }
+    .active { background: #c9f3d4; }
+  </style>
+</head>
+<body>
+  <h1>جلسه ۱۷: بهینه‌سازی عملکرد</h1>
+  <button id="runBtn">اعمال کلاس</button>
+  <ul id="list"></ul>
+
+  <script>
+  $(function () {
+    var $list = $('#list');
+    for (var i = 0; i < 200; i++) {
+      $list.append('<li class="item">آیتم ' + i + '</li>');
+    }
+
+    $('#runBtn').on('click', function () {
+      var $items = $('#list .item');
+      $items.addClass('active');
+    });
+  });
+  </script>
+</body>
+</html>
