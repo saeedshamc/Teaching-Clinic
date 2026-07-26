@@ -9,7 +9,7 @@
 
 Python یکی از محبوب‌ترین زبان‌های برنامه‌نویسی دنیاست. از ساخت وب‌سایت و تحلیل داده گرفته تا هوش مصنوعی و اتوماسیون، Python در همه‌جا حضور دارد. سینتکس (نحو) ساده و خوانای آن، یادگیری را برای مبتدیان بسیار راحت‌تر می‌کند.
 
-این دوره شامل **۲۰ جلسه** است که به‌صورت پیشرونده (Progressive) طراحی شده‌اند — هر جلسه روی پایه‌های جلسه قبلی می‌سازد.
+این دوره شامل **۵۰ جلسه** است که به‌صورت پیشرونده (Progressive) طراحی شده‌اند — هر جلسه روی پایه‌های جلسه قبلی می‌سازد.
 
 ---
 
@@ -96,6 +96,51 @@ python session-01-intro\examples\01_hello_world.py
 | [۱۹](./session-19-typing/) | Type Hints | annotation، list[str]، dict |
 | [۲۰](./session-20-advanced-project/) | پروژه پیشرفته نهایی | Task Manager کامل |
 
+### بخش سوم: ابزارها و استانداردها (جلسات ۲۱–۳۰)
+
+| # | عنوان | موضوعات اصلی |
+|---|-------|-------------|
+| [۲۱](./session-21-context-managers/) | Context Managerها | with، contextlib |
+| [۲۲](./session-22-lambda-functional/) | Lambda و توابع تابعی | lambda، map، filter |
+| [۲۳](./session-23-regex/) | عبارات منظم | re، search، findall، sub |
+| [۲۴](./session-24-json/) | کار با JSON | dumps، loads، فایل JSON |
+| [۲۵](./session-25-csv/) | کار با CSV | DictReader، DictWriter |
+| [۲۶](./session-26-pathlib/) | Pathlib | Path، وجود فایل، خواندن/نوشتن |
+| [۲۷](./session-27-logging/) | لاگ‌نویسی | logging، سطوح لاگ |
+| [۲۸](./session-28-dataclasses/) | Dataclassها | @dataclass، فیلدها |
+| [۲۹](./session-29-enums/) | Enumها | Enum، مقادیر ثابت |
+| [۳۰](./session-30-collections/) | Collections | Counter، defaultdict، namedtuple |
+
+### بخش چهارم: سیستم، شبکه و معماری (جلسات ۳۱–۴۰)
+
+| # | عنوان | موضوعات اصلی |
+|---|-------|-------------|
+| [۳۱](./session-31-argparse/) | argparse | CLI، آرگومان خط فرمان |
+| [۳۲](./session-32-sqlite/) | SQLite | جدول، insert، select |
+| [۳۳](./session-33-threading/) | Threading | Thread، start، join |
+| [۳۴](./session-34-concurrent-futures/) | Concurrent Futures | ThreadPoolExecutor |
+| [۳۵](./session-35-http-client/) | کلاینت HTTP | درخواست، status، پاسخ |
+| [۳۶](./session-36-html-parsing/) | پردازش HTML | HTMLParser، استخراج تگ |
+| [۳۷](./session-37-env-config/) | پیکربندی محیطی | os.environ، تنظیمات |
+| [۳۸](./session-38-abc-interfaces/) | کلاس‌های انتزاعی | ABC، abstractmethod |
+| [۳۹](./session-39-properties/) | Property | getter، setter، اعتبارسنجی |
+| [۴۰](./session-40-packaging-pyproject/) | بسته‌بندی | pyproject.toml، متادیتا |
+
+### بخش پنجم: کیفیت، امنیت و پروژه نهایی (جلسات ۴۱–۵۰)
+
+| # | عنوان | موضوعات اصلی |
+|---|-------|-------------|
+| [۴۱](./session-41-pytest-intro/) | pytest | تست با assert، سبک pytest |
+| [۴۲](./session-42-mocking/) | Mocking | Mock، شبیه‌سازی وابستگی |
+| [۴۳](./session-43-debugging-pdb/) | دیباگ | breakpoint، بررسی متغیر |
+| [۴۴](./session-44-performance-timeit/) | عملکرد | timeit، مقایسه پیاده‌سازی |
+| [۴۵](./session-45-design-patterns/) | الگوهای طراحی | Singleton، Factory |
+| [۴۶](./session-46-protocols-typing/) | Protocol | قرارداد ساختاری تایپ |
+| [۴۷](./session-47-security-basics/) | مبانی امنیت | اعتبارسنجی، کوئری امن |
+| [۴۸](./session-48-documentation/) | مستندسازی | docstring، help |
+| [۴۹](./session-49-project-structure/) | ساختار پروژه | src، tests، README |
+| [۵۰](./session-50-capstone-project/) | پروژه نهایی جامع | Task Service با JSON |
+
 ---
 
 ## ساختار هر جلسه
@@ -109,25 +154,18 @@ python session-01-intro\examples\01_hello_world.py
 
 ## نقشه راه پیشنهادی
 
-### یادگیری سریع (۶ هفته)
-- **هفته ۱:** جلسه‌های ۱ تا ۳
-- **هفته ۲:** جلسه‌های ۴ تا ۶
-- **هفته ۳:** جلسه‌های ۷ تا ۹
-- **هفته ۴:** جلسه‌های ۱۰ تا ۱۲
-- **هفته ۵:** جلسه‌های ۱۳ تا ۱۶
-- **هفته ۶:** جلسه‌های ۱۷ تا ۲۰
+### یادگیری سریع (۱۲ هفته)
+- **هفته ۱–۲:** جلسه‌های ۱ تا ۸
+- **هفته ۳–۴:** جلسه‌های ۹ تا ۱۶
+- **هفته ۵–۶:** جلسه‌های ۱۷ تا ۲۴
+- **هفته ۷–۸:** جلسه‌های ۲۵ تا ۳۲
+- **هفته ۹–۱۰:** جلسه‌های ۳۳ تا ۴۰
+- **هفته ۱۱–۱۲:** جلسه‌های ۴۱ تا ۵۰
 
-### یادگیری با دقت بیشتر (۱۰ هفته)
-- **هفته ۱:** جلسه‌های ۱ و ۲
-- **هفته ۲:** جلسه‌های ۳ و ۴
-- **هفته ۳:** جلسه‌های ۵ و ۶
-- **هفته ۴:** جلسه‌های ۷ و ۸
-- **هفته ۵:** جلسه‌های ۹ و ۱۰
-- **هفته ۶:** جلسه‌های ۱۱ و ۱۲
-- **هفته ۷:** جلسه‌های ۱۳ و ۱۴
-- **هفته ۸:** جلسه‌های ۱۵ و ۱۶
-- **هفته ۹:** جلسه‌های ۱۷ و ۱۸
-- **هفته ۱۰:** جلسه‌های ۱۹ و ۲۰
+### یادگیری با دقت بیشتر (۲۰ هفته)
+- هر هفته حدود ۲ تا ۳ جلسه
+- بعد از هر بخش (۱۲، ۲۰، ۳۰، ۴۰) یک مرور کوتاه انجام دهید
+- جلسه ۵۰ را به‌عنوان پروژه پایانی جدی بگیرید
 
 ### توصیه‌های یادگیری
 1. فقط مطالعه نکنید — کدها را خودتان تایپ کنید
