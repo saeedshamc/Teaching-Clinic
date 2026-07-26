@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>جلسه ۱۴ — delegation</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Tahoma, sans-serif; max-width: 700px; margin: 40px auto; }
+    button, input { padding: 8px; margin: 8px 0; }
+    .selected { background: #ffd8a8; }
+  </style>
+</head>
+<body>
+  <h1>جلسه ۱۴: رویداد delegation</h1>
+  <input id="itemInput" placeholder="آیتم جدید">
+  <button id="addBtn">افزودن</button>
+  <ul id="list"></ul>
+
+  <script>
+  $(function () {
+    $('#addBtn').on('click', function () {
+      var value = $('#itemInput').val().trim();
+      if (value) {
+        $('#list').append('<li class="item">' + value + '</li>');
+      }
+    });
+
+    $('#list').on('click', '.item', function () {
+      $(this).toggleClass('selected');
+    });
+  });
+  </script>
+</body>
+</html>
