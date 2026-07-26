@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>جلسه ۱۳ — localStorage</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Tahoma, sans-serif; max-width: 700px; margin: 40px auto; }
+    textarea, button { width: 100%; margin-top: 10px; padding: 8px; }
+  </style>
+</head>
+<body>
+  <h1>جلسه ۱۳: ذخیره داده با localStorage</h1>
+  <textarea id="memo" rows="6" placeholder="یادداشت خود را بنویسید"></textarea>
+  <button id="saveBtn">ذخیره</button>
+  <button id="clearBtn">پاک‌کردن</button>
+
+  <script>
+  $(function () {
+    var saved = localStorage.getItem('memo');
+    if (saved) {
+      $('#memo').val(saved);
+    }
+
+    $('#saveBtn').on('click', function () {
+      localStorage.setItem('memo', $('#memo').val());
+      alert('ذخیره شد.');
+    });
+
+    $('#clearBtn').on('click', function () {
+      localStorage.removeItem('memo');
+      $('#memo').val('');
+    });
+  });
+  </script>
+</body>
+</html>
