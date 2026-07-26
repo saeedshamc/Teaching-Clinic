@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>جلسه ۱۲ — فرم‌ها و اعتبارسنجی</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Tahoma, sans-serif; max-width: 700px; margin: 40px auto; }
+    input, button { display:block; margin:10px 0; padding:8px; width:100%; }
+    .error { color: red; display:none; }
+  </style>
+</head>
+<body>
+  <h1>جلسه ۱۲: فرم و اعتبارسنجی</h1>
+  <form id="signupForm">
+    <input id="name" placeholder="نام">
+    <input id="email" placeholder="ایمیل">
+    <input id="password" type="password" placeholder="رمز عبور">
+    <button type="submit">ثبت‌نام</button>
+    <p id="error" class="error"></p>
+  </form>
+
+  <script>
+  $(function () {
+    $('#signupForm').on('submit', function (e) {
+      e.preventDefault();
+      var name = $('#name').val().trim();
+      var email = $('#email').val().trim();
+      var password = $('#password').val().trim();
+
+      if (!name || !email || !password) {
+        $('#error').text('همه‌ی فیلدها را پر کنید.').show();
+      } else {
+        $('#error').hide();
+        alert('فرم با موفقیت ثبت شد.');
+      }
+    });
+  });
+  </script>
+</body>
+</html>
