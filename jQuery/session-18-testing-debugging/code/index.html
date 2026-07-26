@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>جلسه ۱۸ — دیباگ و تست</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Tahoma, sans-serif; max-width: 700px; margin: 40px auto; }
+  </style>
+</head>
+<body>
+  <h1>جلسه ۱۸: دیباگ و تست</h1>
+  <button id="debugBtn">نمایش اطلاعات</button>
+  <script>
+  $(function () {
+    $('#debugBtn').on('click', function () {
+      console.log($('#debugBtn'));
+      debugger;
+    });
+  });
+  </script>
+</body>
+</html>
