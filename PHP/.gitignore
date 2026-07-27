@@ -1,0 +1,40 @@
+# PHP
+*.log
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Composer
+vendor/
+composer.lock
+
+# Local configuration
+.env
+.env.local
+.env.*.local
+
+# Cache
+*.cache
+/cache/
+
+# Testing
+/coverage/
+.phpunit.result.cache
+phpunit.xml
+
+# Server
+*.pid
+*.seed
