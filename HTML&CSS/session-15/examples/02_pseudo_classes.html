@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه ۱۵ — Pseudo-class</title>
+    <style>
+        /* جلسه ۱۵ — مثال ۰۲: pseudo-class */
+
+        body { font-family: Tahoma, sans-serif; padding: 24px; }
+
+        a { color: #2980b9; text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #e74c3c; text-decoration: underline; }
+        a:focus { outline: 2px solid #3498db; outline-offset: 2px; }
+
+        input { padding: 10px; border: 2px solid #ddd; border-radius: 4px; }
+        input:focus { border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,0.2); }
+
+        ul { list-style: none; padding: 0; max-width: 300px; }
+        li { padding: 10px; border-bottom: 1px solid #eee; }
+        li:first-child { border-top: 2px solid #3498db; font-weight: bold; }
+        li:last-child { border-bottom: none; }
+        li:nth-child(odd) { background: #f8f9fa; }
+        li:nth-child(even) { background: #fff; }
+        li:hover { background: #eaf2f8; }
+    </style>
+</head>
+<body>
+    <h1>Pseudo-class</h1>
+    <p><a href="#">لینک — hover و focus را امتحان کنید</a></p>
+    <input type="text" placeholder="focus کنید">
+    <ul>
+        <li>آیتم ۱ (first-child)</li>
+        <li>آیتم ۲</li>
+        <li>آیتم ۳</li>
+        <li>آیتم ۴ (last-child)</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه ۱۳ — مقایسه سه روش</title>
+    <style>
+        /* Internal: استایل‌های مشترک صفحه */
+        body {
+            font-family: Tahoma, sans-serif;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .method-box {
+            margin: 16px 0;
+            padding: 16px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+        .method-box h2 { margin-top: 0; }
+        .inline-demo { border-color: #e74c3c; }
+        .internal-demo { border-color: #f39c12; background: #fff8e7; }
+        .external-demo { border-color: #27ae60; }
+    </style>
+    <link rel="stylesheet" href="04_comparison.css">
+</head>
+<body>
+    <!-- جلسه ۱۳ — مثال ۰۴: مقایسه inline، internal، external -->
+
+    <h1>مقایسه سه روش CSS</h1>
+
+    <div class="method-box inline-demo">
+        <h2 style="color: #e74c3c;">۱. Inline</h2>
+        <p style="color: #666;">این عنوان با style inline قرمز است.</p>
+    </div>
+
+    <div class="method-box internal-demo">
+        <h2>۲. Internal</h2>
+        <p>استایل از تگ style در head می‌آید.</p>
+    </div>
+
+    <div class="method-box external-demo">
+        <h2>۳. External</h2>
+        <p>کلاس external-demo از فایل 04_comparison.css استایل می‌گیرد.</p>
+    </div>
+</body>
+</html>

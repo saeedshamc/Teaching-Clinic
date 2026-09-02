@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه ۱۳ — Inline CSS</title>
+</head>
+<body>
+    <!--
+        جلسه ۱۳ — مثال ۰۱: Inline CSS
+        استایل مستقیماً روی attribute style هر تگ
+        مناسب تست سریع، نه پروژه واقعی
+    -->
+
+  <h1 style="color: #1a5276; text-align: center;">معرفی Inline CSS</h1>
+
+  <p style="color: #333; font-size: 18px; line-height: 1.8;">
+    این پاراگراف با <strong style="color: #c0392b;">inline style</strong> رنگ‌آمیزی شده است.
+  </p>
+
+  <div style="background-color: #eaf2f8; padding: 20px; border-radius: 8px; margin: 16px 0;">
+    <p style="margin: 0; color: #2c3e50;">
+      هر property با سمیکالن جدا می‌شود: <code style="background: #fff; padding: 2px 6px;">color: blue; font-size: 16px;</code>
+    </p>
+  </div>
+
+  <ul style="list-style-type: square; color: #555;">
+    <li style="margin-bottom: 8px;">مزیت: سریع برای یک عنصر</li>
+    <li style="margin-bottom: 8px;">عیب: تکرار و نگهداری سخت</li>
+    <li>عیب: مخلوط شدن HTML و CSS</li>
+  </ul>
+</body>
+</html>

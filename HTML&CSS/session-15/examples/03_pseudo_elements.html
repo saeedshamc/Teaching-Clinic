@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه ۱۵ — Pseudo-element</title>
+    <style>
+        /* جلسه ۱۵ — مثال ۰۳: pseudo-element */
+
+        body { font-family: Tahoma, sans-serif; padding: 24px; max-width: 600px; }
+
+        .quote {
+            font-size: 1.2em;
+            color: #555;
+            padding: 16px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .quote::before { content: "«"; color: #3498db; font-size: 2em; vertical-align: middle; }
+        .quote::after { content: "»"; color: #3498db; font-size: 2em; }
+
+        .lead::first-letter {
+            font-size: 3.5em;
+            float: right;
+            line-height: 0.8;
+            margin-left: 8px;
+            color: #8e44ad;
+        }
+
+        .tip::before {
+            content: "💡 ";
+        }
+
+        ::selection {
+            background: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pseudo-element</h1>
+    <p class="lead">این پاراگراف با first-letter حرف اول بزرگ شده — مناسب شروع مقاله.</p>
+    <p class="quote">محتوای نقل‌قول با before و after</p>
+    <p class="tip">نکته: content برای ::before اجباری است.</p>
+</body>
+</html>

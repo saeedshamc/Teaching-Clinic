@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه ۱۵ — Combinator</title>
+    <style>
+        /* جلسه ۱۵ — مثال ۰۱: combinatorها */
+
+        body { font-family: Tahoma, sans-serif; padding: 24px; }
+
+        /* descendant: هر p داخل .box */
+        .box p { color: #2980b9; }
+
+        /* child: فقط p مستقیم داخل .box */
+        .box > p { font-weight: bold; border-right: 3px solid #3498db; padding-right: 8px; }
+
+        /* adjacent: p بلافاصله بعد h2 */
+        h2 + p { background: #eaf2f8; padding: 8px; }
+
+        /* general sibling: همه p بعد از h2 در همان والد */
+        h2 ~ p { margin-bottom: 12px; }
+
+        .nested { background: #f9f9f9; padding: 16px; margin-top: 16px; }
+        .nested p { color: #e74c3c; font-weight: normal; }
+    </style>
+</head>
+<body>
+    <h1>Combinatorها</h1>
+    <div class="box">
+        <p>پاراگراف مستقیم (child + descendant)</p>
+        <div class="nested">
+            <p>پاراگراف تو در تو — فقط descendant، نه child</p>
+        </div>
+    </div>
+    <h2>عنوان بخش</h2>
+    <p>اولین p بعد h2 (adjacent + sibling)</p>
+    <p>دومین p بعد h2 (فقط general sibling)</p>
+</body>
+</html>
