@@ -3,15 +3,17 @@
 // فایل: 03_console_io.cs
 // ============================================================
 
-Console.Write("نام خود را وارد کنید: ");
-string? name = Console.ReadLine(); // خواندن یک خط از کاربر
+Console.WriteLine("=== فرم کوچک آشنایی ===");
 
-Console.Write("سن خود را وارد کنید: ");
-string? ageText = Console.ReadLine();
+Console.Write("نام: ");
+string? name = Console.ReadLine();
+
+Console.Write("رشته مورد علاقه: ");
+string? favorite = Console.ReadLine();
 
 Console.WriteLine();
-Console.WriteLine($"سلام {name}! خوش آمدید.");
-Console.WriteLine($"سن وارد شده: {ageText}");
+Console.WriteLine($"سلام {name}!");
+Console.WriteLine($"رشته مورد علاقه‌ات: {favorite ?? "(وارد نشده)"}");
 
-// نکته: ReadLine ممکن است null برگرداند (مثلاً Ctrl+Z)
-// در جلسات بعد با validation و تبدیل نوع دقیق‌تر کار می‌کنیم.
+// ReadLine ممکن است null برگرداند (مثلاً Ctrl+Z در ویندوز)
+// علامت ? در string? یعنی nullable — در جلسه ۹ عمیق‌تر بررسی می‌کنیم.

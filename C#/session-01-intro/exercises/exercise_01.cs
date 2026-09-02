@@ -1,22 +1,20 @@
 // ============================================================
-// تمرین جلسه ۱ — پاسخ نمونه
+// تمرین ۱ و ۲ — پاسخ نمونه
 // ============================================================
 
-Console.WriteLine("=== کارت معرفی ===");
-Console.WriteLine("نام: سعید");
-Console.WriteLine("شهر: تهران");
-Console.WriteLine("==================");
+Console.WriteLine("╔════════════════════╗");
+Console.WriteLine("║   کارت معرفی       ║");
+Console.WriteLine("╠════════════════════╣");
+Console.WriteLine("║ نام: سعید          ║");
+Console.WriteLine("║ شهر: تهران         ║");
+Console.WriteLine("║ هدف: یادگیری C#    ║");
+Console.WriteLine("╚════════════════════╝");
 
 Console.WriteLine();
 
-Console.Write("نام: ");
+Console.Write("نام شما: ");
 string? name = Console.ReadLine();
-Console.Write("رشته مورد علاقه: ");
-string? favorite = Console.ReadLine();
+Console.Write("سن شما: ");
+string? age = Console.ReadLine();
 
-Console.WriteLine($"سلام {name}! رشته مورد علاقه‌ات: {favorite}");
-
-Console.WriteLine();
-Console.WriteLine("  *  ");
-Console.WriteLine(" *** ");
-Console.WriteLine("*****");
+Console.WriteLine($"سلام {name}! سن وارد شده: {age}");
