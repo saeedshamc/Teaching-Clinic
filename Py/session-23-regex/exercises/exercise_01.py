@@ -1,10 +1,20 @@
 # ============================================================
-# تمرین جلسه ۲۳
-# هدف: همه شماره تلفن‌های ساده را استخراج کنید.
+# تمرین ۱–۳ جلسه ۲۳ — Regex (کلاسی)
 # ============================================================
 
 import re
 
-text = "تماس: 09121234567 یا 09351234567"
-phones = re.findall(r"09\d{9}", text)
-print(phones)
+text = "قیمت 150000 تومان و تخفیف 20 درصد"
+
+# --- ۱. search ---
+match = re.search(r"\d+", text)
+print("اولین عدد:", match.group() if match else "ندارد")
+
+# --- ۲. findall ---
+numbers = re.findall(r"\d+", text)
+print("همه اعداد:", numbers)
+
+# --- ۳. sub ---
+messy = "سلام   دنیا  !"
+clean = re.sub(r"\s+", " ", messy).strip()
+print("تمیز:", clean)

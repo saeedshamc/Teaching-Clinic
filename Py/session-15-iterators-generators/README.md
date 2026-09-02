@@ -1,6 +1,12 @@
-# جلسه ۱۵: Iterator و Generator
+# جلسه ۱۵: Iterator و Generator (۱.۵ ساعت)
 
-## اهداف یادگیری (Learning Objectives)
+## ۰. مرور جلسه قبل
+
+در جلسه ۱۴ decoratorها را یاد گرفتید — توابع first-class. Generator هم تابع است که `yield` می‌کند. Comprehension `(x for x in ...)` همان generator expression است.
+
+---
+
+## 🎯 اهداف یادگیری
 
 پس از این جلسه می‌توانید:
 - تفاوت **iterable** و **iterator** را توضیح دهید
@@ -9,12 +15,27 @@
 - generator expression را از list comprehension تشخیص دهید
 - بدانید چرا generator برای داده‌های بزرگ حافظه‌کارآمدتر است
 - از `StopIteration` و پروتکل iterator آشنا شوید
+- generator برای خواندن فایل خط‌به‌خط و pipeline داده بنویسید
 
 ---
 
-## Iterable و Iterator
+## ⏱️ برنامه زمانی (۹۰ دقیقه)
 
-**Iterable** — شیئی که می‌توان روی آن حلقه `for` زد (لیست، رشته، tuple، dict).
+| زمان | موضوع | فعالیت |
+|------|--------|--------|
+| 0–10 | مرور | حلقه for — پشت صحنه iterator |
+| 10–25 | Iterable vs Iterator | iter، next، StopIteration |
+| 25–45 | Generator با yield | count_up، fibonacci |
+| 45–60 | Generator expression | `(x for x in ...)` vs `[x for x in ...]` |
+| 60–75 | کاربرد واقعی | خواندن فایل، pipeline |
+| 75–85 | تمرین کلاسی | even_numbers، char_stream |
+| 85–90 | جمع‌بندی | اشتباهات + تکلیف |
+
+---
+
+## ۱. Iterable و Iterator
+
+**Iterable** — شیئی که می‌توان روی آن حلقه `for` زد (لیست، رشته، tuple، dict، فایل).
 
 **Iterator** — شیئی که با `next()` یک عنصر در هر بار برمی‌گرداند.
 
@@ -29,9 +50,27 @@ print(next(it))           # 3
 # next(it)                # StopIteration — تمام شد
 ```
 
+### حلقه for چه می‌کند؟
+
+```python
+for item in [1, 2, 3]:
+    print(item)
+```
+
+معادل:
+```python
+it = iter([1, 2, 3])
+while True:
+    try:
+        item = next(it)
+        print(item)
+    except StopIteration:
+        break
+```
+
 ---
 
-## Generator چیست؟
+## ۲. Generator چیست؟
 
 Generator تابعی است که به‌جای `return` از **`yield`** استفاده می‌کند. هر `yield` یک مقدار تولید می‌کند و **اجرا را متوقف** می‌کند — دفعه بعد از همان نقطه ادامه می‌یابد.
 
@@ -53,7 +92,7 @@ for value in count_up(5):
 
 ---
 
-## Generator Expression
+## ۳. Generator Expression
 
 مثل list comprehension ولی با پرانتز — **generator** برمی‌گرداند نه list:
 
@@ -64,81 +103,80 @@ squares_gen = (n * n for n in range(5))       # generator — lazy
 
 ---
 
-## yield از چند مقدار
+## ۴. yield from — واگذاری به generator دیگر
 
 ```python
-def even_numbers(limit):
-    number = 0
-    while number <= limit:
-        yield number
-        number += 2
+def chain_generators():
+    yield from range(3)
+    yield from ["a", "b"]
+    yield from (x * 2 for x in range(2))
 
-for n in even_numbers(10):
-    print(n)  # 0, 2, 4, 6, 8, 10
+print(list(chain_generators()))  # [0, 1, 2, 'a', 'b', 0, 2]
 ```
 
 ---
 
-## فایل‌های این جلسه
-
-| فایل | توضیح |
-|------|-------|
-| [examples/01_generator.py](./examples/01_generator.py) | generator با yield |
-| [examples/02_iterator_demo.py](./examples/02_iterator_demo.py) | iter، next و generator expression |
-| [exercises/exercise_01.py](./exercises/exercise_01.py) | تمرین‌های این جلسه |
-
----
-
-## توضیح کدها
-
-### 📄 `01_generator.py`
+## ۵. Generator بی‌نهایت
 
 ```python
-def count_up(limit):
-    current = 1
-    while current <= limit:
-        yield current
-        current += 1
-```
+def infinite_counter(start=0):
+    n = start
+    while True:
+        yield n
+        n += 1
 
-**خط به خط:**
-- `yield current` — مقدار را برمی‌گرداند ولی تابع تمام نمی‌شود
-- دفعه بعد اجرا از خط بعد `yield` ادامه می‌یابد
-- `current += 1` — شمارنده جلو می‌رود
+counter = infinite_counter(100)
+print(next(counter))  # 100
+print(next(counter))  # 101
+# فقط n تا next بگیرید — بی‌نهایت است!
+```
 
 ---
 
-### 📄 `02_iterator_demo.py`
+## ۶. مثال واقعی — خواندن فایل خط‌به‌خط
 
 ```python
-it = iter([10, 20, 30])
-print(next(it))
-```
+def read_lines(path):
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            yield line.strip()
 
-**خط به خط:**
-- `iter(...)` — iterator از iterable می‌سازد
-- `next(it)` — عنصر بعدی؛ در پایان `StopIteration`
-- `(x for x in ...)` — generator expression
+# فقط یک خط در حافظه — مناسب فایل گیگابایتی
+for line in read_lines("big.log"):
+    if "ERROR" in line:
+        print(line)
+```
 
 ---
 
-## نکات رایج اشتباهات (Common Pitfalls)
+## ۷. فایل‌های جلسه
 
-### ❌ اشتباه ۱: iterator را دوبار مصرف کردن
+| فایل | موضوع |
+|------|--------|
+| [01_generator.py](./examples/01_generator.py) | generator با yield |
+| [02_iterator_demo.py](./examples/02_iterator_demo.py) | iter، next و generator expression |
+| [03_yield_from.py](./examples/03_yield_from.py) | yield from و generator بی‌نهایت |
+| [04_file_pipeline.py](./examples/04_file_pipeline.py) | pipeline داده با generator |
+
+---
+
+## ۸. اشتباهات رایج (Pitfalls)
+
+### ❌ iterator را دوبار مصرف کردن
 ```python
 gen = (n for n in range(3))
 list(gen)  # [0, 1, 2]
 list(gen)  # [] — iterator تمام شده!
 ```
 
-### ❌ اشتباه ۲: yield و return اشتباه
+### ❌ yield و return اشتباه
 ```python
 def bad():
     yield 1
     return 2  # return فقط generator را تمام می‌کند؛ 2 به for نمی‌رسد
 ```
 
-### ❌ اشتباه ۳: list بزرگ وقتی generator کافی است
+### ❌ list بزرگ وقتی generator کافی است
 ```python
 # ❌ میلیون عنصر در حافظه
 big = [x * 2 for x in range(1_000_000)]
@@ -149,7 +187,7 @@ big = (x * 2 for x in range(1_000_000))
 
 ---
 
-## بهترین شیوه‌ها (Best Practices)
+## ۹. بهترین شیوه‌ها
 
 - برای دنباله‌های بزرگ یا بی‌نهایت از generator استفاده کنید
 - generator expression برای pipeline داده (map/filter زنجیره‌ای)
@@ -158,9 +196,8 @@ big = (x * 2 for x in range(1_000_000))
 
 ---
 
-## خلاصه جلسه
+## ۱۰. خلاصه جلسه
 
-در این جلسه یاد گرفتید:
 - ✅ iterable → `for`؛ iterator → `next()`
 - ✅ generator با `yield` — lazy و کم‌حافظه
 - ✅ generator expression: `(expr for x in source)`
@@ -169,18 +206,82 @@ big = (x * 2 for x in range(1_000_000))
 
 ---
 
-## تمرین‌ها
+## ۱۱. تکلیف خانه
 
-### تمرین ۱ (ساده): generator اعداد زوج
-تابع `even_numbers(limit)` بنویسید که 0, 2, 4, ... تا limit تولید کند.
+### ساده: generator اعداد زوج
+تابع `even_numbers(limit)` — 0, 2, 4, ... تا limit.
 
-### تمرین ۲ (متوسط): generator کاراکترها
-تابع `char_stream(text)` بنویسید که هر کاراکتر رشته را یکی‌یکی yield کند.
+### متوسط: char_stream
+تابع `char_stream(text)` — هر کاراکتر را yield کند.
 
-### تمرین ۳ (پیشرفته): generator expression
-با generator expression فقط مربع اعداد زوج 0 تا 10 را بگیرید و در list تبدیل کنید.
+### پیشرفته: pipeline
+generator expression برای مربع اعداد زوج 0 تا 20، سپس فقط بزرگ‌تر از 100.
 
-راه‌حل‌ها در [exercises/exercise_01.py](./exercises/exercise_01.py) موجود است.
+راهنما: [exercises/question.md](./exercises/question.md)  
+پاسخ: [exercise_01.py](./exercises/exercise_01.py) | [exercise_02.py](./exercises/exercise_02.py)
+
+---
+
+## ۱۲. توضیح فایل‌های مثال
+
+### 📄 `01_generator.py`
+- `count_up` — شمارنده با yield؛ state بین فراخوانی‌ها حفظ می‌شود
+- `even_numbers` — الگوی step=2
+- `fibonacci` — دو متغیر state (`a`, `b`) در generator
+
+### 📄 `02_iterator_demo.py`
+- `iter(numbers)` — ساخت iterator از list
+- `next(it)` — عنصر بعدی تا `StopIteration`
+- `(n for n in range(5))` — generator expression
+
+### 📄 `03_yield_from.py`
+- `yield from sub_range(...)` — واگذاری به generator فرعی
+- `infinite_counter` — حلقه بی‌نهایت با yield
+
+### 📄 `04_file_pipeline.py`
+- pipeline: `read_lines` → `parse_csv_lines` → `filter_adults`
+- هر مرحله generator به بعدی — بدون list میانی بزرگ
+
+---
+
+## ۱۳. سوالات کلاسی
+
+1. تفاوت `[x for x in range(5)]` و `(x for x in range(5))` چیست؟
+2. چرا `list(gen)` دوبار روی یک generator خالی برمی‌گرداند؟
+3. `yield` و `return` در generator چه تفاوتی دارند؟
+
+---
+
+## ۱۴. تمرین کلاسی تفصیلی (۳۰ دقیقه)
+
+**بخش A:** generator `count_down(n)` از n تا 1  
+**بخش B:** با generator expression sum مربع‌های زوج 0-100  
+**بخش C:** مقایسه حافظه list vs generator برای range(1_000_000)
+
+---
+
+## ۱۵. راهنمای مدرس
+
+- **دمو:** `next(gen)` روی generator تا StopIteration
+- **Compare:** `sys.getsizeof(list)` vs generator object
+- **زمان‌بندی:** yield 25min | iter/next 15min | pipeline 20min
+- **ارتباط:** generator expression در comprehension جلسه ۱۳
+- **خانه:** exercise_02 — filter_by_length
+
+---
+
+## ۱۶. منابع تکمیلی
+
+- [Python docs — Generators](https://docs.python.org/3/howto/functional.html#generators)
+- [PEP 255 — Simple Generators](https://peps.python.org/pep-0255/)
+
+### چک‌لیست پایان جلسه
+
+- [ ] iter/next دستی روی list
+- [ ] generator با yield نوشته شد
+- [ ] generator expression vs list comp
+- [ ] exercise_01 اجرا شد
+- [ ] exercise_02 تکلیف داده شد
 
 ---
 

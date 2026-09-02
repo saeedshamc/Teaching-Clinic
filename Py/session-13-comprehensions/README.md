@@ -1,18 +1,33 @@
-# جلسه ۱۳: Comprehensionها (List، Dict، Set)
+# جلسه ۱۳: Comprehensionها (List، Dict، Set) (۱.۵ ساعت)
 
-## اهداف یادگیری (Learning Objectives)
+## 🎯 اهداف یادگیری
 
 پس از این جلسه می‌توانید:
 - مفهوم comprehension را با یک تشبیه ساده توضیح دهید
 - با **list comprehension** لیست‌های جدید بسازید
 - با **dict comprehension** و **set comprehension** ساختارهای دیگر بسازید
 - شرط (`if`) را داخل comprehension به‌کار ببرید
+- comprehension تو در تو (nested) برای ماتریس و لیست دوبعدی بنویسید
 - تفاوت comprehension و حلقه `for` معمولی را بدانید
 - تشخیص دهید چه زمانی comprehension خواناتر است و چه زمانی نه
 
 ---
 
-## Comprehension چیست؟
+## ⏱️ برنامه زمانی (۹۰ دقیقه)
+
+| زمان | موضوع | فعالیت |
+|------|--------|--------|
+| 0–10 | مرور | جمع‌بندی جلسه ۱۲ (پروژه نهایی) — حلقه‌ها و list |
+| 10–25 | List comprehension | ساختار، مربع اعداد، فیلتر با `if` |
+| 25–40 | Dict و Set | `{k: v for ...}` و `{expr for ...}` |
+| 40–55 | Nested comprehension | flatten ماتریس، فیلتر دو مرحله‌ای |
+| 55–70 | مقایسه و کاربرد | comprehension vs حلقه، generator expression |
+| 70–85 | تمرین کلاسی | فیلتر محصولات، dict از لیست |
+| 85–90 | جمع‌بندی | اشتباهات رایج + تکلیف |
+
+---
+
+## ۱. Comprehension چیست؟
 
 Comprehension روشی **فشرده و پایتونی** برای ساختن list، dict یا set از روی یک منبع داده است.
 
@@ -38,7 +53,7 @@ squares = [n * n for n in numbers]
 
 ---
 
-## ساختار list comprehension
+## ۲. ساختار list comprehension
 
 ```python
 [عبارت for متغیر in منبع if شرط]
@@ -63,9 +78,19 @@ evens = [n for n in numbers if n % 2 == 0]
 print(evens)  # [2, 4]
 ```
 
+### مثال: تبدیل رشته‌ها
+```python
+names = ["سعید", "مینا", "علی"]
+upper_names = [name.upper() for name in names]
+print(upper_names)  # ['سعید', 'مینا', 'علی'] — upper روی فارسی تغییری نمی‌دهد
+english = ["hello", "world"]
+upper_en = [w.upper() for w in english]
+print(upper_en)  # ['HELLO', 'WORLD']
+```
+
 ---
 
-## dict comprehension
+## ۳. dict comprehension
 
 برای ساخت دیکشنری از روی لیست یا دیکشنری دیگر:
 
@@ -78,9 +103,24 @@ print(name_lengths)
 
 **ساختار:** `{کلید: مقدار for ... in ...}`
 
+### معکوس کردن دیکشنری
+```python
+scores = {"علی": 18, "مریم": 15, "رضا": 12}
+passed = {name: score for name, score in scores.items() if score >= 10}
+print(passed)  # همه — همه قبول شدند
+```
+
+### dict از دو لیست موازی
+```python
+keys = ["a", "b", "c"]
+values = [1, 2, 3]
+mapping = {k: v for k, v in zip(keys, values)}
+print(mapping)  # {'a': 1, 'b': 2, 'c': 3}
+```
+
 ---
 
-## set comprehension
+## ۴. set comprehension
 
 برای ساخت مجموعه بدون تکرار:
 
@@ -90,9 +130,11 @@ unique_lengths = {len(w) for w in words}
 print(unique_lengths)  # {4, 5, 6} — ترتیب ثابت نیست
 ```
 
+**نکته:** set ترتیب ندارد و تکرار را حذف می‌کند.
+
 ---
 
-## comprehension تو در تو (Nested)
+## ۵. comprehension تو در تو (Nested)
 
 گاهی منبع خودش لیست دوبعدی است:
 
@@ -104,50 +146,83 @@ print(flat)  # [1, 2, 3, 4, 5, 6]
 
 **ترتیب خواندن:** از چپ به راست — اول حلقه بیرونی، بعد درونی (مثل دو `for` پشت سر هم).
 
+### ماتریس با شرط
+```python
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+evens_in_matrix = [n for row in matrix for n in row if n % 2 == 0]
+print(evens_in_matrix)  # [2, 4, 6, 8]
+```
+
+### ساخت ماتریس جدید
+```python
+# ماتریس ۳×۳ از صفرها
+zeros = [[0 for _ in range(3)] for _ in range(3)]
+print(zeros)
+```
+
 ---
 
-## فایل‌های این جلسه
+## ۶. comprehension با else (پیشرفته)
 
-| فایل | توضیح |
-|------|-------|
-| [examples/01_list_comprehension.py](./examples/01_list_comprehension.py) | list، dict و set comprehension |
-| [examples/02_nested_comprehension.py](./examples/02_nested_comprehension.py) | comprehension تو در تو و فیلتر |
-| [exercises/exercise_01.py](./exercises/exercise_01.py) | تمرین‌های این جلسه |
-
----
-
-## توضیح کدها
-
-### 📄 `01_list_comprehension.py`
+در list comprehension می‌توان `if-else` **قبل از** `for` گذاشت (نه بعد از آن):
 
 ```python
 numbers = [1, 2, 3, 4, 5]
-squares = [n * n for n in numbers]
+labels = ["زوج" if n % 2 == 0 else "فرد" for n in numbers]
+print(labels)  # ['فرد', 'زوج', 'فرد', 'زوج', 'فرد']
 ```
 
-**خط به خط:**
-- `numbers` — لیست منبع
-- `[n * n for n in numbers]` — برای هر `n`، مربع آن را در لیست جدید می‌گذارد
-- `if n % 2 == 0` — فقط عناصری که باقیمانده تقسیم بر ۲ صفر است نگه داشته می‌شوند
+**تفاوت:**
+- `[x for x in items if cond]` — **فیلتر** (عناصر حذف می‌شوند)
+- `[a if cond else b for x in items]` — **تبدیل** (همه عناصر می‌مانند)
 
 ---
 
-### 📄 `02_nested_comprehension.py`
+## ۷. Generator expression — پیش‌نمایش
+
+Comprehension با پرانتز به‌جای براکت، generator می‌سازد (جلسه ۱۵):
 
 ```python
-flat = [num for row in matrix for num in row]
+squares_gen = (n * n for n in range(5))  # lazy — همه در حافظه نیست
+squares_list = [n * n for n in range(5)]  # eager — list کامل
 ```
-
-**خط به خط:**
-- `for row in matrix` — روی هر ردیف ماتریس
-- `for num in row` — روی هر عدد داخل ردیف
-- `num` — همان عدد در لیست تخت (flat) قرار می‌گیرد
 
 ---
 
-## نکات رایج اشتباهات (Common Pitfalls)
+## ۸. مثال واقعی — فیلتر محصولات
 
-### ❌ اشتباه ۱: comprehension خیلی پیچیده
+```python
+products = [
+    {"name": "لپ‌تاپ", "price": 25_000_000, "stock": 3},
+    {"name": "ماوس", "price": 500_000, "stock": 0},
+    {"name": "کیبورد", "price": 1_200_000, "stock": 10},
+]
+
+# نام محصولات موجود و زیر ۲ میلیون
+affordable = [
+    p["name"]
+    for p in products
+    if p["stock"] > 0 and p["price"] < 2_000_000
+]
+print(affordable)  # ['ماوس', 'کیبورد']
+```
+
+---
+
+## ۹. فایل‌های جلسه
+
+| فایل | موضوع |
+|------|--------|
+| [01_list_comprehension.py](./examples/01_list_comprehension.py) | list، dict و set comprehension |
+| [02_nested_comprehension.py](./examples/02_nested_comprehension.py) | comprehension تو در تو و flatten |
+| [03_conditional_transform.py](./examples/03_conditional_transform.py) | if-else و فیلتر پیشرفته |
+| [04_real_world_filter.py](./examples/04_real_world_filter.py) | فیلتر داده واقعی |
+
+---
+
+## ۱۰. اشتباهات رایج (Pitfalls)
+
+### ❌ comprehension خیلی پیچیده
 ```python
 # ❌ خواندن سخت — بهتر است حلقه معمولی
 result = [x*y for x in a for y in b if x > 0 if y < 10 for z in c if z != x]
@@ -158,7 +233,7 @@ result = [x*y for x in a for y in b if x > 0 if y < 10 for z in c if z != x]
 evens = [n for n in numbers if n % 2 == 0]
 ```
 
-### ❌ اشتباه ۲: side effect داخل comprehension
+### ❌ side effect داخل comprehension
 ```python
 # ❌ print داخل comprehension — anti-pattern
 [print(n) for n in numbers]
@@ -171,52 +246,62 @@ for n in squares:
     print(n)
 ```
 
-### ❌ اشتباه ۳: فراموش کردن آکولاد در dict
+### ❌ فراموش کردن آکولاد در dict
 ```python
 lengths = (name: len(name) for name in names)  # ❌ خطای syntax
 lengths = {name: len(name) for name in names}  # ✅
 ```
 
+### ❌ تله mutable default در nested
+```python
+# ❌ همه ردیف‌ها به یک list اشاره می‌کنند
+matrix = [[0] * 3] * 3
+matrix[0][0] = 1
+print(matrix)  # همه ردیف‌ها تغییر می‌کنند!
+
+# ✅ comprehension درست
+matrix = [[0 for _ in range(3)] for _ in range(3)]
+```
+
 ---
 
-## بهترین شیوه‌ها (Best Practices)
+## ۱۱. بهترین شیوه‌ها
 
 - comprehension را برای **تبدیل و فیلتر ساده** استفاده کنید
 - اگر بیش از یک `if` یا دو حلقه تو در تو دارید، حلقه `for` معمولی خواناتر است
 - نام متغیر حلقه را کوتاه ولی معنادار بگذارید (`n`، `name`، `row`)
 - از side effect (مثل `print` یا نوشتن فایل) داخل comprehension پرهیز کنید
+- برای داده بزرگ از generator expression `( ... )` به‌جای `[ ... ]` فکر کنید
 
 ---
 
-## خلاصه جلسه
+## ۱۲. خلاصه جلسه
 
 در این جلسه یاد گرفتید:
 - ✅ comprehension روش فشرده ساخت list/dict/set است
 - ✅ ساختار: `[expr for x in source if cond]`
 - ✅ dict: `{k: v for ...}` و set: `{expr for ...}`
 - ✅ comprehension تو در تو برای لیست‌های دوبعدی
+- ✅ `if` بعد از `for` = فیلتر؛ `if-else` قبل از `for` = تبدیل
 - ✅ سادگی مهم‌تر از کوتاهی افراطی است
 
 ---
 
-## تمرین‌ها
+## ۱۳. تکلیف خانه
 
-### تمرین ۱ (ساده): اعداد فرد
-لیست `[1, 2, 3, 4, 5, 6, 7, 8, 9]` داده شده. با **list comprehension** فقط اعداد **فرد** را استخراج کنید.
+### ساده (۱۵ دقیقه)
+لیست `[1, 2, 3, 4, 5, 6, 7, 8, 9]` — فقط اعداد فرد را با list comprehension استخراج کنید.
 
-**راهنما:** از `if n % 2 != 0` استفاده کنید.
+### متوسط (۳۰ دقیقه)
+لیست دانش‌آموزان با `name` و `score` دارید. dict comprehension بسازید که فقط نمره ≥ ۱۰ را نگه دارد.
 
-### تمرین ۲ (متوسط): dict comprehension
-لیست `["سعید", "مینا", "علی"]` داده شده. دیکشنری بسازید که **کلید = نام** و **مقدار = طول نام** باشد.
+### پیشرفته (۴۵ دقیقه)
+ماتریس ۴×۴ تصادفی (یا ثابت) — با nested comprehension:
+1. لیست تخت (flat) بسازید
+2. فقط اعداد بزرگ‌تر از میانگین را برگردانید
 
-**راهنما:** `{name: len(name) for name in names}`
-
-### تمرین ۳ (پیشرفته): فیلتر و تبدیل
-لیست `[10, 15, 20, 25, 30]` — لیستی از **مربع اعداد بزرگ‌تر از ۱۵** بسازید.
-
-**راهنما:** `[n * n for n in nums if n > 15]`
-
-راه‌حل‌ها در فایل [exercises/exercise_01.py](./exercises/exercise_01.py) موجود است.
+راهنما: [exercises/question.md](./exercises/question.md)  
+پاسخ نمونه: [exercise_01.py](./exercises/exercise_01.py) | [exercise_02.py](./exercises/exercise_02.py)
 
 ---
 
