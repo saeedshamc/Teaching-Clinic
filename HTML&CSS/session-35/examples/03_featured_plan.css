@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 35 — مثال ۰۳ — الگوی پیشرفته
+   فایل: 03_featured_plan.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;padding:2rem;background:#0f172a;min-height:100vh;display:flex;align-items:center;justify-content:center}.cards{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}.card{background:#1e293b;color:#e2e8f0;padding:2rem;border-radius:12px;min-width:140px;text-align:center;border:2px solid #334155}.card.hot{background:#312e81;border-color:#6366f1;transform:scale(1.08);box-shadow:0 16px 32px rgba(99,102,241,.35)}

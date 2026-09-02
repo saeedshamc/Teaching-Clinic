@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تمرین ۲ — hamburger menu</title>
+  <style>
+    /* ============================================================
+       تمرین ۲ جلسه ۲۶ — hamburger + media query
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: #f8fafc; }
+
+    .site-header { background: #1e293b; position: relative; }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .logo { color: #38bdf8; text-decoration: none; font-weight: 700; }
+
+    .nav-toggle { display: none; }
+
+    /* TODO: hamburger — display none در دسکتاپ، flex در موبایل */
+    .hamburger {
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 3px;
+      background: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a { color: #e2e8f0; text-decoration: none; }
+
+    main { padding: 2rem; max-width: 900px; margin: 0 auto; }
+
+    /* TODO: media query max-width 768px
+       - hamburger نمایش
+       - nav-links مخفی، position absolute
+       - nav-toggle:checked ~ nav-links نمایش flex column
+    */
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="#" class="logo">منو</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="hamburger" aria-label="منو">
+        <span></span><span></span><span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="#">صفحه ۱</a></li>
+        <li><a href="#">صفحه ۲</a></li>
+        <li><a href="#">صفحه ۳</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>تمرین ۲: منوی موبایل</h1>
+    <p>media query و checkbox hack را کامل کنید.</p>
+  </main>
+</body>
+</html>

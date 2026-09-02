@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 29 — مثال ۰۳ — الگوی پیشرفته
+   فایل: 03_theme.css
+   ============================================================ */
+
+:root{--bg:#ffffff;--fg:#0f172a}@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--fg:#f1f5f9}}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--fg);min-height:100vh}.app{padding:2rem}

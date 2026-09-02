@@ -1,0 +1,2 @@
+/* mobile-first base */
+body{margin:0;font-family:system-ui,sans-serif}.nav{display:flex;flex-direction:column;gap:.5rem;padding:1rem;background:#0f172a}.nav a{color:#fff;text-decoration:none;padding:.75rem}main{padding:1rem}

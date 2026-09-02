@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 35 — مثال ۰۱ — مفاهیم پایه
+   فایل: 01_flex_pricing.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;padding:1.5rem;background:#f1f5f9}.row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}.plan{flex:1 1 220px;max-width:280px;background:#fff;padding:1.5rem;border-radius:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}

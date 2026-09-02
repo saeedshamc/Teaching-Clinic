@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تمرین ۱ — navbar پایه</title>
+  <style>
+    /* ============================================================
+       تمرین ۱ جلسه ۲۶ — navbar با Flexbox
+       TODO: استایل‌ها را کامل کنید
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; }
+
+    /* TODO: پس‌زمینه تیره برای header */
+    .site-header { }
+
+    /* TODO: display flex, space-between, align-items center */
+    .navbar {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .logo { text-decoration: none; font-weight: bold; }
+
+    /* TODO: flex, list-style none, gap */
+    .nav-links { }
+
+    .nav-links a { text-decoration: none; color: #333; }
+    .nav-links a:hover { color: #2563eb; }
+
+    main { padding: 2rem; max-width: 900px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="ناوبری">
+      <a href="#" class="logo">لوگوی من</a>
+      <ul class="nav-links">
+        <li><a href="#">خانه</a></li>
+        <li><a href="#">خدمات</a></li>
+        <li><a href="#">درباره</a></li>
+        <li><a href="#">تماس</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>تمرین ۱: navbar افقی</h1>
+    <p>Flexbox را برای `.navbar` و `.nav-links` پیاده کنید.</p>
+  </main>
+</body>
+</html>

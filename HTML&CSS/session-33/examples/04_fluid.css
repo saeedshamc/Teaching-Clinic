@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 33 — مثال ۰۴ — پروژه/جمع‌بندی
+   فایل: 04_fluid.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;padding:2rem}.fluid{font-size:calc(1.25rem + 2vw);margin:0 0 1rem}.fluid-p{font-size:calc(.9rem + .5vw);color:#64748b;max-width:calc(600px + 10vw)}

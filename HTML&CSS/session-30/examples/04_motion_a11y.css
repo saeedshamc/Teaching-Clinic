@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 30 — مثال ۰۴ — پروژه/جمع‌بندی
+   فایل: 04_motion_a11y.css
+   ============================================================ */
+
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}body{margin:0;font-family:system-ui,sans-serif;padding:2rem}.card{padding:2rem;background:#dbeafe;border-radius:12px;display:inline-block}.animated{animation:bounce 2s ease infinite}@media(prefers-reduced-motion:reduce){.animated{animation:none}}

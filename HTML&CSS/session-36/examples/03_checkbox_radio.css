@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 36 — مثال ۰۳ — الگوی پیشرفته
+   فایل: 03_checkbox_radio.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;padding:2rem}.check{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;user-select:none}.check input{position:absolute;opacity:0;width:0;height:0}.check .box{width:22px;height:22px;border:2px solid #64748b;border-radius:6px;display:grid;place-items:center;transition:background .2s,border-color .2s}.check input:checked+.box{background:#3b82f6;border-color:#3b82f6}.check input:checked+.box::after{content:'✓';color:#fff;font-size:14px}.check input:focus-visible+.box{outline:2px solid #3b82f6;outline-offset:2px}

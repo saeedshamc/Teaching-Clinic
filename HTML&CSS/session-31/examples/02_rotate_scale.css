@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 31 — مثال ۰۲ — تکمیل مبحث
+   فایل: 02_rotate_scale.css
+   ============================================================ */
+
+body{margin:0;display:grid;place-items:center;min-height:100vh;background:#1e293b}.shape{width:100px;height:100px;background:linear-gradient(135deg,#f472b6,#6366f1);border-radius:8px;transition:transform .4s ease}.shape:hover{transform:rotate(15deg) scale(1.15)}

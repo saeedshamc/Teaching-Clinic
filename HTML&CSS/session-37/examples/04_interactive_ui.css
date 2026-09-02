@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 37 — مثال ۰۴ — پروژه/جمع‌بندی
+   فایل: 04_interactive_ui.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;padding:2rem;background:#e2e8f0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem}.card{background:#fff;padding:2rem;border-radius:12px;text-align:center;font-weight:bold;cursor:pointer;transition:transform .25s,box-shadow .25s;border:2px solid transparent}.card:hover{transform:translateY(-6px);box-shadow:0 12px 24px rgba(0,0,0,.12);border-color:#6366f1}.card:active{transform:translateY(-2px)}.card:focus-visible{outline:3px solid #6366f1;outline-offset:2px}

@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 33 — مثال ۰۳ — الگوی پیشرفته
+   فایل: 03_hero_full.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif}.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#0f172a,#334155);color:#fff;text-align:center;padding:1rem}.hero h1{font-size:clamp(1.5rem,5vw,3rem)}

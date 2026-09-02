@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 33 — مثال ۰۱ — مفاهیم پایه
+   فایل: 01_vh_vw.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;background:#0f172a;min-height:100vh;display:flex;align-items:center;justify-content:center}.panel{width:50vw;height:30vh;background:#6366f1;color:#fff;display:grid;place-items:center;border-radius:12px;font-size:1.25rem

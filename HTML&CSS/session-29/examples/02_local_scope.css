@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 29 — مثال ۰۲ — تکمیل مبحث
+   فایل: 02_local_scope.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;padding:1rem;display:flex;gap:1rem;flex-wrap:wrap}.card{--card-bg:#f1f5f9;--card-border:#cbd5e1;background:var(--card-bg);border:2px solid var(--card-border);padding:1.5rem;border-radius:12px;flex:1;min-width:200px}.card.accent{--card-bg:#dbeafe;--card-border:#3b82f6}

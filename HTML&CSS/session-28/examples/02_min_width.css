@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 28 — مثال ۰۲ — تکمیل مبحث
+   فایل: 02_min_width.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif}.nav{display:flex;flex-direction:column;background:#1e293b;padding:1rem;gap:.5rem}.nav a{color:#e2e8f0;text-decoration:none}@media(min-width:768px){.nav{flex-direction:row;gap:1.5rem;justify-content:center}}

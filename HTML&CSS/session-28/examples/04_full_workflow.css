@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 28 — مثال ۰۴ — پروژه/جمع‌بندی
+   فایل: 04_full_workflow.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif}.header{padding:1rem;background:#0f172a;color:#fff}.header nav a{color:#93c5fd;margin-left:1rem;text-decoration:none}.main{padding:1rem}.hero{padding:2rem 0}.cards{display:grid;gap:1rem;grid-template-columns:1fr}.card{background:#e2e8f0;padding:1.5rem;border-radius:8px}@media(min-width:600px){.cards{grid-template-columns:1fr 1fr}}@media(min-width:900px){.header{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}.hero{padding:4rem 2rem}}

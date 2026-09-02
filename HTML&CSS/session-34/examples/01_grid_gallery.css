@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 34 — مثال ۰۱ — مفاهیم پایه
+   فایل: 01_grid_gallery.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;padding:1rem;background:#f8fafc}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}.cell{aspect-ratio:1;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:bold}
