@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<!-- جلسه 10 — مثال: 04_form_validation -->
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اعتبارسنجی فرم</title>
+</head>
+<body>
+    <h1>validation attributes</h1>
+    <form novalidate>
+        <label for="email2">ایمیل:</label>
+        <input type="email" id="email2" name="email2" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+
+        <label for="pass">رمز (حداقل ۸ کاراکتر):</label>
+        <input type="password" id="pass" name="pass" minlength="8" required>
+
+        <label for="site2">URL:</label>
+        <input type="url" id="site2" name="site2">
+
+        <label>
+            <input type="checkbox" name="terms" required> قوانین را می‌پذیرم
+        </label>
+
+        <button type="submit">ثبت‌نام</button>
+    </form>
+    <p><code>novalidate</code> روی form — برای تست؛ در production بردارید.</p>
+</body>
+</html>

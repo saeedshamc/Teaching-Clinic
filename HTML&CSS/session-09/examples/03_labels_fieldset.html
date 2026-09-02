@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<!-- جلسه 9 — مثال: 03_labels_fieldset -->
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>label و for</title>
+</head>
+<body>
+    <h1>label متصل به input</h1>
+    <form>
+        <!-- روش ۱: for + id -->
+        <label for="username">نام کاربری:</label>
+        <input type="text" id="username" name="username">
+
+        <!-- روش ۲: label دور input -->
+        <label>
+            سن:
+            <input type="number" name="age" min="0">
+        </label>
+
+        <!-- fieldset گروه‌بندی -->
+        <fieldset>
+            <legend>اطلاعات تماس</legend>
+            <label for="phone">تلفن:</label>
+            <input type="tel" id="phone" name="phone">
+        </fieldset>
+    </form>
+</body>
+</html>

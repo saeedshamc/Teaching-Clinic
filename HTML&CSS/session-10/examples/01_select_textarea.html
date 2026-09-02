@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<!-- جلسه 10 — مثال: 01_select_textarea -->
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select و textarea</title>
+</head>
+<body>
+    <h1>فرم پیشرفته</h1>
+    <form>
+        <label for="city">شهر:</label>
+        <select id="city" name="city" required>
+            <option value="">انتخاب کنید</option>
+            <option value="teh">تهران</option>
+            <option value="isf">اصفهان</option>
+            <option value="shz">شیراز</option>
+        </select>
+
+        <label for="msg">پیام:</label>
+        <textarea id="msg" name="msg" rows="5" cols="40" placeholder="متن پیام..."></textarea>
+
+        <button type="submit">ارسال</button>
+    </form>
+</body>
+</html>

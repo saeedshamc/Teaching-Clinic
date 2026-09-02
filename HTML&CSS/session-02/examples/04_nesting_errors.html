@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- جلسه ۲ — مقایسه nesting (اشتباهات در کامنت) -->
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اشتباهات nesting</title>
+</head>
+<body>
+    <h1>اشتباهات رایج nesting</h1>
+
+    <!-- ❌ اشتباه (در کامنت — اجرا نمی‌شود):
+    <p>متن <strong>پررنگ</p></strong>
+    -->
+
+    <!-- ✅ درست: -->
+    <p>متن <strong>پررنگ</strong> درست بسته شده.</p>
+
+    <!-- ❌ block داخل inline مجاز نیست:
+    <span><p>پاراگراف</p></span>
+    -->
+
+    <p>مرورگرهای مدرن HTML شکسته را «ترمیم» می‌کنند — ولی همیشه درست بنویسید.</p>
+</body>
+</html>
