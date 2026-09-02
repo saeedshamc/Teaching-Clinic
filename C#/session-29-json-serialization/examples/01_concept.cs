@@ -1,7 +1,24 @@
 // ============================================================
-// جلسه 29 — JSON
-// فایل: 01_concept.cs
+// جلسه ۲۹ — JSON: serialize و deserialize پایه
 // ============================================================
-// جلسه 29 — JSON
-Console.WriteLine("مثال 1: JSON");
-Console.WriteLine("این مثال مفهوم اصلی جلسه را نشان می‌دهد.");
+
+using System.Text.Json;
+
+var person = new Person { Name = "علی", Age = 28, IsActive = true };
+string json = JsonSerializer.Serialize(person);
+Console.WriteLine("JSON:");
+Console.WriteLine(json);
+
+string inputJson = """{"Name":"مریم","Age":32,"IsActive":false}""";
+Person? loaded = JsonSerializer.Deserialize<Person>(inputJson);
+Console.WriteLine($"\nDeserialize: {loaded?.Name}, {loaded?.Age} سال");
+
+if (loaded is null)
+    Console.WriteLine("Deserialize ناموفق!");
+
+public class Person
+{
+    public string Name { get; set; } = "";
+    public int Age { get; set; }
+    public bool IsActive { get; set; }
+}

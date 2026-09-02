@@ -1,9 +1,21 @@
-# تمرین جلسه 36
+# تمرین‌های جلسه ۳۶ — Dependency Injection
 
-## صورت سوال
+## کلاسی (۳۰ دقیقه)
 
-یک برنامه کوچک مرتبط با «DI» بنویسید و خروجی آن را تست کنید.
+1. `INotificationSender` + `EmailSender` + `SmsSender`
+2. `NotificationService` با constructor injection
+3. Composition Root برای wiring
 
----
+## خانه (۴۵ دقیقه)
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+4. `Microsoft.Extensions.DependencyInjection` + register/resolve
+5. Singleton cache + Transient validator
+6. Unit test با fake repository
+
+## Setup
+
+```powershell
+dotnet add package Microsoft.Extensions.DependencyInjection
+```
+
+پاسخ نمونه: [exercise_01.cs](./exercise_01.cs)

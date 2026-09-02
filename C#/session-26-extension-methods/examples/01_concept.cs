@@ -1,7 +1,20 @@
 // ============================================================
-// جلسه 26 — Extension Methods
-// فایل: 01_concept.cs
+// جلسه ۲۶ — Extension Methods: مفهوم پایه
 // ============================================================
-// جلسه 26 — Extension Methods
-Console.WriteLine("مثال 1: Extension Methods");
-Console.WriteLine("این مثال مفهوم اصلی جلسه را نشان می‌دهد.");
+
+string greeting = "سلام دنیا";
+Console.WriteLine(greeting.AddExclamation());  // سلام دنیا!
+Console.WriteLine($"تعداد کلمات: {greeting.WordCount()}"); // 2
+Console.WriteLine(StringExtensions.AddExclamation("تست")); // تست!
+
+// کلاس static حامل متدهای توسعه — بعد از top-level statements
+public static class StringExtensions
+{
+    public static string AddExclamation(this string text) => text + "!";
+
+    public static int WordCount(this string text)
+    {
+        if (string.IsNullOrWhiteSpace(text)) return 0;
+        return text.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+    }
+}

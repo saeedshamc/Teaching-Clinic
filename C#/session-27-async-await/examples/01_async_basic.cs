@@ -1,10 +1,20 @@
 // ============================================================
-// جلسه 27 — Async/Await
-// فایل: 01_async_basic.cs
+// جلسه ۲۷ — Async/Await: مفهوم پایه
 // ============================================================
-async Task DelayHello()
+
+async Task SayHelloWithDelayAsync(string name, int delayMs)
 {
-    await Task.Delay(500);
-    Console.WriteLine("Done");
+    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] شروع خوش‌آمد {name}");
+    await Task.Delay(delayMs);  // انتظار async — thread block نمی‌شود
+    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] سلام {name}!");
 }
-await DelayHello();
+
+Console.WriteLine("=== قبل از await ===");
+await SayHelloWithDelayAsync("علی", 800);
+Console.WriteLine("=== بعد از await ===");
+
+// مقایسه با Thread.Sleep (blocking)
+Console.WriteLine("\n--- Sync blocking ---");
+Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] قبل Sleep");
+Thread.Sleep(500);
+Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] بعد Sleep");

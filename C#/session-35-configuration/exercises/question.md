@@ -1,9 +1,23 @@
-# تمرین جلسه 35
+# تمرین‌های جلسه ۳۵ — Configuration
 
-## صورت سوال
+## کلاسی (۳۰ دقیقه)
 
-یک برنامه کوچک مرتبط با «Configuration» بنویسید و خروجی آن را تست کنید.
+1. `appsettings.json` با ConnectionString, ApiUrl, MaxRetries
+2. bind به `AppSettings` class
+3. simulate environment override
 
----
+## خانه (۴۵ دقیقه)
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+4. پروژه console + `Microsoft.Extensions.Configuration.Json`
+5. `appsettings.Development.json` override
+6. User Secrets برای connection string
+
+## Setup
+
+```powershell
+dotnet add package Microsoft.Extensions.Configuration.Json
+dotnet add package Microsoft.Extensions.Configuration.EnvironmentVariables
+dotnet add package Microsoft.Extensions.Options
+```
+
+پاسخ نمونه: [exercise_01.cs](./exercise_01.cs)
