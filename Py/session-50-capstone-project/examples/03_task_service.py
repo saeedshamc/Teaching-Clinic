@@ -1,16 +1,18 @@
 # ============================================================
-# جلسه ۵۰ — Capstone: Task Service
-# فایل: 01_task_service.py
+# جلسه ۵۰ — Task Service کامل
+# فایل: 03_task_service.py
 # ============================================================
 
 from dataclasses import dataclass, asdict
 import json
 from pathlib import Path
 
+
 @dataclass
 class Task:
     title: str
     done: bool = False
+
 
 class TaskService:
     def __init__(self, path: Path):
@@ -18,13 +20,24 @@ class TaskService:
         self.tasks: list[Task] = []
 
     def add(self, title: str) -> None:
-        self.tasks.append(Task(title=title))
+        cleaned = title.strip()
+        if not cleaned:
+            raise ValueError("عنوان خالی مجاز نیست")
+        self.tasks.append(Task(title=cleaned))
 
     def complete(self, index: int) -> None:
+        if index < 0 or index >= len(self.tasks):
+            raise IndexError("اندیس نامعتبر")
         self.tasks[index].done = True
 
+    def pending_count(self) -> int:
+        return sum(1 for t in self.tasks if not t.done)
+
+    def list_done_titles(self) -> list[str]:
+        return [t.title for t in self.tasks if t.done]
+
     def save(self) -> None:
-        data = [asdict(task) for task in self.tasks]
+        data = [asdict(t) for t in self.tasks]
         self.path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
     def load(self) -> None:
@@ -33,16 +46,15 @@ class TaskService:
         raw = json.loads(self.path.read_text(encoding="utf-8"))
         self.tasks = [Task(**item) for item in raw]
 
-    def pending_count(self) -> int:
-        return sum(1 for task in self.tasks if not task.done)
 
 path = Path(__file__).with_name("tasks.json")
 service = TaskService(path)
 service.add("یادگیری Python")
-service.add("ساختن پروژه نهایی")
+service.add("پروژه نهایی")
 service.complete(0)
 service.save()
 service.load()
 print("کارها:", [asdict(t) for t in service.tasks])
 print("مانده:", service.pending_count())
+print("انجام‌شده:", service.list_done_titles())
 path.unlink(missing_ok=True)

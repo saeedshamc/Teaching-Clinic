@@ -1,16 +1,22 @@
 # ============================================================
-# جلسه ۴۹ — Project Structure
+# جلسه ۴۹ — layout پروژه
 # فایل: 01_project_layout.py
 # ============================================================
 
-layout = {
+LAYOUT = {
+    "pyproject.toml": "متادیتا، وابستگی، build",
+    "README.md": "راهنمای شروع",
+    ".gitignore": "venv، cache، secrets",
     "src/myapp/__init__.py": "بسته اصلی",
-    "src/myapp/main.py": "نقطه ورود",
+    "src/myapp/__main__.py": "python -m myapp",
+    "src/myapp/config.py": "تنظیمات",
+    "src/myapp/models/": "dataclassها",
     "src/myapp/services/": "منطق کسب‌وکار",
-    "tests/": "تست‌ها",
-    "README.md": "مستند شروع",
-    "pyproject.toml": "متادیتا و وابستگی",
+    "src/myapp/cli/": "رابط خط فرمان",
+    "tests/conftest.py": "fixture مشترک",
+    "tests/test_services/": "تست سرویس‌ها",
 }
 
-for path, role in layout.items():
-    print(f"{path:28} -> {role}")
+print("=== ساختار پروژه پیشنهادی ===")
+for path, role in LAYOUT.items():
+    print(f"{path:32} → {role}")

@@ -1,18 +1,34 @@
 # ============================================================
-# تمرین جلسه ۴۶
-# هدف: Protocol برای speak بسازید.
+# تمرین ۱ جلسه ۴۶ — Readable Protocol
 # ============================================================
 
 from typing import Protocol
 
-class Speaks(Protocol):
-    def speak(self) -> str: ...
 
-class Cat:
-    def speak(self) -> str:
-        return "میو"
+class Readable(Protocol):
+    def read(self) -> str: ...
 
-def hear(animal: Speaks) -> None:
-    print(animal.speak())
 
-hear(Cat())
+class StringSource:
+    def __init__(self, text: str):
+        self._text = text
+
+    def read(self) -> str:
+        return self._text
+
+
+class CounterSource:
+    def __init__(self, n: int):
+        self._n = n
+
+    def read(self) -> str:
+        return str(self._n)
+
+
+def dump(source: Readable) -> None:
+    print("read:", source.read())
+
+
+if __name__ == "__main__":
+    dump(StringSource("سلام"))
+    dump(CounterSource(42))
