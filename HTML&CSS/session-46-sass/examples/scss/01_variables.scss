@@ -1,0 +1,2 @@
+@use 'variables' as v;
+.btn { background: v.$primary; color: #fff; padding: 0.5rem 1rem; border: none; border-radius: v.$radius; }

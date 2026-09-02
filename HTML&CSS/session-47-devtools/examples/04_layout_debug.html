@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>layout</title>
+
+</head>
+<body>
+  <style>.container{display:flex;gap:1rem;padding:1rem;background:#f1f5f9}
+    .item{flex:1;padding:1rem;background:#fff}.broken{flex:999 /* 🐛 BUG: item خیلی بزرگ */}</style>
+  <div class="container"><div class="item">A</div><div class="item broken">B</div><div class="item">C</div></div>
+  <!-- Flexbox overlay در DevTools فعال کنید -->
+</body>
+</html>

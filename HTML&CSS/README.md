@@ -1,148 +1,160 @@
-# Complete HTML & CSS Course - 50 Sessions
+# 🌐 دوره آموزشی کامل HTML & CSS — از صفر تا حرفه‌ای
 
-A comprehensive, project-based HTML and CSS course designed to take you from absolute beginner to professional web developer. This course consists of 50 structured sessions, each building upon the previous ones, with hands-on examples and exercises.
-
-## Target Audience
-
-This course is designed for:
-- Complete beginners with no prior programming experience
-- Anyone who wants to learn web development from scratch
-- Self-taught developers who want to fill in knowledge gaps
-- Students looking for a structured learning path
-
-## Prerequisites
-
-To get the most out of this course, you need:
-- **A code editor**: Visual Studio Code (recommended), Sublime Text, or any modern text editor
-- **A modern web browser**: Chrome, Firefox, Safari, or Edge
-- **No prior programming knowledge required**: We start from absolute zero
-
-## How to Use This Course
-
-### Running the Examples
-
-You can open any HTML file directly in your browser:
-1. Navigate to the session folder (e.g., `session-01-intro/`)
-2. Go to the `examples/` subfolder
-3. Double-click the HTML file to open it in your browser
-4. Or use a Live Server extension in your code editor for automatic reloading
-
-### Recommended Learning Pace
-
-- **Intensive**: 2-3 sessions per day (2-3 weeks to complete)
-- **Moderate**: 1 session per day (7-8 weeks to complete)
-- **Relaxed**: 3-4 sessions per week (3-4 months to complete)
-
-### Course Structure
-
-Each session includes:
-- **README.md**: Detailed explanation with learning objectives
-- **examples/**: Working code files with inline comments
-- **exercises/**: Hands-on practice problems with solutions
-
-## Course Curriculum
-
-### HTML Fundamentals (Sessions 1-12)
-1. [Introduction to the web, how browsers work, setting up a code editor and folder structure](session-01-intro/)
-2. [HTML document structure: doctype, html, head, body, basic tags](session-02/)
-3. [Text elements: headings, paragraphs, line breaks, horizontal rules](session-03/)
-4. [Text formatting: bold, italic, strong, em, and semantic text tags](session-04/)
-5. [Lists: ordered, unordered, and description lists](session-05/)
-6. [Links and anchors, relative vs absolute paths](session-06/)
-7. [Images: img tag, alt text, and basic responsive image attributes](session-07/)
-8. [Tables: structure, headers, rows, cells, spanning](session-08/)
-9. [Forms part 1: input types, labels, and basic form structure](session-09/)
-10. [Forms part 2: select, textarea, checkboxes, radio buttons, validation attributes](session-10/)
-11. [Semantic HTML5: header, nav, main, section, article, aside, footer](session-11/)
-12. [HTML metadata: meta tags, favicon, SEO-relevant basics](session-12/)
-
-### CSS Fundamentals (Sessions 13-25)
-13. [Introduction to CSS: what it is, how to link it, inline vs internal vs external](session-13/)
-14. [CSS selectors: element, class, id, attribute selectors](session-14/)
-15. [CSS selectors part 2: combinators, pseudo-classes, pseudo-elements](session-15/)
-16. [The box model: margin, border, padding, content](session-16/)
-17. [Colors, backgrounds, and units (px, %, em, rem)](session-17/)
-18. [Typography: font-family, font-size, line-height, web-safe fonts](session-18/)
-19. [CSS specificity, the cascade, and inheritance](session-19/)
-20. [Display property: block, inline, inline-block, none](session-20/)
-21. [Positioning: static, relative, absolute, fixed, sticky](session-21/)
-22. [Flexbox basics: container properties](session-22/)
-23. [Flexbox advanced: item properties, common layout patterns](session-23/)
-24. [CSS Grid basics: grid-template-columns/rows, gap](session-24/)
-25. [CSS Grid advanced: grid-template-areas, alignment, nested grids](session-25/)
-
-### Responsive Design & Projects (Sessions 26-37)
-26. [Building a responsive navbar (project-based session)](session-26/)
-27. [Media queries and responsive design fundamentals](session-27/)
-28. [Mobile-first design workflow](session-28/)
-29. [CSS variables (custom properties)](session-29/)
-30. [Transitions and simple animations with @keyframes](session-30/)
-31. [Transforms: translate, rotate, scale, skew](session-31/)
-32. [Shadows and gradients (box-shadow, text-shadow, linear/radial-gradient)](session-32/)
-33. [CSS units deep dive: viewport units (vh, vw), calc()](session-33/)
-34. [Building a responsive image gallery (project-based session)](session-34/)
-35. [Building a pricing table with Flexbox/Grid (project-based session)](session-35/)
-36. [Forms styling: custom-styled inputs, buttons, focus states](session-36/)
-37. [CSS pseudo-classes for interactivity: hover, focus, active, nth-child](session-37/)
-
-### Advanced Topics & Best Practices (Sessions 38-49)
-38. [Accessibility basics (a11y): semantic markup, alt text, ARIA basics, color contrast](session-38/)
-39. [CSS methodology: BEM naming convention](session-39/)
-40. [Introduction to CSS resets and normalize.css](session-40/)
-41. [Multi-column layouts and CSS columns property](session-41/)
-42. [Building a landing page layout (project-based session)](session-42/)
-43. [Building a blog post layout (project-based session)](session-43/)
-44. [Responsive typography techniques (fluid type, clamp())](session-44/)
-45. [CSS best practices: file organization, avoiding !important, maintainability](session-45/)
-46. [Introduction to Sass/SCSS basics (variables, nesting) as an optional preprocessor topic](session-46/)
-47. [Debugging CSS with browser DevTools](session-47/)
-48. [Performance basics: minimizing CSS, avoiding layout thrashing, critical CSS concept](session-48/)
-49. [Cross-browser considerations and basic browser compatibility checks](session-49/)
-
-### Final Project (Session 50)
-50. [Final project: build a complete, fully responsive multi-page website (Home, About, Services/Portfolio, Contact) using everything learned in the previous 49 sessions](session-50/)
-
-## Git Commit Structure
-
-This repository uses a structured Git commit history where each session has its own dedicated commit. This allows you to:
-- Track progress session by session
-- Easily revert to any specific session's state
-- See the evolution of the codebase
-- Review changes incrementally
-
-To view the commit history:
-```bash
-git log --oneline
-```
-
-Each commit follows the format: `session XX: [session title]`
-
-## Learning Tips
-
-1. **Don't rush**: Each session builds on the previous ones. Make sure you understand before moving forward
-2. **Practice**: Complete all exercises in each session before moving to the next
-3. **Experiment**: Modify the examples to see what happens
-4. **Build**: Try creating your own variations of the examples
-5. **Review**: Go back to earlier sessions if you need to refresh concepts
-
-## Troubleshooting
-
-If something doesn't work:
-- Check your code for typos (HTML and CSS are case-sensitive)
-- Make sure your file paths are correct
-- Use browser DevTools (F12) to inspect elements and check for errors
-- Compare your code with the provided examples
-
-## Resources
-
-- [MDN Web Docs](https://developer.mozilla.org/) - Comprehensive web development documentation
-- [W3C HTML Specification](https://html.spec.whatwg.org/) - Official HTML specification
-- [W3C CSS Specification](https://www.w3.org/Style/CSS/) - Official CSS specification
-
-## License
-
-This course is provided for educational purposes. Feel free to use it for learning and teaching.
+> تمام توضیحات به زبان فارسی روان نوشته شده‌اند.
+> این دوره برای کسانی طراحی شده که هیچ پیش‌زمینه‌ای در توسعه وب ندارند.
 
 ---
 
-**Happy Learning!** 🚀
+## معرفی دوره
+
+HTML و CSS پایه‌های ساخت هر وب‌سایت هستند. HTML ساختار و معنا می‌دهد؛ CSS ظاهر و چیدمان را کنترل می‌کند.
+
+این دوره شامل **۵۰ جلسه** است که به‌صورت پیشرونده طراحی شده‌اند — هر جلسه روی پایه‌های جلسه قبلی می‌سازد.
+
+> ⏱️ **هر جلسه برای ۱.۵ ساعت (۹۰ دقیقه) تدریس طراحی شده است** — شامل برنامه زمانی، مثال‌های عملی، تمرین کلاسی و تکلیف.
+
+---
+
+## مخاطب هدف
+
+- مبتدیان بدون تجربه برنامه‌نویسی
+- علاقه‌مندان به طراحی وب و front-end
+- دانشجویان و خودآموزانی که مسیر ساختاریافته می‌خواهند
+
+---
+
+## پیش‌نیازها
+
+| ابزار | توضیح |
+|-------|-------|
+| **VS Code** | ویرایشگر کد پیشنهادی — [code.visualstudio.com](https://code.visualstudio.com) |
+| **مرورگر مدرن** | Chrome، Firefox، Edge یا Safari |
+| **Live Server** (اختیاری) | افزونه VS Code برای پیش‌نمایش زنده |
+
+**نیازی به نصب HTML/CSS جداگانه نیست** — فقط ویرایشگر و مرورگر کافی است.
+
+---
+
+## نحوه باز کردن فایل‌های HTML
+
+1. به پوشه جلسه بروید (مثلاً `session-01-intro/`)
+2. وارد `examples/` شوید
+3. روی فایل HTML دوبار کلیک کنید — در مرورگر پیش‌فرض باز می‌شود
+4. یا در VS Code: کلیک راست → **Open with Live Server**
+
+```bash
+# ویندوز — باز کردن مستقیم
+start session-01-intro\\examples\\01_first_page.html
+
+# Mac
+open session-01-intro/examples/01_first_page.html
+```
+
+---
+
+## ساختار هر جلسه
+
+هر جلسه برای **۱.۵ ساعت تدریس** طراحی شده و شامل:
+- **README.md**: برنامه ۹۰ دقیقه‌ای، اهداف، توضیحات و مثال‌های کد (۲۰۰+ خط)
+- **examples/**: ۴ فایل HTML قابل اجرا با کامنت فارسی
+- **exercises/question.md**: تمرین کلاسی و تکلیف خانه
+- **exercises/exercise_01.html** و **exercise_02.html**: قالب شروع / پاسخ نمونه
+
+---
+
+## فهرست جلسات
+
+### HTML مبانی (جلسات ۱–۱۲)
+
+| # | عنوان | موضوعات |
+|---|-------|---------|
+| [1](./session-01-intro/) | مقدمه وب، مرورگر و محیط توسعه | — |
+| [2](./session-02/) | ساختار سند HTML | — |
+| [3](./session-03/) | عناصر متنی | — |
+| [4](./session-04/) | قالب‌بندی متن | — |
+| [5](./session-05/) | لیست‌ها | — |
+| [6](./session-06/) | لینک‌ها | — |
+| [7](./session-07/) | تصاویر | — |
+| [8](./session-08/) | جداول | — |
+| [9](./session-09/) | فرم‌ها — بخش ۱ | — |
+| [10](./session-10/) | فرم‌ها — بخش ۲ | — |
+| [11](./session-11/) | HTML معنایی | — |
+| [12](./session-12/) | متادیتا HTML | — |
+
+### CSS مبانی (جلسات ۱۳–۲۵)
+
+| # | عنوان | موضوعات |
+|---|-------|---------|
+| [13](./session-13/) | مقدمه CSS | — |
+| [14](./session-14/) | سلکتورها — بخش ۱ | — |
+| [15](./session-15/) | سلکتورها — بخش ۲ | — |
+| [16](./session-16/) | مدل جعبه | — |
+| [17](./session-17/) | رنگ و پس‌زمینه | — |
+| [18](./session-18/) | تایپوگرافی CSS | — |
+| [19](./session-19/) | Specificity و Cascade | — |
+| [20](./session-20/) | Display | — |
+| [21](./session-21/) | Positioning | — |
+| [22](./session-22/) | Flexbox — مبانی | — |
+| [23](./session-23/) | Flexbox — پیشرفته | — |
+| [24](./session-24/) | Grid — مبانی | — |
+| [25](./session-25/) | Grid — پیشرفته | — |
+
+### Responsive و پروژه‌ها (جلسات ۲۶–۳۷)
+
+| # | عنوان | موضوعات |
+|---|-------|---------|
+| [26](./session-26/) | پروژه: navbar واکنش‌گرا | — |
+| [27](./session-27/) | Media queries | — |
+| [28](./session-28/) | Mobile-first | — |
+| [29](./session-29/) | CSS variables | — |
+| [30](./session-30/) | Transitions و animations | — |
+| [31](./session-31/) | Transforms | — |
+| [32](./session-32/) | سایه و gradient | — |
+| [33](./session-33/) | واحدهای viewport | — |
+| [34](./session-34/) | پروژه: گالری تصویر | — |
+| [35](./session-35/) | پروژه: جدول قیمت | — |
+| [36](./session-36/) | استایل فرم‌ها | — |
+| [37](./session-37/) | Pseudo-classes تعاملی | — |
+
+### موضوعات پیشرفته (جلسات ۳۸–۴۹)
+
+| # | عنوان | موضوعات |
+|---|-------|---------|
+| [38](./session-38-accessibility/) | دسترسی‌پذیری (a11y) | — |
+| [39](./session-39-bem/) | روش نام‌گذاری BEM | — |
+| [40](./session-40-css-reset/) | CSS Reset و normalize | — |
+| [41](./session-41-columns/) | چیدمان چندستونه | — |
+| [42](./session-42-landing-page/) | پروژه: Landing Page | — |
+| [43](./session-43-blog-post/) | پروژه: پست وبلاگ | — |
+| [44](./session-44-typography/) | تایپوگرافی fluid | — |
+| [45](./session-45-best-practices/) | بهترین شیوه‌های CSS | — |
+| [46](./session-46-sass/) | مبانی Sass/SCSS | — |
+| [47](./session-47-devtools/) | دیباگ با DevTools | — |
+| [48](./session-48-performance/) | بهینه‌سازی CSS | — |
+| [49](./session-49-cross-browser/) | سازگاری مرورگر | — |
+
+### پروژه نهایی (جلسه ۵۰)
+
+| # | عنوان | موضوعات |
+|---|-------|---------|
+| [50](./session-50-capstone/) | پروژه نهایی capstone | وب‌سایت چندصفحه‌ای |
+
+---
+
+## نقشه راه پیشنهادی
+
+- **سریع:** ۲–۳ جلسه در روز (۲–۳ هفته)
+- **متوسط:** ۱ جلسه در روز (۷–۸ هفته)
+- **آرام:** ۳–۴ جلسه در هفته (۳–۴ ماه)
+
+---
+
+## منابع
+
+- [MDN Web Docs](https://developer.mozilla.org/fa/)
+- [web.dev](https://web.dev/)
+- [Can I Use](https://caniuse.com/)
+
+---
+
+*این دوره با ❤️ به فارسی نوشته شده تا یادگیری HTML & CSS برای همه فارسی‌زبانان راحت‌تر باشد.*

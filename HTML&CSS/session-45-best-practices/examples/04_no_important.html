@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>specificity</title>
+
+</head>
+<body>
+  <style>/* ✅ */ .nav .nav__link{color:#2563eb} /* ❌ */ #nav a{color:red!important}</style>
+  <nav class="nav"><a class="nav__link" href="#">لینک</a></nav>
+</body>
+</html>

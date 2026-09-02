@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مثال ۳ — ARIA</title>
+
+</head>
+<body>
+  <h1>ARIA پایه</h1>
+  <div role="tablist" aria-label="بخش‌ها">
+    <button role="tab" aria-selected="true" aria-controls="p1">HTML</button>
+    <button role="tab" aria-selected="false" aria-controls="p2">CSS</button>
+  </div>
+  <div id="p1" role="tabpanel">محتوای HTML</div>
+  <button aria-expanded="false" aria-controls="menu">منو</button>
+  <ul id="menu" hidden><li>گزینه</li></ul>
+</body>
+</html>
