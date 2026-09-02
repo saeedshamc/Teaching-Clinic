@@ -1,9 +1,26 @@
-# تمرین جلسه 22
+# تمرین‌های جلسه ۲۲ — Delegates
 
-## صورت سوال
+## کلاسی (۳۰ دقیقه)
 
-یک برنامه کوچک مرتبط با «Delegate» بنویسید و خروجی آن را تست کنید.
+### ۱. Calculator
+`Func<int,int,int>` برای +, -, *, / — انتخاب عملگر در runtime.
+
+### ۲. List Filter
+`Filter<T>(list, Predicate<T>)` — فیلتر اعداد زوج و کلمات بلند.
+
+### ۳. Multicast Logger
+`Action<string>` — Console + File + Timestamp.
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## خانه (۴۵ دقیقه)
+
+### ۴. Password Validator
+سه rule با `Func<string, bool>` — طول، عدد، حرف بزرگ.
+
+### ۵. Sort Strategy
+`Sort<T>(list, Func<T,T,int>)` — صعودی و نزولی.
+
+---
+
+پاسخ: [exercise_01.cs](./exercises/exercise_01.cs) | [exercise_02.cs](./exercises/exercise_02.cs)

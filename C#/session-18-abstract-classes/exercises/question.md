@@ -1,9 +1,26 @@
-# تمرین جلسه 18
+# تمرین‌های جلسه ۱۸ — Abstract Classes
 
-## صورت سوال
+## کلاسی (۳۰ دقیقه)
 
-یک برنامه کوچک مرتبط با «کلاس انتزاعی» بنویسید و خروجی آن را تست کنید.
+### ۱. Document
+`abstract class Document` — `Print()`, `GetPageCount()` — `PdfDocument`, `TextDocument`.
+
+### ۲. Beverage
+`abstract class Beverage` — `Prepare()` (Template), `BoilWater()`, `Brew()` abstract.
+
+### ۳. Shape Extended
+اضافه کردن `Triangle` به سلسله‌مراتب Shape.
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## خانه (۴۵ دقیقه)
+
+### ۴. Report Generator
+`abstract class Report` — Template Method: `CollectData()`, `Format()`, `Export()`.
+
+### ۵. Vehicle Rental
+`abstract class Vehicle` — `CalculateRent(days)` abstract — `Car`, `Truck`, `Motorcycle`.
+
+---
+
+پاسخ: [exercise_01.cs](./exercise_01.cs) | [exercise_02.cs](./exercise_02.cs)

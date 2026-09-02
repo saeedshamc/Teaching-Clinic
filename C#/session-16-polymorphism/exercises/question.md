@@ -1,9 +1,28 @@
-# تمرین جلسه 16
+# تمرین‌های جلسه ۱۶ — Polymorphism
 
-## صورت سوال
+## کلاسی (۳۰ دقیقه)
 
-یک برنامه کوچک مرتبط با «چندریختی» بنویسید و خروجی آن را تست کنید.
+### ۱. Animal Zoo
+`Animal[]` با `Dog`, `Cat`, `Bird` — حلقه `Speak()` و شمارش هر نوع با `is`.
+
+### ۲. Shape Calculator
+`Shape[]` — جمع مساحت و بزرگترین شکل.
+
+### ۳. Employee Payroll
+`Employee[]` — مجموع حقوق با Polymorphism.
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## خانه (۴۵ دقیقه)
+
+### ۴. Document Processor
+`Document` (abstract `Print()`) → `PdfDocument`, `WordDocument`, `ImageDocument`.
+متد `ProcessAll(Document[])` با pattern matching.
+
+### ۵. Transport System
+`Vehicle` → `Car`, `Bus`, `Bicycle` — `CalculateFare(distance)`.
+Downcasting برای دسترسی به `Bus.PassengerCount`.
+
+---
+
+پاسخ: [exercise_01.cs](./exercise_01.cs) | [exercise_02.cs](./exercise_02.cs)

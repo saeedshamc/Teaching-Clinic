@@ -1,9 +1,26 @@
-# تمرین جلسه 24
+# تمرین‌های جلسه ۲۴ — LINQ Basics
 
-## صورت سوال
+## کلاسی (۳۰ دقیقه)
 
-یک برنامه کوچک مرتبط با «LINQ پایه» بنویسید و خروجی آن را تست کنید.
+### ۱. Product Filter
+محصولات بالای 1M — Select نام و قیمت.
+
+### ۲. Student Stats
+میانگین، بالاترین، پایین‌ترین نمره.
+
+### ۳. GroupBy City
+تعداد و میانگین نمره هر شهر.
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## خانه (۴۵ دقیقه)
+
+### ۴. Sales Report
+GroupBy Product — جمع فروش هر محصول.
+
+### ۵. Top 3
+۳ دانشجوی برتر با OrderByDescending.
+
+---
+
+پاسخ: [exercise_01.cs](./exercises/exercise_01.cs) | [exercise_02.cs](./exercises/exercise_02.cs)

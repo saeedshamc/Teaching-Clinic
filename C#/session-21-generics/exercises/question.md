@@ -1,9 +1,26 @@
-# تمرین جلسه 21
+# تمرین‌های جلسه ۲۱ — Generics
 
-## صورت سوال
+## کلاسی (۳۰ دقیقه)
 
-یک برنامه کوچک مرتبط با «Generic» بنویسید و خروجی آن را تست کنید.
+### ۱. Stack<T>
+Push, Pop, Peek, Count — با List<T> داخلی.
+
+### ۲. FindMax<T>
+با constraint `IComparable<T>` — تست با int و string.
+
+### ۳. Pair<T1,T2>
+Key-Value — متد `Swap()` برای جابجایی Key و Value.
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## خانه (۴۵ دقیقه)
+
+### ۴. Result<T>
+`Ok(value)` و `Fail(error)` — الگوی نتیجه عملیات.
+
+### ۵. Generic Repository
+برای `Product` (Id, Name, Price) — CRUD کامل.
+
+---
+
+پاسخ: [exercise_01.cs](./exercises/exercise_01.cs) | [exercise_02.cs](./exercises/exercise_02.cs)

@@ -1,9 +1,27 @@
-# تمرین جلسه 15
+# تمرین‌های جلسه ۱۵ — وراثت
 
-## صورت سوال
+## کلاسی (۳۰ دقیقه)
 
-یک برنامه کوچک مرتبط با «وراثت» بنویسید و خروجی آن را تست کنید.
+### ۱. Vehicle Hierarchy
+`Vehicle` (Brand, Year, `StartEngine()`) → `Car` (Doors), `Motorcycle` (HasSidecar).
+
+### ۲. Shape Hierarchy
+`Shape` با `virtual GetArea()` → `Circle`, `Rectangle`, `Triangle`.
+
+### ۳. Media Hierarchy
+`MediaItem` (Title, Duration) → `Book` (Pages), `Movie` (Director).
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## خانه (۴۵ دقیقه)
+
+### ۴. Account Hierarchy
+`BankAccount` (Balance, Deposit, Withdraw) → `SavingsAccount` (InterestRate, AddInterest), `CheckingAccount` (OverdraftLimit).
+
+### ۵. Game Characters
+`Character` (Name, HP, `Attack()`) → `Warrior` (Armor), `Mage` (Mana, `CastSpell()`).
+آرایه `Character[]` — شبیه‌سازی نبرد.
+
+---
+
+پاسخ: [exercise_01.cs](./exercise_01.cs) | [exercise_02.cs](./exercise_02.cs)
