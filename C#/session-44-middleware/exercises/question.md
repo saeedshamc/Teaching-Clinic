@@ -1,9 +1,15 @@
-# تمرین جلسه 44
+# تمرین جلسه ۴۴ — Middleware
 
-## صورت سوال
+## تمرین ۱ — Logging Middleware
 
-یک برنامه کوچک مرتبط با «Middleware» بنویسید و خروجی آن را تست کنید.
+Middleware که method، path و status code را log کند.
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## تمرین ۲ — Rate Limit (ساده)
+
+Middleware که اگر header `X-Client-Id` نباشد 429 برگرداند.
+
+---
+
+**راهنما:** [exercise_01.cs](./exercise_01.cs) | [exercise_02.cs](./exercise_02.cs)

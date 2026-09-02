@@ -1,9 +1,15 @@
-# تمرین جلسه 48
+# تمرین جلسه ۴۸ — Debugging
 
-## صورت سوال
+## تمرین ۱ — Fix CalculateAverage
 
-یک برنامه کوچک مرتبط با «Debugging» بنویسید و خروجی آن را تست کنید.
+باگ off-by-one در حلقه را پیدا و fix کنید
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## تمرین ۲ — Null-Safe GetEmail
+
+`GetEmail(User? user)` با null-conditional
+
+---
+
+**راهنما:** [exercise_01.cs](./exercise_01.cs) | [exercise_02.cs](./exercise_02.cs)

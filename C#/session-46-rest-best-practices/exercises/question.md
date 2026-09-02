@@ -1,9 +1,15 @@
-# تمرین جلسه 46
+# تمرین جلسه ۴۶ — REST Best Practices
 
-## صورت سوال
+## تمرین ۱ — Book CRUD API
 
-یک برنامه کوچک مرتبط با «REST» بنویسید و خروجی آن را تست کنید.
+RESTful controller برای Book با status codes صحیح
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## تمرین ۲ — Paginated Response
+
+`PaginatedResponse<T>` با filter by genre
+
+---
+
+**راهنما:** [exercise_01.cs](./exercise_01.cs) | [exercise_02.cs](./exercise_02.cs)

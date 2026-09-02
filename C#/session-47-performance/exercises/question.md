@@ -1,9 +1,15 @@
-# تمرین جلسه 47
+# تمرین جلسه ۴۷ — Performance
 
-## صورت سوال
+## تمرین ۱ — Cache Service
 
-یک برنامه کوچک مرتبط با «Performance» بنویسید و خروجی آن را تست کنید.
+`CachedDataService` با get-or-create pattern
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## تمرین ۲ — Benchmark
+
+مقایسه `List.Contains` vs `HashSet.Contains` برای ۱۰۰۰۰ item
+
+---
+
+**راهنما:** [exercise_01.cs](./exercise_01.cs) | [exercise_02.cs](./exercise_02.cs)

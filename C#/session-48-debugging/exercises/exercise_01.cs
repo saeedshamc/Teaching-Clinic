@@ -1,4 +1,15 @@
 // ============================================================
-// تمرین جلسه 48 — پاسخ نمونه
+// تمرین ۱ جلسه ۴۸ — Fix CalculateAverage (پاسخ نمونه)
 // ============================================================
-Console.WriteLine("پاسخ نمونه جلسه 48: Debugging");
+
+double CalculateAverage(int[] scores)
+{
+    if (scores.Length == 0) return 0;
+    int sum = 0;
+    for (int i = 0; i < scores.Length; i++) // fix: < not <=
+        sum += scores[i];
+    return (double)sum / scores.Length;
+}
+
+var avg = CalculateAverage(new[] { 80, 90, 100 });
+Console.WriteLine($"Average: {avg} (expected: 90)");

@@ -1,9 +1,15 @@
-# تمرین جلسه 43
+# تمرین جلسه ۴۳ — Repository Pattern
 
-## صورت سوال
+## تمرین ۱ — Book Repository
 
-یک برنامه کوچک مرتبط با «Repository» بنویسید و خروجی آن را تست کنید.
+`IBookRepository` با `SearchByTitle` و InMemory implementation + `BookService`
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## تمرین ۲ — Unit of Work
+
+`IUnitOfWork` با `Authors` و `Books` — ثبت book با author در یک transaction
+
+---
+
+**راهنما:** [exercise_01.cs](./exercise_01.cs) | [exercise_02.cs](./exercise_02.cs)

@@ -1,9 +1,15 @@
-# تمرین جلسه 42
+# تمرین جلسه ۴۲ — SOLID
 
-## صورت سوال
+## تمرین ۱ — Refactor SRP
 
-یک برنامه کوچک مرتبط با «SOLID» بنویسید و خروجی آن را تست کنید.
+کلاس `InvoiceManager` که save، print و calculate tax دارد را به ۳ کلاس جدا refactor کنید.
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## تمرین ۲ — OCP + DIP
+
+`PaymentService` با switch برای card/wallet را با Strategy و DI بازنویسی کنید.
+
+---
+
+**راهنما:** [exercise_01.cs](./exercise_01.cs) | [exercise_02.cs](./exercise_02.cs)

@@ -1,9 +1,15 @@
-# تمرین جلسه 45
+# تمرین جلسه ۴۵ — Authentication
 
-## صورت سوال
+## تمرین ۱ — Login Flow
 
-یک برنامه کوچک مرتبط با «Authentication» بنویسید و خروجی آن را تست کنید.
+`AuthService` با register/login و token ساده
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## تمرین ۲ — Role Authorization
+
+`CanEditPost` policy: Admin یا Author (صاحب پست)
+
+---
+
+**راهنما:** [exercise_01.cs](./exercise_01.cs) | [exercise_02.cs](./exercise_02.cs)

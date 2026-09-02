@@ -1,9 +1,15 @@
-# تمرین جلسه 49
+# تمرین جلسه ۴۹ — Deployment
 
-## صورت سوال
+## تمرین ۱ — Config Loader
 
-یک برنامه کوچک مرتبط با «Deployment» بنویسید و خروجی آن را تست کنید.
+`LoadProductionConfig` از dictionary با validation (connection string نباید خالی باشد)
 
 ---
 
-راهنمای حل: [exercise_01.cs](./exercise_01.cs)
+## تمرین ۲ — Health Check Service
+
+Health check برای `database` و `diskSpace` (simulate)
+
+---
+
+**راهنما:** [exercise_01.cs](./exercise_01.cs) | [exercise_02.cs](./exercise_02.cs)

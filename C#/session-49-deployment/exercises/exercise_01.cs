@@ -1,4 +1,20 @@
 // ============================================================
-// تمرین جلسه 49 — پاسخ نمونه
+// تمرین ۱ جلسه ۴۹ — Config Loader (پاسخ نمونه)
 // ============================================================
-Console.WriteLine("پاسخ نمونه جلسه 49: Deployment");
+
+(string env, string conn) LoadProductionConfig(Dictionary<string, string> src)
+{
+    var env = src.GetValueOrDefault("ASPNETCORE_ENVIRONMENT", "Production");
+    var conn = src.GetValueOrDefault("ConnectionStrings__Default", "");
+    if (string.IsNullOrEmpty(conn))
+        throw new InvalidOperationException("Connection string is required");
+    return (env, conn);
+}
+
+var cfg = new Dictionary<string, string>
+{
+    ["ASPNETCORE_ENVIRONMENT"] = "Production",
+    ["ConnectionStrings__Default"] = "Server=prod;Database=Clinic"
+};
+var (env, conn) = LoadProductionConfig(cfg);
+Console.WriteLine($"Env={env}, Conn={conn[..20]}...");
