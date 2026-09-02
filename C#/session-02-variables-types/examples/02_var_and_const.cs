@@ -1,10 +1,16 @@
 // ============================================================
-// جلسه 2 — متغیرها و انواع داده
-// فایل: 02_var_and_const.cs
+// جلسه ۲ — var و const
 // ============================================================
-// var: نوع از مقدار اولیه استنتاج می‌شود
-var city = "Tehran";
-var count = 10;
+
+var city = "Tehran";      // string
+var count = 10;           // int
+var average = 18.5;       // double
 
 const double TaxRate = 0.09;
-Console.WriteLine($"{city} - count={count} - tax={TaxRate}");
+const int MaxItems = 50;
+
+double basePrice = 100_000;
+double finalPrice = basePrice * (1 + TaxRate);
+
+Console.WriteLine($"{city}: {count} items, final={finalPrice:N0}");
+Console.WriteLine($"Max allowed: {MaxItems}");
