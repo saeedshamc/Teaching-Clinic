@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه ۲۶ — پروژه navbar کامل</title>
+  <link rel="stylesheet" href="04_full_responsive_nav.css">
+</head>
+<body>
+  <!-- پروژه نهایی: sticky + hamburger + CTA + hero -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="ناوبری اصلی سایت">
+      <a href="#" class="logo">
+        <span class="logo-icon" aria-hidden="true">TC</span>
+        کلینیک آموزش
+      </a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="hamburger" aria-label="منو">
+        <span></span><span></span><span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="#home">خانه</a></li>
+        <li><a href="#courses">دوره‌ها</a></li>
+        <li><a href="#blog">وبلاگ</a></li>
+        <li><a href="#contact">تماس</a></li>
+        <li><a href="#signup" class="btn-cta">ثبت‌نام</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>دوره HTML &amp; CSS حرفه‌ای</h1>
+    <p>از صفر تا ساخت رابط کاربری واکنش‌گرا — navbar این صفحه نمونه پروژه جلسه ۲۶ است.</p>
+    <div class="hero-actions">
+      <a href="#" class="primary">شروع یادگیری</a>
+      <a href="#" class="secondary">مشاهده سرفصل</a>
+    </div>
+  </section>
+
+  <section class="section" id="courses">
+    <h2>دوره‌های محبوب</h2>
+    <div class="cards">
+      <article class="card"><h3>HTML</h3><p>ساختار معنایی صفحات وب.</p></article>
+      <article class="card"><h3>CSS</h3><p>طراحی و چیدمان مدرن.</p></article>
+      <article class="card"><h3>Responsive</h3><p>سازگاری با همه دستگاه‌ها.</p></article>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© ۱۴۰۴ کلینیک آموزش — جلسه ۲۶ پروژه navbar</p>
+  </footer>
+</body>
+</html>

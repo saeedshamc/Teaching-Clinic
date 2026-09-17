@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>specificity</title>
+
+</head>
+<body>
+  <style>#title{color:red}.title{color:blue}h1{color:green}</style>
+  <!-- 🐛 BUG: انتظار آبی — id برنده است -->
+  <h1 id="title" class="title">رنگ را در Styles بررسی کنید</h1>
+</body>
+</html>

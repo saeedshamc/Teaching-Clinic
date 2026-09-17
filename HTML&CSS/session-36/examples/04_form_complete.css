@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 36 — مثال ۰۴ — پروژه/جمع‌بندی
+   فایل: 04_form_complete.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;background:#f1f5f9}.signup{background:#fff;padding:2rem;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.08);width:min(100% - 2rem,400px)}.signup h2{margin:0 0 1.5rem}.field{margin-bottom:1rem;display:flex;flex-direction:column;gap:.35rem}label{font-size:.875rem;font-weight:600}input{padding:.75rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem}input:focus-visible{outline:none;border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.2)}input:invalid:not(:placeholder-shown){border-color:#ef4444}button{width:100%;margin-top:.5rem;padding:.875rem;background:#6366f1;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer}button:hover{background:#4f46e5}

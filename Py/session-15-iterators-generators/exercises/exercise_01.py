@@ -1,20 +1,5 @@
 # ============================================================
-# تمرین‌های جلسه ۱۵ — Iterator و Generator
-# ============================================================
-#
-# تمرین ۱ (ساده):
-#   even_numbers(limit) — اعداد زوج 0 تا limit.
-#
-# تمرین ۲ (متوسط):
-#   char_stream(text) — هر کاراکتر را yield کند.
-#
-# تمرین ۳ (پیشرفته):
-#   generator expression: مربع اعداد زوج 0..10 → list.
-#
-# راهنما:
-#   - yield به‌جای return
-#   - (n*n for n in range(11) if n % 2 == 0)
-#
+# تمرین ۱–۳ جلسه ۱۵ — Iterator و Generator (کلاسی)
 # ============================================================
 
 
@@ -30,17 +15,13 @@ def char_stream(text):
         yield char
 
 
-print("=== تمرین ۱ ===")
-for number in even_numbers(10):
-    print(number, end=" ")
-print()
+def fibonacci(count):
+    a, b = 0, 1
+    for _ in range(count):
+        yield a
+        a, b = b, a + b
 
-print("\n=== تمرین ۲ ===")
-for char in char_stream("Python"):
-    print(char, end="-")
-print()
 
-print("\n=== تمرین ۳ ===")
-even_squares = [n * n for n in range(11) if n % 2 == 0]
-# یا: list(n * n for n in range(11) if n % 2 == 0)
-print("مربع اعداد زوج:", even_squares)
+print("اعداد زوج:", list(even_numbers(10)))
+print("کاراکترها:", list(char_stream("سلام")))
+print("فیبوناچی:", list(fibonacci(8)))

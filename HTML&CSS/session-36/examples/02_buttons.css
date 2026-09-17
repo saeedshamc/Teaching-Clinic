@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 36 — مثال ۰۲ — تکمیل مبحث
+   فایل: 02_buttons.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;padding:2rem;display:flex;gap:1rem;flex-wrap:wrap;background:#0f172a}.btn{padding:.75rem 1.5rem;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600;transition:transform .15s,opacity .15s}.btn.primary{background:#3b82f6;color:#fff}.btn.primary:hover{background:#2563eb}.btn.primary:active{transform:scale(.97)}.btn.secondary{background:transparent;color:#e2e8f0;border:2px solid #475569}.btn:disabled{opacity:.5;cursor:not-allowed}

@@ -1,15 +1,24 @@
 # ============================================================
-# تمرین جلسه ۳۳
-# هدف: سه thread برای چاپ پیام بسازید.
+# پاسخ نمونه — تمرین جلسه ۳۳ (ساده)
 # ============================================================
 
 import threading
+import time
 
-def say(msg):
-    print(msg)
+event = threading.Event()
 
-threads = [threading.Thread(target=say, args=(f"پیام {i}",)) for i in range(1, 4)]
-for t in threads:
-    t.start()
-for t in threads:
-    t.join()
+
+def worker(name: str) -> None:
+    print(f"{name} منتظر event...")
+    event.wait()
+    print(f"{name} ادامه داد!")
+
+
+for n in ("A", "B"):
+    threading.Thread(target=worker, args=(n,)).start()
+
+time.sleep(0.5)
+print("main: event.set()")
+event.set()
+
+time.sleep(0.3)

@@ -1,20 +1,29 @@
 # ============================================================
-# تمرین جلسه ۲۷
-# هدف: برای موفقیت و شکست یک عملیات لاگ بنویسید.
+# پاسخ نمونه — تمرین جلسه ۲۷ (ساده)
 # ============================================================
 
 import logging
+import math
 
-logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+    datefmt="%H:%M:%S",
+)
+
+log = logging.getLogger("math_ops")
 
 
-def divide(a, b):
-    if b == 0:
-        logging.error("تقسیم بر صفر مجاز نیست")
+def safe_sqrt(x: float) -> float | None:
+    if x < 0:
+        log.error("ورودی منفی: %s", x)
         return None
-    logging.info("تقسیم انجام شد")
-    return a / b
+    result = math.sqrt(x)
+    log.info("sqrt(%s) = %s", x, result)
+    return result
 
 
-print(divide(10, 2))
-print(divide(10, 0))
+log.info("شروع")
+print(safe_sqrt(16))
+print(safe_sqrt(-4))
+log.warning("تست تمام شد")

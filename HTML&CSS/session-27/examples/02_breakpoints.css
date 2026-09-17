@@ -1,0 +1,6 @@
+/* breakpoint indicator */
+body { margin: 0; font-family: system-ui, sans-serif; }
+.banner { padding: 2rem; text-align: center; font-weight: bold; background: #dbeafe; }
+@media (max-width: 480px) { .banner { background: #fecaca; } .banner::after { content: ' (mobile)'; } }
+@media (min-width: 481px) and (max-width: 768px) { .banner { background: #fde68a; } .banner::after { content: ' (tablet)'; } }
+@media (min-width: 769px) { .banner { background: #bbf7d0; } .banner::after { content: ' (desktop)'; } }

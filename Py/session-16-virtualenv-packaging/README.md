@@ -1,6 +1,12 @@
-# جلسه ۱۶: محیط مجازی و بسته‌بندی (Virtualenv & Packaging)
+﻿# جلسه ۱۶: محیط مجازی و بسته‌بندی (۱.۵ ساعت)
 
-## اهداف یادگیری (Learning Objectives)
+## ۰. مرور
+
+در جلسه ۱۱ کتابخانه‌های بیرونی و pip را دیدید. امروز **ایزolation** — هر پروژه venv و requirements جدا.
+
+---
+
+## 🎯 اهداف یادگیری
 
 پس از این جلسه می‌توانید:
 - دلیل استفاده از محیط مجازی را توضیح دهید
@@ -9,18 +15,39 @@
 - فایل `requirements.txt` بسازید و از آن نصب کنید
 - تفاوت `pip freeze` و `requirements.txt` دستی را بدانید
 - ساختار ساده یک پروژه Python را تشخیص دهید
+- `.gitignore` و reproducibility را درک کنید
 
 ---
 
-## چرا محیط مجازی؟
+## ⏱️ برنامه زمانی (۹۰ دقیقه)
 
-**تشبیه:** هر پروژه مثل یک **آشپزخانه جدا** است. پروژه A به نمک قدیمی نیاز دارد، پروژه B به نمک جدید. اگر همه چیز در یک کابinet باشد، تداخل پیش می‌آید.
+| زمان | موضوع | فعالیت |
+|------|--------|--------|
+| 0–10 | مرور | pip و کتابخانه‌های بیرونی — جلسه ۱۱ |
+| 10–25 | چرا venv؟ | تداخل نسخه‌ها، ایزolation |
+| 25–45 | ساخت و فعال‌سازی | Windows/Mac/Linux |
+| 45–60 | pip و requirements | install، freeze، parse |
+| 60–75 | ساختار پروژه | پوشه‌ها، .gitignore |
+| 75–85 | تمرین کلاسی | پارس requirements |
+| 85–90 | جمع‌بندی + تکلیف |
+
+---
+
+## ۱. چرا محیط مجازی؟
+
+**تشبیه:** هر پروژه مثل یک **آشپزخانه جدا** است. پروژه A به نمک قدیمی نیاز دارد، پروژه B به نمک جدید. اگر همه چیز در یک کابینت باشد، تداخل پیش می‌آید.
 
 محیط مجازی (`venv`) یک پوشه جدا با Python و pip مخصوص همان پروژه است.
 
+| بدون venv | با venv |
+|-----------|---------|
+| همه پروژه‌ها یک pip | هر پروژه pip جدا |
+| تداخل نسخه‌ها | ایزolation |
+| deploy غیرقابل پیش‌بینی | reproducible |
+
 ---
 
-## ساخت و فعال‌سازی venv
+## ۲. ساخت و فعال‌سازی venv
 
 ```bash
 # ۱. ساخت (یک بار)
@@ -45,11 +72,14 @@ deactivate
 
 ---
 
-## pip — مدیر بسته
+## ۳. pip — مدیر بسته
 
 ```bash
 # نصب یک بسته
 pip install requests
+
+# نصب با نسخه مشخص
+pip install pandas==2.0.0
 
 # لیست بسته‌های نصب‌شده
 pip list
@@ -59,32 +89,37 @@ pip freeze > requirements.txt
 
 # نصب از requirements
 pip install -r requirements.txt
+
+# حذف بسته
+pip uninstall requests
 ```
 
 ---
 
-## requirements.txt
-
-فایل متنی — هر خط یک بسته (اختیاری با نسخه):
+## ۴. requirements.txt
 
 ```text
 requests==2.31.0
 pandas>=2.0.0
+pytest>=7.0.0
+# خط کامنت — pip نادیده می‌گیرد
 ```
 
-**چرا مهم است؟**
-- همکاران همان نسخه‌ها را نصب می‌کنند
-- deploy روی سرور قابل تکرار است
-- پروژه بدون venv قابل reproduce نیست
+| سینتکس | معنی |
+|--------|------|
+| `==2.31.0` | دقیقاً این نسخه |
+| `>=2.0.0` | حداقل این نسخه |
+| `~=2.0` | سازگار با 2.0.x |
 
 ---
 
-## ساختار ساده پروژه
+## ۵. ساختار ساده پروژه
 
 ```text
 my_project/
-├── .venv/              # محیط مجازی (معمولاً در git نیست)
-├── requirements.txt    # وابستگی‌ها
+├── .venv/              # محیط مجازی (در git نیست)
+├── .gitignore
+├── requirements.txt
 ├── README.md
 ├── src/
 │   └── main.py
@@ -92,98 +127,157 @@ my_project/
     └── test_main.py
 ```
 
----
-
-## فایل‌های این جلسه
-
-| فایل | توضیح |
-|------|-------|
-| [examples/01_requirements_demo.py](./examples/01_requirements_demo.py) | شبیه‌سازی requirements در Python |
-| [examples/02_project_structure.py](./examples/02_project_structure.py) | چک لیست پروژه و import محلی |
-| [exercises/exercise_01.py](./exercises/exercise_01.py) | تمرین‌های این جلسه |
-
----
-
-## توضیح کدها
-
-### 📄 `01_requirements_demo.py`
-
-```python
-requirements = ["requests>=2.28", "pandas>=2.0"]
-```
-
-**خط به خط:**
-- لیست رشته‌ها شبیه خطوط `requirements.txt`
-- `>=` یعنی حداقل این نسخه
-- `==` یعنی دقیقاً همین نسخه (برای reproducibility)
-
----
-
-### 📄 `02_project_structure.py`
-
-نمایش اینکه `__file__` مسیر فایل جاری را می‌دهد — پایه ساختار پروژه.
-
----
-
-## نکات رایج اشتباهات (Common Pitfalls)
-
-### ❌ اشتباه ۱: نصب global بدون venv
-```bash
-pip install pandas  # ❌ روی Python سیستم — تداخل پروژه‌ها
-```
-
-```bash
-python -m venv .venv && source .venv/bin/activate
-pip install pandas  # ✅ داخل پروژه
-```
-
-### ❌ اشتباه ۲: commit کردن .venv
+### .gitignore نمونه
 ```text
-# ❌ پوشه .venv را در git نگذارید — حجم زیاد و وابسته به OS
-# ✅ .gitignore → .venv/
+.venv/
+__pycache__/
+*.pyc
+.env
 ```
 
-### ❌ اشتباه ۳: فراموش کردن requirements.txt
+---
+
+## ۶. pip freeze vs requirements دستی
+
+| روش | مزیت | عیب |
+|-----|------|-----|
+| `pip freeze` | دقیق، reproducible | همه وابستگی‌های transitive |
+| دستی | تمیز، فقط مستقیم | ممکن است فراموش شود |
+
+**توصیه:** برای پروژه کوچک دستی؛ برای deploy از freeze.
+
+---
+
+## ۷. فایل‌های جلسه
+
+| فایل | موضوع |
+|------|--------|
+| [01_requirements_demo.py](./examples/01_requirements_demo.py) | پارس requirements |
+| [02_project_structure.py](./examples/02_project_structure.py) | چک‌لیست پروژه |
+| [03_version_parsing.py](./examples/03_version_parsing.py) | تجزیه نسخه |
+| [04_dependency_check.py](./examples/04_dependency_check.py) | بررسی وابستگی |
+
+---
+
+## ۸. اشتباهات رایج (Pitfalls)
+
+### ❌ نصب global بدون venv
 ```bash
-# ❌ فقط pip install — همکار نمی‌داند چه نصب کند
-pip freeze > requirements.txt  # ✅
+pip install pandas  # ❌ روی Python سیستم
 ```
 
+### ❌ commit کردن .venv
+پوشه `.venv` را در git نگذارید — حجم زیاد و وابسته به OS.
+
+### ❌ فراموش کردن requirements.txt
+همکار نمی‌داند چه نصب کند.
+
+### ❌ venv فعال نکردن قبل از pip
+بسته روی Python اشتباه نصب می‌شود.
+
 ---
 
-## بهترین شیوه‌ها (Best Practices)
+## ۹. خلاصه
 
-- هر پروژه یک venv جدا (`.venv` یا `venv`)
-- `requirements.txt` را به‌روز نگه دارید
-- برای کتابخانه publishشده از `pyproject.toml` استفاده کنید (پیشرفته)
-- `.venv` را در `.gitignore` بگذارید
-- قبل از deploy: `pip install -r requirements.txt` در محیط تمیز
-
----
-
-## خلاصه جلسه
-
-در این جلسه یاد گرفتید:
 - ✅ venv جداسازی بسته‌های هر پروژه
 - ✅ `pip install` / `pip freeze` / `requirements.txt`
-- ✅ فعال‌سازی venv در Windows و Linux
-- ✅ ساختار ساده پوشه پروژه
-- ✅ reproducibility با freeze و requirements
+- ✅ `.venv` در `.gitignore`
+- ✅ reproducibility با freeze
 
 ---
 
-## تمرین‌ها
+## ۱۰. تکلیف
 
-### تمرین ۱ (ساده): لیست requirements
-لیستی از ۳ بسته پیشنهادی برای پروژه «تحلیل داده» بنویسید.
+راهنما: [exercises/question.md](./exercises/question.md)  
+پاسخ: [exercise_01.py](./exercises/exercise_01.py) | [exercise_02.py](./exercises/exercise_02.py)
 
-### تمرین ۲ (متوسط): پارس requirements
-رشته چندخطی شبیه `requirements.txt` را بخوانید و نام بسته‌ها را استخراج کنید.
+---
 
-### تمرین ۳ (پیشرفته): چک نسخه
-تابعی بنویسید که خط `package>=1.0` را به نام و حداقل نسخه تجزیه کند.
+## ۱۱. workflow روزانه توسعه‌دهنده
 
-راه‌حل‌ها در [exercises/exercise_01.py](./exercises/exercise_01.py) موجود است.
+```bash
+# شروع کار روی پروژه
+cd my_project
+.venv\Scripts\Activate.ps1    # Windows
+pip install -r requirements.txt
+
+# بعد از نصب بسته جدید
+pip install httpx
+pip freeze > requirements.txt
+
+# پایان کار
+deactivate
+```
+
+---
+
+## ۱۲. pip commands مفید
+
+| دستور | کاربرد |
+|-------|--------|
+| `pip show requests` | اطلاعات بسته |
+| `pip install -U pip` | به‌روزرسانی pip |
+| `pip check` | بررسی conflict |
+| `pip list --outdated` | بسته‌های قدیمی |
+| `python -m pip install X` | امن‌تر از pip مستقیم |
+
+---
+
+## ۱۳. توضیح فایل‌های مثال
+
+### 📄 `01_requirements_demo.py` — پارس خطوط requirements
+### 📄 `02_project_structure.py` — `__file__` و چک‌لیست پوشه
+### 📄 `03_version_parsing.py` — regex برای `package>=1.0`
+### 📄 `04_dependency_check.py` — شبیه‌سازی `pip check`
+
+---
+
+## ۱۴. سوالات کلاسی
+
+1. چرا `.venv` را commit نمی‌کنیم؟
+2. تفاوت `pip install X` و `pip install -r requirements.txt`؟
+3. `==` و `>=` در requirements چه زمانی استفاده می‌شوند؟
+
+---
+
+## ۱۵. تمرین عملی ترمینال (۲۰ دقیقه)
+
+```bash
+mkdir demo_project && cd demo_project
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install requests
+pip list
+pip freeze > requirements.txt
+type requirements.txt
+deactivate
+```
+
+---
+
+## راهنمای مدرس (۱۵ دقیقه)
+
+- قبل از شروع: مرور کوتاه جلسه قبل و اهداف روی تخته
+- حین جلسه: دانشجو کد را خودش تایپ کند — copy/paste نکند
+- بعد از تمرین: ۵ دقیقه Q&A و اشاره به exercises/question.md
+- تکلیف خانه: exercise_02.py — deadline هفته بعد
+- ارزیابی: حضور در تمرین کلاسی + تحویل exercise_02
+
+---
+
+## منابع تکمیلی
+
+- [venv — Python docs](https://docs.python.org/3/library/venv.html)
+- [pip user guide](https://pip.pypa.io/en/stable/user_guide/)
+
+### چک‌لیست پایان جلسه
+
+- [ ] venv ساخته و فعال شد
+- [ ] pip install و freeze امتحان شد
+- [ ] requirements.txt پارس شد
+- [ ] exercise_01 و exercise_02
+- [ ] `.gitignore` برای `.venv` توضیح داده شد
+- [ ] pip check و conflict مفهومی
 
 ---
 

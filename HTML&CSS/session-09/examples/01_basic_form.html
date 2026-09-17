@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<!-- جلسه 9 — مثال: 01_basic_form -->
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم پایه</title>
+</head>
+<body>
+    <h1>فرم تماس</h1>
+    <form action="/submit" method="post">
+        <label for="name">نام:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">ایمیل:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">ارسال</button>
+    </form>
+</body>
+</html>

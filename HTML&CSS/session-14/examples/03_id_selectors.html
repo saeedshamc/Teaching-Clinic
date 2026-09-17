@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه ۱۴ — ID Selector</title>
+    <style>
+        /* جلسه ۱۴ — مثال ۰۳: سلکتور id — #idname
+           id باید در صفحه یکتا باشد */
+
+        body {
+            font-family: Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #site-header {
+            background: #1a252f;
+            color: white;
+            padding: 20px 24px;
+        }
+
+        #site-header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        #main-content {
+            padding: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #footer-note {
+            background: #f4f4f4;
+            padding: 16px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        nav a {
+            color: #3498db;
+            margin-left: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header id="site-header">
+        <h1>سایت نمونه</h1>
+        <nav>
+            <a href="#section-intro">معرفی</a>
+            <a href="#section-contact">تماس</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="section-intro">
+            <h2>بخش معرفی</h2>
+            <p>id برای anchor لینک داخلی هم استفاده می‌شود.</p>
+        </section>
+        <section id="section-contact">
+            <h2>تماس</h2>
+            <p>هر id فقط یک بار در صفحه.</p>
+        </section>
+    </main>
+
+    <footer id="footer-note">
+        © ۱۴۰۴ — جلسه ۱۴
+    </footer>
+</body>
+</html>

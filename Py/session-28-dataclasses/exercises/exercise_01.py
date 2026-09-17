@@ -1,16 +1,42 @@
 # ============================================================
-# تمرین جلسه ۲۸
-# هدف: یک dataclass برای محصول بسازید.
+# پاسخ نمونه — تمرین جلسه ۲۸ (ساده)
 # ============================================================
 
-from dataclasses import dataclass
+import math
+from dataclasses import dataclass, field
+
+
+@dataclass
+class Book:
+    title: str
+    author: str
+    pages: int
 
 
 @dataclass
 class Product:
-    title: str
-    price: int
+    name: str
+    price: float
+    tags: list[str] = field(default_factory=list)
 
 
-item = Product("کتاب Python", 250000)
-print(item.title, item.price)
+@dataclass(frozen=True)
+class Point:
+    x: float
+    y: float
+
+    def distance(self) -> float:
+        return math.hypot(self.x, self.y)
+
+
+book = Book("پایتون برای همه", "سعید", 320)
+product = Product("ماوس", 350000, tags=["الکترونیک"])
+p = Point(3, 4)
+
+print(book)
+print(product)
+print("فاصله:", p.distance())
+
+u1 = Book("A", "B", 100)
+u2 = Book("A", "B", 100)
+print("کتاب‌ها برابر؟", u1 == u2)

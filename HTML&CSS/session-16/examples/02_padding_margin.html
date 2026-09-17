@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه ۱۶ — Padding و Margin</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; padding: 24px; }
+
+        .card {
+            background: white;
+            padding: 20px 32px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+
+        .card + .card { margin-top: 0; } /* collapse demo: margin-bottom + margin-top */
+
+        .stack > * + * { margin-top: 12px; } /* جلوگیری از collapse با gap منطقی */
+
+        button {
+            padding: 12px 24px;
+            margin: 8px;
+            border: none;
+            background: #27ae60;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Padding و Margin</h1>
+    <div class="card">کارت ۱ — margin-bottom: 16px</div>
+    <div class="card">کارت ۲ — margin collapse با کارت ۱</div>
+    <div class="stack">
+        <button>دکمه A</button>
+        <button>دکمه B</button>
+    </div>
+</body>
+</html>

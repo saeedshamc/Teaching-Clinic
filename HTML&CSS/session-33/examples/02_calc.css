@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 33 — مثال ۰۲ — تکمیل مبحث
+   فایل: 02_calc.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif}.layout{display:flex;min-height:50vh}aside{width:200px;background:#1e293b;color:#fff;padding:1rem;flex-shrink:0}main{flex:1;background:#f1f5f9;padding:1rem;width:calc(100% - 200px)}

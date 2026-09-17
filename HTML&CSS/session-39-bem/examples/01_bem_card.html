@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEM — Card</title>
+
+</head>
+<body>
+  <style>
+    .card{padding:1rem;border:1px solid #ddd;border-radius:8px;max-width:320px}
+    .card--featured{border-color:#2563eb;box-shadow:0 4px 12px rgba(37,99,235,.2)}
+    .card__title{margin:0 0 .5rem;font-size:1.25rem}
+    .card__body{color:#555}
+    .card__link--primary{color:#2563eb;text-decoration:none;font-weight:bold}
+  </style>
+  <article class="card card--featured">
+    <h2 class="card__title">دوره HTML</h2>
+    <p class="card__body">۵۰ جلسه عملی</p>
+    <a class="card__link card__link--primary" href="#">ثبت‌نام</a>
+  </article>
+</body>
+</html>

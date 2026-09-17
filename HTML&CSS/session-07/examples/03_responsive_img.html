@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<!-- جلسه 7 — مثال: 03_responsive_img -->
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تصویر responsive</title>
+</head>
+<body>
+    <h1>width، height و loading</h1>
+
+    <!-- width/height از CLS (جهش layout) جلوگیری می‌کند -->
+    <img
+        src="images/sample.svg"
+        alt="بنر دوره HTML"
+        width="400"
+        height="200"
+        loading="lazy"
+    >
+
+    <p><code>loading="lazy"</code> بارگذاری را تا نزدیک viewport به تأخیر می‌اندازد.</p>
+    <p>در CSS بعداً <code>max-width: 100%</code> برای responsive کامل.</p>
+</body>
+</html>

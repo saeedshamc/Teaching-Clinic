@@ -1,0 +1,54 @@
+/* جلسه ۱۴ — مثال ۰۴: سلکتور attribute
+   فایل کمکی برای 04_attribute_selectors.html */
+
+body {
+    font-family: Tahoma, sans-serif;
+    padding: 24px;
+    background: #fafafa;
+}
+
+form {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 400px;
+}
+
+/* attribute با مقدار دقیق */
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="email"] {
+    border-color: #3498db;
+}
+
+/* هر input که required دارد */
+input[required] {
+    border-right: 3px solid #e74c3c;
+}
+
+input[disabled] {
+    background: #eee;
+    cursor: not-allowed;
+}
+
+/* لینک خارجی */
+a[target="_blank"] {
+    color: #2980b9;
+}
+
+a[target="_blank"]::after {
+    content: " ↗";
+    font-size: 0.8em;
+}
+
+a[href^="mailto:"] {
+    color: #27ae60;
+}

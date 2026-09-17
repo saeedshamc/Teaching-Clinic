@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<!-- جلسه 8 — مثال: 02_table_headers -->
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سرستون thead</title>
+</head>
+<body>
+    <h1>thead، tbody، tfoot</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">محصول</th>
+                <th scope="col">تعداد</th>
+                <th scope="col">قیمت</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">کتاب HTML</th>
+                <td>۲</td>
+                <td>۳۰۰٬۰۰۰</td>
+            </tr>
+            <tr>
+                <th scope="row">ماوس</th>
+                <td>۱</td>
+                <td>۴۵۰٬۰۰۰</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row" colspan="2">جمع</th>
+                <td>۷۵۰٬۰۰۰</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

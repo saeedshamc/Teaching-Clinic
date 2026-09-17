@@ -1,21 +1,27 @@
 # ============================================================
-# تمرین جلسه ۲۰
-# هدف: تعداد کارهای انجام‌نشده را برگردانید.
+# تمرین ۱–۳ جلسه ۲۰ — Task Manager (کلاسی)
 # ============================================================
 
-tasks = [
-    {"title": "یادگیری Python", "done": True},
-    {"title": "نوشتن تمرین", "done": False},
-    {"title": "مرور کد", "done": False},
-]
+tasks: list[dict[str, object]] = []
 
 
-def count_pending(items: list[dict]) -> int:
-    count = 0
-    for task in items:
-        if not task["done"]:
-            count += 1
-    return count
+def add_task(title: str) -> None:
+    tasks.append({"title": title, "done": False})
 
 
-print("تعداد کارهای مانده:", count_pending(tasks))
+def complete_task(number: int) -> None:
+    if 1 <= number <= len(tasks):
+        tasks[number - 1]["done"] = True
+
+
+def pending_count() -> int:
+    return sum(1 for t in tasks if not t["done"])
+
+
+add_task("یادگیری Python")
+add_task("تمرین")
+add_task("مرور")
+complete_task(1)
+
+pending_titles = [t["title"] for t in tasks if not t["done"]]
+print(f"کارهای باز ({pending_count()}):", pending_titles)

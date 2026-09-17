@@ -1,0 +1,46 @@
+/* جلسه ۱۵ — مثال ۰۴: استایل منو */
+#main-nav {
+    background: #2c3e50;
+    padding: 0 24px;
+}
+
+#main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 8px;
+}
+
+#main-nav > ul > li {
+    position: relative;
+}
+
+#main-nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 16px 20px;
+    transition: background 0.2s;
+}
+
+#main-nav a:hover,
+#main-nav a:focus {
+    background: #34495e;
+}
+
+#main-nav li.active a {
+    background: #3498db;
+}
+
+#main-nav a::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background: transparent;
+    transition: background 0.2s;
+}
+
+#main-nav a:hover::after {
+    background: #f1c40f;
+}

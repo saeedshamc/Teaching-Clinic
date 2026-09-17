@@ -1,23 +1,28 @@
 # ============================================================
-# تمرین جلسه ۱۷
-# هدف: دو کار async را با gather هم‌زمان اجرا کنید.
+# تمرین ۱–۳ جلسه ۱۷ — AsyncIO (کلاسی)
 # ============================================================
 
 import asyncio
 
 
-async def say_hello(name, delay):
+async def greet():
+    print("سلام")
+    await asyncio.sleep(0.2)
+    print("دنیا")
+
+
+async def task(name, delay):
+    print(f"شروع {name}")
     await asyncio.sleep(delay)
-    print("سلام", name)
+    print(f"پایان {name}")
     return name
 
 
 async def main():
-    results = await asyncio.gather(
-        say_hello("سعید", 0.1),
-        say_hello("مینا", 0.2),
-    )
-    print("نام‌ها:", results)
+    await greet()
+    print("---")
+    results = await asyncio.gather(task("الف", 0.3), task("ب", 0.1))
+    print("نتایج:", results)
 
 
 asyncio.run(main())

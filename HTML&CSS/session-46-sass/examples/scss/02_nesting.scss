@@ -1,0 +1,5 @@
+@use 'variables' as v;
+.card { padding: 1rem; border: 1px solid #ddd; border-radius: v.$radius;
+  &__title { margin: 0 0 0.5rem; font-size: 1.25rem; }
+  &--featured { border-color: v.$primary; box-shadow: 0 4px 12px rgba(37,99,235,.15); }
+}

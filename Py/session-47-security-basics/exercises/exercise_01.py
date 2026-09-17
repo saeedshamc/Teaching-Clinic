@@ -1,10 +1,22 @@
 # ============================================================
-# تمرین جلسه ۴۷
-# هدف: تابع اعتبارسنجی ایمیل خیلی ساده بنویسید.
+# تمرین ۱ جلسه ۴۷ — validation + safe SQL
 # ============================================================
 
-def looks_like_email(value: str) -> bool:
-    return "@" in value and "." in value.split("@")[-1]
+import re
+import sqlite3
 
-print(looks_like_email("a@b.com"))
-print(looks_like_email("invalid"))
+
+def validate_username(name: str) -> bool:
+    return bool(re.fullmatch(r"[A-Za-z0-9_]{3,20}", name))
+
+
+def add_user(conn: sqlite3.Connection, name: str) -> None:
+    if not validate_username(name):
+        raise ValueError("username نامعتبر")
+    conn.execute("INSERT INTO users (name) VALUES (?)", (name,))
+
+
+conn = sqlite3.connect(":memory:")
+conn.execute("CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT)")
+add_user(conn, "saeed_user")
+print(conn.execute("SELECT name FROM users").fetchall())

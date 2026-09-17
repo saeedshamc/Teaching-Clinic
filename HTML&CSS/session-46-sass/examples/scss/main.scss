@@ -1,0 +1,3 @@
+@use 'variables' as v;
+.header { background: #1e293b; padding: 1rem; }
+.nav { &__link { color: #fff; text-decoration: none; margin-left: 1rem; &:hover { color: v.$primary; } } }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه ۱۳ — Internal CSS</title>
+    <style>
+        /* جلسه ۱۳ — مثال ۰۲: Internal CSS
+           استایل‌ها داخل تگ <style> در <head> */
+
+        body {
+            font-family: Tahoma, "Segoe UI", sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 24px;
+            color: #2c3e50;
+        }
+
+        h1 {
+            color: #8e44ad;
+            border-bottom: 3px solid #8e44ad;
+            padding-bottom: 8px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+
+        .card p {
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Internal CSS — استایل داخلی</h1>
+
+    <div class="card">
+        <p>
+            استایل‌ها در <code>&lt;style&gt;</code> داخل <code>&lt;head&gt;</code> نوشته می‌شوند.
+            مناسب صفحات تک‌صفحه‌ای و پروtotype.
+        </p>
+    </div>
+</body>
+</html>

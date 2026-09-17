@@ -1,308 +1,290 @@
-# Session 1: Introduction to the Web and Environment Setup
+# جلسه ۱: مقدمه وب، مرورگر و محیط توسعه (۱.۵ ساعت)
 
-## Learning Objectives
+## 🎯 اهداف یادگیری
 
-By the end of this session, you will understand:
-- How the World Wide Web works
-- What HTML and CSS are and their roles in web development
-- How web browsers process and display web pages
-- How to set up a proper development environment
-- How to organize your project folders effectively
+پس از این جلسه می‌توانید:
+- توضیح دهید وب جهانی (WWW) چگونه کار می‌کند (مدل کلاینت-سرور)
+- تفاوت HTML، CSS و JavaScript را بدانید و نقش هر کدام را توضیح دهید
+- مرورگر وب را به‌عنوان «مفسر» HTML/CSS بشناسید
+- VS Code را برای توسعه وب نصب و پیکربندی کنید
+- ساختار پوشه پروژه وب را به‌درستی بچینید
+- اولین صفحه HTML را بسازید و در مرورگر Live Preview یا مستقیم باز کنید
+- اشتباهات رایج مبتدی‌ها (فایل بدون پسوند، encoding، مسیر اشتباه) را بشناسید
 
-## How the World Wide Web Works
+---
 
-The World Wide Web (WWW) is a system of interconnected documents and resources, linked by hyperlinks and URLs. Here's how it works at a basic level:
+## ⏱️ برنامه زمانی (۹۰ دقیقه)
 
-### The Client-Server Model
+| زمان | موضوع |
+|------|--------|
+| 0–10 | وب چیست؟ URL، HTTP، کلاینت و سرور |
+| 10–25 | HTML vs CSS vs JS — اسکلت، ظاهر، رفتار |
+| 25–40 | مرورگرها، DevTools، Live Preview |
+| 40–55 | نصب VS Code، افزونه‌های پیشنهادی، UTF-8 |
+| 55–70 | ساختار پوشه پروژه، اولین `index.html` |
+| 70–85 | تمرین کلاسی: صفحه معرفی شخصی |
+| 85–90 | اشتباهات رایج، تکلیف، Q&A |
 
-When you type a URL (like `https://www.example.com`) into your browser:
+---
 
-1. **Your browser (client)** sends a request to a server
-2. **The server** processes the request and sends back files (HTML, CSS, images, etc.)
-3. **Your browser** receives these files and renders them as a web page
+## ۱. وب جهانی (World Wide Web) چیست؟
 
-### Key Components
+**وب** سیستمی از سندها و منابع است که با **لینک (hyperlink)** به هم وصل شده‌اند. وقتی آدرسی مثل `https://example.com` را در مرورگر می‌زنید:
 
-- **URL (Uniform Resource Locator)**: The address of a resource on the internet
-- **HTTP (Hypertext Transfer Protocol)**: The protocol for transferring data on the web
-- **Server**: A computer that stores and serves web files
-- **Client**: The device and browser you use to access the web
+1. **مرورگر (کلاینت)** درخواست HTTP می‌فرستد
+2. **سرور** فایل‌ها (HTML، CSS، تصویر…) را برمی‌گرداند
+3. **مرورگر** فایل‌ها را **رندر** می‌کند — یعنی صفحه‌ای که می‌بینید
 
-## What are HTML and CSS?
+### ۱.۱. مفاهیم کلیدی
 
-### HTML (HyperText Markup Language)
+| مفهوم | توضیح |
+|--------|--------|
+| **URL** | آدرس منبع در اینترنت |
+| **HTTP/HTTPS** | پروتکل انتقال؛ HTTPS رمزنگاری‌شده است |
+| **DNS** | تبدیل نام دامنه (مثلاً google.com) به IP |
+| **سرور** | کامپیوتری که فایل‌های سایت را نگه می‌دارد |
+| **کلاینت** | مرورگر و دستگاه شما |
 
-HTML is the **structure** of a web page. It defines:
-- What content appears on the page (text, images, links, etc.)
-- How that content is organized (headings, paragraphs, lists, etc.)
-- The hierarchy and meaning of the content
+### ۱.۲. مدل کلاینت-سرور
 
-Think of HTML as the **skeleton** or **framework** of a house.
+```
+[مرورگر شما]  ----درخواست GET---->  [سرور وب]
+[مرورگر شما]  <---پاسخ HTML/CSS----  [سرور وب]
+```
 
-### CSS (Cascading Style Sheets)
+**نکته:** در یادگیری محلی، VS Code یا مرورگر فایل را **مستقیم از دیسک** می‌خواند — بدون سرور واقعی؛ برای فرم و API بعداً به سرور محلی نیاز دارید.
 
-CSS is the **presentation** of a web page. It defines:
-- How the HTML content looks (colors, fonts, sizes)
-- How elements are positioned and laid out
-- Visual effects and animations
+---
 
-Think of CSS as the **decoration** and **interior design** of a house.
+## ۲. HTML، CSS و JavaScript
 
-### The Relationship
+### ۲.۱. HTML — ساختار
 
-HTML and CSS work together:
-- HTML provides the structure and content
-- CSS provides the styling and layout
-- Without HTML, CSS has nothing to style
-- Without CSS, HTML appears plain and unstyled
+**HTML (HyperText Markup Language)** اسکلت صفحه است: عنوان، پاراگراف، لینک، تصویر.
 
-## How Web Browsers Work
+```html
+<h1>عنوان صفحه</h1>
+<p>این یک پاراگراف است.</p>
+```
 
-Web browsers (Chrome, Firefox, Safari, Edge) are software applications that:
+### ۲.۲. CSS — ظاهر
 
-1. **Fetch** web pages from servers using HTTP
-2. **Parse** the HTML to understand the document structure
-3. **Parse** the CSS to understand styling rules
-4. **Render** the page by combining HTML structure with CSS styling
-5. **Execute** JavaScript (if present) for interactivity
+**CSS (Cascading Style Sheets)** رنگ، فونت، فاصله و چیدمان را کنترل می‌کند. از **جلسه ۱۳** عمیق‌تر کار می‌کنیم.
 
-### The Browser Rendering Process
+```css
+h1 {
+  color: navy;
+  font-family: Tahoma, sans-serif;
+}
+```
 
-1. **HTML Parsing**: Browser reads HTML and builds the DOM (Document Object Model)
-2. **CSS Parsing**: Browser reads CSS and builds the CSSOM (CSS Object Model)
-3. **Render Tree**: Combines DOM and CSSOM to create the render tree
-4. **Layout**: Calculates the position and size of each element
-5. **Paint**: Draws pixels to the screen
+### ۲.۳. JavaScript — رفتار
 
-## Setting Up Your Development Environment
+**JavaScript** تعامل، اعتبارسنجی فرم، انیمیشن و درخواست به API را ممکن می‌کند.
 
-### Choosing a Code Editor
+| لایه | نقش | تشبیه |
+|------|-----|--------|
+| HTML | محتوا و معنا | اسکلت ساختمان |
+| CSS | ظاهر | رنگ و دکور |
+| JS | تعامل | برق و کلیدها |
 
-A good code editor is essential for web development. Popular options include:
+---
 
-#### Visual Studio Code (Recommended)
-- Free and open-source
-- Excellent HTML/CSS support
-- Extensions for enhanced functionality
-- Built-in terminal
-- Great community support
+## ۳. مرورگر وب
 
-#### Other Options
-- **Sublime Text**: Fast, lightweight, with a free evaluation period
-- **Atom**: Free, open-source, highly customizable
-- **Notepad++**: Windows-only, simple and lightweight
+مرورگر **HTML را parse** می‌کند، **CSS را اعمال** می‌کند و **DOM** (درخت عناصر) می‌سازد.
 
-### Installing Visual Studio Code
+### ۳.۱. مرورگرهای رایج
 
-1. Visit [https://code.visualstudio.com/](https://code.visualstudio.com/)
-2. Download the version for your operating system
-3. Run the installer and follow the prompts
-4. Launch VS Code when installation completes
+- Google Chrome / Microsoft Edge (Chromium)
+- Mozilla Firefox
+- Safari (macOS/iOS)
 
-### Recommended VS Code Extensions
+**بهترین شیوه:** در حداقل **دو مرورگر** تست کنید.
 
-- **Live Server**: Automatically reloads your browser when you save changes
-- **HTML CSS Support**: Enhanced HTML/CSS IntelliSense
-- **Auto Rename Tag**: Automatically renames paired HTML tags
-- **Bracket Pair Colorizer**: Colors matching brackets for easier reading
+### ۳.۲. ابزار توسعه‌دهنده (DevTools)
 
-### Installing Extensions
+- **F12** یا راست‌کلیک → «Inspect»
+- تب **Elements**: ساختار DOM
+- تب **Console**: خطاهای JavaScript (بعداً)
+- **View Page Source**: HTML خام سرور/فایل
 
-1. Open VS Code
-2. Click the Extensions icon in the sidebar (or press `Ctrl+Shift+X`)
-3. Search for the extension name
-4. Click "Install"
+### ۳.۳. Live Preview
 
-## Project Folder Organization
+افزونه **Live Preview** در VS Code صفحه را با refresh خودکار نشان می‌دهد — برای دوره HTML/CSS بسیار مفید است.
 
-Good organization is crucial for web development. Here's a recommended structure:
+---
 
-### Basic Structure
+## ۴. VS Code — محیط توسعه
+
+### ۴.۱. نصب
+
+1. از [code.visualstudio.com](https://code.visualstudio.com/) دانلود کنید
+2. نصب با گزینه «Add to PATH» (ویندوز)
+
+### ۴.۲. افزونه‌های پیشنهادی
+
+| افزونه | کاربرد |
+|--------|--------|
+| Live Preview | پیش‌نمایش زنده HTML |
+| HTML CSS Support | تکمیل خودکار تگ و attribute |
+| Prettier | فرمت یکنواخت کد (اختیاری) |
+| Persian / RTL | نمایش بهتر متن فارسی (اختیاری) |
+
+### ۴.۳. تنظیمات مهم
+
+- **Encoding:** UTF-8 (برای فارسی ضروری)
+- **Auto Save:** بعد از تأخیر کوتاه
+- **Word Wrap:** برای خوانایی خطوط بلند
+
+```json
+// settings.json — نمونه
+{
+  "files.encoding": "utf8",
+  "files.autoSave": "afterDelay"
+}
+```
+
+---
+
+## ۵. ساختار پوشه پروژه
 
 ```
 my-website/
-├── index.html          # Main HTML file
-├── css/
-│   └── style.css       # CSS file(s)
-├── images/             # Image files
-├── js/                 # JavaScript files (if needed)
-└── assets/             # Other assets (fonts, icons, etc.)
-```
-
-### Why This Structure?
-
-- **Separation of concerns**: HTML, CSS, and assets are organized separately
-- **Scalability**: Easy to add more files as your project grows
-- **Maintainability**: Easy to find and update specific files
-- **Best practices**: Follows industry standards
-
-## Creating Your First Project
-
-### Step 1: Create a Project Folder
-
-1. Create a new folder on your computer (e.g., `my-first-website`)
-2. Open VS Code
-3. Go to `File > Open Folder` and select your new folder
-
-### Step 2: Create Subfolders
-
-1. In VS Code, right-click in the file explorer
-2. Select "New Folder"
-3. Create folders: `css`, `images`, `js` (optional)
-
-### Step 3: Create Your First HTML File
-
-1. Right-click in the file explorer
-2. Select "New File"
-3. Name it `index.html`
-
-**Note**: `index.html` is the default filename that web servers look for when someone visits your website's root directory.
-
-## Using Live Server
-
-Live Server is a VS Code extension that automatically refreshes your browser when you save changes:
-
-1. Install the "Live Server" extension (see above)
-2. Open your HTML file in VS Code
-3. Right-click anywhere in the HTML file
-4. Select "Open with Live Server"
-5. Your browser will open automatically with your page loaded
-
-Now, whenever you save changes to your files, the browser will automatically refresh!
-
-## Common Mistakes to Avoid
-
-### Mistake 1: Poor File Organization
-
-❌ **Bad**: All files in one folder
-```
-my-website/
-├── index.html
-├── style.css
-├── logo.png
-├── script.js
-└── background.jpg
-```
-
-✅ **Good**: Organized folders
-```
-my-website/
-├── index.html
-├── css/
+├── index.html          # صفحه اصلی (ورودی پیش‌فرض)
+├── about.html          # صفحات دیگر
+├── css/                # از جلسه ۱۳
 │   └── style.css
-├── images/
-│   ├── logo.png
-│   └── background.jpg
-└── js/
-    └── script.js
+├── images/             # تصاویر
+│   └── logo.png
+├── js/                 # اسکریپت‌ها (بعداً)
+└── README.md           # توضیح پروژه (اختیاری)
 ```
 
-### Mistake 2: Inconsistent Naming
+**قوانین:**
+- نام فایل: **حروف کوچک**، بدون فاصله — از `-` استفاده کنید (`about-us.html`)
+- همیشه `index.html` برای صفحه اول
+- تصاویر و CSS در پوشه جدا — نظم و نگهداری آسان‌تر
 
-❌ **Bad**: Mixed naming conventions
-```
-My-Page.html
-style_sheet.CSS
-Images/Logo.png
-```
+---
 
-✅ **Good**: Consistent lowercase with hyphens
-```
-my-page.html
-style.css
-images/logo.png
-```
+## ۶. اولین صفحه HTML
 
-### Mistake 3: Spaces in Filenames
-
-❌ **Bad**: Spaces can cause issues
-```
-my website.html
-my style.css
-```
-
-✅ **Good**: Use hyphens or underscores
-```
-my-website.html
-my-style.css
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اولین صفحه من</title>
+</head>
+<body>
+    <h1>سلام، وب!</h1>
+    <p>این اولین صفحه HTML من است.</p>
+</body>
+</html>
 ```
 
-## Best Practices
+**خط به خط:**
+- `<!DOCTYPE html>` — سند HTML5 است
+- `lang="fa"` — زبان فارسی برای دسترس‌پذیری و SEO
+- `dir="rtl"` — جهت راست‌به‌چپ برای فارسی
+- `<meta charset="UTF-8">` — پشتیبانی حروف فارسی
+- `<title>` — عنوان تب مرورگر
 
-1. **Use lowercase filenames**: Avoid case-sensitivity issues on different servers
-2. **Use hyphens to separate words**: `my-page.html` not `myPage.html`
-3. **Keep folder structure shallow**: Don't nest folders too deeply
-4. **Use descriptive filenames**: `about.html` not `page2.html`
-5. **Keep your editor updated**: New versions often include bug fixes and new features
-6. **Use version control**: Consider using Git for larger projects
+### ۶.۱. باز کردن در مرورگر
 
-## Summary
+- دوبار کلیک روی فایل `.html`
+- یا راست‌کلیک → Open with Live Preview
+- یا کشیدن فایل به پنجره مرورگر
 
-In this session, you learned:
-- The web works on a client-server model
-- HTML provides structure, CSS provides styling
-- Browsers fetch, parse, and render web pages
-- How to set up VS Code with helpful extensions
-- How to organize your project folders effectively
-- How to use Live Server for automatic browser refreshing
+---
 
-## Next Steps
+## ۷. کامنت در HTML
 
-In the next session, you'll create your first HTML document and learn about the basic structure of an HTML file.
-
-## Exercises
-
-### Exercise 1: Set Up Your Environment (Easy)
-
-1. Install Visual Studio Code if you haven't already
-2. Install the Live Server extension
-3. Create a new folder called `practice-website`
-4. Inside that folder, create the recommended subfolder structure (`css`, `images`, `js`)
-5. Create an empty `index.html` file
-6. Open `index.html` with Live Server to verify everything works
-
-### Exercise 2: Folder Organization Practice (Easy)
-
-Given the following files, organize them into the proper folder structure:
-- `home.html`
-- `style.css`
-- `logo.png`
-- `background.jpg`
-- `script.js`
-- `icon.svg`
-- `about.html`
-- `contact.css`
-
-Create the folder structure and place each file in the appropriate location.
-
-<details>
-<summary>Click to see solution</summary>
-
-```
-practice-website/
-├── home.html
-├── about.html
-├── css/
-│   ├── style.css
-│   └── contact.css
-├── images/
-│   ├── logo.png
-│   ├── background.jpg
-│   └── icon.svg
-└── js/
-    └── script.js
+```html
+<!-- این کامنت است — در صفحه دیده نمی‌شود -->
+<p>این پاراگراف نمایش داده می‌شود.</p>
 ```
 
-</details>
+کامنت برای یادداشت به خودتان، بخش‌بندی فایل و موقت غیرفعال کردن کد است.
 
-## Examples
+---
 
-Check the `examples/` folder for a demonstration of:
-- A properly organized project structure
-- A basic HTML file (we'll explore this in detail in Session 2)
+## ۸. فایل‌های این جلسه
 
-## Additional Resources
+| فایل | موضوع |
+|------|--------|
+| [01_first_page.html](./examples/01_first_page.html) | اولین صفحه کامل |
+| [02_html_roles.html](./examples/02_html_roles.html) | نقش HTML در صفحه |
+| [03_comments_structure.html](./examples/03_comments_structure.html) | کامنت و بخش‌بندی |
+| [04_project_template.html](./examples/04_project_template.html) | قالب شروع پروژه |
 
-- [MDN: How the Web Works](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works)
-- [VS Code Documentation](https://code.visualstudio.com/docs)
-- [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.liveserver)
+---
+
+## ۹. اشتباهات رایج
+
+| اشتباه | مشکل | راه‌حل |
+|--------|------|--------|
+| فایل `.txt` به‌جای `.html` | مرورگر HTML parse نمی‌کند | پسوند `.html` |
+| بدون `charset=UTF-8` | فارسی به‌هم‌ریخته | `<meta charset="UTF-8">` |
+| فاصله در نام فایل | لینک‌ها خراب می‌شوند | از `-` استفاده کنید |
+| ذخیره با ANSI | کاراکترهای فارسی خراب | UTF-8 در VS Code |
+| انتظار CSS در جلسه ۱ | هنوze CSS نداریم | تمرکز روی ساختار |
+
+### ❌ بدون DOCTYPE
+
+```html
+<html>
+  ...
+</html>
+```
+
+مرورگر ممکن است **quirks mode** برود — همیشه `<!DOCTYPE html>` بنویسید.
+
+### ❌ فراموش کردن بستن تگ
+
+```html
+<p>متن<p>   <!-- اشتباه -->
+<p>متن</p>  <!-- درست -->
+```
+
+---
+
+## ۱۰. بهترین شیوه‌ها
+
+1. **UTF-8** برای همه فایل‌های متنی
+2. **lang و dir** برای محتوای فارسی
+3. **نام‌گذاری معنادار** — `contact.html` نه `page2.html`
+4. **یک پوشه یک پروژه** — مثال‌ها و تکالیف جدا
+5. **ذخیره و refresh** — بعد از هر تغییر صفحه را ببینید
+6. **DevTools** را زود یاد بگیرید
+
+---
+
+## ۱۱. تمرین کلاسی (۳۰ دقیقه)
+
+1. **صفحه معرفی:** نام، شهر، یک جمله انگیزشی در `<h1>` و `<p>`
+2. **عنوان تب:** `<title>` را شخصی‌سازی کنید
+3. **کامنت:** بالای `<body>` با `<!-- -->` بنویسید «تمرین جلسه ۱»
+4. **ساختار پوشه:** پوشه `my-first-site` با `index.html` و زیرپوشه `images/` (خالی)
+
+**تکلیف:** [question.md](./exercises/question.md)
+
+---
+
+## ۱۲. خلاصه جلسه
+
+در این جلسه یاد گرفتید:
+
+- ✅ وب با مدل کلاینت-سرور و HTTP کار می‌کند
+- ✅ HTML ساختار، CSS ظاهر، JS رفتار است
+- ✅ VS Code + Live Preview محیط مناسبی است
+- ✅ پوشه منظم و `index.html` استاندارد است
+- ✅ DOCTYPE، charset و lang برای HTML5 فارسی
+
+**جلسه بعد:** ساختار کامل سند HTML — `head`، `body`، تگ‌های پایه!
+
+---
+
+**جلسه قبل:** — (شروع دوره) | **بعد:** [۲ — ساختار سند HTML](../session-02/)

@@ -1,11 +1,19 @@
 # ============================================================
-# تمرین جلسه ۴۴
-# هدف: حلقه for و join را برای ساخت رشته مقایسه کنید.
+# تمرین ۱ جلسه ۴۴ — list vs set
 # ============================================================
 
 import timeit
 
-t1 = timeit.timeit('s=""\nfor i in range(100):\n s += str(i)', number=1000)
-t2 = timeit.timeit('"".join(str(i) for i in range(100))', number=1000)
-print("+= :", round(t1, 5))
-print("join:", round(t2, 5))
+N = 10_000
+TARGET = 9_999
+
+setup = f"data_list = list(range({N})); data_set = set(range({N})); target = {TARGET}"
+list_stmt = "target in data_list"
+set_stmt = "target in data_set"
+
+list_t = timeit.timeit(list_stmt, setup=setup, number=1000)
+set_t = timeit.timeit(set_stmt, setup=setup, number=1000)
+
+print(f"list membership: {list_t:.5f}s")
+print(f"set membership:  {set_t:.5f}s")
+print(f"set سریع‌تر: {list_t / set_t:.1f}x")

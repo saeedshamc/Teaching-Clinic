@@ -1,0 +1,5 @@
+/* جلسه ۲۷ — media query پایه */
+body { margin: 0; font-family: system-ui, sans-serif; padding: 2rem; }
+.msg { font-size: 1rem; color: #334155; }
+@media (max-width: 600px) { .msg { color: #dc2626; font-size: 0.9rem; } }
+@media (min-width: 900px) { .msg { color: #059669; font-size: 1.25rem; } }

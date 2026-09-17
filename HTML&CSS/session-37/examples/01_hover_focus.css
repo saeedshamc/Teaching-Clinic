@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 37 — مثال ۰۱ — مفاهیم پایه
+   فایل: 01_hover_focus.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;padding:2rem;background:#0f172a}nav{display:flex;gap:1.5rem}a{color:#94a3b8;text-decoration:none;padding:.5rem;border-radius:6px;transition:color .2s,background .2s}a:hover{color:#fff;background:rgba(255,255,255,.08)}a:focus-visible{outline:2px solid #38bdf8;outline-offset:3px;color:#fff}

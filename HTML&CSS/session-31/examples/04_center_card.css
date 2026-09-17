@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 31 — مثال ۰۴ — پروژه/جمع‌بندی
+   فایل: 04_center_card.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif}.overlay{position:fixed;inset:0;background:rgba(15,23,42,.6);display:flex;align-items:center;justify-content:center}.modal{background:#fff;padding:2rem;border-radius:16px;transform:scale(1);transition:transform .3s}.modal:hover{transform:scale(1.05)}

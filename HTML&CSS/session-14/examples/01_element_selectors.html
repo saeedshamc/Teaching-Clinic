@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه ۱۴ — Element Selector</title>
+    <style>
+        /* جلسه ۱۴ — مثال ۰۱: سلکتور عنصر
+           با نام تگ HTML عناصر را انتخاب می‌کنیم */
+
+        body {
+            font-family: Tahoma, sans-serif;
+            padding: 24px;
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        h1 {
+            color: #8e44ad;
+            border-bottom: 2px solid #8e44ad;
+            padding-bottom: 8px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 32px;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        ul {
+            background: white;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        code {
+            background: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>سلکتور عنصر (Element Selector)</h1>
+
+    <p>
+        rule مثل <code>p { color: #333; }</code> روی <strong>همه</strong> تگ‌های
+        <code>&lt;p&gt;</code> اعمال می‌شود.
+    </p>
+
+    <h2>مزایا و محدودیت</h2>
+    <ul>
+        <li>مناسب typography و reset پایه</li>
+        <li>بدون نیاز به class در HTML</li>
+        <li>نمی‌توان یک عنصر خاص را جدا کرد</li>
+    </ul>
+</body>
+</html>

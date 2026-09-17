@@ -1,0 +1,6 @@
+/* ============================================================
+   جلسه 28 — مثال ۰۳ — الگوی پیشرفته
+   فایل: 03_typography.css
+   ============================================================ */
+
+body{margin:0;font-family:system-ui,sans-serif;padding:1rem;line-height:1.7}h1{font-size:1.5rem}p{font-size:1rem;color:#475569}@media(min-width:768px){h1{font-size:2.25rem}p{font-size:1.125rem}}
