@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 21: Overflow و z-index</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <p class="eyebrow">CSS-UI · جلسه 21</p>
+    <h1>Overflow و z-index</h1>
+    <section class="info">توضیحات: <a href="./session-21-css-overflow-zindex.md">session-21-css-overflow-zindex.md</a></section>
+
+    <section class="panel">
+      <h2>لایه‌ها</h2>
+      <div class="stack">
+        <div class="card c1">z = 1</div>
+        <div class="card c2">z = 2</div>
+      </div>
+      <div class="clip">
+        متن بسیار طولانی که باید بریده شود و با اسکرول داخلی دیده شود.
+        overflow این جعبه را روی auto گذاشته‌ایم تا محتوا گم نشود.
+        می‌توانید چند خط دیگر هم تصور کنید تا ارتفاع از حد مجاز بیشتر شود.
+      </div>
+      <button type="button" class="btn" id="btn">بالا آوردن لایه پایین</button>
+      <pre class="output" id="output">—</pre>
+    </section>
+
+    <nav class="pager">
+      <a href="../session-20/index.html">→ قبل</a>
+      <a href="../session-22/index.html">بعد →</a>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
