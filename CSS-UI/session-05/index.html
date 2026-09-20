@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 5: فرم‌ها ۱</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <p class="eyebrow">CSS-UI · جلسه 05</p>
+      <h1>فرم‌ها ۱</h1>
+      <p class="lead">input، label، button و اعتبارسنجی پایه مرورگر.</p>
+    </header>
+    <section class="info">توضیحات: <a href="./session-05-html-forms-1.md">session-05-html-forms-1.md</a></section>
+
+    <form class="panel form" id="signup-form" action="#" method="get">
+      <label for="name">نام</label>
+      <input id="name" name="name" type="text" required placeholder="مثلاً سارا" autocomplete="name">
+
+      <label for="email">ایمیل</label>
+      <input id="email" name="email" type="email" required placeholder="you@mail.com" autocomplete="email">
+
+      <label for="password">رمز</label>
+      <input id="password" name="password" type="password" required minlength="6" autocomplete="new-password">
+
+      <label for="age">سن</label>
+      <input id="age" name="age" type="number" min="12" max="100">
+
+      <div class="actions">
+        <button type="submit">ارسال</button>
+        <button type="reset">پاک کردن</button>
+      </div>
+      <pre class="output" id="output">فرم هنوز ارسال نشده است.</pre>
+    </form>
+
+    <nav class="pager">
+      <a href="../session-04/index.html">→ جلسه قبل</a>
+      <a href="../session-06/index.html">جلسه بعد →</a>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
