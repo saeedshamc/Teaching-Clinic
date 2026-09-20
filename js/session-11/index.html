@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 11: ماژول‌ها در عمل</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 11: ماژول‌ها در عمل</h1>
+
+        <div class="info">
+            <strong>📌 محیط:</strong> این صفحه را با Live Server یا یک HTTP ساده باز کنید. مسیر <code>file://</code> معمولاً import را مسدود می‌کند.
+        </div>
+
+        <section class="section">
+            <h2>1. named export از math.js</h2>
+            <div class="example">
+                <button id="btn-math">محاسبه با ماژول</button>
+                <div id="math-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>2. default export از greet.js</h2>
+            <div class="example">
+                <button id="btn-greet">پیام خوش‌آمد</button>
+                <div id="greet-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>3. ترکیب چند ماژول</h2>
+            <div class="example">
+                <button id="btn-combo">فاکتور نمونه</button>
+                <div id="combo-output" class="output"></div>
+            </div>
+        </section>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
