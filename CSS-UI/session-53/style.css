@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Tahoma, sans-serif; background: #fff7ed; color: #7c2d12; line-height: 1.75; }
+.container { max-width: 820px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+.eyebrow { color: #c2410c; font-weight: 700; margin: 0; }
+.lead { color: #9a3412; }
+.info, .panel { background: #fff; border: 1px solid #fdba74; border-radius: 14px; padding: 1.2rem; margin: 1rem 0; }
+.info { border-inline-start: 4px solid #c2410c; }
+.badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 6px; color: #fff; font-weight: 700; margin-left: 0.4rem; }
+.badge-ok { background: #16a34a; }
+.badge-warn { background: #d97706; }
+.badge-danger { background: #dc2626; }
+.output { margin-top: 1rem; background: #1c1917; color: #ffedd5; padding: 0.85rem 1rem; border-radius: 10px; }
+.pager { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+a { color: #c2410c; font-weight: 700; }

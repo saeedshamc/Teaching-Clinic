@@ -1,0 +1,25 @@
+$colors: (
+  "ok": #16a34a,
+  "warn": #d97706,
+  "danger": #dc2626,
+);
+
+@function tone($name) {
+  @if map-has-key($colors, $name) {
+    @return map-get($colors, $name);
+  }
+  @error "Unknown color key: #{$name}";
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 700;
+  margin-left: 0.4rem;
+}
+
+.badge-ok { background: tone("ok"); }
+.badge-warn { background: tone("warn"); }
+.badge-danger { background: tone("danger"); }
