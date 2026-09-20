@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 16: DOM پیشرفته</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 16: DOM پیشرفته</h1>
+
+        <section class="section">
+            <h2>1. ساخت عنصر</h2>
+            <div class="example">
+                <button onclick="addParagraph()">افزودن پاراگراف</button>
+                <button onclick="clearParagraphs()">پاک کردن</button>
+                <div id="build-area"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>2. textContent در برابر innerHTML</h2>
+            <div class="example">
+                <button onclick="showSafe()">متن امن</button>
+                <button onclick="showHtml()">HTML تفسیرشده</button>
+                <div id="safe-box" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>3. رندر از آرایه</h2>
+            <div class="example">
+                <input id="name-input" placeholder="نام جدید">
+                <button onclick="addName()">اضافه به داده</button>
+                <ul id="name-list"></ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
