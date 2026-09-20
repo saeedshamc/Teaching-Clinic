@@ -1,0 +1,9 @@
+/* سفارشی سبک روی Bootstrap */
+.page { max-width: 900px; }
+.output {
+  background: #212529;
+  color: #f8f9fa;
+  padding: 0.85rem 1rem;
+  border-radius: 0.5rem;
+  white-space: pre-wrap;
+}
