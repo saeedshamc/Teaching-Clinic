@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دوره CSS / Sass / UI Frameworks</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(145deg, #0f766e 0%, #1e3a8a 55%, #4c1d95 100%);
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.25);
+    }
+    h1 { color: #0f766e; text-align: center; margin-bottom: 8px; font-size: 2.2rem; }
+    .subtitle { text-align: center; color: #64748b; margin-bottom: 28px; }
+    .links { text-align: center; margin-bottom: 28px; }
+    .links a { margin: 0 8px; color: #1d4ed8; font-weight: 600; }
+    .sessions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .session-card {
+      display: block;
+      text-decoration: none;
+      color: #0f172a;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px;
+      background: #f8fafc;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .session-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(15,23,42,.12); }
+    .session-number {
+      display: inline-block;
+      background: #0f766e;
+      color: #fff;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: .85rem;
+      margin-bottom: 8px;
+    }
+    .session-card h2 { font-size: 1.1rem; margin-bottom: 6px; }
+    .session-card p { color: #64748b; font-size: .92rem; line-height: 1.5; }
+    .tag {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: .75rem;
+      color: #334155;
+      background: #e2e8f0;
+      border-radius: 999px;
+      padding: 2px 8px;
+    }
+    .block-E .session-number { background: #7952b3; }
+    .block-F .session-number { background: #0ea5e9; }
+    .block-G .session-number { background: #00d1b2; color: #023; }
+    .block-D .session-number { background: #c2410c; }
+    .block-C .session-number { background: #7c3aed; }
+    .block-B .session-number { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>دوره CSS / Sass / UI Frameworks</h1>
+    <p class="subtitle">۱۰۰ جلسه از صفر — قالب مشابه دوره JavaScript</p>
+    <div class="links">
+      <a href="./README.md">README</a>
+      <a href="./SYLLABUS.md">سیلابس</a>
+      <a href="./SETUP.md">راه‌اندازی</a>
+      <a href="./QUICK_REFERENCE.md">مرجع سریع</a>
+    </div>
+    <div class="sessions">
+      <a class="session-card block-A" href="./session-01/index.html">
+        <span class="session-number">01</span>
+        <h2>وب، مرورگر و محیط توسعه</h2>
+        <p>آشنایی با وب، مرورگر، VS Code و ساختار پوشه جلسه</p>
+        <span class="tag">HTML برای UI</span>
+      </a>
+      <a class="session-card block-A" href="./session-02/index.html">
+        <span class="session-number">02</span>
+        <h2>اسکلت HTML5</h2>
+        <p>doctype، html، head، body و semantic پایه</p>
+        <span class="tag">HTML برای UI</span>
+      </a>
+      <a class="session-card block-A" href="./session-03/index.html">
+        <span class="session-number">03</span>
+        <h2>متن، لیست، لینک و تصویر</h2>
+        <p>heading، paragraph، list، a، img</p>
+        <span class="tag">HTML برای UI</span>
+      </a>
+      <a class="session-card block-A" href="./session-04/index.html">
+        <span class="session-number">04</span>
+        <h2>جدول و رسانه</h2>
+        <p>table، video، audio پایه</p>
+        <span class="tag">HTML برای UI</span>
+      </a>
+      <a class="session-card block-A" href="./session-05/index.html">
+        <span class="session-number">05</span>
+        <h2>فرم‌ها ۱</h2>
+        <p>input، label، button و انواع ورودی</p>
+        <span class="tag">HTML برای UI</span>
+      </a>
+      <a class="session-card block-A" href="./session-06/index.html">
+        <span class="session-number">06</span>
+        <h2>فرم‌ها ۲</h2>
+        <p>select، textarea، checkbox، radio</p>
+        <span class="tag">HTML برای UI</span>
+      </a>
+      <a class="session-card block-A" href="./session-07/index.html">
+        <span class="session-number">07</span>
+        <h2>ساختار صفحه</h2>
+        <p>header، nav، main، section، footer</p>
+        <span class="tag">HTML برای UI</span>
+      </a>
+      <a class="session-card block-A" href="./session-08/index.html">
+        <span class="session-number">08</span>
+        <h2>پروژه: اسکلت لندینگ</h2>
+        <p>ساخت اسکلت لندینگ بدون استایل</p>
+        <span class="tag">HTML برای UI</span>
+      </a>
+      <a class="session-card block-B" href="./session-09/index.html">
+        <span class="session-number">09</span>
+        <h2>مقدمه CSS</h2>
+        <p>CSS چیست؛ لینک کردن؛ cascade مقدمه</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-10/index.html">
+        <span class="session-number">10</span>
+        <h2>سلکتورهای پایه</h2>
+        <p>element، class، id</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-11/index.html">
+        <span class="session-number">11</span>
+        <h2>Combinator و Attribute</h2>
+        <p>فرزند، خواهر، attribute selector</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-12/index.html">
+        <span class="session-number">12</span>
+        <h2>Pseudo-class و Pseudo-element</h2>
+        <p>hover، focus، ::before، ::after</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-13/index.html">
+        <span class="session-number">13</span>
+        <h2>Specificity و Inheritance</h2>
+        <p>اولویت قوانین و ارث‌بری</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-14/index.html">
+        <span class="session-number">14</span>
+        <h2>Box Model</h2>
+        <p>margin، border، padding، box-sizing</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-15/index.html">
+        <span class="session-number">15</span>
+        <h2>واحدها</h2>
+        <p>px، %، em، rem، vh/vw، calc، clamp</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-16/index.html">
+        <span class="session-number">16</span>
+        <h2>رنگ‌ها</h2>
+        <p>hex، rgb، hsl، opacity، currentColor</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-17/index.html">
+        <span class="session-number">17</span>
+        <h2>Background و Gradient</h2>
+        <p>background-image و گرادیان خطی/شعاعی</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-18/index.html">
+        <span class="session-number">18</span>
+        <h2>تایپوگرافی وب</h2>
+        <p>font-family، size، line-height، Google Fonts</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-19/index.html">
+        <span class="session-number">19</span>
+        <h2>Display</h2>
+        <p>block، inline، inline-block، none</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-20/index.html">
+        <span class="session-number">20</span>
+        <h2>Positioning</h2>
+        <p>static، relative، absolute، fixed، sticky</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-21/index.html">
+        <span class="session-number">21</span>
+        <h2>Overflow و z-index</h2>
+        <p>overflow، stacking context</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-22/index.html">
+        <span class="session-number">22</span>
+        <h2>Flexbox ظرف</h2>
+        <p>display:flex و ویژگی‌های ظرف</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-23/index.html">
+        <span class="session-number">23</span>
+        <h2>Flexbox آیتم</h2>
+        <p>grow، shrink، basis و الگوهای رایج</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-24/index.html">
+        <span class="session-number">24</span>
+        <h2>Grid پایه</h2>
+        <p>template، gap، قرارگیری سلول</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-25/index.html">
+        <span class="session-number">25</span>
+        <h2>Grid پیشرفته</h2>
+        <p>areas، auto-fit، minmax</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-26/index.html">
+        <span class="session-number">26</span>
+        <h2>Media Query</h2>
+        <p>breakpoint و mobile-first</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-27/index.html">
+        <span class="session-number">27</span>
+        <h2>Container Queries</h2>
+        <p>اندازه ظرف به‌جای viewport</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-28/index.html">
+        <span class="session-number">28</span>
+        <h2>CSS Variables</h2>
+        <p>custom properties و تم‌سازی</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-29/index.html">
+        <span class="session-number">29</span>
+        <h2>Transition</h2>
+        <p>transition و timing-function</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-30/index.html">
+        <span class="session-number">30</span>
+        <h2>Transform</h2>
+        <p>translate، rotate، scale، skew</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-31/index.html">
+        <span class="session-number">31</span>
+        <h2>Animation</h2>
+        <p>@keyframes و انیمیشن</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-32/index.html">
+        <span class="session-number">32</span>
+        <h2>Shadow و Filter</h2>
+        <p>box-shadow، filter، backdrop-filter</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-33/index.html">
+        <span class="session-number">33</span>
+        <h2>استایل فرم</h2>
+        <p>input، focus، hover، disabled</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-34/index.html">
+        <span class="session-number">34</span>
+        <h2>پروژه: ناوبری واکنش‌گرا</h2>
+        <p>منوی موبایل و دسکتاپ با CSS</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-35/index.html">
+        <span class="session-number">35</span>
+        <h2>پروژه: کارت و گالری</h2>
+        <p>کارت، گالری، pricing با Flex/Grid</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-36/index.html">
+        <span class="session-number">36</span>
+        <h2>تایپوگرافی سیال</h2>
+        <p>clamp و مقیاس تایپ</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-37/index.html">
+        <span class="session-number">37</span>
+        <h2>حالت تاریک</h2>
+        <p>تم تاریک با CSS variables</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-38/index.html">
+        <span class="session-number">38</span>
+        <h2>استایل چاپ</h2>
+        <p>@media print</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-39/index.html">
+        <span class="session-number">39</span>
+        <h2>سلکتورهای مدرن</h2>
+        <p>:has، :is، :where</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-B" href="./session-40/index.html">
+        <span class="session-number">40</span>
+        <h2>پروژه میانی CSS خالص</h2>
+        <p>سایت چندبخشی فقط با CSS</p>
+        <span class="tag">CSS عمیق</span>
+      </a>
+      <a class="session-card block-C" href="./session-41/index.html">
+        <span class="session-number">41</span>
+        <h2>Reset و Normalize</h2>
+        <p>لایه base و یکسان‌سازی مرورگر</p>
+        <span class="tag">معماری و Design System</span>
+      </a>
+      <a class="session-card block-C" href="./session-42/index.html">
+        <span class="session-number">42</span>
+        <h2>BEM</h2>
+        <p>Block، Element، Modifier</p>
+        <span class="tag">معماری و Design System</span>
+      </a>
+      <a class="session-card block-C" href="./session-43/index.html">
+        <span class="session-number">43</span>
+        <h2>ITCSS و لایه‌بندی</h2>
+        <p>سازماندهی فایل‌های CSS</p>
+        <span class="tag">معماری و Design System</span>
+      </a>
+      <a class="session-card block-C" href="./session-44/index.html">
+        <span class="session-number">44</span>
+        <h2>Design Tokens</h2>
+        <p>رنگ، فاصله، radius، elevation</p>
+        <span class="tag">معماری و Design System</span>
+      </a>
+      <a class="session-card block-C" href="./session-45/index.html">
+        <span class="session-number">45</span>
+        <h2>دسترسی‌پذیری CSS</h2>
+        <p>contrast، focus-visible، reduced-motion</p>
+        <span class="tag">معماری و Design System</span>
+      </a>
+      <a class="session-card block-C" href="./session-46/index.html">
+        <span class="session-number">46</span>
+        <h2>RTL و Logical Properties</h2>
+        <p>inset، margin-inline و جهت منطقی</p>
+        <span class="tag">معماری و Design System</span>
+      </a>
+      <a class="session-card block-C" href="./session-47/index.html">
+        <span class="session-number">47</span>
+        <h2>DevTools برای CSS</h2>
+        <p>دیباگ layout و paint</p>
+        <span class="tag">معماری و Design System</span>
+      </a>
+      <a class="session-card block-C" href="./session-48/index.html">
+        <span class="session-number">48</span>
+        <h2>پرفورمنس CSS</h2>
+        <p>critical CSS و layout thrash</p>
+        <span class="tag">معماری و Design System</span>
+      </a>
+      <a class="session-card block-D" href="./session-49/index.html">
+        <span class="session-number">49</span>
+        <h2>مقدمه Sass</h2>
+        <p>پیش‌پردازنده، Dart Sass، scss در برابر sass</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-50/index.html">
+        <span class="session-number">50</span>
+        <h2>متغیر و Nesting</h2>
+        <p>variables، nesting، &</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-51/index.html">
+        <span class="session-number">51</span>
+        <h2>ماژول‌های Sass</h2>
+        <p>@use و @forward</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-52/index.html">
+        <span class="session-number">52</span>
+        <h2>Mixin</h2>
+        <p>@mixin و @include</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-53/index.html">
+        <span class="session-number">53</span>
+        <h2>Function و Map</h2>
+        <p>function، map، list</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-54/index.html">
+        <span class="session-number">54</span>
+        <h2>شرط و حلقه</h2>
+        <p>@if، @each، @for، @while</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-55/index.html">
+        <span class="session-number">55</span>
+        <h2>Extend در برابر Mixin</h2>
+        <p>چه موقع کدام را انتخاب کنیم</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-56/index.html">
+        <span class="session-number">56</span>
+        <h2>معماری 7-1</h2>
+        <p>ساختار حرفه‌ای پروژه Sass</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-57/index.html">
+        <span class="session-number">57</span>
+        <h2>توکن در Sass</h2>
+        <p>خروجی CSS variables از Sass</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-58/index.html">
+        <span class="session-number">58</span>
+        <h2>ماژول دکمه و فرم</h2>
+        <p>کامپوننت‌های UI با Sass</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-59/index.html">
+        <span class="session-number">59</span>
+        <h2>Breakpoint Map</h2>
+        <p>responsive mixin</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-60/index.html">
+        <span class="session-number">60</span>
+        <h2>تم روشن و تاریک</h2>
+        <p>تم‌سازی با Sass</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-61/index.html">
+        <span class="session-number">61</span>
+        <h2>بیلد Sass</h2>
+        <p>npm script، watch، source map</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-D" href="./session-62/index.html">
+        <span class="session-number">62</span>
+        <h2>پروژه: دیزاین‌سیستم Sass</h2>
+        <p>سیستم طراحی کوچک کامپایل‌شده</p>
+        <span class="tag">Sass / SCSS</span>
+      </a>
+      <a class="session-card block-E" href="./session-63/index.html">
+        <span class="session-number">63</span>
+        <h2>مقدمه Bootstrap 5</h2>
+        <p>فلسفه، CDN و npm</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-64/index.html">
+        <span class="session-number">64</span>
+        <h2>Grid Bootstrap</h2>
+        <p>سیستم ۱۲ ستونی و breakpoint</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-65/index.html">
+        <span class="session-number">65</span>
+        <h2>Utilities</h2>
+        <p>spacing، color، display</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-66/index.html">
+        <span class="session-number">66</span>
+        <h2>Typography و تصاویر</h2>
+        <p>متن، heading، img-fluid</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-67/index.html">
+        <span class="session-number">67</span>
+        <h2>Navbar و Offcanvas</h2>
+        <p>ناوبری واکنش‌گرا</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-68/index.html">
+        <span class="session-number">68</span>
+        <h2>Cards و Badges</h2>
+        <p>card، list-group، badge</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-69/index.html">
+        <span class="session-number">69</span>
+        <h2>Buttons و Dropdown</h2>
+        <p>دکمه، گروه، dropdown</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-70/index.html">
+        <span class="session-number">70</span>
+        <h2>Forms</h2>
+        <p>فرم و ظاهر validation</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-71/index.html">
+        <span class="session-number">71</span>
+        <h2>Modal و Toast</h2>
+        <p>modal، toast، tooltip، popover</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-72/index.html">
+        <span class="session-number">72</span>
+        <h2>Accordion و Tabs</h2>
+        <p>collapse، accordion، tabs</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-73/index.html">
+        <span class="session-number">73</span>
+        <h2>Carousel</h2>
+        <p>اسلایدر و کامپوننت‌های پیشرفته</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-74/index.html">
+        <span class="session-number">74</span>
+        <h2>Tables و Pagination</h2>
+        <p>جدول و صفحه‌بندی</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-75/index.html">
+        <span class="session-number">75</span>
+        <h2>Icons و RTL</h2>
+        <p>Bootstrap Icons و راست‌به‌چپ</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-76/index.html">
+        <span class="session-number">76</span>
+        <h2>سفارشی‌سازی Sass</h2>
+        <p>متغیرهای Bootstrap و rebuild</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-77/index.html">
+        <span class="session-number">77</span>
+        <h2>پروژه: داشبورد ادمین</h2>
+        <p>پنل ادمین ساده با Bootstrap</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-E" href="./session-78/index.html">
+        <span class="session-number">78</span>
+        <h2>پروژه: لندینگ Bootstrap</h2>
+        <p>لندینگ چندبخشی کامل</p>
+        <span class="tag">Bootstrap 5</span>
+      </a>
+      <a class="session-card block-F" href="./session-79/index.html">
+        <span class="session-number">79</span>
+        <h2>مقدمه Tailwind</h2>
+        <p>utility-first، Vite و مقایسه با Bootstrap</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-80/index.html">
+        <span class="session-number">80</span>
+        <h2>Spacing و Sizing</h2>
+        <p>سیستم فاصله و اندازه</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-81/index.html">
+        <span class="session-number">81</span>
+        <h2>Flex و Grid در Tailwind</h2>
+        <p>چیدمان با utility</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-82/index.html">
+        <span class="session-number">82</span>
+        <h2>Typography Tailwind</h2>
+        <p>متن و رنگ</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-83/index.html">
+        <span class="session-number">83</span>
+        <h2>Responsive Prefixes</h2>
+        <p>mobile-first در Tailwind</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-84/index.html">
+        <span class="session-number">84</span>
+        <h2>States</h2>
+        <p>hover، focus، group، peer</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-85/index.html">
+        <span class="session-number">85</span>
+        <h2>فرم‌ها با Utility</h2>
+        <p>ساخت فرم بدون کامپوننت آماده</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-86/index.html">
+        <span class="session-number">86</span>
+        <h2>الگوهای Layout</h2>
+        <p>navbar، hero، sidebar</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-87/index.html">
+        <span class="session-number">87</span>
+        <h2>@apply و لایه‌ها</h2>
+        <p>base، components، utilities</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-88/index.html">
+        <span class="session-number">88</span>
+        <h2>tailwind.config</h2>
+        <p>theme extend، font، breakpoint</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-89/index.html">
+        <span class="session-number">89</span>
+        <h2>پلاگین‌ها</h2>
+        <p>forms و typography</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-90/index.html">
+        <span class="session-number">90</span>
+        <h2>Dark Mode</h2>
+        <p>class و media strategy</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-91/index.html">
+        <span class="session-number">91</span>
+        <h2>انیمیشن Tailwind</h2>
+        <p>transition و animate</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-92/index.html">
+        <span class="session-number">92</span>
+        <h2>استخراج کامپوننت</h2>
+        <p>الگوی تکرار بدون فریم‌ورک JS</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-93/index.html">
+        <span class="session-number">93</span>
+        <h2>پروژه: SaaS Landing</h2>
+        <p>لندینگ SaaS با Tailwind</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-F" href="./session-94/index.html">
+        <span class="session-number">94</span>
+        <h2>پروژه: UI Kit</h2>
+        <p>پنل تنظیمات و UI kit کوچک</p>
+        <span class="tag">Tailwind CSS</span>
+      </a>
+      <a class="session-card block-G" href="./session-95/index.html">
+        <span class="session-number">95</span>
+        <h2>مقدمه Bulma</h2>
+        <p>کلاس‌محور بدون JS اجباری</p>
+        <span class="tag">Bulma و Capstone</span>
+      </a>
+      <a class="session-card block-G" href="./session-96/index.html">
+        <span class="session-number">96</span>
+        <h2>Layout Bulma</h2>
+        <p>columns، container، level، hero</p>
+        <span class="tag">Bulma و Capstone</span>
+      </a>
+      <a class="session-card block-G" href="./session-97/index.html">
+        <span class="session-number">97</span>
+        <h2>عناصر Bulma</h2>
+        <p>button، form، notification، tag، table</p>
+        <span class="tag">Bulma و Capstone</span>
+      </a>
+      <a class="session-card block-G" href="./session-98/index.html">
+        <span class="session-number">98</span>
+        <h2>کامپوننت‌های Bulma</h2>
+        <p>navbar، card، modal، panel، tabs</p>
+        <span class="tag">Bulma و Capstone</span>
+      </a>
+      <a class="session-card block-G" href="./session-99/index.html">
+        <span class="session-number">99</span>
+        <h2>پروژه: فروشگاه Bulma</h2>
+        <p>سفارشی‌سازی Sass + فروشگاه کوچک</p>
+        <span class="tag">Bulma و Capstone</span>
+      </a>
+      <a class="session-card block-G" href="./session-100/index.html">
+        <span class="session-number">100</span>
+        <h2>Capstone مقایسه‌ای</h2>
+        <p>یک UI با Bootstrap، Tailwind و Bulma</p>
+        <span class="tag">Bulma و Capstone</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

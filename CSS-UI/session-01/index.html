@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 1: وب، مرورگر و محیط توسعه</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <p class="eyebrow">CSS-UI · جلسه 01 از 100</p>
+      <h1>وب، مرورگر و محیط توسعه</h1>
+      <p class="lead">از صفر مطلق: قبل از HTML و CSS عمیق، محیط و ذهنیت UI را آماده می‌کنیم.</p>
+    </header>
+
+    <section class="info">
+      <strong>راهنما:</strong>
+      توضیحات کامل در
+      <a href="./session-01-web-intro.md">session-01-web-intro.md</a>
+      است. این صفحه برای تمرین زنده است. DevTools را با F12 باز نگه دارید.
+    </section>
+
+    <section class="panel">
+      <h2>1. سه لایهٔ صفحه وب</h2>
+      <div class="layers">
+        <article class="layer layer-html">
+          <h3>HTML</h3>
+          <p>ساختار و معنا</p>
+        </article>
+        <article class="layer layer-css">
+          <h3>CSS</h3>
+          <p>ظاهر و چیدمان</p>
+        </article>
+        <article class="layer layer-js">
+          <h3>JS</h3>
+          <p>رفتار (کم در جلسات اول)</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>2. چک‌لیست محیط</h2>
+      <ul class="checklist" id="checklist">
+        <li data-key="vscode">VS Code نصب است</li>
+        <li data-key="browser">مرورگر مدرن باز است</li>
+        <li data-key="devtools">DevTools را حداقل یک‌بار باز کردم</li>
+        <li data-key="liveserver">صفحه با Live Server (یا serve) دیده می‌شود</li>
+      </ul>
+      <button type="button" class="btn" id="check-btn">ثبت وضعیت محیط</button>
+      <pre class="output" id="output">هنوز ثبت نشده — دکمه را بزنید.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>3. یادداشت من</h2>
+      <p id="note">اینجا یک جمله از خودتان اضافه کنید (تمرین آسان جلسه).</p>
+      <button type="button" class="btn btn-ghost" id="time-btn">نشان دادن زمان الان</button>
+    </section>
+
+    <nav class="pager">
+      <span class="muted">ابتدای دوره</span>
+      <a href="../session-02/index.html">جلسه بعد: اسکلت HTML5 →</a>
+    </nav>
+    <p class="footer-link"><a href="../index.html">بازگشت به فهرست دوره</a></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
