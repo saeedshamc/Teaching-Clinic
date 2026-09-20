@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 7: ساختار صفحه</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <strong>UI Clinic</strong>
+    <nav aria-label="اصلی">
+      <a href="#home">خانه</a>
+      <a href="#services">خدمات</a>
+      <a href="#contact">تماس</a>
+    </nav>
+  </header>
+
+  <main id="home" class="container">
+    <p class="eyebrow">CSS-UI · جلسه 07</p>
+    <h1>ساختار معنایی صفحه</h1>
+    <p class="lead">landmarkها را قبل از زیبایی بصری درست بچینید.</p>
+    <section class="info">توضیحات: <a href="./session-07-html-page-structure.md">session-07-html-page-structure.md</a></section>
+
+    <div class="layout">
+      <section id="services" class="panel">
+        <h2>خدمات</h2>
+        <p>محتوای اصلی داخل <code>main</code> و بخش‌بندی با <code>section</code>.</p>
+        <button type="button" class="btn" id="mark-btn">لیست landmarkها</button>
+        <pre class="output" id="output">—</pre>
+      </section>
+      <aside class="panel aside">
+        <h2>نکته کناری</h2>
+        <p><code>aside</code> برای محتوای مکمل است؛ نه محتوای اصلی.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <p>تماس: hello@example.com</p>
+    <p><a href="../session-06/index.html">→ جلسه قبل</a> · <a href="../session-08/index.html">جلسه بعد →</a></p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
