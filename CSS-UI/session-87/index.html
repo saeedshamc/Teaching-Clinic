@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 87: @apply و لایه‌ها</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <div class="mx-auto max-w-xl px-4 py-8">
+    <p class="text-sm font-semibold text-sky-700">CSS-UI · جلسه 87 · Tailwind</p>
+    <h1 class="mt-1 text-2xl font-bold">@apply و لایه‌ها</h1>
+    <p class="mt-2 rounded-lg border bg-white p-3 text-sm text-slate-600">
+      <a class="text-sky-700 underline" href="./session-87-tailwind-apply.md">session-87-tailwind-apply.md</a>
+    </p>
+
+    <p class="mt-6 text-sm text-slate-600">نسخهٔ utility خام:</p>
+    <button type="button" class="mt-2 rounded-lg bg-sky-600 px-4 py-2 font-medium text-white hover:bg-sky-700">دکمه خام</button>
+
+    <p class="mt-6 text-sm text-slate-600">نسخهٔ استخراج‌شده (شبیه‌سازی components):</p>
+    <button type="button" class="btn-primary mt-2">دکمه .btn-primary</button>
+    <article class="card mt-4">
+      <h2 class="font-bold">.card</h2>
+      <p class="mt-1 text-sm text-slate-600">الگوی تکراری را در لایه components جمع کنید.</p>
+    </article>
+
+    <pre class="mt-6 overflow-x-auto rounded-lg bg-slate-900 p-4 text-left text-xs text-slate-100" dir="ltr"><code>@layer components {
+  .btn-primary {
+    @apply rounded-lg bg-sky-600 px-4 py-2 text-white;
+  }
+}</code></pre>
+
+    <div class="mt-12 flex justify-between text-sm font-semibold text-sky-700">
+      <a href="../session-86/index.html">→ قبل</a>
+      <a href="../session-88/index.html">بعد →</a>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
