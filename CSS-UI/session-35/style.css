@@ -1,0 +1,12 @@
+:root { --accent:#1d4ed8; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:"Segoe UI",Tahoma,sans-serif; background:#f8fafc; color:#0f172a; line-height:1.7; }
+.container { max-width:900px; margin:0 auto; padding:2rem 1.25rem; }
+.eyebrow { color:var(--accent); font-weight:700; }
+.info { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:1rem; margin:1rem 0; border-inline-start:4px solid var(--accent); }
+.pricing { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin:1.5rem 0; }
+.pricing article { background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:1.2rem; }
+.featured { border-color:var(--accent); box-shadow:0 12px 30px rgba(29,78,216,.18); transform:scale(1.03); }
+.price { font-size:2rem; font-weight:800; color:var(--accent); margin:.3rem 0; }
+.pager { display:flex; justify-content:space-between; }
+a { color:var(--accent); font-weight:700; }
