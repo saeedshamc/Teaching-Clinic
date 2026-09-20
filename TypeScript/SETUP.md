@@ -21,7 +21,7 @@ cd TypeScript
 npm install
 ```
 
-نصب می‌کند: `typescript` (کامپایلر) و `tsx` (اجرای مستقیم `.ts`).
+نصب می‌کند: `typescript` (کامپایلر)، `tsx` (اجرای مستقیم `.ts`)، و `@types/node`.
 
 ## ۴. ویرایشگر
 VS Code + افزونهٔ رسمی **TypeScript and JavaScript Language Features** (معمولاً توکار است).
