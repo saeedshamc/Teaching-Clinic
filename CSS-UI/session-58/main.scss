@@ -1,0 +1,46 @@
+$brand: #c2410c;
+$danger: #dc2626;
+
+@mixin focus {
+  &:focus-visible {
+    outline: 3px solid #fdba74;
+    outline-offset: 2px;
+  }
+}
+
+.form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #fdba74;
+  border-radius: 8px;
+  @include focus;
+}
+
+.btn {
+  background: $brand;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  @include focus;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: $brand;
+  border: 2px solid $brand;
+}
+
+.btn-danger {
+  background: $danger;
+  color: #fff;
+  border: 0;
+}
