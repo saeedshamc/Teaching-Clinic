@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 6: فرم‌ها ۲</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <p class="eyebrow">CSS-UI · جلسه 06</p>
+      <h1>فرم‌ها ۲</h1>
+      <p class="lead">select، textarea، checkbox، radio و fieldset.</p>
+    </header>
+    <section class="info">توضیحات: <a href="./session-06-html-forms-2.md">session-06-html-forms-2.md</a></section>
+
+    <form class="panel form" id="pref-form">
+      <label for="role">نقش</label>
+      <select id="role" name="role">
+        <option value="student">دانشجو</option>
+        <option value="teacher">مدرس</option>
+        <option value="designer">طراح</option>
+      </select>
+
+      <label for="bio">درباره شما</label>
+      <textarea id="bio" name="bio" rows="4" placeholder="چند خط بنویسید"></textarea>
+
+      <fieldset>
+        <legend>موضوع‌های مورد علاقه</legend>
+        <label class="inline"><input type="checkbox" name="topics" value="css"> CSS</label>
+        <label class="inline"><input type="checkbox" name="topics" value="sass"> Sass</label>
+        <label class="inline"><input type="checkbox" name="topics" value="frameworks"> Frameworks</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>سطح</legend>
+        <label class="inline"><input type="radio" name="level" value="beginner" checked> مبتدی</label>
+        <label class="inline"><input type="radio" name="level" value="intermediate"> متوسط</label>
+        <label class="inline"><input type="radio" name="level" value="pro"> حرفه‌ای</label>
+      </fieldset>
+
+      <button type="submit">ثبت ترجیحات</button>
+      <pre class="output" id="output">—</pre>
+    </form>
+
+    <nav class="pager">
+      <a href="../session-05/index.html">→ جلسه قبل</a>
+      <a href="../session-07/index.html">جلسه بعد →</a>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
