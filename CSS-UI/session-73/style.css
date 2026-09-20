@@ -1,0 +1,8 @@
+.page {
+  max-width: 960px;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  max-height: 320px;
+}
