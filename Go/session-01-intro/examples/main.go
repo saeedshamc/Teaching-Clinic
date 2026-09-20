@@ -6,5 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Printf("Go ????? ???: %s ??? %s/%s\n", runtime.Version(), runtime.GOOS, runtime.GOARCH)
+	fmt.Printf("نسخه Go: %s | سیستم: %s/%s\n",
+		runtime.Version(), runtime.GOOS, runtime.GOARCH)
 }
