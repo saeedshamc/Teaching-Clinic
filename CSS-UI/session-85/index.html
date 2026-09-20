@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 85: فرم‌ها</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-100 text-slate-800">
+  <div class="mx-auto max-w-lg px-4 py-8">
+    <p class="text-sm font-semibold text-sky-700">CSS-UI · جلسه 85 · Tailwind</p>
+    <h1 class="mt-1 text-2xl font-bold">فرم‌ها با Utility</h1>
+    <p class="mt-2 rounded-lg border bg-white p-3 text-sm text-slate-600">
+      <a class="text-sky-700 underline" href="./session-85-tailwind-forms.md">session-85-tailwind-forms.md</a>
+    </p>
+
+    <form class="mt-8 space-y-4 rounded-2xl border bg-white p-6 shadow-sm" id="twForm">
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label class="block text-sm font-medium text-slate-700" for="first">نام</label>
+          <input id="first" name="first" type="text" required class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700" for="last">نام خانوادگی</label>
+          <input id="last" name="last" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200">
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-slate-700" for="email">ایمیل</label>
+        <input id="email" name="email" type="email" required aria-invalid="true" aria-describedby="email-err" class="mt-1 w-full rounded-lg border border-rose-500 px-3 py-2 shadow-sm focus:border-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-200" value="not-an-email">
+        <p id="email-err" class="mt-1 text-sm text-rose-600">ایمیل معتبر وارد کنید. (نمونه حالت خطا)</p>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-slate-700" for="role">نقش</label>
+        <select id="role" name="role" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200">
+          <option>کاربر</option>
+          <option>ویراستار</option>
+          <option>ادمین</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-slate-700" for="msg">پیام</label>
+        <textarea id="msg" name="msg" rows="4" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200"></textarea>
+      </div>
+      <button type="submit" class="w-full rounded-lg bg-sky-600 px-4 py-2.5 font-medium text-white hover:bg-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400">
+        ارسال
+      </button>
+    </form>
+
+    <div class="mt-12 flex justify-between text-sm font-semibold text-sky-700">
+      <a href="../session-84/index.html">→ قبل</a>
+      <a href="../session-86/index.html">بعد →</a>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
