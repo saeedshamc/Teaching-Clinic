@@ -1,24 +1,18 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-)
+import "fmt"
 
 func main() {
-	text := "???? Go? ????"
-	counts := map[rune]int{}
-	for _, r := range text {
-		if r != ' ' && r != '?' {
-			counts[r]++
-		}
+	nums := []int{10, 20}
+	nums = append(nums, 30)
+	m := map[string]int{"a": 1}
+	if _, ok := m["b"]; !ok {
+		m["b"] = 2
 	}
-	keys := make([]rune, 0, len(counts))
-	for r := range counts {
-		keys = append(keys, r)
+	s := "سلام"
+	for _, r := range s {
+		fmt.Printf("%c ", r)
 	}
-	sort.Slice(keys, func(i, j int) bool { return keys[i] < keys[j] })
-	for _, r := range keys {
-		fmt.Printf("%c: %d\n", r, counts[r])
-	}
+	fmt.Println()
+	fmt.Println(nums, m)
 }
