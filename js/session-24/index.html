@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 24: مینی‌اپ Notes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 24: مینی‌اپ Notes</h1>
+
+        <div class="info">
+            ماژول + DOM + localStorage. با Live Server باز کنید.
+        </div>
+
+        <section class="section">
+            <form id="note-form">
+                <input id="note-text" name="text" required placeholder="یادداشت جدید" autocomplete="off">
+                <button type="submit">افزودن</button>
+            </form>
+            <label>
+                <input type="checkbox" id="only-open"> فقط انجام‌نشده
+            </label>
+            <ul id="note-list"></ul>
+            <div id="app-output" class="output"></div>
+        </section>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
