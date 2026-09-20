@@ -62,6 +62,17 @@ body {
   font-size: 1.25rem;
 }
 
+.solo-links {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.solo-links a {
+  color: #0369a1;
+  font-weight: 600;
+}
+
 .box-note {
   margin-top: 1.5rem;
   padding: 1rem;
