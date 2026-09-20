@@ -1,0 +1,12 @@
+// منبع Sass — جلسه 99: پروژه: فروشگاه Bulma
+$accent: #c2410c;
+$radius: 12px;
+
+.demo-project-bulma-shop {
+  border: 2px solid $accent;
+  border-radius: $radius;
+
+  .card {
+    background: lighten($accent, 45%);
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 99: فروشگاه Bulma</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar is-primary" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item has-text-weight-bold" href="#"> فروشگاه نمونه</a>
+    </div>
+  </nav>
+
+  <section class="hero is-small is-primary is-light">
+    <div class="hero-body">
+      <div class="container page">
+        <p class="title is-4">پیشنهادهای هفته</p>
+        <p class="subtitle is-6">پروژه پایان بلوک Bulma · <a href="./session-99-project-bulma-shop.md">شرح</a> · <a href="./custom-vars.scss">custom-vars.scss</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page">
+      <div class="columns is-multiline">
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-content">
+              <span class="tag is-success is-light">موجود</span>
+              <p class="title is-5 mt-2">هدفون بی‌سیم</p>
+              <p class="subtitle is-6">۱٬۲۰۰٬۰۰۰ تومان</p>
+            </div>
+            <footer class="card-footer">
+              <a href="#" class="card-footer-item js-detail" data-title="هدفون بی‌سیم">جزئیات</a>
+            </footer>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-content">
+              <span class="tag is-warning is-light">محدود</span>
+              <p class="title is-5 mt-2">کیبورد مکانیکی</p>
+              <p class="subtitle is-6">۲٬۴۰۰٬۰۰۰ تومان</p>
+            </div>
+            <footer class="card-footer">
+              <a href="#" class="card-footer-item js-detail" data-title="کیبورد مکانیکی">جزئیات</a>
+            </footer>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-content">
+              <span class="tag is-success is-light">موجود</span>
+              <p class="title is-5 mt-2">ماوس ارگونومیک</p>
+              <p class="subtitle is-6">۸۵۰٬۰۰۰ تومان</p>
+            </div>
+            <footer class="card-footer">
+              <a href="#" class="card-footer-item js-detail" data-title="ماوس ارگونومیک">جزئیات</a>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="productModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title" id="modalTitle">محصول</p>
+            <button class="delete" aria-label="close" id="modalClose"></button>
+          </header>
+          <section class="modal-card-body">توضیح کوتاه محصول برای تمرین Modal در Bulma.</section>
+        </div>
+      </div>
+
+      <div class="is-flex is-justify-content-space-between mt-5">
+        <a href="../session-98/index.html">→ قبل</a>
+        <a href="../session-100/index.html">Capstone →</a>
+      </div>
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
