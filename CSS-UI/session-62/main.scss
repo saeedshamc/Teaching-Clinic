@@ -1,0 +1,30 @@
+$brand: #c2410c;
+$radius: 10px;
+
+.btn {
+  background: $brand;
+  color: #fff;
+  border: 0;
+  padding: 0.65rem 1rem;
+  border-radius: $radius;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: $brand;
+  border: 2px solid $brand;
+  padding: 0.65rem 1rem;
+  border-radius: $radius;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.alert {
+  background: #ffedd5;
+  padding: 0.5rem 0.8rem;
+  border-radius: $radius;
+  border: 1px solid #fdba74;
+  color: #7c2d12;
+}
