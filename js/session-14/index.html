@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 14: Promise و زنجیره</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 14: Promise و زنجیره</h1>
+
+        <section class="section">
+            <h2>1. زنجیره then</h2>
+            <div class="example">
+                <button onclick="showChain()">اجرای زنجیره</button>
+                <div id="chain-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>2. Promise.all</h2>
+            <div class="example">
+                <button onclick="showAll()">دو wait موازی</button>
+                <div id="all-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>3. catch</h2>
+            <div class="example">
+                <button onclick="showCatch()">زنجیره با خطا</button>
+                <div id="catch-output" class="output"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
