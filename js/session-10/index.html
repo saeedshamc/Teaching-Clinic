@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 10: کپی سطحی و عمیق</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 10: کپی سطحی و عمیق</h1>
+
+        <div class="info">
+            <strong>📌 نکته:</strong> این جلسه ادامهٔ immutability جلسه 8 است؛ تمرکز روی مرجع، spread و کپی تو در تو است.
+        </div>
+
+        <section class="section">
+            <h2>1. مرجع در برابر مقدار</h2>
+            <div class="example">
+                <button onclick="showReference()">نمایش مرجع</button>
+                <div id="ref-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>2. کپی سطحی</h2>
+            <div class="example">
+                <button onclick="showShallow()">کپی سطحی</button>
+                <div id="shallow-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>3. مشکل تو در تو</h2>
+            <div class="example">
+                <button onclick="showNestedTrap()">تلهٔ nested</button>
+                <div id="nested-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>4. کپی عمیق مفهومی</h2>
+            <div class="example">
+                <button onclick="showDeep()">کپی عمیق</button>
+                <div id="deep-output" class="output"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
