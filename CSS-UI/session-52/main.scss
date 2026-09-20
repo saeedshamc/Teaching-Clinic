@@ -1,0 +1,27 @@
+@mixin pill($bg, $color: #fff) {
+  border-radius: 999px;
+  background: $bg;
+  color: $color;
+  padding: 0.65rem 1.1rem;
+  border: 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@mixin focus-ring($color: #fdba74) {
+  &:focus-visible {
+    outline: 3px solid $color;
+    outline-offset: 2px;
+  }
+}
+
+.btn {
+  @include pill(#c2410c);
+  @include focus-ring;
+}
+
+.btn-ghost {
+  @include pill(transparent, #c2410c);
+  @include focus-ring;
+  border: 2px solid #c2410c;
+}
