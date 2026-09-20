@@ -1,22 +1,13 @@
 package main
 
-import (
-	"errors"
-	"fmt"
-)
+import "fmt"
 
-type Account struct {
-	owner   string
-	balance int64
-}
+type Counter struct{ N int }
 
-func NewAccount(owner string) *Account { return &Account{owner: owner} }
-func (a *Account) Deposit(amount int64) error {
-	if amount <= 0 {
-		return errors.New("???? ???? ???? ????")
-	}
-	a.balance += amount
-	return nil
+func (c *Counter) Inc() { c.N++ }
+
+func main() {
+	c := &Counter{}
+	c.Inc()
+	fmt.Println(c.N)
 }
-func (a Account) Summary() string { return fmt.Sprintf("%s: %d", a.owner, a.balance) }
-func main()                       { a := NewAccount("Sara"); _ = a.Deposit(250_000); fmt.Println(a.Summary()) }
