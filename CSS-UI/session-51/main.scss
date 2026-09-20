@@ -1,0 +1,16 @@
+@use "colors" as *;
+
+body {
+  background: $surface;
+  color: $text;
+}
+
+.btn {
+  background: $brand;
+  color: #fff;
+  border: 0;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
