@@ -1,63 +1,151 @@
-# جلسه ۱۲: تایپ Async و پاسخ API (۹۰ دقیقه)
+# جلسه ۱۲: تایپ Async — Promise، JSON، Result-style، خطای ذهنی (۱۲۰ دقیقه)
 
-**محیط فرض:** TypeScript 5.x · اینترنت برای مثال fetch اختیاری
+**محیط فرض:** TypeScript 5.x · `npx tsc --noEmit` · `npx tsx` · شبکه برای fetch نمونه اختیاری است
 
 ## پیش‌نیازها
-[`js/session-15`](../../js/session-15/) · جلسات TS ۰۴ و ۰۸ و ۱۱.
+جلسات ۴، ۱۱ و async در JS. اینجا فقط لایهٔ نوع.
 
 ## اهداف قابل‌اندازه‌گیری
-1. `Promise<T>` و `async` function تایپ‌شده بنویسید
-2. شکل پاسخ API را با `type` مدل کنید
-3. JSON را ابتدا `unknown` فرض کنید و بعد narrow/validate کنید
-4. بدون ساخت backend، قرارداد داده را ثابت نگه دارید
+در پایان می‌توانید:
+
+1. `Promise<T>` را بخوانید و برای تابع async نوع برگشت بنویسید
+2. نتیجهٔ `json()` را `unknown` بگیرید و parse امن کنید
+3. یک Result-style ساده بدون backend بسازید
+4. خطای شبکه/parse را با `unknown` در catch مدیریت کنید
+5. بگویید چرا `as User` روی JSON خام خطرناک است
 
 ## چرا مهم است؟
-بیشتر باگ‌های فرانت از «فرض کردم فیلد هست» می‌آید. تایپ پاسخ، قرارداد را در کامپایلر قفل می‌کند.
+مرز شبکه جایی است که TypeScript به‌تنهایی دروغ می‌گوید اگر شما `as` بزنید. نوع داخل برنامه بعد از **validate** معنا دارد، نه بعد از download.
+
+## برنامه زمانی (۱۲۰ دقیقه)
+
+| زمان | موضوع |
+|------|--------|
+| ۰–۲۰ | Promise&lt;T&gt; و async function |
+| ۲۰–۴۵ | json به‌عنوان unknown |
+| ۴۵–۷۰ | parseUser و type guard |
+| ۷۰–۹۵ | Result-style |
+| ۹۵–۱۲۰ | خطا + تمرین |
+
+---
 
 ## مفهوم عمیق
-```ts
-type UserDto = { id: number; name: string };
 
-async function fetchUser(id: number): Promise<UserDto> {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const data: unknown = await res.json();
-  return parseUser(data);
+### ۱. Promise&lt;T&gt;
+
+```ts
+async function loadId(): Promise<number> {
+  return 1;
 }
 ```
 
-حتی با جنریک `res.json() as UserDto` هنوز runtime تضمین ندارد — parse/validate آموزشی مهم است.
+`async` همیشه Promise برمی‌گرداند. `T` نوع مقدار resolve است نه خود Promise در await.
 
-## اشتباه‌های رایج
-1. `as UserDto` مستقیم روی هر JSON.
-2. فراموش `res.ok`.
-3. `Promise<any>`.
+### ۲. JSON یعنی unknown
 
-## مثال گام‌به‌گام
-```bash
-npx tsx session-12-async-typing/examples/01-api.ts
+```ts
+const data: unknown = await res.json();
 ```
 
-اگر شبکه نبود، همان فایل تابع `parseUser` را روی دادهٔ ساختگی هم نشان می‌دهد.
+شکل را حدس نزنید. تا validate نکرده‌اید، `User` نیست.
+
+### ۳. Parse با guard
+
+```ts
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+```
+
+فیلد به فیلد چک کنید؛ بعد شیء دامنه بسازید.
+
+### ۴. Result-style بدون پرتاب
+
+```ts
+type Result<T> =
+  | { ok: true; value: T }
+  | { ok: false; error: string };
+```
+
+برای جریان‌هایی که خطا قابل‌انتظار است، گاهی بهتر از throw است. UI می‌تواند روی `ok` branch بماند.
+
+### ۵. fetch و HTTP
+
+`res.ok` را چک کنید. وضعیت غیر۲xx ممکن است body خطا داشته باشد — نوع جدا.
+
+### ۶. خطر as
+
+```ts
+const user = data as User; // دروغ راحت
+```
+
+کامپایلر ساکت می‌شود؛ runtime می‌ترکد. Validate کنید.
+
+### ۷. خطای typed ذهنی
+
+نوع خطا در Promise reject معمولاً در سیستم نوع TS ضعیف مدل می‌شود. عملاً: catch unknown + پیام؛ یا Result.
+
+### ۸. تست بدون شبکه
+
+parse را روی شیء محلی단위 آزمایش کنید؛ fetch را جدا و اختیاری.
+
+---
+
+## اشتباه‌های رایج
+
+1. **`as User` روی JSON.** علت: بدون validate.
+2. **فراموش Promise در نوع برگشت ذهنی.** علت: async همیشه Promise است.
+3. **فرض res.json() همیشه شکل درست دارد.** علت: سرور و پروکسی خلاف می‌گویند.
+4. **catch را نادیده گرفتن در دمو.** علت: خطای شبکه رایج است.
+5. **Result و throw را قاطی کردن بدون قرارداد تیم.** علت: دو مسیر خطا گیج می‌کند.
+
+---
+
+## مثال گام‌به‌گام
+
+```bash
+npx tsx session-12-async-typing/examples/01-parse-local.ts
+npx tsx session-12-async-typing/examples/02-result-style.ts
+npx tsx session-12-async-typing/examples/03-fetch-user.ts
+npx tsc --noEmit
+```
+
+| فایل | موضوع |
+|------|--------|
+| [01-parse-local.ts](./examples/01-parse-local.ts) | parse بدون شبکه |
+| [02-result-style.ts](./examples/02-result-style.ts) | Result |
+| [03-fetch-user.ts](./examples/03-fetch-user.ts) | fetch اختیاری |
 
 ## الگوی بهتر
-یک تابع `parse*` جدا؛ لایهٔ UI فقط DTO معتبر می‌بیند.
+
+`unknown` → parse → `T`. برای خطای قابل‌انتظار Result؛ برای باگ واقعی throw. هرگز as روی مرز شبکه به‌عنوان عادت.
 
 ## تمرین‌ها
+
 ### آسان
-`async function delay(ms: number): Promise<void>`
+`parseProduct(data: unknown)` برای `{ id: number; title: string }`.
+
 ### چالشی
-`parseUser` را برای فیلد `email` هم سخت‌گیر کنید.
+همان parse را در `Result<Product>` بپیچید بدون throw.
 
 ## راهنمای حل
-بعد از چک object بودن، `"email" in data && typeof data.email === "string"`.
+
+آسان: isRecord + typeof فیلدها.
+
+چالش: به‌جای throw، `{ ok: false, error }` برگردانید.
 
 ## خودآزمایی
-1. `Promise<T>` یعنی چه؟
-2. چرا `unknown` بعد از `json()`؟
-3. `res.ok` چه ربطی به نوع دارد؟
-4. تفاوت compile-time و runtime validation؟
-5. آیا backend در این جلسه لازم است؟
+
+1. async چه نوعی برمی‌گرداند؟
+2. چرا json را unknown بگیریم؟
+3. خطر as چیست؟
+4. Result-style چه مزیتی دارد؟
+5. res.ok چرا مهم است؟
+6. type predicate در parse چه نقش دارد؟
+7. آیا TS نوع reject را محکم تضمین می‌کند؟
+8. تست parse را چطور بدون شبکه؟
+9. فرق خطای HTTP با خطای شکل JSON؟
+10. مرز اعتماد داده کجاست؟
 
 ## جمع‌بندی و پل جلسهٔ بعد
-دادهٔ ناهمگام تایپ شد. جلسه بعد: tsconfig کاربردی.
+Promise و JSON را با validate تایپ کردید. جلسهٔ بعد: **tsconfig** — همان گزینه‌هایی که strict و module را روشن نگه می‌دارند.
