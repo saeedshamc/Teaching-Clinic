@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 78: لندینگ Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">CSS-UI Landing</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="منو">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item"><a class="nav-link" href="#features">ویژگی‌ها</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cta">شروع</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page container py-4">
+    <p class="text-secondary mb-1">CSS-UI · جلسه 78 · پروژه Bootstrap</p>
+    <h1 class="mb-3">لندینگ کامل</h1>
+    <div class="alert alert-light border">
+      شرح پروژه:
+      <a href="./session-78-project-bootstrap-landing.md">session-78-project-bootstrap-landing.md</a>
+    </div>
+
+    <section class="hero p-5 mb-4 text-white rounded-3 text-center">
+      <h2 class="display-6 fw-bold">رابط کاربری را اصولی یاد بگیرید</h2>
+      <p class="lead mb-4">از HTML و CSS تا Bootstrap — حالا آماده‌اید سراغ Tailwind بروید.</p>
+      <a class="btn btn-light btn-lg" href="#cta">شروع رایگان</a>
+    </section>
+
+    <section id="features" class="mb-4">
+      <h3 class="h4 text-center mb-3">چرا این مسیر؟</h3>
+      <div class="row g-3 text-center">
+        <div class="col-md-4">
+          <div class="p-4 border rounded h-100 bg-white shadow-sm">
+            <h4 class="h5">سریع</h4>
+            <p class="mb-0 text-secondary">کامپوننت آماده بدون اختراع دوباره چرخ.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 border rounded h-100 bg-white shadow-sm">
+            <h4 class="h5">ریسپانسیو</h4>
+            <p class="mb-0 text-secondary">Grid و utility برای همه عرض‌ها.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 border rounded h-100 bg-white shadow-sm">
+            <h4 class="h5">قابل سفارشی‌سازی</h4>
+            <p class="mb-0 text-secondary">با Sass برند خودتان را سوار کنید.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="p-4 bg-light border rounded text-center mb-4">
+      <h3 class="h4">آماده یادگیری Tailwind؟</h3>
+      <p class="mb-3">بلوک بعد کاملاً جدا و utility-first است — الگوها را قاطی نکنید.</p>
+      <a class="btn btn-primary" href="../session-79/index.html">برو به جلسه ۷۹</a>
+    </section>
+
+    <footer class="text-center text-secondary small py-3 border-top">
+      © دوره CSS-UI · پایان بلوک Bootstrap
+    </footer>
+
+    <div class="d-flex justify-content-between mt-4">
+      <a href="../session-77/index.html">→ قبل</a>
+      <a href="../session-79/index.html">شروع Tailwind →</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
