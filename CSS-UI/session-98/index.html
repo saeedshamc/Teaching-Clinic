@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 98: کامپوننت‌های Bulma</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item has-text-weight-bold" href="#">Bulma Shop</a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">خانه</a>
+        <a class="navbar-item" href="#">محصولات</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container page">
+      <p class="has-text-link is-size-7 has-text-weight-semibold">CSS-UI · جلسه 98 · Bulma</p>
+      <h1 class="title is-3">کامپوننت‌ها</h1>
+      <div class="notification is-light"><a href="./session-98-bulma-components.md">session-98-bulma-components.md</a></div>
+
+      <div class="tabs is-boxed">
+        <ul>
+          <li class="is-active"><a>کارت</a></li>
+          <li><a>پنل</a></li>
+          <li><a>مودال</a></li>
+        </ul>
+      </div>
+
+      <div class="columns">
+        <div class="column is-two-thirds">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-5">کارت محصول</p>
+              <p class="content">محتوای کارت با card-content و footer اختیاری.</p>
+            </div>
+            <footer class="card-footer">
+              <a href="#" class="card-footer-item" id="openModal">پیش‌نمایش</a>
+              <a href="#" class="card-footer-item">خرید</a>
+            </footer>
+          </div>
+        </div>
+        <div class="column">
+          <nav class="panel">
+            <p class="panel-heading">فیلتر</p>
+            <a class="panel-block is-active">همه</a>
+            <a class="panel-block">پوشاک</a>
+            <a class="panel-block">دیجیتال</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="modal" id="demoModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">پیش‌نمایش</p>
+            <button class="delete" aria-label="close" id="closeModal"></button>
+          </header>
+          <section class="modal-card-body">این مودال با کلاس is-active باز می‌شود — JS کوتاه در script.js.</section>
+          <footer class="modal-card-foot">
+            <button class="button is-primary" id="closeModal2">باشه</button>
+          </footer>
+        </div>
+      </div>
+
+      <div class="is-flex is-justify-content-space-between mt-5">
+        <a href="../session-97/index.html">→ قبل</a>
+        <a href="../session-99/index.html">بعد →</a>
+      </div>
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
