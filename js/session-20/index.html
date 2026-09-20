@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 20: تایمرها و Event Loop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 20: تایمرها و Event Loop</h1>
+
+        <section class="section">
+            <h2>1. ترتیب A D C B</h2>
+            <div class="example">
+                <button onclick="showOrder()">اجرای ترتیب</button>
+                <div id="order-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>2. Interval قابل توقف</h2>
+            <div class="example">
+                <button onclick="startTicks()">شروع</button>
+                <button onclick="stopTicks()">توقف</button>
+                <div id="tick-output" class="output"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
