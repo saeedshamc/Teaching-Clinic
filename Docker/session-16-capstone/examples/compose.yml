@@ -1,0 +1,17 @@
+services:
+  api:
+    build: ./api
+    volumes:
+      - clinic_s16_data:/data
+    expose:
+      - "3000"
+    restart: unless-stopped
+  web:
+    build: ./web
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+
+volumes:
+  clinic_s16_data:
