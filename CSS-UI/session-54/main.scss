@@ -1,0 +1,8 @@
+@for $i from 1 through 3 {
+  .s-#{$i} {
+    height: 20px * $i;
+    width: 40px;
+    background: #c2410c;
+    border-radius: 6px;
+  }
+}
