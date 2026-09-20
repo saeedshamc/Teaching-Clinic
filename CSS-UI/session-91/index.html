@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 91: انیمیشن</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <div class="mx-auto max-w-xl px-4 py-8">
+    <p class="text-sm font-semibold text-sky-700">CSS-UI · جلسه 91 · Tailwind</p>
+    <h1 class="mt-1 text-2xl font-bold">انیمیشن</h1>
+    <p class="mt-2 rounded-lg border bg-white p-3 text-sm text-slate-600">
+      <a class="text-sky-700 underline" href="./session-91-tailwind-animation.md">session-91-tailwind-animation.md</a>
+    </p>
+
+    <div class="mt-8 flex flex-wrap items-center gap-4">
+      <button type="button" class="rounded-lg bg-sky-500 px-4 py-2 text-white transition duration-200 hover:bg-sky-600 active:scale-95">
+        transition + active
+      </button>
+      <div class="h-8 w-8 animate-spin rounded-full border-4 border-sky-200 border-t-sky-600" role="status" aria-label="در حال بارگذاری"></div>
+      <div class="h-3 w-28 animate-pulse rounded bg-slate-300"></div>
+    </div>
+
+    <article class="mt-8 cursor-default rounded-2xl border bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+      <h2 class="font-bold">کارت با lift</h2>
+      <p class="mt-2 text-sm text-slate-600">hover:-translate-y-1 و shadow قوی‌تر.</p>
+    </article>
+
+    <div class="mt-6 space-y-2" aria-hidden="true">
+      <div class="h-3 w-full animate-pulse rounded bg-slate-200"></div>
+      <div class="h-3 w-5/6 animate-pulse rounded bg-slate-200"></div>
+      <div class="h-3 w-2/3 animate-pulse rounded bg-slate-200"></div>
+    </div>
+
+    <div class="mt-12 flex justify-between text-sm font-semibold text-sky-700">
+      <a href="../session-90/index.html">→ قبل</a>
+      <a href="../session-92/index.html">بعد →</a>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
