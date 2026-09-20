@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 43: ITCSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <p class="eyebrow">CSS-UI · جلسه 43 · معماری</p>
+    <h1>ITCSS و لایه‌بندی</h1>
+    <p class="lead">از کم‌خصوصیت به زیاد — مثلث وارونه برای نظم CSS.</p>
+
+    <section class="info">
+      توضیحات: <a href="./session-43-itcss.md">session-43-itcss.md</a>
+    </section>
+
+    <section class="panel">
+      <h2>لایه‌ها از پایین مثلث تا نوک</h2>
+      <ol class="layers" id="layers">
+        <li data-layer="settings"><strong>Settings</strong> — توکن‌ها و متغیرها</li>
+        <li data-layer="tools"><strong>Tools</strong> — mixin / function (Sass)</li>
+        <li data-layer="generic"><strong>Generic</strong> — reset / normalize</li>
+        <li data-layer="elements"><strong>Elements</strong> — تگ‌های خام</li>
+        <li data-layer="objects"><strong>Objects</strong> — اسکلت‌های بی‌ظاهر</li>
+        <li data-layer="components"><strong>Components</strong> — کارت، فرم، ناوبری</li>
+        <li data-layer="utilities"><strong>Utilities</strong> — کلاس‌های کمکی پرقدرت</li>
+      </ol>
+      <button type="button" class="btn" id="btn">برجسته کردن مسیر پیشنهادی import</button>
+      <pre class="output" id="output">ترتیب لینک/import را از بالا به پایین همین لیست حفظ کنید.</pre>
+    </section>
+
+    <section class="panel example">
+      <h2>نمونهٔ کوچک در عمل</h2>
+      <p class="element-sample">این پاراگراف شبیه لایه Elements است.</p>
+      <article class="c-card">این جعبه شبیه لایه Components (با پیشوند c-) است.</article>
+      <p class="u-text-center">این خط utility است: u-text-center</p>
+    </section>
+
+    <nav class="pager">
+      <a href="../session-42/index.html">→ قبل</a>
+      <a href="../session-44/index.html">بعد →</a>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
