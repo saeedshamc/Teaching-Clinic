@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 48: پرفورمنس CSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <p class="eyebrow">CSS-UI · جلسه 48 · معماری</p>
+    <h1>پرفورمنس CSS</h1>
+    <p class="lead">حرکت سبک، سلکتور ساده، و مفهوم critical CSS.</p>
+
+    <section class="info">
+      توضیحات: <a href="./session-48-css-performance.md">session-48-css-performance.md</a>
+    </section>
+
+    <section class="panel">
+      <h2>مقایسه حس حرکت</h2>
+      <div class="compare">
+        <article class="box box-good">خوب: transform</article>
+        <article class="box box-ok">قابل قبول: رنگ/سایه</article>
+      </div>
+      <ul class="tips">
+        <li>برای hover مداوم، transform را ترجیح دهید.</li>
+        <li>از تغییر مکرر height/width در انیمیشن UI بپرهیزید.</li>
+        <li>CSS مرده و فایل‌های شلوغ را با معماری جلسات قبل کم کنید.</li>
+      </ul>
+      <button type="button" class="btn" id="btn">یادآوری چک‌لیست</button>
+      <pre class="output" id="output">—</pre>
+    </section>
+
+    <nav class="pager">
+      <a href="../session-47/index.html">→ قبل</a>
+      <a href="../session-49/index.html">شروع Sass →</a>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
