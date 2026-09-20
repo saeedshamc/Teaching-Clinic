@@ -1,0 +1,13 @@
+:root { --bg: #fff7ed; --fg: #7c2d12; --brand: #c2410c; }
+body.dark { --bg: #1c1917; --fg: #ffedd5; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Tahoma, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.75; transition: background 0.2s, color 0.2s; }
+.container { max-width: 820px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+.eyebrow { color: var(--brand); font-weight: 700; margin: 0; }
+.info, .panel { background: color-mix(in srgb, var(--bg) 70%, white); border: 1px solid #fdba74; border-radius: 14px; padding: 1.2rem; margin: 1rem 0; }
+body.dark .info, body.dark .panel { background: #292524; border-color: #44403c; }
+.info { border-inline-start: 4px solid var(--brand); }
+.btn { border: 0; background: var(--brand); color: #fff; padding: 0.6rem 1.1rem; border-radius: 999px; font-weight: 700; cursor: pointer; }
+.output { margin-top: 1rem; background: #0c0a09; color: #ffedd5; padding: 0.85rem 1rem; border-radius: 10px; }
+.pager { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+a { color: var(--brand); font-weight: 700; }
