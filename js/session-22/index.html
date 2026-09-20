@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 22: DevTools و npm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 22: DevTools و npm خیلی سبک</h1>
+
+        <div class="info">
+            F12 را باز کنید. روی خط داخل <code>inspectUser</code> در Sources breakpoint بگذارید، بعد دکمه را بزنید.
+        </div>
+
+        <section class="section">
+            <h2>1. جدول و گروه کنسول</h2>
+            <button onclick="showConsoleTools()">console.table</button>
+            <div id="console-output" class="output"></div>
+        </section>
+
+        <section class="section">
+            <h2>2. تابع برای breakpoint</h2>
+            <button onclick="inspectUser()">ایست در debugger</button>
+            <div id="debug-output" class="output"></div>
+        </section>
+
+        <section class="section">
+            <h2>3. hello.js برای Node</h2>
+            <p>در ترمینال، از پوشهٔ این جلسه: <code>node hello.js</code></p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
