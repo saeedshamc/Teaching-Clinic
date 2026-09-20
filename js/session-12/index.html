@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 12: کلاس‌ها و پروتوتایپ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 12: کلاس‌ها و پروتوتایپ</h1>
+
+        <div class="info">
+            تمرکز روی کاربرد است، نه درخت ارث‌بری پیچیده.
+        </div>
+
+        <section class="section">
+            <h2>1. class و instance</h2>
+            <div class="example">
+                <button onclick="showClass()">ساخت User</button>
+                <div id="class-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>2. prototype</h2>
+            <div class="example">
+                <button onclick="showPrototype()">زنجیره prototype</button>
+                <div id="proto-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>3. extends</h2>
+            <div class="example">
+                <button onclick="showExtends()">Admin extends User</button>
+                <div id="extends-output" class="output"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
