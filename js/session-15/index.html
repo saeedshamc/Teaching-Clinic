@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 15: async/await و AbortController</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 15: async/await و AbortController</h1>
+
+        <div class="info">
+            درخواست نمونه از JSONPlaceholder است و به اینترنت نیاز دارد.
+        </div>
+
+        <section class="section">
+            <h2>1. fetch با await</h2>
+            <div class="example">
+                <button onclick="loadUser()">بارگذاری کاربر 1</button>
+                <div id="user-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>2. HTTP خطا</h2>
+            <div class="example">
+                <button onclick="loadMissing()">کاربر ناموجود (404)</button>
+                <div id="http-output" class="output"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>3. لغو درخواست</h2>
+            <div class="example">
+                <button onclick="startSlow()">شروع درخواست آهسته</button>
+                <button onclick="cancelSlow()">لغو</button>
+                <div id="abort-output" class="output"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
