@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 83: Responsive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-100 text-slate-800">
+  <div class="mx-auto max-w-5xl px-4 py-8">
+    <p class="text-sm font-semibold text-sky-700">CSS-UI · جلسه 83 · Tailwind</p>
+    <h1 class="mt-1 text-2xl font-bold md:text-3xl">Responsive Prefixes</h1>
+    <p class="mt-2 rounded-lg border bg-white p-3 text-sm text-slate-600">
+      <a class="text-sky-700 underline" href="./session-83-tailwind-responsive.md">session-83-tailwind-responsive.md</a>
+      — عرض پنجره را کم/زیاد کنید.
+    </p>
+
+    <header class="mt-6 flex items-center justify-between rounded-xl bg-white p-4 shadow-sm">
+      <strong>Logo</strong>
+      <nav class="hidden gap-4 text-sm md:flex">
+        <a href="#">خانه</a>
+        <a href="#">بلاگ</a>
+        <a href="#">تماس</a>
+      </nav>
+      <button type="button" class="rounded-lg border px-3 py-1 text-sm md:hidden">منو</button>
+    </header>
+
+    <h2 class="mt-8 text-xl font-bold md:text-3xl lg:text-4xl">تیتر مقیاس‌پذیر</h2>
+    <p class="mt-2 text-sm text-slate-500 md:text-base">text-sm → md:text-base</p>
+
+    <div class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-lg bg-sky-500 p-4 text-center text-white">1</div>
+      <div class="rounded-lg bg-sky-500 p-4 text-center text-white">2</div>
+      <div class="rounded-lg bg-sky-500 p-4 text-center text-white">3</div>
+      <div class="rounded-lg bg-sky-500 p-4 text-center text-white">4</div>
+    </div>
+
+    <p class="mt-4 hidden text-emerald-700 lg:block">این جمله فقط از lg به بالا دیده می‌شود.</p>
+
+    <div class="mt-12 flex justify-between text-sm font-semibold text-sky-700">
+      <a href="../session-82/index.html">→ قبل</a>
+      <a href="../session-84/index.html">بعد →</a>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
