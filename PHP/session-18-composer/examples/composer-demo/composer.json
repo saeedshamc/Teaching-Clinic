@@ -1,0 +1,8 @@
+{
+  "name": "clinic/php-session18-demo",
+  "autoload": {
+    "psr-4": {
+      "Clinic\\": "src/"
+    }
+  }
+}
