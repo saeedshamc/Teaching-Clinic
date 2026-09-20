@@ -1,0 +1,21 @@
+// جلسه 50 — منبع SCSS
+$link: #9a3412;
+$link-hover: #c2410c;
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  a {
+    color: $link;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover,
+    &.is-active {
+      color: $link-hover;
+      font-weight: 700;
+    }
+  }
+}
