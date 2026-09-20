@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 86: الگوهای Layout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-100 text-slate-800">
+  <header class="border-b bg-white">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+      <a class="font-bold text-sky-700" href="#">Brand</a>
+      <nav id="navDesktop" class="hidden gap-4 text-sm md:flex">
+        <a class="hover:text-sky-600" href="#hero">خانه</a>
+        <a class="hover:text-sky-600" href="#panel">پنل</a>
+      </nav>
+      <button type="button" id="navToggle" class="rounded border px-3 py-1 text-sm md:hidden" aria-expanded="false" aria-controls="navMobile">منو</button>
+    </div>
+    <div id="navMobile" class="hidden border-t px-4 py-3 md:hidden">
+      <a class="block py-1" href="#hero">خانه</a>
+      <a class="block py-1" href="#panel">پنل</a>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-5xl px-4 py-6">
+    <p class="text-sm font-semibold text-sky-700">CSS-UI · جلسه 86 · Tailwind</p>
+    <h1 class="mt-1 text-2xl font-bold">الگوهای Layout</h1>
+    <p class="mt-2 rounded-lg border bg-white p-3 text-sm text-slate-600">
+      <a class="text-sky-700 underline" href="./session-86-tailwind-layout.md">session-86-tailwind-layout.md</a>
+    </p>
+  </div>
+
+  <section id="hero" class="bg-slate-900 px-4 py-16 text-center text-white">
+    <h2 class="text-3xl font-bold md:text-5xl">Hero ساده</h2>
+    <p class="mx-auto mt-4 max-w-xl text-slate-300">یک عنوان، یک جمله، یک CTA — بدون شلوغی.</p>
+    <a href="#panel" class="mt-6 inline-block rounded-lg bg-sky-500 px-5 py-2 font-medium hover:bg-sky-400">مشاهده پنل</a>
+  </section>
+
+  <div id="panel" class="mx-auto flex min-h-[280px] max-w-5xl flex-col md:flex-row">
+    <aside class="border-b bg-white p-4 md:w-56 md:border-b-0 md:border-e">
+      <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">منو</p>
+      <a class="block rounded-lg bg-sky-50 px-3 py-2 text-sm font-medium text-sky-700" href="#">داشبورد</a>
+      <a class="mt-1 block rounded-lg px-3 py-2 text-sm text-slate-600 hover:bg-slate-50" href="#">پروژه‌ها</a>
+      <a class="mt-1 block rounded-lg px-3 py-2 text-sm text-slate-600 hover:bg-slate-50" href="#">تنظیمات</a>
+    </aside>
+    <main class="flex-1 p-6">
+      <h3 class="text-lg font-bold">محتوای اصلی</h3>
+      <p class="mt-2 text-slate-600">سایدبار + main با Flex — روی موبایل ستونی می‌شود.</p>
+    </main>
+  </div>
+
+  <div class="mx-auto flex max-w-5xl justify-between px-4 py-10 text-sm font-semibold text-sky-700">
+    <a href="../session-85/index.html">→ قبل</a>
+    <a href="../session-87/index.html">بعد →</a>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
