@@ -1,22 +1,20 @@
 package main
 
-import (
-	"errors"
-	"fmt"
-)
+import "fmt"
 
-func divide(a, b float64) (float64, error) {
+func Div(a, b int) (int, error) {
 	if b == 0 {
-		return 0, errors.New("?????????? ??? ???")
+		return 0, fmt.Errorf("division by zero")
 	}
 	return a / b, nil
 }
+
 func main() {
-	defer fmt.Println("????? ??????")
-	result, err := divide(10, 4)
+	defer fmt.Println("پایان main")
+	q, err := Div(10, 2)
 	if err != nil {
-		fmt.Println("???:", err)
+		fmt.Println("خطا:", err)
 		return
 	}
-	fmt.Println("?????:", result)
+	fmt.Println("خارج‌قسمت:", q)
 }
