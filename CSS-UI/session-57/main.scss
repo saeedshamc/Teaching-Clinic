@@ -1,0 +1,14 @@
+$brand: #c2410c;
+$radius: 12px;
+
+:root {
+  --brand: #{$brand};
+  --radius: #{$radius};
+}
+
+.themed {
+  border: 2px solid var(--brand);
+  border-radius: var(--radius);
+  padding: 1rem;
+  background: #fff;
+}
