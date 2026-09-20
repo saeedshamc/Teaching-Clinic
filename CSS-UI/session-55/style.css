@@ -1,0 +1,18 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Tahoma, sans-serif; background: #fff7ed; color: #7c2d12; line-height: 1.75; }
+.container { max-width: 820px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+.eyebrow { color: #c2410c; font-weight: 700; margin: 0; }
+.lead { color: #9a3412; }
+.info, .panel { background: #fff; border: 1px solid #fdba74; border-radius: 14px; padding: 1.2rem; margin: 1rem 0; }
+.info { border-inline-start: 4px solid #c2410c; }
+.card, .panel-box {
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #fdba74;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.card { box-shadow: 0 4px 14px rgba(194, 65, 12, 0.08); }
+.panel-box { box-shadow: 0 12px 28px rgba(194, 65, 12, 0.14); }
+.pager { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+a { color: #c2410c; font-weight: 700; }

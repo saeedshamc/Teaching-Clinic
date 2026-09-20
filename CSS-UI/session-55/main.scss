@@ -1,0 +1,24 @@
+%card-base {
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #fdba74;
+  padding: 1rem;
+}
+
+@mixin card-shadow($level: 1) {
+  @if $level == 1 {
+    box-shadow: 0 4px 14px rgba(194, 65, 12, 0.08);
+  } @else {
+    box-shadow: 0 12px 28px rgba(194, 65, 12, 0.14);
+  }
+}
+
+.card {
+  @extend %card-base;
+  @include card-shadow(1);
+}
+
+.panel-box {
+  @extend %card-base;
+  @include card-shadow(2);
+}
