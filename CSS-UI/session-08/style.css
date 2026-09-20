@@ -1,0 +1,37 @@
+/* عمداً مینیمال: تمرکز روی ساختار HTML */
+body {
+  margin: 0;
+  font-family: Tahoma, "Segoe UI", sans-serif;
+  line-height: 1.75;
+  color: #111;
+  background: #fafafa;
+}
+.top, .foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.25rem;
+  background: #111;
+  color: #fff;
+}
+.top a, .foot a, .cta-link { color: #7dd3fc; font-weight: 700; }
+.brand { color: #fff; text-decoration: none; font-weight: 800; }
+.top nav a { margin-right: 1rem; text-decoration: none; }
+.hero, .block { max-width: 800px; margin: 0 auto; padding: 2rem 1.25rem; border-bottom: 1px solid #e5e5e5; }
+.eyebrow { color: #0369a1; font-weight: 700; margin: 0; }
+h1, h2 { line-height: 1.3; }
+label { display: block; font-weight: 700; margin-bottom: .35rem; }
+input { padding: .55rem .7rem; width: min(100%, 320px); }
+button {
+  display: block;
+  margin-top: .75rem;
+  padding: .55rem 1rem;
+  border: 0;
+  background: #0369a1;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.output { background: #111; color: #d1fae5; padding: .75rem 1rem; border-radius: 8px; }
+.note { color: #555; }
