@@ -1,0 +1,25 @@
+$bp: (
+  "md": 768px,
+  "lg": 1100px,
+);
+
+@mixin up($name) {
+  @media (min-width: map-get($bp, $name)) {
+    @content;
+  }
+}
+
+.mq {
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  background: #ffedd5;
+
+  @include up(md) {
+    background: #dcfce7;
+  }
+
+  @include up(lg) {
+    background: #dbeafe;
+  }
+}
