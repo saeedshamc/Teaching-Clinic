@@ -1,0 +1,20 @@
+// این فایل را در پروژه Vite با پسوند .tsx کپی کنید.
+// اینجا .tsx.txt است تا typecheck دوره به React نیاز نداشته باشد.
+
+type UserCardProps = {
+  name: string;
+  age?: number;
+  onSelect: (id: number) => void;
+};
+
+function UserCard({ name, age = 0, onSelect }: UserCardProps) {
+  return (
+    <button type="button" onClick={() => onSelect(1)}>
+      {name} ({age})
+    </button>
+  );
+}
+
+export function Demo() {
+  return <UserCard name="سارا" age={20} onSelect={(id) => console.log(id)} />;
+}

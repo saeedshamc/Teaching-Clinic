@@ -1,0 +1,10 @@
+// کپی به Vite به‌صورت NameInput.tsx
+
+function NameInput() {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+  };
+  return <input onChange={onChange} placeholder="نام" />;
+}
+
+export { NameInput };
