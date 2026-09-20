@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 97: عناصر Bulma</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="section">
+    <div class="container page">
+      <p class="has-text-link is-size-7 has-text-weight-semibold">CSS-UI · جلسه 97 · Bulma</p>
+      <h1 class="title is-3">عناصر</h1>
+      <div class="notification is-light"><a href="./session-97-bulma-elements.md">session-97-bulma-elements.md</a></div>
+
+      <div class="tags mb-4">
+        <span class="tag is-success">فعال</span>
+        <span class="tag is-warning">معلق</span>
+        <span class="tag is-danger">حذف‌شده</span>
+      </div>
+
+      <div class="notification is-primary is-light">نمونه notification</div>
+
+      <div class="box">
+        <div class="field">
+          <label class="label" for="name">نام</label>
+          <div class="control"><input class="input" id="name" type="text" placeholder="مثلاً سارا"></div>
+        </div>
+        <div class="field">
+          <label class="label" for="mail">ایمیل</label>
+          <div class="control"><input class="input is-danger" id="mail" type="email" value="bad"></div>
+          <p class="help is-danger">ایمیل معتبر نیست</p>
+        </div>
+        <button class="button is-link" type="button">ارسال</button>
+      </div>
+
+      <table class="table is-fullwidth is-striped is-hoverable">
+        <thead><tr><th>محصول</th><th>قیمت</th><th>وضعیت</th></tr></thead>
+        <tbody>
+          <tr><td>کتاب</td><td>۱۲۰</td><td><span class="tag is-success is-light">موجود</span></td></tr>
+          <tr><td>دوره</td><td>۴۵۰</td><td><span class="tag is-warning is-light">محدود</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="is-flex is-justify-content-space-between mt-5">
+        <a href="../session-96/index.html">→ قبل</a>
+        <a href="../session-98/index.html">بعد →</a>
+      </div>
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
