@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="جلسه 2: اسکلت استاندارد HTML5 برای دوره CSS-UI">
+  <title>جلسه 2: اسکلت HTML5</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <p class="eyebrow">CSS-UI · جلسه 02</p>
+      <h1>اسکلت HTML5</h1>
+      <p class="lead">DOCTYPE، head، body، متاها، lang و dir — پایه‌ای که همهٔ جلسات بعدی روی آن سوار می‌شوند.</p>
+    </header>
+
+    <section class="info">
+      <strong>راهنما:</strong>
+      توضیحات کامل در
+      <a href="./session-02-html-skeleton.md">session-02-html-skeleton.md</a>.
+      ساختار همین فایل را در DevTools → Elements بررسی کنید.
+    </section>
+
+    <section class="panel">
+      <h2>نقشهٔ سند فعلی</h2>
+      <ol class="map">
+        <li><code>&lt;!DOCTYPE html&gt;</code> — حالت استاندارد HTML5</li>
+        <li><code>&lt;html lang="fa" dir="rtl"&gt;</code> — زبان و جهت</li>
+        <li><code>&lt;head&gt;</code> — charset، viewport، title، CSS</li>
+        <li><code>&lt;body&gt;</code> — محتوای دیداری</li>
+      </ol>
+      <button type="button" class="btn" id="inspect-btn">نشان دادن خلاصهٔ سند در خروجی</button>
+      <pre class="output" id="output">برای دیدن lang/dir/title دکمه را بزنید.</pre>
+    </section>
+
+    <section class="panel skeleton-demo">
+      <h2>اسکلت معنایی خیلی کوچک</h2>
+      <header class="demo-header">
+        <strong>Brand</strong>
+        <span>جای nav بعدی</span>
+      </header>
+      <main class="demo-main">
+        <h2>محتوای اصلی (main)</h2>
+        <p>معمولاً یک <code>h1</code> برای کل صفحه کافی است؛ اینجا برای دمو از <code>h2</code> داخل بخش استفاده شده.</p>
+      </main>
+      <footer class="demo-footer">footer — اطلاعات پایینی</footer>
+    </section>
+
+    <section class="panel">
+      <h2>تمرین سریع</h2>
+      <p id="practice-note">عنوان تب را عوض کنید، صفحه را رفرش کنید، بعد این دکمه را بزنید.</p>
+      <button type="button" class="btn btn-ghost" id="title-btn">خواندن title فعلی</button>
+    </section>
+
+    <nav class="pager">
+      <a href="../session-01/index.html">→ جلسه قبل</a>
+      <a href="../session-03/index.html">جلسه بعد: متن و رسانه →</a>
+    </nav>
+    <p class="footer-link"><a href="../index.html">فهرست دوره</a></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
