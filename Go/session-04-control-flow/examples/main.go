@@ -2,24 +2,21 @@ package main
 
 import "fmt"
 
-func grade(score int) string {
+func Grade(score int) string {
 	switch {
-	case score < 0 || score > 100:
-		return "???????"
 	case score >= 90:
 		return "A"
-	case score >= 75:
+	case score >= 70:
 		return "B"
-	case score >= 60:
-		return "C"
 	default:
-		return "D"
+		return "C"
 	}
 }
+
 func main() {
-	for _, score := range []int{95, 72, -1, 61} {
-		if g := grade(score); g != "???????" {
-			fmt.Println(score, g)
-		}
+	sum := 0
+	for i := 1; i <= 5; i++ {
+		sum += i
 	}
+	fmt.Println(sum, Grade(85))
 }
