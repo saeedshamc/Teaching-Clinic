@@ -1,0 +1,11 @@
+// یادآوری مفهومی — با custom.scss همراه بخوانید.
+// در بیلد واقعی، این لایه می‌تواند توکن‌های برند شما باشد.
+
+$accent: #6f42c1;
+$radius: 0.75rem;
+
+.demo-bootstrap-sass-custom {
+  border: 2px solid $accent;
+  border-radius: $radius;
+  padding: 1rem;
+}

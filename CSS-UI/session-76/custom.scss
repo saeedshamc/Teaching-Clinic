@@ -1,0 +1,18 @@
+// نمونه سفارشی‌سازی Bootstrap با Sass
+// ترتیب حیاتی است: اول متغیرها، بعد import هسته.
+
+$primary: #6f42c1;
+$secondary: #6c757d;
+$success: #198754;
+$border-radius: 0.75rem;
+$border-radius-lg: 1rem;
+$font-family-sans-serif: "Vazirmatn", system-ui, -apple-system, sans-serif;
+
+// در پروژه npm واقعی، بعد از نصب bootstrap یکی از این‌ها را فعال کنید:
+// @import "bootstrap/scss/bootstrap";
+//
+// یا برای کنترل حجم، فقط بخش‌های لازم را import کنید
+// (مثلاً functions، variables، maps، mixins، سپس root و کامپوننت‌ها).
+
+// این فایل آموزشی است و بدون node_modules بیلد کامل نمی‌دهد.
+// هدف: دیدن الگوی override قبل از import.

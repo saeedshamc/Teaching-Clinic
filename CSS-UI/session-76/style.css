@@ -1,0 +1,10 @@
+.page {
+  max-width: 900px;
+}
+
+.demo-box {
+  padding: 1.25rem;
+  border: 2px dashed #6f42c1;
+  border-radius: 0.75rem;
+  background: #f8f5fc;
+}
