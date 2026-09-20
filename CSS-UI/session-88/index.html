@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 88: پیکربندی تم</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#f0f9ff",
+              500: "#0ea5e9",
+              700: "#0369a1",
+            },
+          },
+          fontFamily: {
+            display: ['"Segoe UI"', "Tahoma", "sans-serif"],
+          },
+          borderRadius: {
+            "4xl": "2rem",
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-brand-50 font-display text-slate-800">
+  <div class="mx-auto max-w-xl px-4 py-8">
+    <p class="text-sm font-semibold text-brand-700">CSS-UI · جلسه 88 · Tailwind</p>
+    <h1 class="mt-1 text-2xl font-bold">پیکربندی تم</h1>
+    <p class="mt-2 rounded-lg border bg-white p-3 text-sm text-slate-600">
+      <a class="text-brand-700 underline" href="./session-88-tailwind-config.md">session-88-tailwind-config.md</a>
+    </p>
+
+    <div class="mt-8 rounded-4xl bg-white p-6 shadow-sm ring-1 ring-brand-500/20">
+      <h2 class="text-xl font-bold text-brand-700">رنگ brand سفارشی</h2>
+      <p class="mt-2 text-slate-600">این کارت از <code class="text-sm">rounded-4xl</code> و <code class="text-sm">bg-brand-*</code> استفاده می‌کند.</p>
+      <button type="button" class="mt-4 rounded-lg bg-brand-500 px-4 py-2 text-white hover:bg-brand-700">دکمه برند</button>
+    </div>
+
+    <div class="mt-12 flex justify-between text-sm font-semibold text-brand-700">
+      <a href="../session-87/index.html">→ قبل</a>
+      <a href="../session-89/index.html">بعد →</a>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
