@@ -7,15 +7,13 @@ import (
 
 var ErrNotFound = errors.New("not found")
 
-func findUser(id int) (string, error) {
-	if id != 1 {
-		return "", fmt.Errorf("find user %d: %w", id, ErrNotFound)
-	}
-	return "Mina", nil
+func Find(id string) error {
+	return fmt.Errorf("user %s: %w", id, ErrNotFound)
 }
+
 func main() {
-	_, err := findUser(7)
+	err := Find("u-1")
 	if errors.Is(err, ErrNotFound) {
-		fmt.Println("????? ???? ???")
+		fmt.Println("پیدا نشد:", err)
 	}
 }
