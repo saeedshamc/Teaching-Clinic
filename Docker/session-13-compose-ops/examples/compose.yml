@@ -1,0 +1,17 @@
+services:
+  writer:
+    image: alpine:3.20
+    restart: unless-stopped
+    volumes:
+      - clinic_s13_data:/data
+    command: sh -c "echo composed-$(date) > /data/note.txt && sleep 3600"
+  reader:
+    image: alpine:3.20
+    depends_on:
+      - writer
+    volumes:
+      - clinic_s13_data:/data
+    command: sh -c "sleep 2 && cat /data/note.txt"
+
+volumes:
+  clinic_s13_data:
