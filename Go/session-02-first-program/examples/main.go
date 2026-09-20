@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
-func add(a, b int) int { return a + b }
+func Greet(name string) string {
+	return "سلام، " + name
+}
 
-func main() { fmt.Println("2 + 3 =", add(2, 3)) }
+func main() {
+	fmt.Println(Greet("Go"))
+}

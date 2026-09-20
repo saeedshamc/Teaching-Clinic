@@ -2,8 +2,10 @@ package main
 
 import "testing"
 
-func TestAdd(t *testing.T) {
-	if got := add(2, 3); got != 5 {
-		t.Fatalf("add = %d, want 5", got)
+func TestGreet(t *testing.T) {
+	got := Greet("Sara")
+	want := "سلام، Sara"
+	if got != want {
+		t.Fatalf("got %q want %q", got, want)
 	}
 }
