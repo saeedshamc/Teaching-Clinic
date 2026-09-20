@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 42: BEM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <p class="eyebrow">CSS-UI · جلسه 42 · معماری</p>
+      <h1>BEM</h1>
+      <p class="lead">Block، Element، Modifier — قرارداد نام‌گذاری برای UI مقیاس‌پذیر.</p>
+    </header>
+
+    <section class="info">
+      توضیحات کامل:
+      <a href="./session-42-bem.md">session-42-bem.md</a>
+    </section>
+
+    <section class="panel">
+      <h2>دموی کارت</h2>
+      <div class="demo-row">
+        <article class="card">
+          <h3 class="card__title">کارت عادی</h3>
+          <p class="card__body">بدون modifier ویژه.</p>
+          <button class="card__btn" type="button">جزئیات</button>
+        </article>
+
+        <article class="card card--featured">
+          <h3 class="card__title">کارت ویژه</h3>
+          <p class="card__body">با modifier: <code>card--featured</code></p>
+          <button class="card__btn card__btn--primary" type="button" id="btn">خرید</button>
+        </article>
+      </div>
+      <pre class="output" id="output">روی دکمهٔ خرید کلیک کنید تا نام BEM شکسته شود.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>دموی ناوبری</h2>
+      <nav class="navbar" aria-label="نمونه">
+        <a class="navbar__brand" href="#">Brand</a>
+        <a class="navbar__link" href="#">خانه</a>
+        <a class="navbar__link navbar__link--active" href="#">دوره</a>
+        <a class="navbar__link" href="#">تماس</a>
+      </nav>
+    </section>
+
+    <nav class="pager">
+      <a href="../session-41/index.html">→ قبل</a>
+      <a href="../session-43/index.html">بعد →</a>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
