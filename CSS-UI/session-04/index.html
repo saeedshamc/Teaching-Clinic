@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 4: جدول و رسانه</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <p class="eyebrow">CSS-UI · جلسه 04</p>
+      <h1>جدول و رسانه</h1>
+      <p class="lead">دادهٔ جدولی معنادار + ساختار video/audio.</p>
+    </header>
+    <section class="info">توضیحات: <a href="./session-04-html-table-media.md">session-04-html-table-media.md</a></section>
+
+    <section class="panel">
+      <table>
+        <caption>قیمت پلن‌های دوره UI</caption>
+        <thead>
+          <tr>
+            <th scope="col">پلن</th>
+            <th scope="col">قیمت ماهانه</th>
+            <th scope="col">کاربران</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">پایه</th>
+            <td>۰ تومان</td>
+            <td>۱</td>
+          </tr>
+          <tr>
+            <th scope="row">حرفه‌ای</th>
+            <td>۲۹۰٬۰۰۰</td>
+            <td>۵</td>
+          </tr>
+          <tr>
+            <th scope="row">تیمی</th>
+            <td>۷۹۰٬۰۰۰</td>
+            <td>۲۰</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn" id="sum-btn">شمارش ردیف‌های داده</button>
+      <pre class="output" id="output">—</pre>
+    </section>
+
+    <section class="panel">
+      <h2>رسانه</h2>
+      <p>نمونهٔ برچسب (بدون فایل واقعی):</p>
+      <pre class="code">&lt;video controls width="640"&gt;
+  &lt;source src="demo.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</pre>
+    </section>
+
+    <nav class="pager">
+      <a href="../session-03/index.html">→ جلسه قبل</a>
+      <a href="../session-05/index.html">جلسه بعد →</a>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
