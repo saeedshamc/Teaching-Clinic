@@ -1,0 +1,6 @@
+/* فقط تنظیمات صفحهٔ درس — utilityها از CDN Tailwind می‌آیند */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  line-height: 1.7;
+}

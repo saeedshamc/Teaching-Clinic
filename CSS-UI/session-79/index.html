@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 79: مقدمه Tailwind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-sky-50 text-slate-800">
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <p class="text-sm font-semibold text-sky-700">CSS-UI · جلسه 79 · Tailwind</p>
+    <h1 class="mt-1 text-2xl font-bold text-slate-900">مقدمه Tailwind</h1>
+    <p class="mt-2 rounded-lg border border-slate-200 bg-white p-3 text-sm text-slate-600">
+      توضیحات:
+      <a class="text-sky-700 underline" href="./session-79-tailwind-intro.md">session-79-tailwind-intro.md</a>
+      · راه‌اندازی Vite:
+      <a class="text-sky-700 underline" href="./vite.sample.md">vite.sample.md</a>
+    </p>
+
+    <section class="mt-10">
+      <h2 class="text-3xl font-bold text-slate-900 md:text-5xl">Utility-first</h2>
+      <p class="mt-4 max-w-xl text-slate-600">
+        کلاس‌های کوچک و ترکیب‌پذیر به‌جای فایل‌های CSS پراکنده.
+        این دکمه فقط با utility ساخته شده — نه با <code class="rounded bg-slate-100 px-1">btn</code> بوت‌استرپ.
+      </p>
+      <button type="button" class="mt-6 rounded-lg bg-sky-500 px-5 py-2 font-medium text-white hover:bg-sky-600">
+        شروع یادگیری
+      </button>
+    </section>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2">
+      <article class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h3 class="font-bold text-slate-900">Bootstrap</h3>
+        <p class="mt-2 text-sm text-slate-600">کامپوننت آماده مثل Modal و Navbar.</p>
+      </article>
+      <article class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h3 class="font-bold text-slate-900">Tailwind</h3>
+        <p class="mt-2 text-sm text-slate-600">آجرهای utility برای ساخت هر UI.</p>
+      </article>
+    </div>
+
+    <div class="mt-12 flex justify-between text-sm font-semibold text-sky-700">
+      <a href="../session-78/index.html">→ قبل (پایان Bootstrap)</a>
+      <a href="../session-80/index.html">بعد →</a>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
