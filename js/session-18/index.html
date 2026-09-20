@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسه 18: فرم‌ها و FormData</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>جلسه 18: فرم‌ها، اعتبارسنجی و FormData</h1>
+
+        <section class="section">
+            <h2>ثبت‌نام نمونه</h2>
+            <form id="signup-form">
+                <div>
+                    <label>نام
+                        <input name="name" required minlength="2" placeholder="حداقل ۲ حرف">
+                    </label>
+                </div>
+                <div>
+                    <label>ایمیل
+                        <input name="email" type="email" required placeholder="you@example.com">
+                    </label>
+                </div>
+                <div>
+                    <label>نقش
+                        <select name="role">
+                            <option value="student">دانشجو</option>
+                            <option value="teacher">مدرس</option>
+                        </select>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input name="terms" type="checkbox" value="yes"> قوانین را قبول دارم
+                    </label>
+                </div>
+                <button type="submit">ارسال</button>
+                <button type="reset">پاک کردن</button>
+            </form>
+            <div id="form-output" class="output"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
