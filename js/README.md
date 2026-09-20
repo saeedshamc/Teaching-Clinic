@@ -1,77 +1,35 @@
-# دوره جامع JavaScript برای React
+# دوره JavaScript مدرن
 
-## 📚 معرفی دوره
+مخاطب: کسی که HTML/CSS مقدماتی دارد و می‌خواهد JavaScript را تا سطح ورود به React جلو ببرد.
 
-این دوره شامل 8 جلسه 2 ساعته (16 ساعت) آموزش کامل JavaScript است که شما را برای یادگیری React آماده می‌کند.
+پیش‌نیاز ابزار: [SETUP.md](./SETUP.md) — مرورگر مدرن، Node LTS، VS Code.
 
-## 📋 سرفصل دوره
+نقشهٔ مطالعه: جلسات ۱–۸ مبانی و آماده‌سازی React هستند (دست‌نخورده مانده‌اند). جلسات ۹–۲۴ همان قالب را ادامه می‌دهند: رشته، ماژول واقعی، خطا، DOM عمیق، فرم، storage، event loop، ابزار، و یک مینی‌اپ.
 
-### جلسه 1: مبانی JavaScript
-- متغیرها (var, let, const)
-- انواع داده (Data Types)
-- عملگرها (Operators)
-- تبدیل نوع (Type Conversion)
+جدول کامل: [SYLLABUS.md](./SYLLABUS.md) — برگهٔ سریع: [QUICK_REFERENCE.md](./QUICK_REFERENCE.md)
 
-### جلسه 2: ساختارهای کنترل
-- دستورات شرطی (if/else, switch)
-- حلقه‌ها (for, while, do-while)
-- توابع پایه (Functions)
-- پارامترها و آرگومان‌ها
+بعد از جلسهٔ ۲۴، مسیر پیشنهادی: پوشهٔ [`Reactjs/`](../Reactjs/).
 
-### جلسه 3: اشیاء و آرایه‌ها
-- Object در JavaScript
-- Array و متدهای آن
-- Iteration روی آرایه‌ها
-- Object Methods
+## نحوهٔ مطالعه
 
-### جلسه 4: توابع پیشرفته
-- Arrow Functions
-- Scope و Hoisting
-- Closure
-- Callback Functions
+هر جلسه حدود ۲ ساعت است. ترتیب را بشکنید فقط اگر موضوع را از قبل بلدید.
 
-### جلسه 5: ES6+ Features
-- Destructuring
-- Spread Operator
-- Modules (import/export)
-- Classes و Inheritance
+ساختار جلسات ۱–۸ و ۹–۲۴ یکسان است:
 
-### جلسه 6: Asynchronous JavaScript
-- Callbacks
-- Promises
-- Async/Await
-- Fetch API
-
-### جلسه 7: DOM Manipulation
-- انتخاب عناصر DOM
-- تغییر محتوا و استایل
-- Event Handling
-- Event Delegation
-
-### جلسه 8: مفاهیم پیشرفته برای React
-- this و bind
-- Higher-Order Functions
-- Array Methods (map, filter, reduce)
-- Functional Programming Concepts
-
-## 🚀 نحوه استفاده
-
-هر جلسه شامل:
-- فایل markdown با توضیحات کامل و جزئیات
-- فایل HTML برای مشاهده مثال‌ها
-- فایل JavaScript با کامنت‌های کامل فارسی
-- فایل CSS برای استایل زیبا
-
-### ساختار هر جلسه:
 ```
 session-XX/
-  ├── index.html          # صفحه HTML با مثال‌ها
-  ├── script.js           # کد JavaScript با کامنت‌های کامل
-  ├── style.css           # استایل صفحه
-  └── session-XX-*.md     # فایل markdown با توضیحات
+  ├── index.html
+  ├── script.js
+  ├── style.css
+  └── session-XX-*.md
 ```
 
-### دسترسی به جلسات:
+جلسات ماژولی (۱۱ و ۲۴) را با Live Server یا `npx serve` باز کنید، نه `file://`.
+
+## سرفصل
+
+### جلسات ۱–۸ (موجود)
+
 - [جلسه 1: مبانی JavaScript](./session-01/index.html)
 - [جلسه 2: ساختارهای کنترل](./session-02/index.html)
 - [جلسه 3: اشیاء و آرایه‌ها](./session-03/index.html)
@@ -81,20 +39,27 @@ session-XX/
 - [جلسه 7: DOM Manipulation](./session-07/index.html)
 - [جلسه 8: آماده‌سازی برای React](./session-08/index.html)
 
-## 📝 پیش‌نیازها
+### جلسات ۹–۲۴ (ادامه)
 
-- آشنایی اولیه با HTML و CSS
-- یک ویرایشگر کد (VS Code توصیه می‌شود)
-- مرورگر وب
+- [جلسه 9: رشته‌ها و Unicode](./session-09/index.html)
+- [جلسه 10: کپی سطحی و عمیق](./session-10/index.html)
+- [جلسه 11: ماژول‌ها در عمل](./session-11/index.html)
+- [جلسه 12: کلاس‌ها و پروتوتایپ](./session-12/index.html)
+- [جلسه 13: مدیریت خطا](./session-13/index.html)
+- [جلسه 14: Promise و زنجیره](./session-14/index.html)
+- [جلسه 15: async/await و AbortController](./session-15/index.html)
+- [جلسه 16: DOM پیشرفته](./session-16/index.html)
+- [جلسه 17: رویدادها و Delegation](./session-17/index.html)
+- [جلسه 18: فرم‌ها و FormData](./session-18/index.html)
+- [جلسه 19: Storage و JSON](./session-19/index.html)
+- [جلسه 20: تایمرها و Event Loop](./session-20/index.html)
+- [جلسه 21: Set، Map و Date](./session-21/index.html)
+- [جلسه 22: DevTools و npm](./session-22/index.html)
+- [جلسه 23: الگوی کار با API](./session-23/index.html)
+- [جلسه 24: مینی‌اپ Notes](./session-24/index.html)
 
-## 🎯 هدف دوره
+فهرست کارت‌ها: [index.html](./index.html)
 
-پس از اتمام این دوره، شما:
-- تسلط کامل بر JavaScript خواهید داشت
-- آماده یادگیری React هستید
-- می‌توانید پروژه‌های JavaScript بنویسید
+## هدف
 
----
-
-**نکته**: هر جلسه را به دقت مطالعه کنید و تمرین‌ها را انجام دهید.
-
+پس از ۲۴ جلسه می‌توانید اسکریپت مرورگر بنویسید، داده را در DOM و storage نگه دارید، fetch را با خطا و لغو مدیریت کنید، و با ذهنیت «داده جدا از UI» وارد React شوید.
