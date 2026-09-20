@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 49: مقدمه Sass</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <p class="eyebrow">CSS-UI · جلسه 49 · Sass</p>
+    <h1>مقدمه Sass / SCSS</h1>
+    <p class="lead">پیش‌پردازنده بنویسید، CSS استاندارد تحویل مرورگر دهید.</p>
+
+    <section class="info">
+      توضیحات: <a href="./session-49-sass-intro.md">session-49-sass-intro.md</a>
+      — منبع: <code>main.scss</code> · خروجی: <code>style.css</code>
+    </section>
+
+    <section class="panel">
+      <h2>گردش کار</h2>
+      <ol>
+        <li><code>main.scss</code> را ویرایش کنید</li>
+        <li><code>npx sass main.scss style.css</code></li>
+        <li>صفحه را رفرش کنید</li>
+      </ol>
+      <pre class="code">npm install -D sass
+npx sass main.scss style.css
+npx sass --watch main.scss:style.css</pre>
+      <button type="button" class="btn" id="btn">دکمهٔ خروجی کامپایل</button>
+      <pre class="output" id="output">این دکمه از style.css استایل می‌گیرد (خروجی Sass).</pre>
+    </section>
+
+    <nav class="pager">
+      <a href="../session-48/index.html">→ قبل</a>
+      <a href="../session-50/index.html">بعد →</a>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

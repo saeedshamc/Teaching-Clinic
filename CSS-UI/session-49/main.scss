@@ -1,0 +1,15 @@
+// منبع SCSS جلسه 49 — با دستور زیر کامپایل کنید:
+// npx sass main.scss style.css
+
+$brand: #c2410c;
+$radius: 999px;
+
+.btn {
+  background: $brand;
+  color: #fff;
+  border: 0;
+  padding: 0.65rem 1.15rem;
+  border-radius: $radius;
+  font-weight: 700;
+  cursor: pointer;
+}
