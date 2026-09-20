@@ -1,0 +1,11 @@
+{
+  "name": "css-ui-sass-build",
+  "private": true,
+  "scripts": {
+    "sass": "sass main.scss style.css --source-map",
+    "watch": "sass --watch main.scss:style.css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

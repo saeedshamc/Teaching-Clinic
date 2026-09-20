@@ -1,0 +1,11 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Tahoma, sans-serif; background: #fff7ed; color: #c2410c; line-height: 1.75; }
+.container { max-width: 820px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+.eyebrow { color: #c2410c; font-weight: 700; margin: 0; }
+.info, .panel { background: #fff; border: 1px solid #fdba74; border-radius: 14px; padding: 1.2rem; margin: 1rem 0; color: #7c2d12; }
+.info { border-inline-start: 4px solid #c2410c; }
+.code { background: #1c1917; color: #ffedd5; padding: 0.85rem 1rem; border-radius: 10px; white-space: pre-wrap; }
+.btn { border: 0; background: #c2410c; color: #fff; padding: 0.6rem 1.1rem; border-radius: 999px; font-weight: 700; cursor: pointer; margin-top: 1rem; }
+.pager { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+a { color: #c2410c; font-weight: 700; }
+code { background: #ffedd5; padding: 0.1rem 0.35rem; border-radius: 4px; }
