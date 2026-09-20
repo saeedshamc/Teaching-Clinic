@@ -1,0 +1,15 @@
+$ErrorActionPreference = "Stop"
+$lib = Join-Path $PSScriptRoot "..\..\_lib\sandbox.ps1"
+. $lib
+
+$path = New-ClinicSandbox -SessionId "01"
+Write-Host "Sandbox: $path"
+Write-Host "git version: $(git --version)"
+Write-Host ""
+Write-Host "سه ناحیه:"
+Write-Host "  1) working tree  — فایل‌های در حال کار"
+Write-Host "  2) staging/index — آنچه با git add انتخاب شده"
+Write-Host "  3) commits       — تاریخچه داخل .git"
+Write-Host ""
+Write-Host "این اسکریپت ریپو نمی‌سازد؛ فقط مسیر امن تمرین را نشان می‌دهد."
+Write-Host "جلسه بعد: init داخل همین سبک sandbox."
