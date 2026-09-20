@@ -1,0 +1,12 @@
+# اسکلت پیشنهادی آموزشی
+
+myapp/
+  go.mod
+  cmd/
+    api/
+      main.go          # ListenAndServe و wiring
+  internal/
+    note/
+      store.go         # منطق و state
+      handler.go       # HTTP handlers
+  README.md
