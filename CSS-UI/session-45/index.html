@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جلسه 45: دسترسی‌پذیری CSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <p class="eyebrow">CSS-UI · جلسه 45 · معماری</p>
+    <h1>دسترسی‌پذیری CSS</h1>
+    <p class="lead">کنتراست، فوکوس کیبورد، و احترام به reduced-motion.</p>
+
+    <section class="info">
+      توضیحات: <a href="./session-45-a11y-css.md">session-45-a11y-css.md</a>
+      — با کلید <kbd>Tab</kbd> بین کنترل‌ها جابه‌جا شوید.
+    </section>
+
+    <section class="panel">
+      <p class="good">متن با کنتراست خوب روی پس‌زمینه روشن.</p>
+      <p class="bad" title="نمونه بد — عمداً ضعیف">نمونه کنتراست ضعیف (عمدی برای آموزش).</p>
+
+      <div class="controls">
+        <a class="link" href="#demo">لینک فوکوس‌پذیر</a>
+        <button class="btn" type="button" id="btn">دکمه با focus-visible</button>
+      </div>
+
+      <div class="pulse" id="pulse" aria-hidden="true"></div>
+      <p class="hint">اگر در سیستم‌عامل «کاهش حرکت» فعال باشد، پالس متوقف می‌شود.</p>
+      <pre class="output" id="output">برای دیدن فوکوس، Tab را بزنید.</pre>
+    </section>
+
+    <nav class="pager">
+      <a href="../session-44/index.html">→ قبل</a>
+      <a href="../session-46/index.html">بعد →</a>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
