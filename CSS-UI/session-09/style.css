@@ -28,3 +28,32 @@ h1 { margin:.35rem 0; }
 .output { margin-top:1rem; background:#0f172a; color:#e2e8f0; padding:.85rem 1rem; border-radius:10px; white-space:pre-wrap; }
 a { color:var(--accent); font-weight:700; }
 .pager { display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+
+/* ===== بهبود مشترک chrome دوره ===== */
+body {
+  background:
+    radial-gradient(1200px 520px at 88% -10%, rgba(14, 165, 233, 0.10), transparent 60%),
+    radial-gradient(900px 480px at 0% 112%, rgba(13, 148, 136, 0.10), transparent 55%),
+    linear-gradient(160deg, #f8fafc, #eef2ff 60%, #f0fdfa);
+}
+h1 {
+  font-size: clamp(1.55rem, 1.15rem + 1.8vw, 2.15rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.lead { color: var(--muted, #475569); }
+.info, .panel {
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+  border-radius: 16px;
+}
+.info { border-inline-start-width: 4px; }
+.pager a {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+:focus-visible { outline: 3px solid var(--accent, #0284c7); outline-offset: 2px; }
+::selection { background: #bae6fd; }
