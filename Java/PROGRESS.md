@@ -11,7 +11,7 @@
 - [x] 03 — Git & GitHub
 
 ### 01-core-fundamentals
-- [ ] 04 — syntax & variables
+- [x] 04 — syntax & variables
 - [ ] 05 — primitive types & operators
 - [ ] 06 — control flow
 - [ ] 07 — loops
