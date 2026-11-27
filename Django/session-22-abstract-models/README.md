@@ -60,3 +60,11 @@ class SluggedModel(models.Model):
             self.slug = slugify(getattr(self, "title", self.__class__.__name__))
         super().save(*a, **kw)
 ```
+
+## 📖 شرح فایل `code/models.py`
+
+- **`TimestampedModel`** — `abstract=True` در Meta یعنی جدول جداگانه نمی‌سازد؛ `created_at`/`updated_at` به فرزندان به ارث می‌رسد.
+- **`SluggedModel`** — هم abstract؛ `save()` قبل از ذخیره slug را از title (یا نام کلاس) با `slugify` می‌سازد و اگر خالی ماند UUID می‌گذارد.
+- **`Book(TimestampedModel, SluggedModel)`** — ارث‌بری چندگانه از دو abstract؛ بدون کد تکراری timestamp+slug می‌گیرد.
+- **`AvailableBook(Book)`** — `proxy=True` یعنی همان جدول `book`، بدون جدول جدید؛ `AvailableManager` فقط رکوردهای `pages__gt=0` را می‌دهد و `verbose_name` جدا دارد.
+- **`Person`/`Author(Person)`** — ارث‌بری چندجدولی واقعی: جدول `person` + جدول `author` با OneToOne ضمنی (`person_ptr`)؛ `Author` فیلد `bio` اضافه می‌کند.
