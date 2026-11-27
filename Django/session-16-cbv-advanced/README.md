@@ -61,3 +61,12 @@ class AuthorCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy("library:author_list")
 # + UpdateView و DeleteView مشابه
 ```
+
+## 📖 شرح فایل `code/views.py`
+
+- **`AuthorRequiredMixin`** — `dispatch()` قبل از هر متد HTTP صدا زده می‌شود؛ اگر `request.user.author` نبود به home ریدایرکت می‌کند. `super().dispatch` ادامهٔ زنجیره است.
+- **`BookListView/DetailView`** — بدون mixin = عمومی.
+- **`BookCreateView(LoginRequiredMixin, CreateView)`** — ترتیب مهم: mixin اول، view بعد. بدون لاگین → redirect به `LOGIN_URL`.
+- **`BookUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)`** — دو لایهٔ محافظت: لاگین + پرمیشن `library.change_book`.
+- **`BookDeleteView`** — فقط LoginRequired؛ حذف حساس‌تر است پس در production `PermissionRequiredMixin` هم اضافه کنید.
+- **`AuthorList/Create/Update/DeleteView`** — همه با `AuthorRequiredMixin`؛ فقط کاربران دارای پروفایل author.
