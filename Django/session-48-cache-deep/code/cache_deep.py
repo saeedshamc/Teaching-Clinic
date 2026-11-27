@@ -1,5 +1,6 @@
 # cache_deep.py — الگوهای Cache پیشرفته (جلسه ۴۸)
 from django.core.cache import cache
+from django.shortcuts import render
 from django.views.decorators.cache import cache_page, never_cache
 from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView

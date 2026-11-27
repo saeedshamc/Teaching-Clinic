@@ -74,3 +74,12 @@ def get_bestsellers():
 def invalidate_bestsellers(sender, **kwargs):
     cache.delete("bestsellers")
 ```
+
+## 📖 شرح فایل `code/cache_deep.py`
+
+- `get_bestsellers`/`get_book_detail` — `cache.get_or_set` با lambda محاسبه؛ کلید با پارامتر (`bestsellers:10`, `book:{id}`).
+- کامنت fragment caching — `{% cache 600 key %}...{% endcache %}` برای بخش‌های سنگین قالب.
+- `book_list` — کش HTML رندرشده فقط برای صفحهٔ اول بدون فیلتر (`render_to_string` + `HttpResponse`).
+- `invalidate_book_cache`/`_on_delete` — `post_save`/`post_delete` روی Book → `cache.delete` کلیدهای مرتبط.
+- `book_last_modified` + `@condition` — ETag/conditional GET؛ مرورگر `If-Modified-Since` می‌فرستد و 304 بدون رندر می‌گیرد.
+- `warm_cache` — `set_many` برای گرم کردن کش بعد از deploy؛ کامنت versioned keys برای invalidate آسان.
