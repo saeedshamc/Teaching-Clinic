@@ -74,3 +74,10 @@ class ProfileInline(admin.StackedInline):
 
 # اکشن export_csv همان‌طور که بالا آمد
 ```
+
+## 📖 شرح فایل `code/admin.py`
+
+- **Inlines** — `TagInline`/`ReviewInline` (Tabular) و `ProfileInline` (Stacked) رابطه‌ها را در همان صفحهٔ والد ویرایش می‌کنند؛ `readonly_fields`/`show_change_link` کنترل دقیق می‌دهد.
+- **`BookAdmin`** — `list_display` با متدهای سفارشی (`author_link` با format_html+لینک، `pages_display`، `price_display`، `is_available_badge` رنگی، `review_count`)؛ `fieldsets` با `collapse`؛ `filter_horizontal` برای M2M UI بهتر؛ `list_select_related` برای N+1.
+- **اکشن‌ها** — `export_csv` با `HttpResponse`+`csv.writer` (BOM `﻿` برای Excel فارسی)؛ `mark_unavailable`/`mark_available` با `queryset.update` گروهی.
+- **`stats_view`** — `get_urls` + `admin_site.admin_view` URL سفارشی `/admin/library/book/stats/` می‌سازد؛ `aggregate` آمار را به قالب `admin/library/stats.html` می‌دهد.

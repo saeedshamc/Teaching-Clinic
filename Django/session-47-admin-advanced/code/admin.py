@@ -1,6 +1,7 @@
 # admin.py — Django Admin پیشرفته (جلسه ۴۷)
 import csv
 from django.contrib import admin
+from django.db.models import Q
 from django.http import HttpResponse
 from django.urls import path
 from django.shortcuts import render
@@ -150,7 +151,7 @@ class BookAdmin(admin.ModelAdmin):
         from django.db.models import Avg, Count, Sum
         stats = Book.objects.aggregate(
             total=Count("id"),
-            available=Count("id", filter=models.Q(is_available=True)),
+            available=Count("id", filter=Q(is_available=True)),
             avg_price=Avg("price"),
             total_pages=Sum("pages"),
         )
