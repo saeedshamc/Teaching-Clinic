@@ -57,3 +57,15 @@ def book_list(request):
     data = Book.objects.values("id", "title", "pages", "price")
     return JsonResponse(list(data), safe=False)
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`urls.py`**
+- `app_name = "library"` — namespace؛ در قالب و reverse باید `'library:book_detail'` بنویسید.
+- `path("books/<int:book_id>/", ...)` — converter `int` فقط عدد می‌پذیرد و آن را به‌صورت int به ویو می‌دهد؛ نام converter هر چیزی می‌تواند باشد (`book_id`) و به‌عنوان kwarg به ویو پاس می‌شود.
+
+**`views.py`**
+- `book_list` — `select_related("author")` برای جلوگیری از N+1؛ `render` قالب + context dict.
+- `book_detail` — `get_object_or_404(Book, pk=book_id)` به‌جای try/except؛ اگر نبود 404 می‌دهد.
+- `api_books` — `values()` خروجی دیکشنری می‌دهد (سبک‌تر از مدل)؛ `JsonResponse(list, safe=False)` برای serialize لیست.
+- `api_book` — `str(book.price)` چون `Decimal` به‌صورت خودکار JSON serialize نمی‌شود.
