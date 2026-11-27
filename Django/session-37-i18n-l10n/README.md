@@ -67,3 +67,11 @@ urlpatterns += i18n_patterns(path("", include("library.urls")))
 msgid "لیست کتاب‌ها"
 msgstr "Book List"
 ```
+
+## 📖 شرح فایل `code/settings_i18n.py`
+
+- `USE_I18N`/`USE_L10N` — فعال‌سازی ترجمه و فرمت محلی تاریخ/عدد.
+- `LANGUAGE_CODE="fa"` + `LANGUAGES` — پیش‌فرض و زبان‌های مجاز.
+- `LOCALE_PATHS` — محل فایل‌های `django.po`/`django.mo`.
+- `LocaleMiddleware` — باید بعد از Session و قبل از Common باشد؛ زبان را از session/URL/cookie تشخیص می‌دهد.
+- کامنت‌ها: `gettext as _()` در پایتون، `{% translate %}`/`{% blocktranslate %}` در قالب، `makemessages`/`compilemessages`، `i18n_patterns` برای `/fa/` و `/en/` در URL، و تغییر زبان با `translation.activate` + session.
