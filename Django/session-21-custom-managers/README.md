@@ -72,3 +72,9 @@ class AuthorManager(models.Manager.from_queryset(AuthorQuerySet)):
 class Author(models.Model):
     objects = AuthorManager()
 ```
+
+## 📖 شرح فایل `code/models.py`
+
+- **`BookQuerySet`** — متدهای زنجیره‌ای: `available()`/`by_author()`/`expensive()`/`recent()` همگی `self.filter(...)` را برمی‌گردانند تا قابل زنجیره باشند (`Book.objects.available().expensive(1000)`). `total_pages()` یک aggregate است و مقدار برمی‌گرداند نه QuerySet.
+- **`BookManager`** — `get_queryset` همیشه `BookQuerySet` برمی‌گرداند؛ `available()` روی manager هم expose شده. `all_objects = models.Manager()` مدیر پیش‌فرض بدون فیلتر می‌ماند.
+- **`AuthorQuerySet`/`AuthorManager`** — `with_books_count()` با `annotate(Count)` و `senior()` با `birth_year__lt`. `Manager.from_queryset` همهٔ متدهای queryset را به manager منتقل می‌کند.
