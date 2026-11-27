@@ -1,6 +1,5 @@
 # models.py — بهینه‌سازی دیتابیس (جلسه ۴۳)
 from django.db import models
-from django.contrib.postgres.indexes import GinIndex   # فقط PostgreSQL
 
 
 class Book(models.Model):

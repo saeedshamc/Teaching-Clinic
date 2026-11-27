@@ -63,3 +63,9 @@ class Meta:
         models.Index(fields=["author", "is_available"]),
     ]
 ```
+
+## 📖 شرح فایل `code/models.py`
+
+- `db_index=True` روی title/pages/is_available/created_at — ایندکس جداگانه برای ستون‌های پرجستجو.
+- `Meta.indexes` — composite index روی `(author, is_available)` و `(-created_at, price)` برای کوئری‌های ترکیبی.
+- کامنت‌های پایانی: `select_related` برای FK، `prefetch_related` برای M2M، `only/defer/values/values_list` برای SELECT سبک‌تر، `bulk_create/update` برای عملیات گروهی، `save(update_fields=[...])` برای UPDATE جزئی، `explain()` برای تحلیل کوئری، و raw SQL با `connection.cursor()` + پارامتر `%s` (ضد SQL injection).
