@@ -35,7 +35,7 @@
 - [x] 21 — interfaces
 - [x] 22 — enum
 - [x] 23 — inner classes
-- [ ] 24 — oop capstone
+- [x] 24 — oop capstone
 
 ### 03-collections-generics
 - [ ] 25 — List & ArrayList
