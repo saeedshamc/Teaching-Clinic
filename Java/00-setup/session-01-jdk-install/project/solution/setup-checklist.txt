@@ -1,0 +1,18 @@
+# setup-checklist.txt — نمونهٔ پاسخ پروژهٔ جلسه ۰۱
+# (خروجی واقعی روی سیستم شما متفاوت خواهد بود)
+
+$ java -version
+openjdk version "17.0.12" 2024-07-16 LTS
+Java(TM) SE Runtime Environment (build 17.0.12+8-LTS-286)
+
+$ javac -version
+javac 17.0.12
+
+$ echo %JAVA_HOME%        (ویندوز)
+C:\Program Files\Eclipse Adoptium\jdk-17.0.12.7-hotspot
+
+$ javac src/HelloJava.java && java -cp src HelloJava
+Hello, Java 17!
+
+# نتیجه: همهٔ موارد چک‌لیست PASS — JDK 17 LTS آماده است.
+# اگر موردی fail شد: PATH را چک کنید و ترمینال جدید باز کنید.

@@ -6,7 +6,7 @@
 ## فاز ۱ — Setup + Core Fundamentals (جلسات 01–15)
 
 ### 00-setup
-- [ ] 01 — JDK install
+- [x] 01 — JDK install
 - [ ] 02 — IDE setup
 - [ ] 03 — Git & GitHub
 
