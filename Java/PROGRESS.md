@@ -34,7 +34,7 @@
 - [x] 20 — abstract classes
 - [x] 21 — interfaces
 - [x] 22 — enum
-- [ ] 23 — inner classes
+- [x] 23 — inner classes
 - [ ] 24 — oop capstone
 
 ### 03-collections-generics
