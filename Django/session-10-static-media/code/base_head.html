@@ -1,0 +1,13 @@
+<!-- head_snippet.html — استفاده از static و نمایش media در قالب -->
+{% load static %}
+<head>
+    <!-- static: فایل‌های ثابت پروژه (css/js) با hash نسخه‌گذاری می‌شوند -->
+    <link rel="stylesheet" href="{% static 'library/style.css' %}">
+</head>
+
+<!-- نمایش تصویر آپلودی کاربر — .url آدرس عمومی فایل را می‌دهد -->
+{% if book.cover %}
+    <img src="{{ book.cover.url }}" alt="جلد {{ book.title }}">
+{% else %}
+    <img src="{% static 'library/no-cover.png' %}" alt="بدون جلد">
+{% endif %}
