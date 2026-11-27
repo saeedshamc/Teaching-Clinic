@@ -69,3 +69,15 @@ class ReadingList(models.Model):
 - Admin → session 07/47
 - Tests → session 18/44
 - Docker → session 40
+
+## 📖 شرح فایل‌های `code/`
+
+**`models_extra.py`** — مدل‌های اضافی capstone:
+- `Review` — نظر کاربر برای کتاب؛ `rating` با `MinValueValidator(1)`/`MaxValueValidator(5)`؛ `unique_together=("book","user")` یعنی هر کاربر یک نظر برای هر کتاب.
+- `ReadingList` — لیست خواندن کاربر؛ `unique_together=("user","book")` برای جلوگیری از تکرار.
+
+**`serializers.py`** — Serializerهای کامل پروژه:
+- `UserSerializer` — بدون password؛ `read_only_fields` برای id/username.
+- `ReviewSerializer` — `user`/`book_title` read_only از relation؛ `validate_rating` بازهٔ ۱–۵.
+- `ReadingListSerializer` — `book_title` از `source`.
+- `BookSerializer` — کامل‌ترین serializer: `author_name`، `tag_names` (Slug)، `tags` (PK برای نوشتن)، `review_count`/`avg_rating`/`in_reading_lists` با `SerializerMethodField`، و `create`/`update` سفارشی برای M2M tags.
