@@ -62,3 +62,11 @@ class NoteListView(LoginRequiredMixin, ListView):
 
 # + CreateView/UpdateView/DeleteView مشابه با success_url
 ```
+
+## 📖 شرح فایل `code/mini_project.py`
+
+مینی‌پروژهٔ «Notebook» که همهٔ مباحث را ترکیب می‌کند:
+- **`Note` model** — `owner` FK به User، `is_pinned`، `created_at`/`updated_at`، `Meta.indexes` روی `(owner, -created_at)`، ordering پین‌شده‌ها اول.
+- **ویوها** — `NoteListView` با `get_queryset` فیلتر owner+جستجوی `Q` و `paginate_by`؛ `NoteDetail/Create/Update/DeleteView` همه `LoginRequiredMixin` + `get_queryset` محدود به owner (کاربر فقط یادداشت خودش)؛ `form_valid` در CreateView `owner` را خودکار set می‌کند.
+- **`urls.py`** — ۵ مسیر با name (`note_list/create/detail/update/delete`).
+- **تست‌ها** — `NoteModelTest` برای `__str__`/relation، `NoteViewTest` برای login-required، visibility (نمی‌تواند یادداشت دیگری را ببیند) و create.
