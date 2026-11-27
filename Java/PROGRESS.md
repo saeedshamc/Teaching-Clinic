@@ -28,8 +28,8 @@
 
 | زیرشاخه | جلسات | وضعیت |
 |---|---|---|
-|  | ۱۶ classes-objects · ۱۷ constructors-encapsulation · ۱۸ inheritance · ۱۹ polymorphism · ۲۰ abstract-classes · ۲۱ interfaces · ۲۲ enum · ۲۳ inner-classes · ۲۴ oop-capstone | ✅ |
-|  | ۲۵ list-arraylist · ۲۶ set-hashset · ۲۷ map-hashmap · ۲۸ queue-deque · ۲۹ generics · ۳۰ comparators-iterators | ✅ |
+| 02-oop | ۱۶ classes-objects · ۱۷ constructors-encapsulation · ۱۸ inheritance · ۱۹ polymorphism · ۲۰ abstract-classes · ۲۱ interfaces · ۲۲ enum · ۲۳ inner-classes · ۲۴ oop-capstone | ✅ |
+| 03-collections-generics | ۲۵ list-arraylist · ۲۶ set-hashset · ۲۷ map-hashmap · ۲۸ queue-deque · ۲۹ generics · ۳۰ comparators-iterators | ✅ |
 
 ## فاز ۳ — Exceptions/IO/NIO + Concurrency (جلسات 31–45)
 
