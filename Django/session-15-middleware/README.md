@@ -64,3 +64,13 @@ class ClientIPMiddleware:
         request.client_ip = x_forwarded.split(",")[0] if x_forwarded else request.META.get("REMOTE_ADDR")
         return self.get_response(request)
 ```
+
+## 📖 شرح فایل `code/middleware.py`
+
+هر سه کلاس همان الگوی `__init__(get_response)` + `__call__(request)` را دارند — `get_response` «بقیهٔ زنجیره» (میدل‌ورها + ویو) است:
+
+- **`TimingMiddleware`** — `time.perf_counter()` قبل و بعد از `get_response`؛ اختلاف را در هدر `X-Response-Time` پاسخ می‌گذارد.
+- **`SimpleMiddleware`** — قبل از ویو `request.start_time` می‌گذارد تا ویوها به آن دسترسی داشته باشند.
+- **`MaintenanceMiddleware`** — اگر `settings.MAINTENANCE_MODE` فعال باشد بدون رسیدن به ویو `503` برمی‌گرداند؛ برای حالت تعمیر.
+
+نکته: این کلاس‌ها را به‌صورت `"library.middleware.TimingMiddleware"` در `MIDDLEWARE` ثبت می‌کنید؛ ترتیب = ترتیب اجرا برای request (و معکوس برای response).
