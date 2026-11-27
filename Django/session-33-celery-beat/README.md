@@ -79,3 +79,13 @@ def daily_new_books():
     count = Book.objects.filter(created_at__date=today).count()
     cache.set("daily_new_books", count, 86400)
 ```
+
+## 📖 شرح فایل `code/celery_beat.py`
+
+`CELERY_BEAT_SCHEDULE` — دیکشنری نام‌گذاری‌شدهٔ تسک‌ها:
+- `daily-report` — `crontab(hour=8, minute=0)` یعنی هر روز ۸:۰۰ صبح.
+- `hourly-cleanup` — `schedule: 3600.0` ثانیه (interval ساده).
+- `quarter-hourly-sync` — `crontab(minute="*/15")` هر ۱۵ دقیقه.
+- `weekly-backup` — `crontab(day_of_week="sunday", hour=2)`.
+
+روش دوم `django-celery-beat`: `PeriodicTask` + `IntervalSchedule`/`CrontabSchedule` در دیتابیس — از ادمین قابل ویرایش بدون deploy؛ اجرا با `--scheduler django_celery_beat.schedulers:DatabaseScheduler`. نکته: beat جدا از worker اجرا می‌شود.
