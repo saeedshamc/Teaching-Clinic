@@ -19,7 +19,7 @@
 - [x] 09 — strings
 - [x] 10 — methods
 - [x] 11 — console I/O
-- [ ] 12 — casting & conversion
+- [x] 12 — casting & conversion
 - [ ] 13 — varargs & main args
 - [ ] 14 — math & common classes
 - [ ] 15 — core capstone
