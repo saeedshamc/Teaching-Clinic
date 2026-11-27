@@ -1,0 +1,30 @@
+<!-- book_list.html — صفحهٔ فرزند base.html -->
+{% extends "library/base.html" %}
+
+{% block title %}لیست کتاب‌ها{% endblock %}
+
+{% block content %}
+<h2>کتاب‌ها ({{ books.count }})</h2>
+
+{% if books %}
+<ul>
+    {% for book in books %}
+    <li>
+        <!-- لینک امن با نام URL — اگر مسیر عوض شود اینجا نمی‌شکند -->
+        <a href="{% url 'library:book_detail' book.id %}">
+            {{ book.title }}
+        </a>
+        — {{ book.author.name }}
+        — {{ book.price|floatformat:0 }} تومان
+        {% if not book.is_available %}
+            <span class="badge">ناموجود</span>
+        {% endif %}
+        <!-- forloop یک متغیر داخلی برای شمارندهٔ حلقه است -->
+        <small>#{{ forloop.counter }}</small>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>هنوز کتابی ثبت نشده است.</p>
+{% endif %}
+{% endblock %}

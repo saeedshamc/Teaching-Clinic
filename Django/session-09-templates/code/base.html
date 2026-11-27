@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- base.html — قالب پایه؛ صفحات دیگر با {% extends %} از آن ارث می‌برند -->
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}کتابخانه{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'library:book_list' %}">کتابخانه ما</a></h1>
+        <nav>
+            <a href="{% url 'library:book_list' %}">کتاب‌ها</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- هر صفحهٔ فرزند این بلوک را پر می‌کند -->
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>© ۱۴۰۳ — پروژهٔ آموزشی Django</footer>
+</body>
+</html>
