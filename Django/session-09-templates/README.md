@@ -59,3 +59,18 @@ library/templates/
   <li>کتابی یافت نشد.</li>
 {% endfor %}
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`base.html`**
+- `dir="rtl" lang="fa"` — راست‌چین و فارسی.
+- `{% block title %}...{% endblock %}` و `{% block content %}` — نقاطی که صفحات فرزند با `{% extends %}` پر می‌کنند؛ `{{ title }}` در base می‌تواند از block فرزند بیاید.
+- `{% url 'library:book_list' %}` — لینک امن: اگر route عوض شود، قالب نمی‌شکند.
+
+**`book_list.html`**
+- `{% extends "library/base.html" %}` — ارث‌بری قالب؛ فقط blockها پر می‌شوند.
+- `{% block title %}` — عنوان مرورگر را override می‌کند.
+- `{{ books.count }}` — متد count کوئری‌شده بدون کوئری اضافه صدا زده می‌شود.
+- `{% if books %}...{% else %}...{% endif %}` — QuerySet خالی falsy است.
+- `{% for book in books %}` — `book.author.name` روی رابطهٔ select_related کار می‌کند؛ `forloop.counter` شمارندهٔ ۱-بیس حلقه؛ `{% empty %}` وقتی queryset خالی است.
+- `{{ book.price|floatformat:0 }}` — filter برای دو رقم اعشار صفر.
