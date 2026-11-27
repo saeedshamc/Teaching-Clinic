@@ -46,3 +46,15 @@ myproject/
 ## جواب تمرین
 
 بدون ثبت در `INSTALLED_APPS` جنگو اپ را نمی‌شناسد: مدل‌هایش migrate نمی‌شوند، قالب‌هایش لود نمی‌شوند و ادمینش کار نمی‌کند. خطا معمولاً هنگام `migrate` یا لود صفحه دیده می‌شود.
+
+## 📖 شرح فایل‌های `code/`
+
+**`settings_snippet.py`** — فقط بخش‌های کلیدی `settings.py` است، نه فایل کامل:
+- `INSTALLED_APPS` — اپ‌های فعال؛ `"library"` اپ ماست. بدون آن مدل‌ها/قالب‌ها/ادمین کار نمی‌کنند.
+- `DATABASES` — `ENGINE` نوع دیتابیس و `NAME` مسیر فایل SQLite است.
+- `DEBUG` — `True` فقط برای توسعه؛ در production خطاهای کامل با traceback لو می‌رود.
+- `ALLOWED_HOSTS` — دامنه‌های مجاز برای پاسخ به request.
+- `STATIC_URL` — URL عمومی فایل‌های استاتیک.
+
+**`project_urls.py`**
+- `include("library.urls")` — مسیرهای `library/urls.py` را زیر ریشه `/` می‌چیند؛ یعنی `/books/` در اپ library به `books/` در urls آن resolve می‌شود.
