@@ -167,37 +167,37 @@ class BookViewTest(TestCase):
 
 
 # ══════════════════════════════════════════════════════════════════
-# factories.py — factory_boy
+# factories.py در پوشهٔ code/ مجاور قرار دارد — آن را در اپ library کپی کنید.
+# خلاصهٔ factoryها:
 # ══════════════════════════════════════════════════════════════════
 # import factory
 # from factory import fuzzy
-# from .models import Book, Author, Review
 # from django.contrib.auth import get_user_model
+# from .models import Book, Author, Review
 # User = get_user_model()
 #
 # class UserFactory(factory.django.DjangoModelFactory):
 #     class Meta:
 #         model = User
+#         skip_postgeneration_save = True
 #     username = factory.Sequence(lambda n: f"user{n}")
 #     email = factory.LazyAttribute(lambda o: f"{o.username}@test.com")
-#     password = factory.PostGenerationMethodCall("set_password", "password123")
+#     @factory.post_generation
+#     def password(obj, create, extracted, **kwargs):
+#         obj.set_password(extracted or "password123")
+#         if create: obj.save()
 #
 # class AuthorFactory(factory.django.DjangoModelFactory):
-#     class Meta:
-#         model = Author
+#     class Meta: model = Author
 #     name = factory.Sequence(lambda n: f"Author {n}")
 #     birth_year = fuzzy.FuzzyInteger(1900, 2000)
 #
 # class BookFactory(factory.django.DjangoModelFactory):
-#     class Meta:
-#         model = Book
+#     class Meta: model = Book
 #     title = factory.Sequence(lambda n: f"Book {n}")
 #     author = factory.SubFactory(AuthorFactory)
 #     pages = fuzzy.FuzzyInteger(50, 1000)
 #     price = fuzzy.FuzzyInteger(10000, 500000)
 #     is_available = True
 #
-# # استفاده:
-# book = BookFactory()              # author هم خودکار ساخته می‌شود
-# books = BookFactory.create_batch(10)   # ۱۰ کتاب
-# book = BookFactory(author=author)      # با author مشخص
+# # استفاده: book = BookFactory() → author خودکار ساخته می‌شود

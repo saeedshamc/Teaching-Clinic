@@ -72,3 +72,14 @@ class BookFactory(factory.django.DjangoModelFactory):
     author = factory.SubFactory(AuthorFactory)
     pages = factory.Faker("random_int", min=50, max=1000)
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`factories.py`** — factory_boy برای دادهٔ تست تمیز:
+- `UserFactory` — `Sequence` برای username یکتا، `LazyAttribute` برای email، `@factory.post_generation` برای `set_password` (hash صحیح).
+- `AuthorFactory`/`BookFactory`/`ReviewFactory` — `SubFactory` ریlationها را خودکار می‌سازد؛ `fuzzy.FuzzyInteger`/`Faker` دادهٔ تصادفی واقعی.
+
+**`tests.py`**
+- `BookAPITest(APITestCase)` — `get_token`/`authenticate` برای JWT؛ تست‌های read (public)، write (نیازمند auth)، permission (staff-only delete).
+- `BookModelTest` — `setUpTestData` برای دادهٔ مشترک (یک‌بار)؛ تست `full_clean` برای validation.
+- `BookViewTest` — `Client` برای request واقعی؛ `assertContains`/`assertTemplateUsed`/`force_login`.
