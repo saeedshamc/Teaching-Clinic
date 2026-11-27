@@ -77,3 +77,10 @@ books = (Book.objects
          .select_related("author")      # FK → JOIN
          .prefetch_related("tags"))     # M2M → کوئری جدا ولی یک‌بار
 ```
+
+## 📖 شرح فایل `code/queries.py`
+
+- **`optimized_list()`** — `select_related("author")` برای FK (JOIN در همان کوئری) + `prefetch_related("tags")` برای M2M (کوئری دوم ولی batch — بدون N+1).
+- **`lean_queries()`** — `only()` فقط ستون‌های لازم؛ `defer()` همه به‌جز...؛ `values()` خروجی dict؛ `values_list()` خروجی tuple — هر سه SELECT * را حذف می‌کنند.
+- **`paginate(books, request)`** — `Paginator` دستی؛ `request.GET.get("page", 1)` شمارهٔ صفحه؛ `get_page` شمارهٔ نامعتبر را به صفحهٔ آخر clamp می‌کند.
+- **`bulk_ops()`** — `bulk_create` یک INSERT گروهی به‌جای N تا؛ `update()` یک UPDATE گروهی بدون لود instance.
