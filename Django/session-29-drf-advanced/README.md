@@ -75,3 +75,13 @@ class BookViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields = ["title", "author__name"]
 ```
+
+## 📖 شرح فایل `code/views.py`
+
+- **`BookPagination(PageNumberPagination)`** — `page_size` پیش‌فرض، `page_size_query_param` اجازهٔ `?page_size=` را می‌دهد، `max_page_size` سقف امنیتی.
+- **`BookLimitOffsetPagination`/`BookCursorPagination`** — جایگزین‌های دیگر؛ cursor برای dataset خیلی بزرگ (سریع‌تر چون OFFSET نمی‌زند).
+- **`BurstThrottle`/`SustainedThrottle`** — `UserRateThrottle` با `scope`؛ نرخ در `DEFAULT_THROTTLE_RATES` تنظیم می‌شود.
+- **`BookViewSet`** — ترکیب pagination + `DjangoFilterBackend` + `SearchFilter` + `OrderingFilter` + throttle؛ `@action` می‌تواند `throttle_scope` جدا داشته باشد.
+- **`LoginView`** — `throttle_classes=[LoginThrottle]` برای جلوگیری از brute-force.
+
+خروجی pagination: `{count, next, previous, results}`. Throttle breach → `429` + هدرهای `X-RateLimit-*` و `Retry-After`.
