@@ -13,7 +13,7 @@
 ### 01-core-fundamentals
 - [x] 04 — syntax & variables
 - [x] 05 — primitive types & operators
-- [ ] 06 — control flow
+- [x] 06 — control flow
 - [ ] 07 — loops
 - [ ] 08 — arrays
 - [ ] 09 — strings
