@@ -58,3 +58,11 @@ REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"]["login"] = "5/minute"
 class LoginView(APIView):
     throttle_scope = "login"
 ```
+
+## 📖 شرح فایل `code/views.py`
+
+- **Versioning** — چهار روش: `URLPathVersioning` (`/api/v1/`، `/api/v2/` با serializer جدا)، `AcceptHeaderVersioning` (header `vnd.library.v2+json`)، `QueryParameterVersioning` (`?version=2`)، `NamespaceVersioning`. برای سازگاری، URL prefix ساده‌ترین است.
+- **Throttling** — `BurstThrottle` (۱۰/دقیقه)، `LoginThrottle` (۵/دقیقه برای brute-force)، `ExpensiveAPIOperationThrottle`؛ `throttle_scope` روی اکشن خاص.
+- **`BookViewSet`** — `versioning_class` + `throttle_classes` + `@action` با `throttle_scope` جدا.
+- **`LoginView`** — فقط throttle دارد؛ `authenticate`/`login` از django.contrib.auth.
+- کامنت settings: `DEFAULT_VERSIONING_CLASS`/`ALLOWED_VERSIONS` و `DEFAULT_THROTTLE_RATES` برای همهٔ scopeها.
