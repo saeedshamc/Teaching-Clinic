@@ -15,7 +15,7 @@
 - [x] 05 — primitive types & operators
 - [x] 06 — control flow
 - [x] 07 — loops
-- [ ] 08 — arrays
+- [x] 08 — arrays
 - [ ] 09 — strings
 - [ ] 10 — methods
 - [ ] 11 — console I/O
