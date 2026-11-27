@@ -28,7 +28,7 @@
 
 ### 02-oop
 - [x] 16 — classes & objects
-- [ ] 17 — constructors & encapsulation
+- [x] 17 — constructors & encapsulation
 - [ ] 18 — inheritance
 - [ ] 19 — polymorphism
 - [ ] 20 — abstract classes
