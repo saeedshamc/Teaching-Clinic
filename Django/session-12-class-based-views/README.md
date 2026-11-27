@@ -71,3 +71,15 @@ class BookCreateView(CreateView):
 
 # urls.py: path("books/new/", views.BookCreateView.as_view(), name="book_create")
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`views.py`**
+- `HomeView(TemplateView)` — ساده‌ترین CBV؛ فقط `template_name` می‌خواهد.
+- `BookListView(ListView)` — `model=Book` یعنی queryset خودکار `Book.objects.all()` است؛ `context_object_name="books"` نام متغیر قالب را تعیین می‌کند (پیش‌فرض `book_list`). `paginate_by=10` صفحه‌بندی خودکار می‌سازد و در قالب `page_obj` در دسترس است. `get_queryset` را override کردیم تا با `?q=` فیلتر کند.
+- `BookDetailView(DetailView)` — URL باید `<int:pk>` داشته باشد چون DetailView از `pk` استفاده می‌کند؛ `context_object_name` پیش‌فرض نام مدل lowercase است (`book`).
+- `BookCreateView(CreateView)` — `form_class=BookForm`؛ POST معتبر → `form_valid` → ذخیره → `success_url`. `reverse_lazy` چون urls هنوز لود نشده‌اند.
+- `BookUpdateView(UpdateView)` — همان CreateView + `instance` از URL (`pk`) خودکار پر می‌شود.
+- `BookDeleteView(DeleteView)` — GET صفحهٔ تأیید (`book_confirm_delete.html`) و POST حذف می‌کند.
+
+**`urls.py`** — همهٔ CBVها با `.as_view()` به path وصل می‌شوند؛ `as_view()` یک تابع ویو از کلاس می‌سازد.
