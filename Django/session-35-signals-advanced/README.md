@@ -59,3 +59,11 @@ def log_book(sender, instance, created, **kwargs):
         object_repr=str(instance),
     )
 ```
+
+## 📖 شرح فایل `code/signals.py`
+
+- `audit_book_save`/`audit_book_delete` — `post_save`/`post_delete` روی Book → رکورد `AuditLog` با action=create/update/delete.
+- `book_tags_changed` — `m2m_changed` روی `Book.tags.through`؛ `action` یکی از pre/post_add/remove/clear است و `pk_set` شناسه‌های تغییرکرده را می‌دهد.
+- `book_pre_save` — قبل از save؛ title را strip+title می‌کند.
+- `global_audit` — `@receiver(post_save)` بدون sender → برای **همهٔ** مدل‌ها audit می‌سازد.
+- کامنت پایانی: `AuditLog` باید در models.py تعریف شود؛ `apps.py.ready()` برای register؛ `transaction.on_commit` برای کارهای سنگین بعد از commit.
