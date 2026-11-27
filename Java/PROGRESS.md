@@ -21,7 +21,7 @@
 - [x] 11 — console I/O
 - [x] 12 — casting & conversion
 - [x] 13 — varargs & main args
-- [ ] 14 — math & common classes
+- [x] 14 — math & common classes
 - [ ] 15 — core capstone
 
 ## فاز ۲ — OOP + Collections/Generics (جلسات 16–30)
