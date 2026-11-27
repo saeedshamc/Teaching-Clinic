@@ -55,3 +55,12 @@ import logging
 logger = logging.getLogger("library")
 logger.info("کتاب %s ذخیره شد", book.title)
 ```
+
+## 📖 شرح فایل `code/settings_logging.py`
+
+ساختار `LOGGING` سه لایه دارد:
+- **`formatters`** — قالب رشتهٔ لاگ (`verbose` با level/time/name/line، `simple` کوتاه).
+- **`handlers`** — `console` (StreamHandler)، `file` (RotatingFileHandler با maxBytes+backupCount برای جلوگیری از پر شدن دیسک)، `error_file` فقط ERROR+.
+- **`loggers`** — `django` برای فریم‌ورک، `library` برای اپ شما با level=DEBUG، `celery`؛ `propagate` تعیین می‌کند لاگ به root هم برسد یا نه.
+
+سطوح: DEBUG < INFO < WARNING < ERROR < CRITICAL؛ `logger.exception()` traceback کامل می‌دهد. هشدار: هرگز password/token/PII را log نکنید.
