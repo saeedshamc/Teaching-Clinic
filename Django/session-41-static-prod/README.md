@@ -51,3 +51,10 @@ STORAGES = {
 }
 # hash در نام → cache-busting: وقتی فایل عوض شود URL هم عوض می‌شود و CDN/CDN مرورگر نسخهٔ قدیمی را serve نمی‌کند.
 ```
+
+## 📖 شرح فایل `code/settings_static.py`
+
+- `STATIC_URL`/`STATIC_ROOT`/`STATICFILES_DIRS` — URL عمومی، مقصد `collectstatic`، و منابع فایل‌ها.
+- `STORAGES` با `ManifestStaticFilesStorage` — hash در نام فایل → cache-busting خودکار؛ نسخهٔ قدیمی فایل دیگر serve نمی‌شود.
+- WhiteNoise — `WhiteNoiseMiddleware` + `CompressedManifestStaticFilesStorage` برای سرو static بدون Nginx (گzip+hash+cache-control داخلی).
+- دستورات: `collectstatic --noinput` جمع‌آوری، `--clear` پاک‌سازی، `findstatic` پیدا کردن فایل.
