@@ -18,7 +18,7 @@
 - [x] 08 — arrays
 - [x] 09 — strings
 - [x] 10 — methods
-- [ ] 11 — console I/O
+- [x] 11 — console I/O
 - [ ] 12 — casting & conversion
 - [ ] 13 — varargs & main args
 - [ ] 14 — math & common classes
