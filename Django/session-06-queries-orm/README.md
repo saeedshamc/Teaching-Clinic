@@ -54,3 +54,15 @@ from django.db.models import Avg
 Book.objects.filter(is_available=True, pages__gt=200)
 Book.objects.aggregate(avg=Avg("pages"))["avg"]
 ```
+
+## 📖 شرح فایل `code/queries.py`
+
+فایل یک تابع `examples()` است که همهٔ عملیات ORM را به ترتیب اجرا می‌کند — می‌توانید آن را در `python manage.py shell` paste کنید:
+
+- **ساخت**: `book.save()` INSERT دستی؛ `Book.objects.create(...)` INSERT یک‌خطی.
+- **خواندن**: `all()` همه؛ `get(id=1)` دقیقاً یکی (خطا: `DoesNotExist`/`MultipleObjectsReturned`)؛ `filter(pages__gt=200)` شرط؛ `exclude` نقیض؛ `order_by("-created_at")` نزولی؛ `count()`، `first()`.
+- **رابطه**: `author__name` روی FK join می‌زند — بدون SQL.
+- **Slicing** `[:10]` → `LIMIT 10` در SQL.
+- **`aggregate`** — محاسبه روی کل مجموعه (Sum/Avg/Count) → یک دیکشنری.
+- **`annotate`** — فیلد محاسباتی به هر سطر اضافه می‌کند (`num_books` برای هر Author) → قابل order_by.
+- **`update`/`delete`** — عملیات گروهی بدون لود کردن instanceها.
