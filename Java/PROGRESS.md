@@ -32,7 +32,7 @@
 - [x] 18 — inheritance
 - [x] 19 — polymorphism
 - [x] 20 — abstract classes
-- [ ] 21 — interfaces
+- [x] 21 — interfaces
 - [ ] 22 — enum
 - [ ] 23 — inner classes
 - [ ] 24 — oop capstone
