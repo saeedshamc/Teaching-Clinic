@@ -17,7 +17,7 @@
 - [x] 07 — loops
 - [x] 08 — arrays
 - [x] 09 — strings
-- [ ] 10 — methods
+- [x] 10 — methods
 - [ ] 11 — console I/O
 - [ ] 12 — casting & conversion
 - [ ] 13 — varargs & main args
