@@ -42,7 +42,7 @@
 - [ ] 26 — Set
 - [ ] 27 — Map & HashMap
 - [ ] 28 — Queue & Deque
-- [ ] 29 — generics
+- [x] 29 — generics
 - [ ] 30 — comparators & iterators
 
 ## فاز ۳ — Exceptions/IO/NIO + Concurrency (جلسات 31–45)
