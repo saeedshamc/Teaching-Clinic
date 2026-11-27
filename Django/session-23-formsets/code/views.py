@@ -1,13 +1,8 @@
 # views.py — ویوهای formset (جلسه ۲۳)
-import json
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import JsonResponse
-from django.views import View
-from django.views.generic import TemplateView
-from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from .models import Book
-from .forms import BookFormSet, BookCreateFormSet, BookTagFormSet, TagFormSet
+from .models import Book, Tag
+from .forms import BookForm, BookFormSet, BookCreateFormSet, BookTagFormSet, TagFormSet
 
 
 @login_required
@@ -41,15 +36,14 @@ def book_edit_with_tags(request, pk):
     """ویرایش کتاب + tagهایش — InlineFormSet."""
     book = get_object_or_404(Book, pk=pk)
     if request.method == "POST":
-        form = BookFormSet.form   # از forms.py: BookForm
-        book_form = form(request.POST, instance=book)
+        book_form = BookForm(request.POST, instance=book)
         tag_formset = BookTagFormSet(request.POST, instance=book)
         if book_form.is_valid() and tag_formset.is_valid():
             book_form.save()
             tag_formset.save()
             return redirect("library:book_detail", pk=pk)
     else:
-        book_form = BookFormSet.form(instance=book)
+        book_form = BookForm(instance=book)
         tag_formset = BookTagFormSet(instance=book)
     return render(request, "library/book_tags.html", {
         "book_form": book_form,
@@ -67,7 +61,6 @@ def tags_bulk(request):
             for form in formset:
                 name = form.cleaned_data.get("name")
                 if name:
-                    from .models import Tag
                     Tag.objects.get_or_create(name=name)
             return redirect("library:tag_list")
     else:

@@ -74,3 +74,17 @@ BookBulkFormSet = modelformset_factory(
 )
 # در ویو: queryset=Book.objects.all() برای ویرایش موجودها
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`forms.py`**
+- `BookForm` — ModelForm پایه با widgets سفارشی.
+- `TagFormSet = formset_factory(TagForm, extra=3, can_delete=True)` — ۳ فرم خالی + چک‌باکس حذف برای فرم‌های غیرمدلی.
+- `BookFormSet` / `BookCreateFormSet` — `modelformset_factory` برای ویرایش/ایجاد دسته‌ای مدل؛ `extra=0` فقط موجودها، `extra=2` فرم خالی برای ایجاد.
+- `BookTagFormSet = inlineformset_factory(Book, Book.tags.through)` — فرم‌های inline داخل مدل والد.
+
+**`views.py`**
+- `books_bulk_edit` — POST → `BookFormSet(request.POST, queryset=...)`؛ `formset.save()` همه را یک‌جا ذخیره می‌کند.
+- `books_bulk_create` — همان الگو بدون queryset (فقط رکوردهای جدید).
+- `book_edit_with_tags` — `BookForm` + `BookTagFormSet` با `instance=book` در یک صفحه.
+- `tags_bulk` — formset ساده؛ هر فرم `cleaned_data["name"]` را `get_or_create` می‌کند.
