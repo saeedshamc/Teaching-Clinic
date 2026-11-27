@@ -8,7 +8,7 @@
 ### 00-setup
 - [x] 01 — JDK install
 - [x] 02 — IDE setup
-- [ ] 03 — Git & GitHub
+- [x] 03 — Git & GitHub
 
 ### 01-core-fundamentals
 - [ ] 04 — syntax & variables
