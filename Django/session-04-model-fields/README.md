@@ -58,3 +58,14 @@ rating = models.IntegerField(
     null=True, blank=True,
 )
 ```
+
+## 📖 شرح فایل `code/models.py`
+
+**`Product`** — همهٔ فیلدهای پرکاربرد در یک مدل:
+- `name` (`CharField`) — `max_length` اجباری است چون VARCHAR به طول نیاز دارد.
+- `description` (`TextField`) — متن بلند بدون محدودیت طول.
+- `stock` (`IntegerField`) — `validators=[MinValueValidator(0)]` مقدار منفی را در `full_clean()`/فرم رد می‌کند.
+- `price` (`DecimalField`) — `max_digits`/`decimal_places` دقت اعشار را مشخص می‌کند؛ برای پول از Float استفاده نکنید.
+- `category` (`CharField` + `choices`) — فقط کلید اول tuple ذخیره می‌شود؛ `get_category_display()` برچسب فارسی را برمی‌گرداند.
+- `class Meta.ordering = ["-created_at"]` — پیش‌فرض نزولی بر اساس تاریخ.
+- `__str__` از `get_category_display()` استفاده می‌کند تا خروجی خوانا شود.
