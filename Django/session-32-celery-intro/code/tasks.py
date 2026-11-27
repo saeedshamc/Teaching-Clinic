@@ -2,6 +2,7 @@
 from celery import shared_task
 from django.core.mail import send_mail
 from django.core.cache import cache
+from django.db.models import Avg
 from django.contrib.auth import get_user_model
 from .models import Book
 
@@ -38,7 +39,7 @@ def generate_report():
     stats = {
         "total_books": Book.objects.count(),
         "available": Book.objects.filter(is_available=True).count(),
-        "avg_pages": Book.objects.aggregate(avg=models.Avg("pages"))["avg"],
+        "avg_pages": Book.objects.aggregate(avg=Avg("pages"))["avg"],
     }
     cache.set("library_report", stats, 3600)
     return stats

@@ -84,3 +84,11 @@ def generate_report():
     cache.set("book_count", Book.objects.count(), 3600)
     return Book.objects.count()
 ```
+
+## 📖 شرح فایل `code/tasks.py`
+
+- `send_welcome_email` — `@shared_task(bind=True, max_retries=3)`؛ `self.retry(exc=exc)` در صورت خطا با `default_retry_delay` دوباره تلاش می‌کند. `User.DoesNotExist` retry نمی‌شود چون فایده ندارد.
+- `generate_report` — آمار را با `aggregate` در cache می‌گذارد.
+- `process_book_import` — پردازش CSV سنگین در پس‌زمینه؛ `get_or_create` برای idempotency.
+- کامنت‌ها: `.delay()` async فوری، `.apply_async(countdown=...)` با تأخیر، `result.get(timeout)` فقط وقتی واقعاً نتیجه لازم است.
+- تنظیمات: `CELERY_BROKER_URL`/`RESULT_BACKEND` روی Redis؛ `config/__init__.py` با `Celery("config")` + `autodiscover_tasks()`.
