@@ -1,5 +1,8 @@
 # urls.py — JWT endpoints (جلسه ۳۰)
-from django.urls import path
+# نکته: این فایل را در api_urls.py یا urls.py پروژه کپی کنید.
+# BookViewSet و MeView باید در views.py پروژه شما تعریف شده باشند
+# (نمونهٔ آن‌ها در کامنت‌های پایین همین فایل آمده است).
+from django.urls import path, include
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,      # POST /api/token/ → access + refresh
     TokenRefreshView,          # POST /api/token/refresh/ → access جدید

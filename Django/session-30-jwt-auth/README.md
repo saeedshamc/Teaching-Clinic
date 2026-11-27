@@ -65,3 +65,12 @@ class MeView(APIView):
         return Response({"id": u.id, "username": u.username, "email": u.email})
 # urls: path("api/me/", views.MeView.as_view())
 ```
+
+## 📖 شرح فایل `code/urls.py`
+
+- `TokenObtainPairView` — `POST /api/token/` با `{username, password}` → `{access, refresh}`.
+- `TokenRefreshView` — `POST /api/token/refresh/` با `{refresh}` → access جدید.
+- `TokenVerifyView` — بررسی معتبر بودن access token.
+- `TokenBlacklistView` — ابطال refresh token (نیازمند `token_blacklist` app).
+- کامنت پایینی: `MeView` با `JWTAuthentication` + `IsAuthenticated` اطلاعات `request.user` را برمی‌گرداند.
+- تنظیمات `SIMPLE_JWT`: `ACCESS_TOKEN_LIFETIME` کوتاه (۱۵ دقیقه)، `REFRESH_TOKEN_LIFETIME` بلند (۷ روز)، `ROTATE_REFRESH_TOKENS` + `BLACKLIST_AFTER_ROTATION` برای امنیت.
