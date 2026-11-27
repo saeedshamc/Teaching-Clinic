@@ -63,3 +63,17 @@ class Book(models.Model):
             from django.core.exceptions import ValidationError
             raise ValidationError("حداکثر ۳ دسته مجاز است")
 ```
+
+## 📖 شرح فایل `code/models.py`
+
+**`Author`** — مدل ساده با `__str__`؛ مقصد رابطه‌ها.
+
+**`Book`**
+- `author = ForeignKey(Author, on_delete=CASCADE, related_name="books")` — هر کتاب یک نویسنده؛ حذف نویسنده همهٔ کتاب‌هایش را حذف می‌کند. `related_name` دسترسی معکوس `author.books.all()` را می‌سازد (پیش‌فرض `book_set` بود).
+- `tags = ManyToManyField("Tag", blank=True, related_name="books")` — رابطهٔ چندبه‌چند؛ Django جدول میانی را خودکار می‌سازد. `"Tag"` به‌صورت string تا ترتیب تعریف مدل مهم نباشد.
+
+**`Tag`** — `unique=True` یعنی نام تگ تکراری نمی‌شود.
+
+**`Profile`**
+- `user = OneToOneField(User, on_delete=CASCADE, related_name="profile")` — هر کاربر دقیقاً یک پروفایل؛ `user.profile` مستقیم کار می‌کند.
+- `avatar = ImageField` — آپلود تصویر (نیازمند Pillow).
