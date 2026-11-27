@@ -55,3 +55,9 @@ python manage.py collectstatic --noinput   # فایل‌ها را در STATIC_RO
 ## کد نمونه
 
 `code/nginx.conf` و `code/gunicorn.sh` را ببینید.
+
+## 📖 شرح فایل‌های `code/`
+
+**`gunicorn.sh`** — `migrate` + `collectstatic` قبل از اجرا؛ `gunicorn config.wsgi:application --bind 127.0.0.1:8000 --workers 4` — workers ≈ 2×CPU+1؛ Nginx به همین پورت داخلی proxy می‌کند.
+
+**`nginx.conf`** — `location /static/` و `/media/` مستقیم از دیسک با `expires`/cache header سرو می‌شوند (سریع، بدون لود Django)؛ `location /` با `proxy_pass` به Gunicorn + headerهای `Host`/`X-Forwarded-*` برای HTTPS detection.
