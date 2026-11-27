@@ -63,3 +63,15 @@ def set_language(request, lang):
         request.session.save()
     return redirect("library:home")
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`views.py`**
+- `count_visit` — `request.session.get("visit_count", 0) + 1` شمارنده را می‌خواند/می‌نویسد؛ سشن با cookie sessionid بین requestها داده را نگه می‌دارد.
+- `set_theme` — مقدار از `request.GET` خوانده و فقط در whitelist (`light`/`dark`) در سشن ذخیره می‌شود — جلوگیری از ذخیرهٔ مقدار دلخواه.
+- `get_theme` — `request.session.get("theme", "light")` با پیش‌فرض؛ تم را به قالب پاس می‌دهد.
+- `flash_example` — `messages.success(request, ...)` پیام را برای **رندر بعدی** صف می‌کند و redirect می‌کند تا PRG رعایت شود.
+- `render` در انتهای فایل import شده چون فقط `get_theme` به آن نیاز دارد.
+
+**`messages.html`**
+- `{% if messages %}` — queryset پیام‌های صف‌شده؛ `{% for msg in messages %}` هر پیام را با `msg.tags` (success/error/info/warning) به‌عنوان کلاس CSS چاپ می‌کند.
