@@ -68,3 +68,22 @@ class AuthorForm(forms.ModelForm):
 
 # ویو مشابه book_create با redirect به لیست نویسندگان
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`forms.py`**
+- `BookForm(forms.ModelForm)` — `Meta.model` و `Meta.fields` تعیین می‌کنند فرم از کدام فیلدهای مدل ساخته شود.
+- `Meta.labels` — برچسب فارسی هر فیلد؛ `Meta.widgets` — HTML attrs مثل class و placeholder.
+- `Meta.help_texts` — متن راهنما زیر فیلد.
+- `clean_pages()` — اعتبارسنجی یک فیلد خاص؛ خروجی `cleaned_data` را برمی‌گرداند یا `ValidationError` می‌اندازد.
+- `clean()` — اعتبارسنجی چندفیلدی؛ `super().clean()` را صدا بزنید وگرنه داده‌ها پاک می‌شوند.
+- `AuthorForm` — همان الگو برای مدل Author.
+
+**`views.py`**
+- `book_create` — `request.method == "POST"`؟ اگر بله `BookForm(request.POST, request.FILES)`؛ `is_valid()` → `form.save()` → `redirect` (الگوی POST/Redirect/GET). `request.FILES` برای آپلود فایل لازم است.
+- `book_update` — همان الگو + `instance=book` → به‌جای INSERT، UPDATE انجام می‌شود. در GET فرم با مقادیر فعلی پر می‌شود.
+
+**`book_form.html`**
+- `enctype="multipart/form-data"` — بدون آن فایل آپلود نمی‌شود؛ `novalidate` اعتبارسنجی HTML5 را خاموش می‌کند تا خطاهای Django نمایش داده شوند.
+- `{% csrf_token %}` — توکن امنیتی؛ بدون آن POST با 403 رد می‌شود.
+- `form.non_field_errors` — خطاهای کلی (مثل clean چندفیلدی)؛ `form.as_p` همهٔ فیلدها را با label+widget+errors رندر می‌کند.
