@@ -2,13 +2,34 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>جلسه ۱۰ — انیمیشن‌ها و افکت‌ها</title>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <style>
     body { font-family: Tahoma, sans-serif; max-width: 800px; margin: 30px auto; }
     .box { width: 120px; height: 120px; background: #3d7afc; margin: 12px 0; border-radius: 10px; }
     button { padding: 8px 12px; margin: 4px; border: none; border-radius: 6px; background: #222; color: white; cursor: pointer; }
-  </style>
+  
+/* ===== chrome یکسان دوره jQuery ===== */
+body { background:#f5f5f7; color:#1e293b; }
+h1 { font-size:clamp(1.35rem, 1.05rem + 2vw, 1.85rem); color:#222; border-bottom:3px solid #4a56e2; padding-bottom:8px; margin-bottom:1.4rem; }
+h2 { border-bottom:2px solid #4a56e2; padding-bottom:6px; color:#222; }
+button { background:#4a56e2; color:#fff; border:none; padding:9px 16px; border-radius:8px; cursor:pointer; font-family:inherit; }
+button:hover { background:#333cb5; }
+input[type=text], input[type=email], input[type=password], input:not([type]), textarea, select {
+  padding:9px 12px; border:1px solid #cbd5e1; border-radius:8px; font-family:inherit; background:#fff; color:#1e293b; box-sizing:border-box;
+}
+input:focus, textarea:focus, select:focus { border-color:#4a56e2; outline:none; box-shadow:0 0 0 3px rgba(74,86,226,.15); }
+pre { background:#0f172a; color:#a7f3d0; padding:14px; border-radius:10px; overflow:auto; font-size:.9rem; }
+a { color:#4a56e2; font-weight:600; }
+
+/* ===== pager و بهبودهای دسترسی‌پذیری ===== */
+.jq-pager { display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:2rem; padding-top:1rem; border-top:1px solid #e2e8f0; }
+.jq-pager a { display:inline-block; padding:.5rem 1.1rem; border-radius:999px; background:#fff; border:1px solid #e2e8f0; color:#4a56e2; text-decoration:none; font-weight:700; box-shadow:0 4px 12px rgba(15,23,42,.06); }
+.jq-pager a:hover { border-color:#4a56e2; }
+:focus-visible { outline:3px solid rgba(74,86,226,.45); outline-offset:2px; }
+::selection { background:#c7d2fe; }
+</style>
 </head>
 <body>
   <h1>جلسه ۱۰: افکت‌ها و صف انیمیشن</h1>
@@ -38,5 +59,9 @@
     });
   });
   </script>
+  <nav class="jq-pager" aria-label="پیمایش جلسات">
+    <a class="jq-prev" href="../../session-09-dom-traversal/code/index.html">→ جلسه قبل</a>
+    <a class="jq-next" href="../../session-11-ajax-api/code/index.html">جلسه بعد ←</a>
+  </nav>
 </body>
 </html>
