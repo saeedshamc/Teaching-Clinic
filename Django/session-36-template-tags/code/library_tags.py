@@ -1,5 +1,6 @@
 # templatetags/library_tags.py — Template Tags و Filter (جلسه ۳۶)
 from django import template
+from django.db import models
 from django.utils.safestring import mark_safe
 
 register = template.Library()

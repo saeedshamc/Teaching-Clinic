@@ -71,3 +71,11 @@ def truncate_words_fa(value, count=5):
         return value
     return " ".join(words[:count]) + "…"
 ```
+
+## 📖 شرح فایل `code/library_tags.py`
+
+- `register = template.Library()` — رجیستری که تگ‌ها روی آن با `@register` ثبت می‌شوند؛ فایل باید در `templatetags/` باشد.
+- `total_books`/`book_price` — `@register.simple_tag` برای منطق در قالب؛ `takes_context=True` به context (مثل `request.user`) دسترسی می‌دهد.
+- `book_tags`/`author_card` — `@register.inclusion_tag("template.html")` که خودش context می‌سازد و قالب جزئی رندر می‌کند.
+- `fa_number`/`truncate_words_fa` — `@register.filter` برای transform مقدار (`{{ x|filter }}`).
+- `highlight` — filter با `mark_safe`؛ `escape` اول برای جلوگیری از XSS، بعد `<mark>` تزریق می‌شود.
