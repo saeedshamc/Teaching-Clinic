@@ -65,3 +65,13 @@ def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(author=instance)  # فرض: Profile به Author لینک است
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`signals.py`** — سه گیرنده با `@receiver`:
+- `book_pre_save` — قبل از INSERT/UPDATE؛ فیلدهای instance را می‌توانید تغییر دهید (اینجا title خالی را پر می‌کند). `sender=Book` یعنی فقط برای Book.
+- `book_post_save` — بعد از ذخیره؛ آرگومان `created` boolean است (True=INSERT، False=UPDATE).
+- `book_deleted` — بعد از `post_delete`؛ instance هنوز فیلدهایش را دارد ولی از DB رفته.
+- `kwargs` شامل `raw` (fixture)، `using` (دیتابیس)، `update_fields` است.
+
+**`apps.py`** — `ready()` هنگام راه‌اندازی اپ اجرا می‌شود؛ `import library.signals` باعث register شدن `@receiver`ها می‌شود. بدون این، سیگنال‌ها کار نمی‌کنند چون ماژول import نشده.
