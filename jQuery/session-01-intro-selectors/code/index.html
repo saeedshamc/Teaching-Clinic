@@ -2,6 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>جلسه ۱ — سلکتورها و پایه DOM</title>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <style>
@@ -19,6 +20,13 @@
   tr.zebra-even { background:#f0f4ff; }
   tr.zebra-odd { background:#ffffff; }
   #outputBox { background:#111; color:#0f0; padding:10px; font-family:monospace; min-height: 30px; border-radius:6px; }
+
+/* ===== pager و بهبودهای دسترسی‌پذیری ===== */
+.jq-pager { display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:2rem; padding-top:1rem; border-top:1px solid #e2e8f0; }
+.jq-pager a { display:inline-block; padding:.5rem 1.1rem; border-radius:999px; background:#fff; border:1px solid #e2e8f0; color:#4a56e2; text-decoration:none; font-weight:700; box-shadow:0 4px 12px rgba(15,23,42,.06); }
+.jq-pager a:hover { border-color:#4a56e2; }
+:focus-visible { outline:3px solid rgba(74,86,226,.45); outline-offset:2px; }
+::selection { background:#c7d2fe; }
 </style>
 </head>
 <body>
@@ -158,5 +166,9 @@ $(document).ready(function () {
 
 });
 </script>
+  <nav class="jq-pager" aria-label="پیمایش جلسات">
+    <a class="jq-prev" href="../../index.html">→ فهرست دوره</a>
+    <a class="jq-next" href="../../session-02-events-effects/code/index.html">جلسه بعد ←</a>
+  </nav>
 </body>
 </html>
