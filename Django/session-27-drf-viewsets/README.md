@@ -70,3 +70,14 @@ def archive(self, request, pk=None):
     book.save()
     return Response({"status": "archived"})
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`views.py`**
+- `BookViewSet(ModelViewSet)` — CRUD کامل بدون نوشتن متد؛ `queryset` + `serializer_class` کافی است. `select_related`/`prefetch_related` برای N+1. `filter_backends`/`search_fields`/`ordering_fields` فیلتر و مرتب‌سازی GET را فعال می‌کنند.
+- `publish`/`archive` — `@action(detail=True, methods=["post"])` اکشن سفارشی روی یک آبجکت؛ `self.get_object()` از URL `pk` می‌گیرد.
+- `stats` — `@action(detail=False)` بدون pk؛ `aggregate` آمار کلی.
+- `AuthorViewSet(ReadOnlyModelViewSet)` — فقط list/retrieve؛ `annotate(Count)` برای `book_count`.
+- `ReviewViewSet` — `perform_create` فیلد `user` را خودکار از `request.user` می‌گیرد.
+
+**`api_urls.py`** — `DefaultRouter` + `router.register` URLهای استاندارد REST را خودکار می‌سازد؛ `basename` وقتی queryset نمی‌دهید لازم است.

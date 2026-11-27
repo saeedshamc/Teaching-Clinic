@@ -1,11 +1,13 @@
 # views.py — DRF ViewSet و Router (جلسه ۲۷)
+# نکته: ReviewViewSet به مدل Review نیاز دارد که در جلسهٔ ۵۰ تعریف می‌شود.
+# اگر Review ندارید، آن کلاس و importهایش را کامنت کنید.
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django_filters import rest_framework as filters
 from django.db.models import Avg, Count
 from .models import Book, Author, Review
-from .serializers import BookSerializer, ReviewSerializer
+from .serializers import BookSerializer, ReviewSerializer, AuthorSerializer
 
 
 class BookViewSet(viewsets.ModelViewSet):
