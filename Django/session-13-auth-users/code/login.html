@@ -1,0 +1,27 @@
+<!-- login.html — فرم ورود ساده -->
+{% extends "library/base.html" %}
+{% block content %}
+<h2>ورود</h2>
+
+{% if error %}<p class="error">{{ error }}</p>{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <label>نام کاربری:
+        <input type="text" name="username" required>
+    </label>
+    <label>رمز عبور:
+        <input type="password" name="password" required>
+    </label>
+    <button type="submit">ورود</button>
+</form>
+{% endblock %}
+
+<!-- در base.html می‌توانید وضعیت کاربر را نشان دهید:
+{% if user.is_authenticated %}
+    <span>سلام {{ user.username }}</span>
+    <a href="{% url 'library:logout' %}">خروج</a>
+{% else %}
+    <a href="{% url 'library:login' %}">ورود</a>
+{% endif %}
+-->
