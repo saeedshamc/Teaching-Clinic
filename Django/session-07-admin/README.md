@@ -68,3 +68,17 @@ class AuthorAdmin(admin.ModelAdmin):
             book_count=Count("books")
         )
 ```
+
+## 📖 شرح فایل `code/admin.py`
+
+- **`BookAdmin`** (با `@admin.register(Book)`):
+  - `list_display` — ستون‌های جدول لیست؛ هرکدام نام فیلد یا متد مدل می‌تواند باشد.
+  - `list_filter` — فیلتر کناری بر اساس فیلدهای انتخابی/Boolean/تاریخ.
+  - `search_fields` — جستجو؛ `author__name` یعنی در فیلد `name` رابطهٔ `author`.
+  - `list_editable` — فیلدهایی که مستقیم از لیست قابل ویرایش‌اند (باید در `list_display` باشند).
+  - `readonly_fields` — نمایش بدون ویرایش (برای فیلدهای `auto_now`).
+  - `date_hierarchy` — فیلتر سلسله‌مراتبی سال/ماه/روز در سایدبار.
+  - `fieldsets` — گروه‌بندی فرم ویرایش؛ `"classes": ("collapse",)` بخش را جمع‌شونده می‌کند.
+  - `mark_unavailable` — اکشن سفارشی با `@admin.action`؛ روی queryset انتخاب‌شده‌ها `update` می‌زند و `message_user` بازخورد می‌دهد.
+- **`AuthorAdmin`**: `get_queryset` با `annotate(Count("books"))` ستون `book_count` را در لیست پر می‌کند — بدون N+1 چون annotate در همان کوئری است.
+- **`admin.site.register(Tag)`** — ثبت ساده بدون سفارشی‌سازی.
