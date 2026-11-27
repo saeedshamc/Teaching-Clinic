@@ -62,3 +62,15 @@ def get_permissions(self):
         return [permissions.IsAuthenticated()]
     return [permissions.AllowAny()]
 ```
+
+## 📖 شرح فایل `code/permissions.py`
+
+هر کلاس `permissions.BasePermission` را extend می‌کند و یکی از دو متد را پیاده می‌کند:
+- `has_permission(request, view)` — چک در سطح endpoint (قبل از object).
+- `has_object_permission(request, view, obj)` — چک روی object خاص (برای update/delete).
+
+- **`IsBookOwner`** — متدهای unsafe (POST/PUT/PATCH/DELETE) فقط برای `obj.owner`؛ `SAFE_METHODS` (GET/HEAD/OPTIONS) برای همه باز است.
+- **`IsStaffOrReadOnly`** — خواندن عمومی، نوشتن فقط `is_staff`.
+- **`IsAuthorOrReadOnly`** — خواندن عمومی، نوشتن فقط `is_author`.
+
+در ویو: `permission_classes = [...]` ثابت یا `get_permissions()` برای منطق داینامیک بر اساس `self.action`. کامنت پایینی settings کامل REST_FRAMEWORK + Token auth را نشان می‌دهد.
