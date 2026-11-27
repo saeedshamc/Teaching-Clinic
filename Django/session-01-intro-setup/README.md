@@ -37,3 +37,12 @@ def about(request):
 # urls.py
 path("about/", views.about, name="about"),
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`views.py`**
+- `home(request)` — ویوی صفحهٔ اصلی. `request` شیئی است که متد، path و GET دارد؛ خروجی `HttpResponse` است.
+- `hello(request)` — `request.GET.get("name", "کاربر")` پارامتر query string (`?name=Ali`) را می‌خواند؛ آرگومان دوم مقدار پیش‌فرض وقتی پارامتر نیست.
+
+**`urls.py`**
+- `urlpatterns` — لیست `path()`ها که URL را به ویو وصل می‌کند: `path(route, view, name=...)`. `path("", ...)` مسیر ریشه `/` و `path("hello/", ...)` مسیر `/hello/` می‌سازد. `name` برای `reverse()` و `{% url %}` استفاده می‌شود.
