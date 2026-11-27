@@ -66,3 +66,14 @@ class BookSerializer(serializers.ModelSerializer):
         model = Book
         fields = ["id", "title", "author", "author_name", "pages"]
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`serializers.py`**
+- `AuthorSerializer`/`TagSerializer` — ModelSerializer ساده؛ `Meta.model`+`fields` تعیین می‌کنند چه فیلدهایی serialize شود.
+- `BookSerializer` — `author_name` با `source="author.name"` فیلد relation را flatten می‌کند؛ `tag_names` با `SlugRelatedField` نام تگ‌ها را می‌دهد؛ `review_count` با `SerializerMethodField` + `get_review_count`؛ `validate_price` اعتبارسنجی سفارشی؛ `create` فیلد m2m `tags` را قبل از create جدا می‌کند چون `Book.objects.create` تگ را نمی‌فهمد.
+- `ReviewSerializer` — `user` read_only است چون از `request.user` در `perform_create` می‌آید.
+
+**`views.py`**
+- `BookListAPI(APIView)` — `get` با `many=True` لیست serialize می‌کند؛ `post` با `serializer.is_valid()`/`save()` می‌سازد و ۲۰۱/۴۰۰ برمی‌گرداند. `IsAuthenticatedOrReadOnly` = خواندن برای همه، نوشتن فقط لاگین.
+- `BookDetailAPI` — `get_object` با try/except؛ `put`=کامل، `patch`=جزئی (`partial=True`)، `delete`=204.

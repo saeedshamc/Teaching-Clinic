@@ -1,4 +1,6 @@
 # serializers.py — تبدیل مدل به JSON (جلسه ۲۶)
+# نکته: ReviewSerializer برای مدل Review است که در جلسهٔ ۵۰ (capstone) تعریف می‌شود.
+# اگر مدل Review را ندارید، آن کلاس را کامنت کنید یا موقتاً models import را محدود کنید.
 from rest_framework import serializers
 from .models import Book, Author, Tag, Review
 
