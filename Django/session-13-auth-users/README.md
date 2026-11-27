@@ -81,3 +81,17 @@ def book_create(request):
         form = BookForm()
     return render(request, "library/book_form.html", {"form": form})
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`views.py`**
+- `login_view` — GET فرم خالی؛ POST → `authenticate(request, username, password)` اعتبارسنجی می‌کند (None یعنی ناموفق) → `login(request, user)` سشن را می‌سازد → `messages.success` پیام ثبت می‌کند → `redirect` با احترام به `?next=` که `login_required` می‌گذارد.
+- `logout_view` — `logout(request)` سشن را پاک می‌کند و به home برمی‌گردد.
+- `profile` — با `@login_required` محافظت شده؛ کاربر لاگین‌نشده به `LOGIN_URL` + `?next=` ریدایرکت می‌شود و `request.user` در دسترس است.
+
+**`urls.py`**
+- سه مسیر login/logout/profile + کامنت با ویوهای آمادهٔ جنگو (`auth_views.LoginView`) به‌عنوان جایگزین سریع.
+
+**`login.html`**
+- `{% csrf_token %}` برای POST الزامی؛ `{{ error }}` خطای credential را نمایش می‌دهد.
+- کامنت پایانی: الگوی `{% if user.is_authenticated %}` برای نمایش وضعیت کاربر در base.html.
