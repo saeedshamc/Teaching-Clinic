@@ -83,3 +83,18 @@ def test_negative_pages(self):
     with self.assertRaises(ValidationError):
         Book(pages=-5).full_clean()   # full_clean اعتبارسنجی فیلدها را اجرا می‌کند
 ```
+
+## 📖 شرح فایل `code/tests.py`
+
+**`BookModelTest(TestCase)`** — `setUp` قبل از **هر** تست دادهٔ نمونه می‌سازد (هر تست DB تمیز دارد):
+- `test_str_representation` — `__str__` را چک می‌کند.
+- `test_default_ordering` — `Meta.ordering` را تأیید می‌کند.
+- `test_filter_by_author` — رابطهٔ FK در کوئری.
+- `test_price_validation` — `full_clean()` validators را اجرا می‌کند (save() به‌تنهایی صدا نمی‌زند).
+
+**`BookViewTest(TestCase)`** — `setUpTestData` فقط **یک‌بار** برای کل کلاس اجرا می‌شود (سریع‌تر از setUp):
+- `self.client` — شبیه‌ساز مرورگر؛ `client.get/post` request واقعی می‌زند.
+- `reverse("library:book_list")` — URL را از name می‌سازد (به‌جای هاردکد).
+- `assertTemplateUsed` — بررسی می‌کند کدام قالب رندر شده.
+- `assertContains(response, "متن")` — متن در HTML هست.
+- `force_login(user)` — بدون فرم login واقعی، کاربر را لاگین می‌کند.
