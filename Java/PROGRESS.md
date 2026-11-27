@@ -24,26 +24,12 @@
 - [x] 14 — math & common classes
 - [x] 15 — core capstone
 
-## فاز ۲ — OOP + Collections/Generics (جلسات 16–30)
+## فاز ۲ — OOP + Collections/Generics ✅
 
-### 02-oop
-- [x] 16 — classes & objects
-- [x] 17 — constructors & encapsulation
-- [x] 18 — inheritance
-- [x] 19 — polymorphism
-- [x] 20 — abstract classes
-- [x] 21 — interfaces
-- [x] 22 — enum
-- [x] 23 — inner classes
-- [x] 24 — oop capstone
-
-### 03-collections-generics
-- [ ] 25 — List & ArrayList
-- [ ] 26 — Set
-- [ ] 27 — Map & HashMap
-- [ ] 28 — Queue & Deque
-- [x] 29 — generics
-- [x] 30 — comparators & iterators
+| زیرشاخه | جلسات | وضعیت |
+|---|---|---|
+|  | ۱۶ classes-objects · ۱۷ constructors-encapsulation · ۱۸ inheritance · ۱۹ polymorphism · ۲۰ abstract-classes · ۲۱ interfaces · ۲۲ enum · ۲۳ inner-classes · ۲۴ oop-capstone | ✅ |
+|  | ۲۵ list-arraylist · ۲۶ set-hashset · ۲۷ map-hashmap · ۲۸ queue-deque · ۲۹ generics · ۳۰ comparators-iterators | ✅ |
 
 ## فاز ۳ — Exceptions/IO/NIO + Concurrency (جلسات 31–45)
 
