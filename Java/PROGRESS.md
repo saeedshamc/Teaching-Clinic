@@ -14,7 +14,7 @@
 - [x] 04 — syntax & variables
 - [x] 05 — primitive types & operators
 - [x] 06 — control flow
-- [ ] 07 — loops
+- [x] 07 — loops
 - [ ] 08 — arrays
 - [ ] 09 — strings
 - [ ] 10 — methods
