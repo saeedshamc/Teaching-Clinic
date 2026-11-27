@@ -67,3 +67,9 @@ volumes:
 ## جواب تمرین
 
 همان YAML بالا — فقط `env_file` و `volumes` را با مقادیر پروژهٔ خود تنظیم کنید.
+
+## 📖 شرح فایل‌های `code/`
+
+**`Dockerfile`** — `python:3.12-slim` base؛ `PYTHONDONTWRITEBYTECODE`/`PYTHONUNBUFFERED` برای لاگ تمیز؛ `requirements.txt` جدا کپی می‌شود تا لایهٔ pip cache شود؛ `collectstatic` با `|| true` چون در dev ممکن است settings ناقص باشد؛ `CMD` نهایی `gunicorn` برای production.
+
+**`docker-compose.yml`** — سرویس‌ها: `web` (build + runserver dev + volume live + env_file + depends_on)، `db` (postgres:16 با healthcheck `pg_isready`)، `redis` (برای Celery/Channels)؛ `pgdata` volume برای ماندگاری دیتابیس.
