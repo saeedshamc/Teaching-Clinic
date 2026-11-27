@@ -49,3 +49,17 @@ cover = models.ImageField(upload_to="covers/", null=True, blank=True)
   <img src="{{ book.cover.url }}" alt="جلد {{ book.title }}">
 {% endif %}
 ```
+
+## 📖 شرح فایل‌های `code/`
+
+**`models.py`**
+- `cover = ImageField(upload_to="covers/")` — فایل در `media/covers/` ذخیره می‌شود؛ `null/blank` یعنی اختیاری. `ImageField` همان `FileField` + اعتبارسنجی تصویر است.
+- `sample_pdf = FileField(upload_to="samples/%Y/%m/")` — `%Y/%m` از strftime استفاده می‌کند → فایل‌ها بر اساس سال/ماه پوشه‌بندی می‌شوند.
+
+**`urls.py`**
+- `static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)` — فقط در `DEBUG=True` فایل‌های `media/` را سرو می‌کند؛ در production Nginx این کار را می‌کند.
+
+**`base_head.html`**
+- `{% load static %}` — لود کردن تگ‌های static.
+- `{% static 'library/style.css' %}` — URL نهایی فایل استاتیک (در production با hash نسخه‌گذاری می‌شود).
+- `{{ book.cover.url }}` — آدرس عمومی فایل آپلودی؛ اگر فیلد خالی باشدurl خطا می‌دهد برای همین `{% if %}` چک می‌کنیم.
