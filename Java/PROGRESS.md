@@ -27,7 +27,7 @@
 ## فاز ۲ — OOP + Collections/Generics (جلسات 16–30)
 
 ### 02-oop
-- [ ] 16 — classes & objects
+- [x] 16 — classes & objects
 - [ ] 17 — constructors & encapsulation
 - [ ] 18 — inheritance
 - [ ] 19 — polymorphism
