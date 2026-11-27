@@ -63,3 +63,8 @@ class SecurityHeadersMiddleware:
         response["Referrer-Policy"] = "strict-origin-when-cross-origin"
         return response
 ```
+
+## 📖 شرح فایل `code/middleware.py`
+
+- `SecurityHeadersMiddleware` — الگوی `__init__(get_response)`+`__call__`؛ روی response این هدرها را می‌گذارد: `X-Content-Type-Options: nosniff` (ضد MIME sniffing)، `Referrer-Policy` (چه اطلاعاتی به سایت‌های دیگر می‌رود)، `Permissions-Policy` (بستن camera/mic/geo)، `COOP`.
+- کامنت پایانی: تنظیمات `SECURE_*` برای production — `SECURE_SSL_REDIRECT`، `SESSION_COOKIE_SECURE`، `CSRF_COOKIE_SECURE`، `SECURE_HSTS_SECONDS`، و `SECRET_KEY` از env. `SecurityMiddleware` جنگو خودش هم هدرهای پایه می‌گذارد.
