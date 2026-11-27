@@ -1,0 +1,38 @@
+# docker-compose.yml — محیط توسعه/production کامل
+services:
+  web:
+    build: .
+    # در توسعه از runserver استفاده کنید؛ در production gunicorn
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app          # کد را live mount می‌کنیم تا تغییرات بدون rebuild دیده شود
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env            # DATABASE_URL, SECRET_KEY, ...
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: library
+      POSTGRES_USER: django
+      POSTGRES_PASSWORD: changeme
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U django -d library"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    # برای Celery broker و Channels layer
+
+volumes:
+  pgdata:
