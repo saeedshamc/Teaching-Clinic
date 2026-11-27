@@ -78,3 +78,12 @@ async def receive_json(self, content, **kwargs):
 async def user_typing(self, event):
     await self.send_json({"typing": event["username"]})
 ```
+
+## 📖 شرح فایل `code/consumers.py`
+
+نسخهٔ کامل‌تر `ChatConsumer` جلسهٔ ۳۴:
+- `connect` — `room_name` از URL (`ws/chat/<room_name>/`)؛ auth الزامی؛ `get_history` برای ارسال N پیام آخر به کاربر جدید.
+- `disconnect` — خروج از group + اطلاع به بقیه.
+- `receive_json` — `type="typing"` → `user_typing` event به گروه (بدون ذخیره)؛ `type="message"` → `save_message` + `chat_message` broadcast.
+- `chat_message`/`user_typing` — event handlerها که پیام را به همین اتصال `send_json` می‌کنند؛ typing به فرستنده برنمی‌گردد.
+- `save_message`/`get_history` — `@database_sync_to_async` برای ORM در async context.
