@@ -69,3 +69,10 @@ class BookAPIView(View):
         book = Book.objects.create(**body)
         return JsonResponse({"id": book.id}, status=201)
 ```
+
+## 📖 شرح فایل `code/views.py`
+
+- **`book_list_fbv`** — FBV ساده: queryset → `render`.
+- **`BookSearchView(View)`** — `@method_decorator(login_required)` روی `dispatch` همهٔ متدها را محافظت می‌کند؛ `get` با `Q` جستجو می‌کند، `post` JSON می‌گیرد و کتاب می‌سازد.
+- **`StatsView(TemplateView)`** — `get_context_data` را override می‌کند؛ همیشه `super()` اول صدا زده می‌شود؛ `aggregate` آمار کلی می‌دهد.
+- **`BookAPIView(View)`** — REST دستی: `get` لیست با `values()`، `post` ساخت با اعتبارسنجی دستی، `put`/`patch`/`delete` روی `pk`؛ هرکدام `JsonResponse` با status مناسب.

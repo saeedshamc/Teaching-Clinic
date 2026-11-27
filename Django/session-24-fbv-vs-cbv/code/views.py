@@ -6,6 +6,7 @@ from django.views import View
 from django.views.generic import TemplateView, ListView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.db.models import Avg
 from .models import Book
 
 
@@ -68,7 +69,7 @@ class StatsView(TemplateView):
         ctx["total_books"] = Book.objects.count()
         ctx["available"] = Book.objects.filter(is_available=True).count()
         ctx["avg_pages"] = Book.objects.aggregate(
-            avg=models.Avg("pages")
+            avg=Avg("pages")
         )["avg"] or 0
         return ctx
 
