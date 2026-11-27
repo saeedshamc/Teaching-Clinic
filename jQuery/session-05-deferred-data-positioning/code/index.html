@@ -2,6 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>جلسه ۵ — Deferred، data، this و موقعیت‌یابی</title>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <style>
@@ -17,6 +18,13 @@
   #scrollArea { height:220px; overflow-y:auto; border:1px solid #ddd; padding:10px; border-radius:8px; }
   #scrollArea .filler { height:600px; background: linear-gradient(#f9f9f9,#eee); display:flex; align-items:center; justify-content:center; color:#999;}
   #backToTop { position:fixed; bottom:20px; right:20px; display:none; }
+
+/* ===== pager و بهبودهای دسترسی‌پذیری ===== */
+.jq-pager { display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:2rem; padding-top:1rem; border-top:1px solid #e2e8f0; }
+.jq-pager a { display:inline-block; padding:.5rem 1.1rem; border-radius:999px; background:#fff; border:1px solid #e2e8f0; color:#4a56e2; text-decoration:none; font-weight:700; box-shadow:0 4px 12px rgba(15,23,42,.06); }
+.jq-pager a:hover { border-color:#4a56e2; }
+:focus-visible { outline:3px solid rgba(74,86,226,.45); outline-offset:2px; }
+::selection { background:#c7d2fe; }
 </style>
 </head>
 <body>
@@ -150,5 +158,9 @@ $(document).ready(function () {
 
 });
 </script>
+  <nav class="jq-pager" aria-label="پیمایش جلسات">
+    <a class="jq-prev" href="../../session-04-advanced-plugin-project/code/index.html">→ جلسه قبل</a>
+    <a class="jq-next" href="../../session-06-ui-components-from-scratch/code/index.html">جلسه بعد ←</a>
+  </nav>
 </body>
 </html>
