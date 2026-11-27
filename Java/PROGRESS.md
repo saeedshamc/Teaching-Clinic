@@ -31,7 +31,7 @@
 - [x] 17 — constructors & encapsulation
 - [x] 18 — inheritance
 - [x] 19 — polymorphism
-- [ ] 20 — abstract classes
+- [x] 20 — abstract classes
 - [ ] 21 — interfaces
 - [ ] 22 — enum
 - [ ] 23 — inner classes
