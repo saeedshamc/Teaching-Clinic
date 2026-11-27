@@ -52,3 +52,14 @@ class Author(models.Model):
 ```
 
 سپس: `python manage.py makemigrations library` و `python manage.py migrate`.
+
+## 📖 شرح فایل `code/models.py`
+
+**`Author`**
+- `name`, `birth_year`, `bio` — هر attribute یک فیلد است که به ستون دیتابیس تبدیل می‌شود. `verbose_name` برچسب فارسی در ادمین است.
+- `class Meta` — تنظیمات مدل: `verbose_name` نام نمایشی، `ordering` ترتیب پیش‌فرض همهٔ کوئری‌ها.
+- `__str__` — نمایش خوانا در shell/ادمین؛ بدون آن `Author object (1)` نشان داده می‌شود.
+
+**`Book`**
+- `pages`, `price` (Decimal برای دقت مالی)، `published`, `is_available`.
+- `created_at = auto_now_add` — فقط یک‌بار هنگام INSERT مقدار می‌گیرد؛ `updated_at = auto_now` — در هر UPDATE تازه می‌شود.
