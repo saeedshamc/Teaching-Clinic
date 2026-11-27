@@ -48,3 +48,12 @@ qs = qs.filter(title__icontains=q)
 # در قالب: از {% if query %}<mark>{{ query }}</mark>{% endif %} استفاده نکنید
 # چون title از قبل escape شده؛ ساده‌ترین راه: CSS + JS یا template filter سفارشی
 ```
+
+## 📖 شرح فایل `code/models.py`
+
+پروژهٔ نهایی همهٔ مدل‌ها را یک‌جا دارد:
+
+- **`Author`** — `unique=True` روی name؛ `book_count()` متد کمکی برای template/ادمین (`self.books.count()` از related_name).
+- **`Tag`** — مدل ساده برای M2M.
+- **`Book`** — قلب پروژه: `db_index=True` روی title، `author` FK با `null/blank` (کتاب می‌تواند بی‌نویسنده باشد)، `tags` M2M، `cover` ImageField، `created_by` FK به User با `SET_NULL` (حذف کاربر کتاب را نگه می‌دارد)، `Meta.indexes` composite روی (author, -created_at).
+- **`Profile`** — OneToOne به User با `related_name="profile"`؛ قرار است با سیگنال post_save خودکار ساخته شود.
