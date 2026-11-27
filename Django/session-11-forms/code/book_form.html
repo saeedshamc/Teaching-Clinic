@@ -1,0 +1,32 @@
+<!-- book_form.html — نمایش فرم (در templates/library/) -->
+{% extends "library/base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+
+<h2>{{ title }}</h2>
+
+<!--
+  نکته مهم: enctype="multipart/form-data" برای آپلود فایل لازم است.
+  {% csrf_token %} بدون آن POST رد می‌شود (حفاظت CSRF).
+-->
+<form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+
+    <!-- نمایش خطاهای کلی فرم (non-field errors) -->
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+
+    <!--
+      روش خودکار: همهٔ فیلدها با برچسب و خطاها
+      جایگزین: هر فیلد را دستی بنویسید:
+      <div class="field">{{ form.title.label_tag }}{{ form.title }}{{ form.title.errors }}</div>
+    -->
+    {{ form.as_p }}
+
+    <button type="submit" class="btn">ذخیره</button>
+    <a href="{% url 'library:book_list' %}">انصراف</a>
+</form>
+{% endblock %}
