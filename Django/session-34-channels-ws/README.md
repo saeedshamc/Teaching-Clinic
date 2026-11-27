@@ -98,3 +98,12 @@ class OnlineConsumer(AsyncJsonWebsocketConsumer):
         # از channel_layer.group_channels برای شمردن استفاده کنید
         ...
 ```
+
+## 📖 شرح فایل `code/consumers.py`
+
+- `ChatConsumer(AsyncJsonWebsocketConsumer)` — lifecycle: `connect` → `receive_json` (تکرار) → `disconnect`.
+- `connect` — `room_group_name` از room_name ساخته می‌شود؛ `channel_layer.group_add` عضویت در group؛ `self.user` از `scope["user"]` (AuthMiddlewareStack آن را پر می‌کند)؛ anonymous با code 4001 بسته می‌شود.
+- `disconnect` — `group_discard` + اطلاع خروج به گروه.
+- `receive_json` — پیام کلاینت → `save_message` (با `@database_sync_to_async` چون ORM sync است) → `group_send` با `type="chat_message"` که متد هم‌نام `chat_message` را صدا می‌زند.
+- `chat_message` — event از group_send → `send_json` به همین اتصال.
+- کامنت‌های پایانی: `routing.py` با `websocket_urlpatterns`، `asgi.py` با `ProtocolTypeRouter`+`AuthMiddlewareStack`، و تنظیمات `CHANNEL_LAYERS` روی Redis.
