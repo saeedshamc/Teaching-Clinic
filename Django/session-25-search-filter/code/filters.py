@@ -27,6 +27,11 @@ class BookFilter(django_filters.FilterSet):
         field_name="pages", lookup_expr="gte", label="حداقل صفحات"
     )
 
+    # جستجوی ترکیبی — با method به filter_search وصل می‌شود
+    search = django_filters.CharFilter(
+        method="filter_search", label="جستجو"
+    )
+
     class Meta:
         model = Book
         fields = {

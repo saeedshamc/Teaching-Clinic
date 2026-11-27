@@ -72,3 +72,11 @@ class BookFilter(django_filters.FilterSet):
         fields = {"author": ["exact"], "is_available": ["exact"]}
 # ویو: books = BookFilter(request.GET, queryset=books).qs
 ```
+
+## 📖 شرح فایل `code/filters.py`
+
+- **`BookFilter(django_filters.FilterSet)`** — `Meta.model`+`fields` فیلدهای اتوماتیک می‌سازد؛ فیلدهای declared کنترل دقیق می‌دهند:
+  - `title` با `lookup_expr="icontains"` → `?title=...` جستجوی بدون حساسیت به حروف.
+  - `price_min`/`price_max` با `gte`/`lte` → بازهٔ قیمت.
+  - `search` با `method="filter_search"` → متد سفارشی که `Q(title)|Q(author)|Q(tags)` را با `distinct()` ترکیب می‌کند (distinct برای M2M الزامی).
+- بخش پایانی کامنت: مثال‌های `Q` برای OR/AND/NOT — `|` برای OR، `&` برای AND، `~` برای NOT.
