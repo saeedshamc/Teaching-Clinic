@@ -1,5 +1,7 @@
 # cache_helpers.py — الگوهای caching (جلسه ۳۱)
 from django.core.cache import cache
+from django.shortcuts import render
+from django.http import JsonResponse
 from django.views.decorators.cache import cache_page, never_cache, cache_control
 from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView

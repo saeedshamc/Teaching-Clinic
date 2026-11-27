@@ -78,3 +78,13 @@ def book_list(request):
         return HttpResponse(data)
     ...
 ```
+
+## 📖 شرح فایل `code/cache_helpers.py`
+
+- `get_total_books`/`get_popular_books` — `cache.get` با fallback محاسبه + `cache.set` با timeout؛ نکته: QuerySet را cache نکنید، `list(values(...))` کنید.
+- `get_or_compute` — الگوی `get_or_set` دستی؛ `cache.get_or_set` همین را یک‌جا دارد.
+- `book_list` با `@cache_page(15min)` — کش کل پاسخ HTTP.
+- `CachedStatsView` — `@method_decorator(cache_page, name="dispatch")` برای CBV.
+- `user_dashboard` با `@never_cache` — دادهٔ user-specific هرگز کش نمی‌شود.
+- `public_api` با `@cache_control(max_age=3600, public=True)` — headerهای Cache-Control.
+- کامنت پایانی: `CACHES` پیش‌فرض LocMem برای dev؛ production از `django-redis` استفاده می‌کند.
