@@ -61,7 +61,7 @@
 - [x] 69 — javafx layout & fxml
 - [x] 70 — javafx events & css
 - [x] 71 — javafx tables & charts
-- [ ] 72 — javafx concurrency
+- [x] 72 — javafx concurrency
 - [ ] 73 — javafx capstone
 
 ### 08-desktop/swt
