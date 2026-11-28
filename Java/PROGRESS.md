@@ -86,7 +86,7 @@
 ### 10-databases-jdbc
 - [x] 96 — jdbc basics
 - [x] 97 — prepared statements
-- [ ] 98 — connection pool
+- [x] 98 — connection pool
 - [ ] 99 — transactions
 - [ ] 100 — jpa intro
 - [ ] 101 — hibernate
