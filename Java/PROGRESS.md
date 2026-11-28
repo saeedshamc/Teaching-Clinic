@@ -40,7 +40,7 @@
 - [x] 34 — NIO.2 Paths
 - [x] 35 — NIO files & channels
 - [x] 36 — serialization
-- [ ] 37 — io capstone
+- [x] 37 — io capstone
 
 ### 05-concurrency
 - [ ] 38 — thread basics
