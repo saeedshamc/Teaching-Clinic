@@ -65,7 +65,7 @@
 - [x] 73 — javafx capstone
 
 ### 08-desktop/swt
-- [ ] 74 — swt basics
+- [x] 74 — swt basics
 - [ ] 75 — swt widgets
 
 ## فاز ۶ — Android (جلسات 76–95)
