@@ -53,7 +53,7 @@
 | 08-desktop/javafx | ۶۷ javafx-setup · ۶۸ javafx-controls · ۶۹ javafx-layout-fxml · ۷۰ javafx-events-css · ۷۱ javafx-tables-charts · ۷۲ javafx-concurrency · ۷۳ javafx-capstone | ✅ |
 | 08-desktop/swt | ۷۴ swt-basics · ۷۵ swt-widgets | ✅ |
 
-## فاز ۶ — Android (جلسات 76–95)
+## فاز ۶ — Android (جلسات 76–95) ✅
 
 ### 09-android/legacy-views-xml
 - [x] 76 — android setup
