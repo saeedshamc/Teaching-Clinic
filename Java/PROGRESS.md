@@ -64,7 +64,7 @@
 - [x] 81 — legacy capstone
 
 ### 09-android/modern-jetpack
-- [ ] 82 — jetpack setup
+- [x] 82 — jetpack setup
 - [ ] 83 — viewmodel & livedata
 - [ ] 84 — room
 - [ ] 85 — retrofit
