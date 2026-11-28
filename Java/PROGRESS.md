@@ -49,7 +49,7 @@
 
 ### 08-desktop/awt-swing
 - [x] 61 — awt basics
-- [ ] 62 — swing components
+- [x] 62 — swing components
 - [ ] 63 — swing layouts
 - [ ] 64 — swing events
 - [ ] 65 — swing tables & trees
