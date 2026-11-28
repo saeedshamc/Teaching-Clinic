@@ -125,7 +125,7 @@
 ## فاز ۹ — Testing + Patterns + JVM (جلسات 125–139)
 
 ### 14-testing
-- [ ] 125 — junit 5
+- [x] 125 — junit 5
 - [ ] 126 — mockito
 - [ ] 127 — tdd
 - [ ] 128 — integration tests
