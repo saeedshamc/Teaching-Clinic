@@ -45,7 +45,7 @@
 - [x] 47 — method references
 - [x] 48 — streams basics
 - [x] 49 — streams advanced
-- [ ] 50 — optional
+- [x] 50 — optional
 - [ ] 51 — records
 - [ ] 52 — sealed classes
 - [ ] 53 — pattern matching
