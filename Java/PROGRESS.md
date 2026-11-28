@@ -68,7 +68,7 @@
 - [x] 83 — viewmodel & livedata
 - [x] 84 — room
 - [x] 85 — retrofit
-- [ ] 86 — workmanager
+- [x] 86 — workmanager
 - [ ] 87 — navigation
 - [ ] 88 — coroutines & flow
 - [ ] 89 — hilt & datastore
