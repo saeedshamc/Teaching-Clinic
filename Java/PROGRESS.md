@@ -148,7 +148,7 @@
 ## فاز ۱۰ — Security + DevOps + Capstone (جلسات 140–150)
 
 ### 17-security-crypto
-- [ ] 140 — hashing & passwords
+- [x] 140 — hashing & passwords
 - [ ] 141 — encryption
 - [ ] 142 — jwt
 - [ ] 143 — security capstone
