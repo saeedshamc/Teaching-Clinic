@@ -44,7 +44,7 @@
 - [x] 46 — lambdas
 - [x] 47 — method references
 - [x] 48 — streams basics
-- [ ] 49 — streams advanced
+- [x] 49 — streams advanced
 - [ ] 50 — optional
 - [ ] 51 — records
 - [ ] 52 — sealed classes
