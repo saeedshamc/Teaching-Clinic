@@ -96,7 +96,7 @@
 - [x] 103 — sockets
 - [x] 104 — http client
 - [x] 105 — websocket
-- [ ] 106 — net serialization
+- [x] 106 — net serialization
 - [ ] 107 — networking capstone
 
 ### 13-build-tools
