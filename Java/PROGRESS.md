@@ -51,7 +51,7 @@
 - [x] 61 — awt basics
 - [x] 62 — swing components
 - [x] 63 — swing layouts
-- [ ] 64 — swing events
+- [x] 64 — swing events
 - [ ] 65 — swing tables & trees
 - [ ] 66 — swing capstone
 
