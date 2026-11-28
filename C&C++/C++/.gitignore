@@ -1,0 +1,41 @@
+# خروجی کامپایل و فایل‌های میانی
+*.o
+*.obj
+*.gch
+*.pch
+*.a
+*.lib
+*.so
+*.dll
+*.exe
+*.out
+a.out
+*.dSYM/
+*.ilk
+*.pdb
+
+# پوشه‌های build
+build/
+cmake-build-*/
+cmake-build-debug/
+cmake-build-release/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile.gen
+
+# خروجی باینری هر جلسه
+session-*/bin/
+session-*/build/
+
+# ابزارها و ادیتورها
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# فایل‌های موقت
+*.log
+*.tmp
