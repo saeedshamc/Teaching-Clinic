@@ -111,7 +111,7 @@
 - [x] 112 — jsp
 - [x] 113 — jakarta ee
 - [x] 114 — spring core
-- [ ] 115 — spring mvc
+- [x] 115 — spring mvc
 - [ ] 116 — spring boot
 - [ ] 117 — rest controllers
 - [ ] 118 — spring data jpa
