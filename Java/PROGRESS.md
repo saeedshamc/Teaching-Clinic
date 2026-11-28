@@ -53,7 +53,7 @@
 - [x] 55 — modules (JPMS)
 
 ### 07-legacy-java
-- [ ] 56 — legacy overview
+- [x] 56 — legacy overview
 - [ ] 57 — Vector & Hashtable
 - [ ] 58 — Date & Calendar
 - [ ] 59 — AWT legacy & RMI
