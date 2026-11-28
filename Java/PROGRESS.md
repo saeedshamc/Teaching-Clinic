@@ -122,7 +122,7 @@
 - [x] 123 — backend capstone 1
 - [x] 124 — backend capstone 2
 
-## فاز ۹ — Testing + Patterns + JVM (جلسات 125–139)
+## فاز ۹ — Testing + Patterns + JVM (جلسات 125–139) ✅
 
 ### 14-testing
 - [x] 125 — junit 5
@@ -143,7 +143,7 @@
 - [x] 136 — jvm memory model
 - [x] 137 — garbage collection
 - [x] 138 — classloader
-- [ ] 139 — jvm profiling
+- [x] 139 — jvm profiling
 
 ## فاز ۱۰ — Security + DevOps + Capstone (جلسات 140–150)
 
