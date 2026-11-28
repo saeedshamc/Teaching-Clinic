@@ -53,7 +53,7 @@
 - [x] 63 — swing layouts
 - [x] 64 — swing events
 - [x] 65 — swing tables & trees
-- [ ] 66 — swing capstone
+- [x] 66 — swing capstone
 
 ### 08-desktop/javafx
 - [ ] 67 — javafx setup
