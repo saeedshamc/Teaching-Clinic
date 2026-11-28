@@ -72,7 +72,7 @@
 - [x] 87 — navigation
 - [x] 88 — coroutines & flow
 - [x] 89 — hilt & datastore
-- [ ] 90 — jetpack capstone
+- [x] 90 — jetpack capstone
 
 ### 09-android/android-advanced
 - [ ] 91 — services
