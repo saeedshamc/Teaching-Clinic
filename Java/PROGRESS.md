@@ -133,7 +133,7 @@
 
 ### 15-design-patterns
 - [x] 130 — creational patterns
-- [ ] 131 — structural patterns
+- [x] 131 — structural patterns
 - [ ] 132 — behavioral patterns
 - [ ] 133 — factory & builder
 - [ ] 134 — singleton & observer & strategy
