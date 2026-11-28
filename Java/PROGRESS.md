@@ -46,7 +46,7 @@
 - [x] 48 — streams basics
 - [x] 49 — streams advanced
 - [x] 50 — optional
-- [ ] 51 — records
+- [x] 51 — records
 - [ ] 52 — sealed classes
 - [ ] 53 — pattern matching
 - [ ] 54 — text blocks & switch expressions
