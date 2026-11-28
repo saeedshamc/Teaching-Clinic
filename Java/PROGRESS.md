@@ -84,7 +84,7 @@
 ## فاز ۷ — DB/JDBC + Networking + Build (جلسات 96–110)
 
 ### 10-databases-jdbc
-- [ ] 96 — jdbc basics
+- [x] 96 — jdbc basics
 - [ ] 97 — prepared statements
 - [ ] 98 — connection pool
 - [ ] 99 — transactions
