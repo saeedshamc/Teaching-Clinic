@@ -38,26 +38,12 @@
 | 04-exceptions-io-nio | ۳۱ exceptions · ۳۲ try-with-resources · ۳۳ file-io · ۳۴ nio2-paths · ۳۵ nio-files-channels · ۳۶ serialization · ۳۷ io-capstone | ✅ |
 | 05-concurrency | ۳۸ thread-basics · ۳۹ runnable-lambda · ۴۰ synchronization · ۴۱ executor · ۴۲ future-completablefuture · ۴۳ locks-atomic · ۴۴ deadlock · ۴۵ virtual-threads | ✅ |
 
-## فاز ۴ — Modern Java + Legacy (جلسات 46–60)
+## فاز ۴ — Modern Java + Legacy Java ✅
 
-### 06-modern-java
-- [x] 46 — lambdas
-- [x] 47 — method references
-- [x] 48 — streams basics
-- [x] 49 — streams advanced
-- [x] 50 — optional
-- [x] 51 — records
-- [x] 52 — sealed classes
-- [x] 53 — pattern matching
-- [x] 54 — text blocks & switch expressions
-- [x] 55 — modules (JPMS)
-
-### 07-legacy-java
-- [x] 56 — legacy overview
-- [x] 57 — Vector & Hashtable
-- [x] 58 — Date & Calendar
-- [x] 59 — AWT legacy & RMI
-- [ ] 60 — legacy vs modern
+| زیرشاخه | جلسات | وضعیت |
+|---|---|---|
+| 06-modern-java | ۴۶ lambdas · ۴۷ method-references · ۴۸ streams-basics · ۴۹ streams-advanced · ۵۰ optional · ۵۱ records · ۵۲ sealed-classes · ۵۳ pattern-matching · ۵۴ text-blocks-switch · ۵۵ modules-jpms | ✅ |
+| 07-legacy-java | ۵۶ legacy-overview · ۵۷ vector-hashtable · ۵۸ date-calendar · ۵۹ awt-legacy-rmi · ۶۰ legacy-vs-modern | ✅ |
 
 ## فاز ۵ — Desktop (جلسات 61–75)
 
