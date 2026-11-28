@@ -1,0 +1,50 @@
+# .gitlab-ci.yml — GitLab CI config
+stages:
+  - build
+  - test
+  - docker
+  - deploy
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository
+    - target/
+
+build:
+  stage: build
+  image: maven:3.9-eclipse-temurin-17
+  script:
+    - mvn clean package -DskipTests
+  artifacts:
+    paths:
+      - target/*.jar
+    expire_in: 1 hour
+
+test:
+  stage: test
+  image: maven:3.9-eclipse-temurin-17
+  script:
+    - mvn test
+
+docker:
+  stage: docker
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t myapp:$CI_COMMIT_SHA .
+    - docker push myapp:$CI_COMMIT_SHA
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo "Deploying to production..."
+    - echo "Image: myapp:$CI_COMMIT_SHA"
+  only:
+    - main

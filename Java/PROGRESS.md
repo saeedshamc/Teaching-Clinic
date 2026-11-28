@@ -155,7 +155,7 @@
 
 ### 18-microservices-devops
 - [x] 144 — docker for java
-- [ ] 145 — ci/cd
+- [x] 145 — ci/cd
 - [ ] 146 — message queues
 - [ ] 147 — microservices intro
 
