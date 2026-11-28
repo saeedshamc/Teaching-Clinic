@@ -81,7 +81,7 @@
 - [x] 94 — android final project prep
 - [x] 95 — android capstone
 
-## فاز ۷ — DB/JDBC + Networking + Build (جلسات 96–110)
+## فاز ۷ — DB/JDBC + Networking + Build (جلسات 96–110) ✅
 
 ### 10-databases-jdbc
 - [x] 96 — jdbc basics
@@ -102,7 +102,7 @@
 ### 13-build-tools
 - [x] 108 — maven
 - [x] 109 — gradle
-- [ ] 110 — build capstone
+- [x] 110 — build capstone
 
 ## فاز ۸ — Web Backend (جلسات 111–124)
 
