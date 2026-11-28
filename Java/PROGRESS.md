@@ -129,7 +129,7 @@
 - [x] 126 — mockito
 - [x] 127 — tdd
 - [x] 128 — integration tests
-- [ ] 129 — testing capstone
+- [x] 129 — testing capstone
 
 ### 15-design-patterns
 - [ ] 130 — creational patterns
