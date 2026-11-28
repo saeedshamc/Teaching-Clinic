@@ -49,7 +49,7 @@
 - [x] 41 — executor framework
 - [x] 42 — future & completablefuture
 - [x] 43 — locks & atomic
-- [ ] 44 — deadlock & thread-safe design
+- [x] 44 — deadlock & thread-safe design
 - [ ] 45 — virtual threads
 
 ## فاز ۴ — Modern Java + Legacy (جلسات 46–60)
