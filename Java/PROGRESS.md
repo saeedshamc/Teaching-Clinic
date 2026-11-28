@@ -113,7 +113,7 @@
 - [x] 114 — spring core
 - [x] 115 — spring mvc
 - [x] 116 — spring boot
-- [ ] 117 — rest controllers
+- [x] 117 — rest controllers
 - [ ] 118 — spring data jpa
 - [ ] 119 — spring security
 - [ ] 120 — validation & aop
