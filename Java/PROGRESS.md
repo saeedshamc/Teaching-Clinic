@@ -161,5 +161,5 @@
 
 ### 99-capstone-projects
 - [x] 148 — desktop app capstone
-- [ ] 149 — android app capstone
+- [x] 149 — android app capstone
 - [ ] 150 — rest backend capstone
