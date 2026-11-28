@@ -43,7 +43,7 @@
 - [x] 37 — io capstone
 
 ### 05-concurrency
-- [ ] 38 — thread basics
+- [x] 38 — thread basics
 - [ ] 39 — runnable & lambda threads
 - [ ] 40 — synchronization
 - [ ] 41 — executor framework
