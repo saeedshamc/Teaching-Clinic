@@ -95,7 +95,7 @@
 ### 11-networking
 - [x] 103 — sockets
 - [x] 104 — http client
-- [ ] 105 — websocket
+- [x] 105 — websocket
 - [ ] 106 — net serialization
 - [ ] 107 — networking capstone
 
