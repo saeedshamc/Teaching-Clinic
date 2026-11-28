@@ -142,7 +142,7 @@
 ### 16-jvm-internals
 - [x] 136 — jvm memory model
 - [x] 137 — garbage collection
-- [ ] 138 — classloader
+- [x] 138 — classloader
 - [ ] 139 — jvm profiling
 
 ## فاز ۱۰ — Security + DevOps + Capstone (جلسات 140–150)
