@@ -137,7 +137,7 @@
 - [x] 132 — behavioral patterns
 - [x] 133 — factory & builder
 - [x] 134 — singleton & observer & strategy
-- [ ] 135 — patterns capstone
+- [x] 135 — patterns capstone
 
 ### 16-jvm-internals
 - [ ] 136 — jvm memory model
