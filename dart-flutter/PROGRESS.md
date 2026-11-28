@@ -5,7 +5,7 @@
 
 - [x] ۱ — معرفی و نصب Dart/Flutter
 - [x] ۲ — IDE و Emulator
-- [ ] ۳ — Git و GitHub
+- [x] ۳ — Git و GitHub
 
 ## فاز ۱ ادامه — Dart Fundamentals (۴–۱۵)
 
