@@ -119,7 +119,7 @@
 - [x] 120 — validation & aop
 - [x] 121 — actuator & profiles
 - [x] 122 — backend websocket
-- [ ] 123 — backend capstone 1
+- [x] 123 — backend capstone 1
 - [ ] 124 — backend capstone 2
 
 ## فاز ۹ — Testing + Patterns + JVM (جلسات 125–139)
