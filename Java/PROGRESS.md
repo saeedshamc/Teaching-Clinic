@@ -44,7 +44,7 @@
 
 ### 05-concurrency
 - [x] 38 — thread basics
-- [ ] 39 — runnable & lambda threads
+- [x] 39 — runnable & lambda threads
 - [ ] 40 — synchronization
 - [ ] 41 — executor framework
 - [ ] 42 — future & completablefuture
