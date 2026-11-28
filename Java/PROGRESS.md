@@ -154,7 +154,7 @@
 - [x] 143 — security capstone
 
 ### 18-microservices-devops
-- [ ] 144 — docker for java
+- [x] 144 — docker for java
 - [ ] 145 — ci/cd
 - [ ] 146 — message queues
 - [ ] 147 — microservices intro
