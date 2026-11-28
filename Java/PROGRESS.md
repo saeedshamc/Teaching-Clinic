@@ -160,6 +160,6 @@
 - [x] 147 — microservices intro
 
 ### 99-capstone-projects
-- [ ] 148 — desktop app capstone
+- [x] 148 — desktop app capstone
 - [ ] 149 — android app capstone
 - [ ] 150 — rest backend capstone
