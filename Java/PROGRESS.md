@@ -87,7 +87,7 @@
 - [x] 96 — jdbc basics
 - [x] 97 — prepared statements
 - [x] 98 — connection pool
-- [ ] 99 — transactions
+- [x] 99 — transactions
 - [ ] 100 — jpa intro
 - [ ] 101 — hibernate
 - [ ] 102 — jdbc capstone
