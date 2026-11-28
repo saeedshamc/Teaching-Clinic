@@ -75,7 +75,7 @@
 - [x] 90 — jetpack capstone
 
 ### 09-android/android-advanced
-- [ ] 91 — services
+- [x] 91 — services
 - [ ] 92 — broadcast & permissions
 - [ ] 93 — notifications
 - [ ] 94 — android final project prep
