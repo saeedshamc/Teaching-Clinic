@@ -50,7 +50,7 @@
 - [x] 52 — sealed classes
 - [x] 53 — pattern matching
 - [x] 54 — text blocks & switch expressions
-- [ ] 55 — modules (JPMS)
+- [x] 55 — modules (JPMS)
 
 ### 07-legacy-java
 - [ ] 56 — legacy overview
