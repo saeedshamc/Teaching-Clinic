@@ -126,7 +126,7 @@
 
 ### 14-testing
 - [x] 125 — junit 5
-- [ ] 126 — mockito
+- [x] 126 — mockito
 - [ ] 127 — tdd
 - [ ] 128 — integration tests
 - [ ] 129 — testing capstone
