@@ -151,7 +151,7 @@
 - [x] 140 — hashing & passwords
 - [x] 141 — encryption
 - [x] 142 — jwt
-- [ ] 143 — security capstone
+- [x] 143 — security capstone
 
 ### 18-microservices-devops
 - [ ] 144 — docker for java
