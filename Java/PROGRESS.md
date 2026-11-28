@@ -56,7 +56,7 @@
 ## فاز ۶ — Android (جلسات 76–95)
 
 ### 09-android/legacy-views-xml
-- [ ] 76 — android setup
+- [x] 76 — android setup
 - [ ] 77 — activities & intents
 - [ ] 78 — layouts & xml
 - [ ] 79 — recyclerview
