@@ -4,7 +4,7 @@
 ## فاز ۱ — Setup + Dart Fundamentals (جلسات ۱–۱۵)
 
 - [x] ۱ — معرفی و نصب Dart/Flutter
-- [ ] ۲ — IDE و Emulator
+- [x] ۲ — IDE و Emulator
 - [ ] ۳ — Git و GitHub
 
 ## فاز ۱ ادامه — Dart Fundamentals (۴–۱۵)
