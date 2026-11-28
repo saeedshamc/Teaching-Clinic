@@ -54,7 +54,7 @@
 
 ### 07-legacy-java
 - [x] 56 — legacy overview
-- [ ] 57 — Vector & Hashtable
+- [x] 57 — Vector & Hashtable
 - [ ] 58 — Date & Calendar
 - [ ] 59 — AWT legacy & RMI
 - [ ] 60 — legacy vs modern
