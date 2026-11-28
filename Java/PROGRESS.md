@@ -56,7 +56,7 @@
 - [x] 56 — legacy overview
 - [x] 57 — Vector & Hashtable
 - [x] 58 — Date & Calendar
-- [ ] 59 — AWT legacy & RMI
+- [x] 59 — AWT legacy & RMI
 - [ ] 60 — legacy vs modern
 
 ## فاز ۵ — Desktop (جلسات 61–75)
