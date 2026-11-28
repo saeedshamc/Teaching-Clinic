@@ -93,7 +93,7 @@
 - [x] 102 — jdbc capstone
 
 ### 11-networking
-- [ ] 103 — sockets
+- [x] 103 — sockets
 - [ ] 104 — http client
 - [ ] 105 — websocket
 - [ ] 106 — net serialization
