@@ -56,7 +56,7 @@
 - [x] 66 — swing capstone
 
 ### 08-desktop/javafx
-- [ ] 67 — javafx setup
+- [x] 67 — javafx setup
 - [ ] 68 — javafx controls
 - [ ] 69 — javafx layout & fxml
 - [ ] 70 — javafx events & css
