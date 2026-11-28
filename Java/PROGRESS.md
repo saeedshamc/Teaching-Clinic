@@ -41,7 +41,7 @@
 ## فاز ۴ — Modern Java + Legacy (جلسات 46–60)
 
 ### 06-modern-java
-- [ ] 46 — lambdas
+- [x] 46 — lambdas
 - [ ] 47 — method references
 - [ ] 48 — streams basics
 - [ ] 49 — streams advanced
