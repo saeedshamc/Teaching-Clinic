@@ -140,7 +140,7 @@
 - [x] 135 — patterns capstone
 
 ### 16-jvm-internals
-- [ ] 136 — jvm memory model
+- [x] 136 — jvm memory model
 - [ ] 137 — garbage collection
 - [ ] 138 — classloader
 - [ ] 139 — jvm profiling
