@@ -149,7 +149,7 @@
 
 ### 17-security-crypto
 - [x] 140 — hashing & passwords
-- [ ] 141 — encryption
+- [x] 141 — encryption
 - [ ] 142 — jwt
 - [ ] 143 — security capstone
 
