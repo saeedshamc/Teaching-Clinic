@@ -70,7 +70,7 @@
 - [x] 85 — retrofit
 - [x] 86 — workmanager
 - [x] 87 — navigation
-- [ ] 88 — coroutines & flow
+- [x] 88 — coroutines & flow
 - [ ] 89 — hilt & datastore
 - [ ] 90 — jetpack capstone
 
