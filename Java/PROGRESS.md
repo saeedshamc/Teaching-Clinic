@@ -145,7 +145,7 @@
 - [x] 138 — classloader
 - [x] 139 — jvm profiling
 
-## فاز ۱۰ — Security + DevOps + Capstone (جلسات 140–150)
+## فاز ۱۰ — Security + DevOps + Capstone (جلسات 140–150) ✅
 
 ### 17-security-crypto
 - [x] 140 — hashing & passwords
@@ -162,4 +162,4 @@
 ### 99-capstone-projects
 - [x] 148 — desktop app capstone
 - [x] 149 — android app capstone
-- [ ] 150 — rest backend capstone
+- [x] 150 — rest backend capstone
