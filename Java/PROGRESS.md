@@ -60,7 +60,7 @@
 - [x] 68 — javafx controls
 - [x] 69 — javafx layout & fxml
 - [x] 70 — javafx events & css
-- [ ] 71 — javafx tables & charts
+- [x] 71 — javafx tables & charts
 - [ ] 72 — javafx concurrency
 - [ ] 73 — javafx capstone
 
