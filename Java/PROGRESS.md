@@ -61,7 +61,7 @@
 - [x] 78 — layouts & xml
 - [x] 79 — recyclerview
 - [x] 80 — fragments
-- [ ] 81 — legacy capstone
+- [x] 81 — legacy capstone
 
 ### 09-android/modern-jetpack
 - [ ] 82 — jetpack setup
