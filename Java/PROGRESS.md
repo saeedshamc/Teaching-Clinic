@@ -78,7 +78,7 @@
 - [x] 91 — services
 - [x] 92 — broadcast & permissions
 - [x] 93 — notifications
-- [ ] 94 — android final project prep
+- [x] 94 — android final project prep
 - [ ] 95 — android capstone
 
 ## فاز ۷ — DB/JDBC + Networking + Build (جلسات 96–110)
