@@ -157,7 +157,7 @@
 - [x] 144 — docker for java
 - [x] 145 — ci/cd
 - [x] 146 — message queues
-- [ ] 147 — microservices intro
+- [x] 147 — microservices intro
 
 ### 99-capstone-projects
 - [ ] 148 — desktop app capstone
