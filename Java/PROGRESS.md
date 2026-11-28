@@ -67,7 +67,7 @@
 - [x] 82 — jetpack setup
 - [x] 83 — viewmodel & livedata
 - [x] 84 — room
-- [ ] 85 — retrofit
+- [x] 85 — retrofit
 - [ ] 86 — workmanager
 - [ ] 87 — navigation
 - [ ] 88 — coroutines & flow
