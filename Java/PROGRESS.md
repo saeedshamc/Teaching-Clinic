@@ -110,7 +110,7 @@
 - [x] 111 — servlets
 - [x] 112 — jsp
 - [x] 113 — jakarta ee
-- [ ] 114 — spring core
+- [x] 114 — spring core
 - [ ] 115 — spring mvc
 - [ ] 116 — spring boot
 - [ ] 117 — rest controllers
