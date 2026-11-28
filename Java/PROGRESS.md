@@ -128,7 +128,7 @@
 - [x] 125 — junit 5
 - [x] 126 — mockito
 - [x] 127 — tdd
-- [ ] 128 — integration tests
+- [x] 128 — integration tests
 - [ ] 129 — testing capstone
 
 ### 15-design-patterns
