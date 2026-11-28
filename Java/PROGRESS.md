@@ -58,7 +58,7 @@
 ### 08-desktop/javafx
 - [x] 67 — javafx setup
 - [x] 68 — javafx controls
-- [ ] 69 — javafx layout & fxml
+- [x] 69 — javafx layout & fxml
 - [ ] 70 — javafx events & css
 - [ ] 71 — javafx tables & charts
 - [ ] 72 — javafx concurrency
