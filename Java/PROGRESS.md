@@ -48,7 +48,7 @@
 - [x] 50 — optional
 - [x] 51 — records
 - [x] 52 — sealed classes
-- [ ] 53 — pattern matching
+- [x] 53 — pattern matching
 - [ ] 54 — text blocks & switch expressions
 - [ ] 55 — modules (JPMS)
 
