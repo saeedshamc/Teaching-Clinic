@@ -48,7 +48,7 @@
 ## فاز ۵ — Desktop (جلسات 61–75)
 
 ### 08-desktop/awt-swing
-- [ ] 61 — awt basics
+- [x] 61 — awt basics
 - [ ] 62 — swing components
 - [ ] 63 — swing layouts
 - [ ] 64 — swing events
