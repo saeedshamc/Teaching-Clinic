@@ -114,7 +114,7 @@
 - [x] 115 — spring mvc
 - [x] 116 — spring boot
 - [x] 117 — rest controllers
-- [ ] 118 — spring data jpa
+- [x] 118 — spring data jpa
 - [ ] 119 — spring security
 - [ ] 120 — validation & aop
 - [ ] 121 — actuator & profiles
