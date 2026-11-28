@@ -41,16 +41,21 @@
 - `14-math-common-classes` — Math، Random، BigInteger/BigDecimal، Date/Calendar (معرفی)
 - `15-core-capstone` — مینی‌پروژه: ماشین‌حساب نمرات دانش‌آموز
 
-## فازهای بعدی (خلاصه)
+## وضعیت نهایی دوره
 
-- **فاز ۲:** کلاس/آبجکت، سازنده، encapsulation، inheritance، polymorphism، abstract، interface، enum، inner class + List/Set/Map/Queue، Generics، Comparator
-- **فاز ۳:** Exception hierarchy، try-with-resources، File I/O، NIO.2، Serialization + Thread، synchronized، Executor، CompletableFuture، Virtual Threads
-- **فاز ۴:** Lambda، Stream، Optional، Record، Sealed، Pattern Matching، Text Blocks، Modules + موارد منسوخ (Applet، Vector، Date قدیمی، RMI)
-- **فاز ۵:** AWT/Swing (۶)، JavaFX (۷)، SWT (۲)
-- **فاز ۶:** Android — Legacy Views/XML (۶)، Jetpack Compose-era (ViewModel/Room/Retrofit/WorkManager/Navigation، ۱۰)، پیشرفته (۴)
-- **فاز ۷:** JDBC (۷)، Networking Socket/HTTP/WebSocket (۵)، Maven/Gradle (۳)
-- **فاز ۸:** Servlet/JSP، Jakarta EE، Spring MVC، Spring Boot، REST، Security، Data JPA (۱۴)
-- **فاز ۹:** JUnit 5، Mockito، TDD (۵) + Design Patterns (۶) + JVM internals (۴)
-- **فاز ۱۰:** Crypto/Hash/JWT (۴) + Docker/CI-CD/Messaging (۴) + سه پروژهٔ نهایی (۳)
+همهٔ **۱۵۰ جلسه** در ۱۰ فاز انجام شد و `PROGRESS.md` به‌روزرسانی شد:
 
-جزئیات کامل هر جلسه در `PROGRESS.md` و پوشهٔ مربوطه است.
+- **فاز ۱ (۱–۱۵):** Setup + Core Fundamentals ✅
+- **فاز ۲ (۱۶–۳۰):** OOP + Collections/Generics ✅
+- **فاز ۳ (۳۱–۴۵):** Exceptions/IO/NIO + Concurrency ✅
+- **فاز ۴ (۴۶–۶۰):** Modern Java + Legacy Java ✅
+- **فاز ۵ (۶۱–۷۵):** Desktop — AWT/Swing، JavaFX، SWT ✅
+- **فاز ۶ (۷۶–۹۵):** Android — Legacy Views، Jetpack، Advanced ✅
+- **فاز ۷ (۹۶–۱۱۰):** Databases/JDBC، Networking، Build Tools ✅
+- **فاز ۸ (۱۱۱–۱۲۴):** Web Backend — Servlet تا Spring Boot ✅
+- **فاز ۹ (۱۲۵–۱۳۹):** Testing + Design Patterns + JVM Internals ✅
+- **فاز ۱۰ (۱۴۰–۱۵۰):** Security/Crypto + DevOps + Capstone ✅
+
+هر جلسه شامل `README.md` (طرح درس)، `src/`، `exercises/`، `solutions/` و `project/` است.
+
+جزئیات کامل هر جلسه در PROGRESS.md و پوشهٔ مربوطه است.
