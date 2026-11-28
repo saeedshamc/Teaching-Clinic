@@ -89,7 +89,7 @@
 - [x] 98 — connection pool
 - [x] 99 — transactions
 - [x] 100 — jpa intro
-- [ ] 101 — hibernate
+- [x] 101 — hibernate
 - [ ] 102 — jdbc capstone
 
 ### 11-networking
