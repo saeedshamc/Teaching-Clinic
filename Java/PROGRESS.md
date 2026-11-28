@@ -59,7 +59,7 @@
 - [x] 76 — android setup
 - [x] 77 — activities & intents
 - [x] 78 — layouts & xml
-- [ ] 79 — recyclerview
+- [x] 79 — recyclerview
 - [ ] 80 — fragments
 - [ ] 81 — legacy capstone
 
