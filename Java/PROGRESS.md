@@ -42,7 +42,7 @@
 
 ### 06-modern-java
 - [x] 46 — lambdas
-- [ ] 47 — method references
+- [x] 47 — method references
 - [ ] 48 — streams basics
 - [ ] 49 — streams advanced
 - [ ] 50 — optional
