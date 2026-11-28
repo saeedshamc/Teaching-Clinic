@@ -136,7 +136,7 @@
 - [x] 131 — structural patterns
 - [x] 132 — behavioral patterns
 - [x] 133 — factory & builder
-- [ ] 134 — singleton & observer & strategy
+- [x] 134 — singleton & observer & strategy
 - [ ] 135 — patterns capstone
 
 ### 16-jvm-internals
