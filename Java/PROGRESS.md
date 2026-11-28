@@ -47,7 +47,7 @@
 - [x] 49 — streams advanced
 - [x] 50 — optional
 - [x] 51 — records
-- [ ] 52 — sealed classes
+- [x] 52 — sealed classes
 - [ ] 53 — pattern matching
 - [ ] 54 — text blocks & switch expressions
 - [ ] 55 — modules (JPMS)
