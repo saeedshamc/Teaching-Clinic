@@ -45,28 +45,13 @@
 | 06-modern-java | ۴۶ lambdas · ۴۷ method-references · ۴۸ streams-basics · ۴۹ streams-advanced · ۵۰ optional · ۵۱ records · ۵۲ sealed-classes · ۵۳ pattern-matching · ۵۴ text-blocks-switch · ۵۵ modules-jpms | ✅ |
 | 07-legacy-java | ۵۶ legacy-overview · ۵۷ vector-hashtable · ۵۸ date-calendar · ۵۹ awt-legacy-rmi · ۶۰ legacy-vs-modern | ✅ |
 
-## فاز ۵ — Desktop (جلسات 61–75)
+## فاز ۵ — Desktop ✅
 
-### 08-desktop/awt-swing
-- [x] 61 — awt basics
-- [x] 62 — swing components
-- [x] 63 — swing layouts
-- [x] 64 — swing events
-- [x] 65 — swing tables & trees
-- [x] 66 — swing capstone
-
-### 08-desktop/javafx
-- [x] 67 — javafx setup
-- [x] 68 — javafx controls
-- [x] 69 — javafx layout & fxml
-- [x] 70 — javafx events & css
-- [x] 71 — javafx tables & charts
-- [x] 72 — javafx concurrency
-- [x] 73 — javafx capstone
-
-### 08-desktop/swt
-- [x] 74 — swt basics
-- [ ] 75 — swt widgets
+| زیرشاخه | جلسات | وضعیت |
+|---|---|---|
+| 08-desktop/awt-swing | ۶۱ awt-basics · ۶۲ swing-components · ۶۳ swing-layouts · ۶۴ swing-events · ۶۵ swing-tables-trees · ۶۶ swing-capstone | ✅ |
+| 08-desktop/javafx | ۶۷ javafx-setup · ۶۸ javafx-controls · ۶۹ javafx-layout-fxml · ۷۰ javafx-events-css · ۷۱ javafx-tables-charts · ۷۲ javafx-concurrency · ۷۳ javafx-capstone | ✅ |
+| 08-desktop/swt | ۷۴ swt-basics · ۷۵ swt-widgets | ✅ |
 
 ## فاز ۶ — Android (جلسات 76–95)
 
