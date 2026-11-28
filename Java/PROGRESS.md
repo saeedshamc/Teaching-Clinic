@@ -34,7 +34,7 @@
 ## فاز ۳ — Exceptions/IO/NIO + Concurrency (جلسات 31–45)
 
 ### 04-exceptions-io-nio
-- [ ] 31 — exceptions
+- [x] 31 — exceptions
 - [ ] 32 — try-with-resources
 - [ ] 33 — file I/O
 - [ ] 34 — NIO.2 Paths
