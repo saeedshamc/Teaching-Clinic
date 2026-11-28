@@ -1,13 +1,13 @@
 # پیشرفت دورهٔ Dart و Flutter
 
 
-## فاز ۱ — Setup + Dart Fundamentals (جلسات ۱–۱۵)
+## ✅ فاز ۱ — Setup + Dart Fundamentals (جلسات ۱–۱۵)
 
 - [x] ۱ — معرفی و نصب Dart/Flutter
 - [x] ۲ — IDE و Emulator
 - [x] ۳ — Git و GitHub
 
-## فاز ۱ ادامه — Dart Fundamentals (۴–۱۵)
+## ✅ فاز ۱ ادامه — Dart Fundamentals (۴–۱۵)
 
 - [ ] 4 — اولین برنامهٔ Dart
 - [ ] 5 — متغیرها و انواع
