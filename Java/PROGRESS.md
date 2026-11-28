@@ -107,7 +107,7 @@
 ## فاز ۸ — Web Backend (جلسات 111–124)
 
 ### 12-web-backend
-- [ ] 111 — servlets
+- [x] 111 — servlets
 - [ ] 112 — jsp
 - [ ] 113 — jakarta ee
 - [ ] 114 — spring core
