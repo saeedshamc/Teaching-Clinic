@@ -48,7 +48,7 @@
 - [x] 40 — synchronization
 - [x] 41 — executor framework
 - [x] 42 — future & completablefuture
-- [ ] 43 — locks & atomic
+- [x] 43 — locks & atomic
 - [ ] 44 — deadlock & thread-safe design
 - [ ] 45 — virtual threads
 
