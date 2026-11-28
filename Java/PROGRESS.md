@@ -100,7 +100,7 @@
 - [x] 107 — networking capstone
 
 ### 13-build-tools
-- [ ] 108 — maven
+- [x] 108 — maven
 - [ ] 109 — gradle
 - [ ] 110 — build capstone
 
