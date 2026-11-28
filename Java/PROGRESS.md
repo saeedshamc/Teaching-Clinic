@@ -38,7 +38,7 @@
 - [x] 32 — try-with-resources
 - [x] 33 — file I/O
 - [x] 34 — NIO.2 Paths
-- [ ] 35 — NIO files & channels
+- [x] 35 — NIO files & channels
 - [ ] 36 — serialization
 - [ ] 37 — io capstone
 
