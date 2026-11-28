@@ -35,7 +35,7 @@
 
 ### 04-exceptions-io-nio
 - [x] 31 — exceptions
-- [ ] 32 — try-with-resources
+- [x] 32 — try-with-resources
 - [ ] 33 — file I/O
 - [ ] 34 — NIO.2 Paths
 - [ ] 35 — NIO files & channels
