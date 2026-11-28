@@ -132,7 +132,7 @@
 - [x] 129 — testing capstone
 
 ### 15-design-patterns
-- [ ] 130 — creational patterns
+- [x] 130 — creational patterns
 - [ ] 131 — structural patterns
 - [ ] 132 — behavioral patterns
 - [ ] 133 — factory & builder
