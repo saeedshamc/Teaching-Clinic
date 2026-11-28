@@ -104,7 +104,7 @@
 - [x] 109 — gradle
 - [x] 110 — build capstone
 
-## فاز ۸ — Web Backend (جلسات 111–124)
+## فاز ۸ — Web Backend (جلسات 111–124) ✅
 
 ### 12-web-backend
 - [x] 111 — servlets
@@ -120,7 +120,7 @@
 - [x] 121 — actuator & profiles
 - [x] 122 — backend websocket
 - [x] 123 — backend capstone 1
-- [ ] 124 — backend capstone 2
+- [x] 124 — backend capstone 2
 
 ## فاز ۹ — Testing + Patterns + JVM (جلسات 125–139)
 
