@@ -65,7 +65,7 @@
 
 ### 09-android/modern-jetpack
 - [x] 82 — jetpack setup
-- [ ] 83 — viewmodel & livedata
+- [x] 83 — viewmodel & livedata
 - [ ] 84 — room
 - [ ] 85 — retrofit
 - [ ] 86 — workmanager
