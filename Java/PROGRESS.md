@@ -69,7 +69,7 @@
 - [x] 84 — room
 - [x] 85 — retrofit
 - [x] 86 — workmanager
-- [ ] 87 — navigation
+- [x] 87 — navigation
 - [ ] 88 — coroutines & flow
 - [ ] 89 — hilt & datastore
 - [ ] 90 — jetpack capstone
