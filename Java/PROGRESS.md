@@ -109,7 +109,7 @@
 ### 12-web-backend
 - [x] 111 — servlets
 - [x] 112 — jsp
-- [ ] 113 — jakarta ee
+- [x] 113 — jakarta ee
 - [ ] 114 — spring core
 - [ ] 115 — spring mvc
 - [ ] 116 — spring boot
