@@ -118,7 +118,7 @@
 - [x] 119 — spring security
 - [x] 120 — validation & aop
 - [x] 121 — actuator & profiles
-- [ ] 122 — backend websocket
+- [x] 122 — backend websocket
 - [ ] 123 — backend capstone 1
 - [ ] 124 — backend capstone 2
 
