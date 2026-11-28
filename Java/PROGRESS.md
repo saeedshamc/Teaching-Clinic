@@ -156,7 +156,7 @@
 ### 18-microservices-devops
 - [x] 144 — docker for java
 - [x] 145 — ci/cd
-- [ ] 146 — message queues
+- [x] 146 — message queues
 - [ ] 147 — microservices intro
 
 ### 99-capstone-projects
