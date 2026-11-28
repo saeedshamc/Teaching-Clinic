@@ -50,7 +50,7 @@
 - [x] 42 — future & completablefuture
 - [x] 43 — locks & atomic
 - [x] 44 — deadlock & thread-safe design
-- [ ] 45 — virtual threads
+- [x] 45 — virtual threads
 
 ## فاز ۴ — Modern Java + Legacy (جلسات 46–60)
 
