@@ -150,7 +150,7 @@
 ### 17-security-crypto
 - [x] 140 — hashing & passwords
 - [x] 141 — encryption
-- [ ] 142 — jwt
+- [x] 142 — jwt
 - [ ] 143 — security capstone
 
 ### 18-microservices-devops
