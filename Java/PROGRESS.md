@@ -135,7 +135,7 @@
 - [x] 130 — creational patterns
 - [x] 131 — structural patterns
 - [x] 132 — behavioral patterns
-- [ ] 133 — factory & builder
+- [x] 133 — factory & builder
 - [ ] 134 — singleton & observer & strategy
 - [ ] 135 — patterns capstone
 
