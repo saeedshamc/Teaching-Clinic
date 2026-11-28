@@ -60,7 +60,7 @@
 - [x] 77 — activities & intents
 - [x] 78 — layouts & xml
 - [x] 79 — recyclerview
-- [ ] 80 — fragments
+- [x] 80 — fragments
 - [ ] 81 — legacy capstone
 
 ### 09-android/modern-jetpack
