@@ -76,7 +76,7 @@
 
 ### 09-android/android-advanced
 - [x] 91 — services
-- [ ] 92 — broadcast & permissions
+- [x] 92 — broadcast & permissions
 - [ ] 93 — notifications
 - [ ] 94 — android final project prep
 - [ ] 95 — android capstone
