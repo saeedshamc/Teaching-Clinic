@@ -71,7 +71,7 @@
 - [x] 86 — workmanager
 - [x] 87 — navigation
 - [x] 88 — coroutines & flow
-- [ ] 89 — hilt & datastore
+- [x] 89 — hilt & datastore
 - [ ] 90 — jetpack capstone
 
 ### 09-android/android-advanced
