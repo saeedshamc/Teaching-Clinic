@@ -97,7 +97,7 @@
 - [x] 104 — http client
 - [x] 105 — websocket
 - [x] 106 — net serialization
-- [ ] 107 — networking capstone
+- [x] 107 — networking capstone
 
 ### 13-build-tools
 - [ ] 108 — maven
