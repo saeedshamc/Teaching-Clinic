@@ -90,7 +90,7 @@
 - [x] 99 — transactions
 - [x] 100 — jpa intro
 - [x] 101 — hibernate
-- [ ] 102 — jdbc capstone
+- [x] 102 — jdbc capstone
 
 ### 11-networking
 - [ ] 103 — sockets
