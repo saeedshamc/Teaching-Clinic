@@ -31,26 +31,12 @@
 | 02-oop | ۱۶ classes-objects · ۱۷ constructors-encapsulation · ۱۸ inheritance · ۱۹ polymorphism · ۲۰ abstract-classes · ۲۱ interfaces · ۲۲ enum · ۲۳ inner-classes · ۲۴ oop-capstone | ✅ |
 | 03-collections-generics | ۲۵ list-arraylist · ۲۶ set-hashset · ۲۷ map-hashmap · ۲۸ queue-deque · ۲۹ generics · ۳۰ comparators-iterators | ✅ |
 
-## فاز ۳ — Exceptions/IO/NIO + Concurrency (جلسات 31–45)
+## فاز ۳ — Exceptions/IO + Concurrency ✅
 
-### 04-exceptions-io-nio
-- [x] 31 — exceptions
-- [x] 32 — try-with-resources
-- [x] 33 — file I/O
-- [x] 34 — NIO.2 Paths
-- [x] 35 — NIO files & channels
-- [x] 36 — serialization
-- [x] 37 — io capstone
-
-### 05-concurrency
-- [x] 38 — thread basics
-- [x] 39 — runnable & lambda threads
-- [x] 40 — synchronization
-- [x] 41 — executor framework
-- [x] 42 — future & completablefuture
-- [x] 43 — locks & atomic
-- [x] 44 — deadlock & thread-safe design
-- [x] 45 — virtual threads
+| زیرشاخه | جلسات | وضعیت |
+|---|---|---|
+| 04-exceptions-io-nio | ۳۱ exceptions · ۳۲ try-with-resources · ۳۳ file-io · ۳۴ nio2-paths · ۳۵ nio-files-channels · ۳۶ serialization · ۳۷ io-capstone | ✅ |
+| 05-concurrency | ۳۸ thread-basics · ۳۹ runnable-lambda · ۴۰ synchronization · ۴۱ executor · ۴۲ future-completablefuture · ۴۳ locks-atomic · ۴۴ deadlock · ۴۵ virtual-threads | ✅ |
 
 ## فاز ۴ — Modern Java + Legacy (جلسات 46–60)
 
