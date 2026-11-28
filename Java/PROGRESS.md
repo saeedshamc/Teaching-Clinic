@@ -52,7 +52,7 @@
 - [x] 62 — swing components
 - [x] 63 — swing layouts
 - [x] 64 — swing events
-- [ ] 65 — swing tables & trees
+- [x] 65 — swing tables & trees
 - [ ] 66 — swing capstone
 
 ### 08-desktop/javafx
