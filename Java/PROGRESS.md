@@ -141,7 +141,7 @@
 
 ### 16-jvm-internals
 - [x] 136 — jvm memory model
-- [ ] 137 — garbage collection
+- [x] 137 — garbage collection
 - [ ] 138 — classloader
 - [ ] 139 — jvm profiling
 
