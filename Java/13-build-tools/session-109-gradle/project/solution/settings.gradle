@@ -1,0 +1,3 @@
+// settings.gradle — پاسخ کامل پروژهٔ جلسه ۱۰۹
+rootProject.name = 'gradle-demo-app'
+include 'app'

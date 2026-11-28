@@ -101,7 +101,7 @@
 
 ### 13-build-tools
 - [x] 108 — maven
-- [ ] 109 — gradle
+- [x] 109 — gradle
 - [ ] 110 — build capstone
 
 ## فاز ۸ — Web Backend (جلسات 111–124)

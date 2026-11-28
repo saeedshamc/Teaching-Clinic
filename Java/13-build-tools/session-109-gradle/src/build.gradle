@@ -1,0 +1,38 @@
+// build.gradle — Gradle configuration (Groovy DSL)
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Compile dependencies
+    implementation 'com.google.guava:guava:32.1.3-jre'
+
+    // Test dependencies
+    testImplementation 'junit:junit:4.13.2'
+
+    // Provided dependencies (not in final jar)
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+
+    // Runtime only dependencies
+    runtimeOnly 'mysql:mysql-connector-java:8.0.33'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+application {
+    mainClass = 'com.example.MyApp'
+}
+
+// Custom task for running
+task runApp(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.example.MyApp'
+}
