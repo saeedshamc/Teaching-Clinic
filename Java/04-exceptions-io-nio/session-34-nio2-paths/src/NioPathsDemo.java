@@ -63,8 +63,8 @@ public class NioPathsDemo {
         System.out.println("Created: " + dir);
 
         // ---------- cleanup ----------
-        Files.delete(dataFile);
-        Files.delete(dir.resolve("subdir"));
-        Files.delete(dir.getParent());
+        Files.deleteIfExists(dataFile);
+        Files.deleteIfExists(dir.resolve("subdir"));
+        Files.deleteIfExists(dir);
     }
 }
