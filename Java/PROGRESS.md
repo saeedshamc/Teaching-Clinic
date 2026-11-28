@@ -116,7 +116,7 @@
 - [x] 117 — rest controllers
 - [x] 118 — spring data jpa
 - [x] 119 — spring security
-- [ ] 120 — validation & aop
+- [x] 120 — validation & aop
 - [ ] 121 — actuator & profiles
 - [ ] 122 — backend websocket
 - [ ] 123 — backend capstone 1
